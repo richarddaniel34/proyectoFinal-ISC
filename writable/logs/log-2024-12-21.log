@@ -1,0 +1,68 @@
+DEBUG - 2024-12-21 19:47:33 --> Editando escuela con ID: 1
+CRITICAL - 2024-12-21 19:47:47 --> ArgumentCountError: Too few arguments to function App\Controllers\Escuela::editar(), 0 passed in C:\xampp\htdocs\edsn\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: escuela/editar]
+in APPPATH\Controllers\Escuela.php on line 110.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->editar()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2024-12-21 19:54:10 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 19:56:33 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 19:59:30 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:00:41 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:02:24 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:02:38 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:03:05 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:04:12 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:05:05 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:06:07 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:06:27 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:07:47 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:08:03 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:08:28 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:09:02 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:09:30 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:10:12 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:14:40 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:15:40 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:20:45 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:22:32 --> Editando escuela con ID: 2
+DEBUG - 2024-12-21 20:26:44 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:28:04 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:28:48 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 20:29:17 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:29:23 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 20:31:08 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:31:35 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:32:52 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:35:57 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 20:39:42 --> Editando escuela con ID: 6
+DEBUG - 2024-12-21 20:42:14 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 20:46:04 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:46:29 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 20:47:55 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 21:00:34 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 21:01:12 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 21:02:19 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 21:02:52 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 21:03:00 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 21:04:51 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 21:04:55 --> Editando escuela con ID: 3
+DEBUG - 2024-12-21 21:04:58 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 21:05:53 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 21:05:58 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 21:07:06 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 21:07:45 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 21:08:30 --> Editando escuela con ID: 1
+DEBUG - 2024-12-21 21:08:34 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 21:09:06 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 21:10:22 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 21:11:30 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 21:12:01 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 21:13:41 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 21:15:34 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 21:17:05 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 21:19:13 --> Editando escuela con ID: 4
+DEBUG - 2024-12-21 21:25:42 --> Editando escuela con ID: 4

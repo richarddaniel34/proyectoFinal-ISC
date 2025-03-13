@@ -1,0 +1,1136 @@
+INFO - 2025-01-22 14:40:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-01-22 17:29:57 --> mysqli_sql_exception: Unknown column 'asignatura.modalidad' in 'on clause' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignat...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignat...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignat...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignat...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-01-22 17:29:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'asignatura.modalidad' in 'on clause'
+[Method: GET, Route: asignatura]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `modalidad` ON `asignatura`.`modalidad` = `modalidad`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:29:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'asignatura.modalidad' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `modalidad` ON `asignatura`.`modalidad` = `modalidad`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `modalidad` ON `asignatura`.`modalidad` = `modalidad`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `modalidad` ON `asignatura`.`modalidad` = `modalidad`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:29:57 --> [Caused by] mysqli_sql_exception: Unknown column 'asignatura.modalidad' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `modalidad` ON `asignatura`.`modalidad` = `modalidad`.`id`
+WHERE `asignatura`.`activo` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `modalidad` ON `asignatura`.`modalidad` = `modalidad`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `modalidad` ON `asignatura`.`modalidad` = `modalidad`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `modalidad` ON `asignatura`.`modalidad` = `modalidad`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-01-22 17:34:34 --> mysqli_sql_exception: Unknown column 'modalidad.nombre' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignat...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignat...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignat...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignat...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-01-22 17:34:34 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'modalidad.nombre' in 'field list'
+[Method: GET, Route: asignatura]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:34:34 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'modalidad.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:34:34 --> [Caused by] mysqli_sql_exception: Unknown column 'modalidad.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-01-22 17:34:38 --> mysqli_sql_exception: Unknown column 'modalidad.nombre' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignat...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignat...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignat...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignat...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-01-22 17:34:38 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'modalidad.nombre' in 'field list'
+[Method: GET, Route: asignatura]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:34:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'modalidad.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:34:38 --> [Caused by] mysqli_sql_exception: Unknown column 'modalidad.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `modalidad`.`nombre` AS `modalidad_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-01-22 17:35:19 --> mysqli_sql_exception: Unknown column 'atipo_asignatura.nombre' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignat...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignat...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignat...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignat...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-01-22 17:35:19 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'atipo_asignatura.nombre' in 'field list'
+[Method: GET, Route: asignatura]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:35:19 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'atipo_asignatura.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:35:19 --> [Caused by] mysqli_sql_exception: Unknown column 'atipo_asignatura.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-01-22 17:36:33 --> mysqli_sql_exception: Unknown column 'atipo_asignatura.nombre' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignat...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignat...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignat...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignat...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-01-22 17:36:33 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'atipo_asignatura.nombre' in 'field list'
+[Method: GET, Route: asignatura]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:36:33 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'atipo_asignatura.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:36:33 --> [Caused by] mysqli_sql_exception: Unknown column 'atipo_asignatura.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-01-22 17:41:28 --> mysqli_sql_exception: Unknown column 'atipo_asignatura.nombre' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignat...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignat...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignat...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignat...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-01-22 17:41:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'atipo_asignatura.nombre' in 'field list'
+[Method: GET, Route: asignatura]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:41:28 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'atipo_asignatura.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:41:28 --> [Caused by] mysqli_sql_exception: Unknown column 'atipo_asignatura.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `atipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-01-22 17:41:58 --> mysqli_sql_exception: Unknown column 'atipo_asignatura.nombre' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignat...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignat...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignat...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignat...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-01-22 17:41:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'atipo_asignatura.nombre' in 'field list'
+[Method: GET, Route: asignatura]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:41:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'atipo_asignatura.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:41:58 --> [Caused by] mysqli_sql_exception: Unknown column 'atipo_asignatura.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-01-22 17:47:13 --> mysqli_sql_exception: Unknown column 'atipo_asignatura.nombre' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignat...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignat...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignat...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignat...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-01-22 17:47:13 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'atipo_asignatura.nombre' in 'field list'
+[Method: GET, Route: asignatura]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:47:13 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'atipo_asignatura.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:47:13 --> [Caused by] mysqli_sql_exception: Unknown column 'atipo_asignatura.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `asignatura`.*, `atipo_asignatura`.`nombre` AS `tipo_asignatura_nombre`
+FROM `asignatura`
+JOIN `tipo_asignatura` ON `asignatura`.`tipo_asignatura` = `tipo_asignatura`.`id`
+WHERE `asignatura`.`activo` = :asignatura.activo:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Asignatura.php(24): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:49:20 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "asignatura/asignatura.php"
+[Method: GET, Route: asignatura]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('asignatura/asignatura.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/asignatura', [], true)
+ 3 APPPATH\Controllers\Asignatura.php(38): view('asignatura/asignatura', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 17:49:40 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "asignatura/asignatura.php"
+[Method: GET, Route: asignatura]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('asignatura/asignatura.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/asignatura', [], true)
+ 3 APPPATH\Controllers\Asignatura.php(38): view('asignatura/asignatura', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 17:54:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:07:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:07:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:08:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:09:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:10:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:11:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:11:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:11:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:12:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:12:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:12:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:13:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:13:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:15:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:15:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:16:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:17:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:17:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:17:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:18:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:19:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 18:19:20 --> ErrorException: Undefined variable $tipo_asignaturas
+[Method: GET, Route: asignatura/nuevo]
+in APPPATH\Views\asignatura\nuevo.php on line 45.
+ 1 APPPATH\Views\asignatura\nuevo.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipo_asignaturas', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/nuevo', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(59): view('asignatura/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 18:20:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 18:20:17 --> ErrorException: Undefined variable $tipo_asignaturas
+[Method: GET, Route: asignatura/nuevo]
+in APPPATH\Views\asignatura\nuevo.php on line 45.
+ 1 APPPATH\Views\asignatura\nuevo.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipo_asignaturas', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/nuevo', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(59): view('asignatura/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 18:20:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 18:20:18 --> ErrorException: Undefined variable $tipo_asignaturas
+[Method: GET, Route: asignatura/nuevo]
+in APPPATH\Views\asignatura\nuevo.php on line 45.
+ 1 APPPATH\Views\asignatura\nuevo.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipo_asignaturas', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/nuevo', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(59): view('asignatura/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 18:20:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 18:20:22 --> ErrorException: Undefined variable $tipo_asignaturas
+[Method: GET, Route: asignatura/nuevo]
+in APPPATH\Views\asignatura\nuevo.php on line 45.
+ 1 APPPATH\Views\asignatura\nuevo.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipo_asignaturas', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/nuevo', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(59): view('asignatura/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 18:21:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 18:21:05 --> ErrorException: Undefined variable $tipo_asignaturas
+[Method: GET, Route: asignatura/nuevo]
+in APPPATH\Views\asignatura\nuevo.php on line 45.
+ 1 APPPATH\Views\asignatura\nuevo.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipo_asignaturas', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/nuevo', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(59): view('asignatura/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 18:21:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 18:21:09 --> ErrorException: Undefined variable $tipo_asignaturas
+[Method: GET, Route: asignatura/nuevo]
+in APPPATH\Views\asignatura\nuevo.php on line 45.
+ 1 APPPATH\Views\asignatura\nuevo.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipo_asignaturas', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/nuevo', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(59): view('asignatura/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 18:22:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 18:22:08 --> ErrorException: Undefined variable $tipo_asignaturas
+[Method: GET, Route: asignatura/nuevo]
+in APPPATH\Views\asignatura\nuevo.php on line 45.
+ 1 APPPATH\Views\asignatura\nuevo.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipo_asignaturas', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/nuevo', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(59): view('asignatura/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 18:22:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 18:22:20 --> ErrorException: Undefined variable $tipo_asignatura
+[Method: GET, Route: asignatura/nuevo]
+in APPPATH\Views\asignatura\nuevo.php on line 45.
+ 1 APPPATH\Views\asignatura\nuevo.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipo_asignatura', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/nuevo', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(59): view('asignatura/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 18:25:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 18:25:42 --> ErrorException: Undefined variable $tipo_asignaturas
+[Method: GET, Route: asignatura/nuevo]
+in APPPATH\Views\asignatura\nuevo.php on line 45.
+ 1 APPPATH\Views\asignatura\nuevo.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipo_asignaturas', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/nuevo', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(59): view('asignatura/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 18:27:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 18:27:01 --> ErrorException: Undefined variable $asignaturas
+[Method: GET, Route: asignatura/nuevo]
+in APPPATH\Views\asignatura\nuevo.php on line 45.
+ 1 APPPATH\Views\asignatura\nuevo.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $asignaturas', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/nuevo', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(59): view('asignatura/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 18:27:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 18:30:26 --> ParseError: syntax error, unexpected token "]"
+[Method: GET, Route: asignatura/nuevo]
+in APPPATH\Controllers\Asignatura.php on line 54.
+ 1 SYSTEMPATH\Router\Router.php(563): CodeIgniter\Router\AutoRouter->getRoute('asignatura/nuevo', 'GET')
+ 2 SYSTEMPATH\Router\Router.php(228): CodeIgniter\Router\Router->autoRoute('asignatura/nuevo')
+ 3 SYSTEMPATH\CodeIgniter.php(834): CodeIgniter\Router\Router->handle('asignatura/nuevo')
+ 4 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 18:31:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:31:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:37:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 18:37:52 --> ErrorException: Undefined variable $modalidades
+[Method: GET, Route: asignatura/nuevo]
+in APPPATH\Views\asignatura\nuevo.php on line 45.
+ 1 APPPATH\Views\asignatura\nuevo.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $modalidades', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/nuevo', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(59): view('asignatura/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 18:38:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 18:38:57 --> ErrorException: Undefined variable $tipo_asignaturas
+[Method: GET, Route: asignatura/nuevo]
+in APPPATH\Views\asignatura\nuevo.php on line 45.
+ 1 APPPATH\Views\asignatura\nuevo.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipo_asignaturas', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/nuevo', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(59): view('asignatura/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 18:40:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 18:40:17 --> ErrorException: Undefined variable $tipo_asignaturas
+[Method: GET, Route: asignatura/nuevo]
+in APPPATH\Views\asignatura\nuevo.php on line 45.
+ 1 APPPATH\Views\asignatura\nuevo.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipo_asignaturas', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/nuevo', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(59): view('asignatura/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 18:40:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 18:40:20 --> ErrorException: Undefined variable $tipo_asignaturas
+[Method: GET, Route: asignatura/nuevo]
+in APPPATH\Views\asignatura\nuevo.php on line 45.
+ 1 APPPATH\Views\asignatura\nuevo.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipo_asignaturas', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/nuevo', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(59): view('asignatura/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 18:41:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 18:42:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 19:08:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:29:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:30:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:30:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:30:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:31:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:31:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:32:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:32:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:33:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:33:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:33:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:35:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:36:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:37:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:38:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:42:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:47:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:47:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:53:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:54:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:55:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 22:56:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:09:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:10:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:10:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:11:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:11:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:11:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:11:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-01-22 23:12:10 --> mysqli_sql_exception: Column 'codigo_asignatura' cannot be null in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `as...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `as...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `as...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `as...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\edsn\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\edsn\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\edsn\app\Controllers\Asignatura.php(91): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Asignatura->insertar()
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+#11 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+CRITICAL - 2025-01-22 23:12:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'codigo_asignatura' cannot be null
+[Method: POST, Route: asignatura/insertar]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `asignatura` (`nombre`, `codigo_asignatura`, `tipo_asignatura`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :codigo_asignatura:, :tipo_asignatura:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\Asignatura.php(91): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->insertar()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 23:12:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'codigo_asignatura' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `asignatura` (`nombre`, `codigo_asignatura`, `tipo_asignatura`, `fecha_alta`, `fecha_edit`) VALUES (\'Lengua Española\', NULL, \'1\', \'2025-01-22 23:12:10\', \'2025-01-22 23:12:10\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `asignatura` (`nombre`, `codigo_asignatura`, `tipo_asignatura`, `fecha_alta`, `fecha_edit`) VALUES (\'Lengua Española\', NULL, \'1\', \'2025-01-22 23:12:10\', \'2025-01-22 23:12:10\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `asignatura` (`nombre`, `codigo_asignatura`, `tipo_asignatura`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :codigo_asignatura:, :tipo_asignatura:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\Asignatura.php(91): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->insertar()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 23:12:10 --> [Caused by] mysqli_sql_exception: Column 'codigo_asignatura' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `asignatura` (`nombre`, `codigo_asignatura`, `tipo_asignatura`, `fecha_alta`, `fecha_edit`) VALUES (\'Lengua Española\', NULL, \'1\', \'2025-01-22 23:12:10\', \'2025-01-22 23:12:10\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `asignatura` (`nombre`, `codigo_asignatura`, `tipo_asignatura`, `fecha_alta`, `fecha_edit`) VALUES (\'Lengua Española\', NULL, \'1\', \'2025-01-22 23:12:10\', \'2025-01-22 23:12:10\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `asignatura` (`nombre`, `codigo_asignatura`, `tipo_asignatura`, `fecha_alta`, `fecha_edit`) VALUES (\'Lengua Española\', NULL, \'1\', \'2025-01-22 23:12:10\', \'2025-01-22 23:12:10\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `asignatura` (`nombre`, `codigo_asignatura`, `tipo_asignatura`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :codigo_asignatura:, :tipo_asignatura:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\Asignatura.php(91): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->insertar()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-22 23:12:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:12:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:13:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:13:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:19:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:20:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:20:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:20:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:23:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:23:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:23:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:23:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:23:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:23:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:24:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:24:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:24:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:24:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:38:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:38:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:38:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:38:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:38:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:39:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:39:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:40:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:40:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:41:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:41:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:41:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:44:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:45:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:45:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:46:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:46:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-22 23:46:28 --> ErrorException: Undefined array key "modalidad_nombre"
+[Method: GET, Route: asignatura]
+in APPPATH\Views\asignatura\asignatura.php on line 45.
+ 1 APPPATH\Views\asignatura\asignatura.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "modalidad_nombre"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\asignatura.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\asignatura.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/asignatura', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(38): view('asignatura/asignatura', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-22 23:50:01 --> Editando escuela con ID: 1
+CRITICAL - 2025-01-22 23:51:12 --> ErrorException: Undefined array key "codigo_asignatura.nombre"
+[Method: GET, Route: asignatura]
+in APPPATH\Views\asignatura\asignatura.php on line 41.
+ 1 APPPATH\Views\asignatura\asignatura.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "codigo_asignatura.nombre"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\asignatura.php', 41)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\asignatura.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/asignatura', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(38): view('asignatura/asignatura', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 23:52:07 --> ErrorException: Undefined array key "codigo_asignatura_nombre"
+[Method: GET, Route: asignatura]
+in APPPATH\Views\asignatura\asignatura.php on line 41.
+ 1 APPPATH\Views\asignatura\asignatura.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "codigo_asignatura_nombre"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\asignatura.php', 41)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\asignatura.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/asignatura', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(38): view('asignatura/asignatura', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 23:52:10 --> ErrorException: Undefined array key "codigo_asignatura_nombre"
+[Method: GET, Route: asignatura]
+in APPPATH\Views\asignatura\asignatura.php on line 41.
+ 1 APPPATH\Views\asignatura\asignatura.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "codigo_asignatura_nombre"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\asignatura.php', 41)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\asignatura.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/asignatura', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(38): view('asignatura/asignatura', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-22 23:53:01 --> ErrorException: Undefined array key "codigo_asignatura_nombre"
+[Method: GET, Route: asignatura]
+in APPPATH\Views\asignatura\asignatura.php on line 41.
+ 1 APPPATH\Views\asignatura\asignatura.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "codigo_asignatura_nombre"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\asignatura.php', 41)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\asignatura.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/asignatura', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(38): view('asignatura/asignatura', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-22 23:54:12 --> Editando escuela con ID: 1
+INFO - 2025-01-22 23:54:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:54:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-22 23:55:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -1,0 +1,123 @@
+DEBUG - 2025-01-16 13:13:23 --> Editando escuela con ID: 1
+DEBUG - 2025-01-16 13:13:30 --> Editando escuela con ID: 8
+DEBUG - 2025-01-16 13:13:33 --> Editando escuela con ID: 5
+DEBUG - 2025-01-16 18:04:21 --> Editando escuela con ID: 1
+DEBUG - 2025-01-16 18:45:41 --> Editando escuela con ID: 1
+DEBUG - 2025-01-16 18:45:54 --> Editando escuela con ID: 8
+CRITICAL - 2025-01-16 18:46:02 --> ErrorException: Undefined property: App\Controllers\Escuela::$escuelaModel
+[Method: POST, Route: escuela/actualizar]
+in APPPATH\Controllers\Escuela.php on line 208.
+ 1 APPPATH\Controllers\Escuela.php(208): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Escuela::$escuelaModel', 'C:\\xampp\\htdocs\\edsn\\app\\Controllers\\Escuela.php', 208)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->actualizar()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-16 18:52:06 --> Editando escuela con ID: 8
+DEBUG - 2025-01-16 18:54:18 --> Editando escuela con ID: 8
+INFO - 2025-01-16 18:54:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-16 18:54:34 --> Editando escuela con ID: 8
+INFO - 2025-01-16 18:54:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-16 19:03:15 --> Editando escuela con ID: 1
+DEBUG - 2025-01-16 19:03:20 --> Editando escuela con ID: 8
+INFO - 2025-01-16 19:03:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-16 19:03:34 --> Editando escuela con ID: 8
+INFO - 2025-01-16 19:03:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-16 19:04:10 --> Editando escuela con ID: 8
+CRITICAL - 2025-01-16 19:04:15 --> ArgumentCountError: Too few arguments to function App\Controllers\Escuela::actualizar(), 0 passed in C:\xampp\htdocs\edsn\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: POST, Route: escuela/actualizar]
+in APPPATH\Controllers\Escuela.php on line 168.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->actualizar()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-16 19:12:11 --> Editando escuela con ID: 8
+CRITICAL - 2025-01-16 19:12:11 --> ErrorException: Undefined variable $escuela
+[Method: GET, Route: escuela/editar/8]
+in APPPATH\Views\escuela\editar.php on line 1.
+ 1 APPPATH\Views\escuela\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $escuela', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('escuela/editar', [], true)
+ 5 APPPATH\Controllers\Escuela.php(161): view('escuela/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->editar('8')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-16 19:12:14 --> Editando escuela con ID: 8
+CRITICAL - 2025-01-16 19:12:14 --> ErrorException: Undefined variable $escuela
+[Method: GET, Route: escuela/editar/8]
+in APPPATH\Views\escuela\editar.php on line 1.
+ 1 APPPATH\Views\escuela\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $escuela', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('escuela/editar', [], true)
+ 5 APPPATH\Controllers\Escuela.php(161): view('escuela/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->editar('8')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-16 19:12:44 --> Editando escuela con ID: 8
+CRITICAL - 2025-01-16 19:12:53 --> ArgumentCountError: Too few arguments to function App\Controllers\Escuela::actualizar(), 0 passed in C:\xampp\htdocs\edsn\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: POST, Route: escuela/actualizar]
+in APPPATH\Controllers\Escuela.php on line 168.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->actualizar()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-16 19:34:53 --> Editando escuela con ID: 8
+CRITICAL - 2025-01-16 19:35:09 --> ArgumentCountError: Too few arguments to function App\Controllers\Escuela::editar(), 0 passed in C:\xampp\htdocs\edsn\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: escuela/editar]
+in APPPATH\Controllers\Escuela.php on line 137.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->editar()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-01-16 19:35:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-16 19:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-16 19:40:35 --> Editando escuela con ID: 9
+DEBUG - 2025-01-16 19:43:19 --> Editando escuela con ID: 9
+DEBUG - 2025-01-16 19:44:52 --> Editando escuela con ID: 8
+INFO - 2025-01-16 19:48:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-16 19:49:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-16 19:49:27 --> ArgumentCountError: Too few arguments to function App\Controllers\Escuela::editar(), 0 passed in C:\xampp\htdocs\edsn\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: escuela/editar]
+in APPPATH\Controllers\Escuela.php on line 137.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->editar()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-16 19:49:31 --> Editando escuela con ID: 1
+INFO - 2025-01-16 19:52:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-16 19:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-16 19:55:42 --> Editando escuela con ID: 2
+INFO - 2025-01-16 19:56:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-16 19:57:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-16 19:57:35 --> Editando escuela con ID: 1
+INFO - 2025-01-16 19:57:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-16 20:00:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-16 20:00:11 --> Editando escuela con ID: 4
+DEBUG - 2025-01-16 20:00:14 --> Editando escuela con ID: 3
+DEBUG - 2025-01-16 20:00:19 --> Editando escuela con ID: 2
+DEBUG - 2025-01-16 20:00:21 --> Editando escuela con ID: 1
+DEBUG - 2025-01-16 20:00:26 --> Editando escuela con ID: 3
+DEBUG - 2025-01-16 20:00:29 --> Editando escuela con ID: 4
+DEBUG - 2025-01-16 20:00:33 --> Editando escuela con ID: 3
+INFO - 2025-01-16 20:06:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-16 20:08:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-16 20:08:23 --> Editando escuela con ID: 5
+DEBUG - 2025-01-16 20:08:37 --> Editando escuela con ID: 1
+DEBUG - 2025-01-16 20:09:48 --> Editando escuela con ID: 5

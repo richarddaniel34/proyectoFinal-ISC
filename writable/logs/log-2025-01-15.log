@@ -1,0 +1,233 @@
+DEBUG - 2025-01-15 13:05:06 --> Editando escuela con ID: 1
+DEBUG - 2025-01-15 13:05:12 --> Editando escuela con ID: 7
+DEBUG - 2025-01-15 13:05:21 --> Editando escuela con ID: 6
+INFO - 2025-01-15 13:11:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 13:11:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 13:11:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 13:11:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 13:11:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 13:11:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 13:26:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 13:28:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-15 13:29:29 --> Editando escuela con ID: 1
+INFO - 2025-01-15 13:40:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 13:40:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 13:40:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 14:57:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 14:58:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 14:58:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 14:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 14:58:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 14:59:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 15:02:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 15:02:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 15:02:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 15:02:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 15:02:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 15:02:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 15:02:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 15:03:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-15 15:03:35 --> Editando escuela con ID: 8
+DEBUG - 2025-01-15 15:04:05 --> Editando escuela con ID: 8
+INFO - 2025-01-15 15:18:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-15 15:48:36 --> Editando escuela con ID: 1
+CRITICAL - 2025-01-15 15:48:50 --> ArgumentCountError: Too few arguments to function App\Controllers\Escuela::editar(), 0 passed in C:\xampp\htdocs\edsn\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: escuela/editar]
+in APPPATH\Controllers\Escuela.php on line 137.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->editar()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-15 15:48:55 --> Editando escuela con ID: 7
+DEBUG - 2025-01-15 15:48:59 --> Editando escuela con ID: 6
+CRITICAL - 2025-01-15 15:49:20 --> ArgumentCountError: Too few arguments to function App\Controllers\Escuela::editar(), 0 passed in C:\xampp\htdocs\edsn\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: escuela/editar]
+in APPPATH\Controllers\Escuela.php on line 137.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->editar()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-15 16:03:24 --> Editando escuela con ID: 1
+DEBUG - 2025-01-15 16:28:30 --> Editando escuela con ID: 6
+DEBUG - 2025-01-15 16:28:37 --> Editando escuela con ID: 7
+DEBUG - 2025-01-15 16:30:53 --> Editando escuela con ID: 5
+DEBUG - 2025-01-15 16:31:02 --> Editando escuela con ID: 8
+DEBUG - 2025-01-15 16:31:07 --> Editando escuela con ID: 7
+DEBUG - 2025-01-15 16:31:16 --> Editando escuela con ID: 6
+DEBUG - 2025-01-15 16:31:39 --> Editando escuela con ID: 8
+INFO - 2025-01-15 17:39:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 17:39:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-15 18:52:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-15 18:53:08 --> Editando escuela con ID: 9
+DEBUG - 2025-01-15 18:53:13 --> Editando escuela con ID: 9
+DEBUG - 2025-01-15 18:54:41 --> Editando escuela con ID: 9
+CRITICAL - 2025-01-15 18:54:41 --> ErrorException: Undefined array key "assets/img/logo"
+[Method: GET, Route: escuela/editar/9]
+in APPPATH\Views\escuela\editar.php on line 9.
+ 1 APPPATH\Views\escuela\editar.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "assets/img/logo"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php', 9)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('escuela/editar', [], true)
+ 5 APPPATH\Controllers\Escuela.php(161): view('escuela/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->editar('9')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-15 18:56:35 --> Editando escuela con ID: 1
+CRITICAL - 2025-01-15 18:56:35 --> ErrorException: Undefined array key "img/logo"
+[Method: GET, Route: escuela/editar/1]
+in APPPATH\Views\escuela\editar.php on line 9.
+ 1 APPPATH\Views\escuela\editar.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "img/logo"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php', 9)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('escuela/editar', [], true)
+ 5 APPPATH\Controllers\Escuela.php(161): view('escuela/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-15 18:56:44 --> Editando escuela con ID: 9
+DEBUG - 2025-01-15 18:59:48 --> Editando escuela con ID: 9
+DEBUG - 2025-01-15 18:59:57 --> Editando escuela con ID: 9
+DEBUG - 2025-01-15 19:02:46 --> Editando escuela con ID: 9
+DEBUG - 2025-01-15 19:02:51 --> Editando escuela con ID: 1
+DEBUG - 2025-01-15 19:02:54 --> Editando escuela con ID: 3
+DEBUG - 2025-01-15 19:04:04 --> Editando escuela con ID: 1
+DEBUG - 2025-01-15 19:04:08 --> Editando escuela con ID: 6
+DEBUG - 2025-01-15 19:04:58 --> Editando escuela con ID: 9
+CRITICAL - 2025-01-15 19:04:58 --> ErrorException: Undefined array key "assets/img/logo/"
+[Method: GET, Route: escuela/editar/9]
+in APPPATH\Views\escuela\editar.php on line 9.
+ 1 APPPATH\Views\escuela\editar.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "assets/img/logo/"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php', 9)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('escuela/editar', [], true)
+ 5 APPPATH\Controllers\Escuela.php(161): view('escuela/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->editar('9')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-15 19:05:13 --> Editando escuela con ID: 8
+CRITICAL - 2025-01-15 19:05:13 --> ErrorException: Undefined array key "/img/logo/"
+[Method: GET, Route: escuela/editar/8]
+in APPPATH\Views\escuela\editar.php on line 9.
+ 1 APPPATH\Views\escuela\editar.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "/img/logo/"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php', 9)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('escuela/editar', [], true)
+ 5 APPPATH\Controllers\Escuela.php(161): view('escuela/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->editar('8')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-15 19:06:43 --> Editando escuela con ID: 5
+DEBUG - 2025-01-15 19:07:03 --> Editando escuela con ID: 4
+DEBUG - 2025-01-15 19:09:11 --> Editando escuela con ID: 9
+CRITICAL - 2025-01-15 19:09:11 --> ErrorException: Undefined array key "img/logo"
+[Method: GET, Route: escuela/editar/9]
+in APPPATH\Views\escuela\editar.php on line 9.
+ 1 APPPATH\Views\escuela\editar.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "img/logo"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php', 9)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('escuela/editar', [], true)
+ 5 APPPATH\Controllers\Escuela.php(161): view('escuela/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->editar('9')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-15 19:09:51 --> Editando escuela con ID: 1
+DEBUG - 2025-01-15 19:10:20 --> Editando escuela con ID: 1
+DEBUG - 2025-01-15 19:10:24 --> Editando escuela con ID: 6
+DEBUG - 2025-01-15 19:10:40 --> Editando escuela con ID: 6
+DEBUG - 2025-01-15 19:10:48 --> Editando escuela con ID: 6
+DEBUG - 2025-01-15 19:10:53 --> Editando escuela con ID: 8
+DEBUG - 2025-01-15 19:11:08 --> Editando escuela con ID: 8
+DEBUG - 2025-01-15 19:11:13 --> Editando escuela con ID: 9
+DEBUG - 2025-01-15 19:11:16 --> Editando escuela con ID: 4
+DEBUG - 2025-01-15 19:11:20 --> Editando escuela con ID: 2
+DEBUG - 2025-01-15 19:11:24 --> Editando escuela con ID: 1
+DEBUG - 2025-01-15 19:14:44 --> Editando escuela con ID: 1
+DEBUG - 2025-01-15 19:14:47 --> Editando escuela con ID: 2
+DEBUG - 2025-01-15 19:14:51 --> Editando escuela con ID: 3
+DEBUG - 2025-01-15 19:14:55 --> Editando escuela con ID: 5
+DEBUG - 2025-01-15 19:14:58 --> Editando escuela con ID: 6
+DEBUG - 2025-01-15 19:15:02 --> Editando escuela con ID: 9
+DEBUG - 2025-01-15 19:15:05 --> Editando escuela con ID: 8
+DEBUG - 2025-01-15 19:15:09 --> Editando escuela con ID: 7
+DEBUG - 2025-01-15 19:15:13 --> Editando escuela con ID: 9
+DEBUG - 2025-01-15 19:16:25 --> Editando escuela con ID: 9
+DEBUG - 2025-01-15 19:17:31 --> Editando escuela con ID: 9
+INFO - 2025-01-15 19:24:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-15 19:24:22 --> Editando escuela con ID: 10
+DEBUG - 2025-01-15 19:26:06 --> Editando escuela con ID: 4
+CRITICAL - 2025-01-15 19:26:06 --> ErrorException: Undefined array key "assets/img/logo"
+[Method: GET, Route: escuela/editar/4]
+in APPPATH\Views\escuela\editar.php on line 9.
+ 1 APPPATH\Views\escuela\editar.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "assets/img/logo"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php', 9)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('escuela/editar', [], true)
+ 5 APPPATH\Controllers\Escuela.php(161): view('escuela/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->editar('4')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-15 19:27:20 --> Editando escuela con ID: 9
+CRITICAL - 2025-01-15 19:27:20 --> ErrorException: Undefined array key "assets/img/logo"
+[Method: GET, Route: escuela/editar/9]
+in APPPATH\Views\escuela\editar.php on line 9.
+ 1 APPPATH\Views\escuela\editar.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "assets/img/logo"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php', 9)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('escuela/editar', [], true)
+ 5 APPPATH\Controllers\Escuela.php(161): view('escuela/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->editar('9')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-15 19:27:42 --> Editando escuela con ID: 4
+CRITICAL - 2025-01-15 19:27:42 --> ErrorException: Undefined array key "/logo"
+[Method: GET, Route: escuela/editar/4]
+in APPPATH\Views\escuela\editar.php on line 9.
+ 1 APPPATH\Views\escuela\editar.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "/logo"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php', 9)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\escuela\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('escuela/editar', [], true)
+ 5 APPPATH\Controllers\Escuela.php(161): view('escuela/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Escuela->editar('4')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Escuela))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-15 19:27:55 --> Editando escuela con ID: 2
+DEBUG - 2025-01-15 19:28:01 --> Editando escuela con ID: 9
+DEBUG - 2025-01-15 19:28:16 --> Editando escuela con ID: 10
+DEBUG - 2025-01-15 19:29:30 --> Editando escuela con ID: 10
+DEBUG - 2025-01-15 19:58:09 --> Editando escuela con ID: 7
+DEBUG - 2025-01-15 19:58:12 --> Editando escuela con ID: 6
+DEBUG - 2025-01-15 19:58:15 --> Editando escuela con ID: 5
+DEBUG - 2025-01-15 19:58:22 --> Editando escuela con ID: 1
+DEBUG - 2025-01-15 19:58:25 --> Editando escuela con ID: 4
+DEBUG - 2025-01-15 22:37:16 --> Editando escuela con ID: 1
+DEBUG - 2025-01-15 22:37:22 --> Editando escuela con ID: 7
+INFO - 2025-01-15 22:40:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-15 22:40:09 --> Editando escuela con ID: 8

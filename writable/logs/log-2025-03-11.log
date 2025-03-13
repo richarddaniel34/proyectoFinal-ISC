@@ -1,0 +1,409 @@
+INFO - 2025-03-11 00:07:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-11 00:07:26 --> mysqli_sql_exception: Unknown column 'mes' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `mes`\nFR...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mes`\nFR...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mes`\nFR...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`\nFR...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\app\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-03-11 00:07:26 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'mes' in 'field list'
+[Method: GET, Route: inscripciones/obtenerMensualidadesPendientes]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = :id_estudiante:
+AND `id_schoolYear` = :id_schoolYear:
+AND `id_concepto` = :id_concepto:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 00:07:26 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'mes' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = :id_estudiante:
+AND `id_schoolYear` = :id_schoolYear:
+AND `id_concepto` = :id_concepto:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 00:07:26 --> [Caused by] mysqli_sql_exception: Unknown column 'mes' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = :id_estudiante:
+AND `id_schoolYear` = :id_schoolYear:
+AND `id_concepto` = :id_concepto:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-11 00:07:30 --> mysqli_sql_exception: Unknown column 'mes' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `mes`\nFR...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mes`\nFR...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mes`\nFR...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`\nFR...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\app\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-03-11 00:07:30 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'mes' in 'field list'
+[Method: GET, Route: inscripciones/obtenerMensualidadesPendientes]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = :id_estudiante:
+AND `id_schoolYear` = :id_schoolYear:
+AND `id_concepto` = :id_concepto:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 00:07:30 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'mes' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = :id_estudiante:
+AND `id_schoolYear` = :id_schoolYear:
+AND `id_concepto` = :id_concepto:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 00:07:30 --> [Caused by] mysqli_sql_exception: Unknown column 'mes' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = :id_estudiante:
+AND `id_schoolYear` = :id_schoolYear:
+AND `id_concepto` = :id_concepto:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-11 00:07:33 --> mysqli_sql_exception: Unknown column 'mes' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `mes`\nFR...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mes`\nFR...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mes`\nFR...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`\nFR...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\app\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-03-11 00:07:33 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'mes' in 'field list'
+[Method: GET, Route: inscripciones/obtenerMensualidadesPendientes]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = :id_estudiante:
+AND `id_schoolYear` = :id_schoolYear:
+AND `id_concepto` = :id_concepto:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 00:07:33 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'mes' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = :id_estudiante:
+AND `id_schoolYear` = :id_schoolYear:
+AND `id_concepto` = :id_concepto:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 00:07:33 --> [Caused by] mysqli_sql_exception: Unknown column 'mes' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = :id_estudiante:
+AND `id_schoolYear` = :id_schoolYear:
+AND `id_concepto` = :id_concepto:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-11 00:07:36 --> mysqli_sql_exception: Unknown column 'mes' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `mes`\nFR...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mes`\nFR...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mes`\nFR...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`\nFR...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\app\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-03-11 00:07:36 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'mes' in 'field list'
+[Method: GET, Route: inscripciones/obtenerMensualidadesPendientes]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = :id_estudiante:
+AND `id_schoolYear` = :id_schoolYear:
+AND `id_concepto` = :id_concepto:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 00:07:36 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'mes' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = :id_estudiante:
+AND `id_schoolYear` = :id_schoolYear:
+AND `id_concepto` = :id_concepto:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 00:07:36 --> [Caused by] mysqli_sql_exception: Unknown column 'mes' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = \'3\'
+AND `id_schoolYear` = \'1\'
+AND `id_concepto` = 3')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `mes`
+FROM `pagos`
+WHERE `id_estudiante` = :id_estudiante:
+AND `id_schoolYear` = :id_schoolYear:
+AND `id_concepto` = :id_concepto:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PagosModel.php(108): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Inscripciones.php(542): App\Models\PagosModel->getMesesPendientes('3', '1')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->obtenerMensualidadesPendientes()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-11 00:13:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 00:14:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 00:20:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 00:24:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 00:25:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 00:25:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 00:26:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 00:26:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 00:27:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 00:27:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-11 00:28:06 --> ➡️ Procesando estudiante: 3 | Curso: 3 | Monto Inscripción: 1500
+DEBUG - 2025-03-11 00:28:06 --> ✅ Pago inscripción guardado, ID: 1
+DEBUG - 2025-03-11 00:28:06 --> ✅ Inscripción guardada para estudiante: 3
+INFO - 2025-03-11 00:28:06 --> ➡️ Registrando mensualidades para estudiante: 3
+DEBUG - 2025-03-11 00:28:06 --> ✅ Mensualidades completas registradas para estudiante: 3
+DEBUG - 2025-03-11 00:28:06 --> ✅ Factura generada correctamente, ID: 1
+INFO - 2025-03-11 00:28:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 00:28:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 00:28:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 00:28:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 00:59:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 01:00:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 01:01:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 01:01:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-11 01:01:56 --> ➡️ Procesando estudiante: 6 | Curso: 1 | Monto Inscripción: 1500
+ERROR - 2025-03-11 01:01:56 --> ❌ Error guardando pago inscripción: {"estado":"Estado inv\u00e1lido."}
+INFO - 2025-03-11 01:01:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 01:01:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-11 01:02:49 --> ➡️ Procesando estudiante: 6 | Curso: 1 | Monto Inscripción: 1500
+ERROR - 2025-03-11 01:02:49 --> ❌ Error guardando pago inscripción: {"estado":"Estado inv\u00e1lido."}
+INFO - 2025-03-11 01:02:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-11 01:02:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

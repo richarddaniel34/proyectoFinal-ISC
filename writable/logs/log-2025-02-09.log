@@ -1,0 +1,125 @@
+INFO - 2025-02-09 19:34:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-09 21:47:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-09 21:56:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-02-09 21:56:15 --> ErrorException: Undefined variable $tipo_trabajos
+[Method: GET, Route: personal/nuevo]
+in APPPATH\Views\personal\nuevo.php on line 115.
+ 1 APPPATH\Views\personal\nuevo.php(115): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipo_trabajos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\nuevo.php', 115)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/nuevo', [], true)
+ 5 APPPATH\Controllers\Personal.php(52): view('personal/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-02-09 22:07:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-09 22:09:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-02-09 22:10:19 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_5` FOREIGN KEY (`tipo_trabajo`) REFERENCES `tipo_trabajo` (`id`)) in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `pe...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pe...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pe...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pe...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\edsn\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\edsn\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\edsn\app\Controllers\Personal.php(127): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+#11 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+CRITICAL - 2025-02-09 22:10:19 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_5` FOREIGN KEY (`tipo_trabajo`) REFERENCES `tipo_trabajo` (`id`))
+[Method: POST, Route: personal/insertar]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :apellido:, :cedula:, :telefono:, :email:, :direccion:, :condicion:, :nombramiento:, :funcion:, :grado-academico:, :foto:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\Personal.php(127): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-09 22:10:19 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_5` FOREIGN KEY (`tipo_trabajo`) REFERENCES `tipo_trabajo` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Severus\', \'Snape\', \'050-1251648-1\', \'809-574-1346\', \'ssnape@escuela.com\', \'La Hilandera, Cokeworth, Inglaterra, Gran Bretaña\', \'1\', \'2\', \'2\', \'4\', \'assets/img/users/personal/S-Snape_05012516481.jpg\', \'2025-02-09 22:10:19\', \'2025-02-09 22:10:19\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Severus\', \'Snape\', \'050-1251648-1\', \'809-574-1346\', \'ssnape@escuela.com\', \'La Hilandera, Cokeworth, Inglaterra, Gran Bretaña\', \'1\', \'2\', \'2\', \'4\', \'assets/img/users/personal/S-Snape_05012516481.jpg\', \'2025-02-09 22:10:19\', \'2025-02-09 22:10:19\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :apellido:, :cedula:, :telefono:, :email:, :direccion:, :condicion:, :nombramiento:, :funcion:, :grado-academico:, :foto:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\Personal.php(127): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-09 22:10:19 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_5` FOREIGN KEY (`tipo_trabajo`) REFERENCES `tipo_trabajo` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Severus\', \'Snape\', \'050-1251648-1\', \'809-574-1346\', \'ssnape@escuela.com\', \'La Hilandera, Cokeworth, Inglaterra, Gran Bretaña\', \'1\', \'2\', \'2\', \'4\', \'assets/img/users/personal/S-Snape_05012516481.jpg\', \'2025-02-09 22:10:19\', \'2025-02-09 22:10:19\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Severus\', \'Snape\', \'050-1251648-1\', \'809-574-1346\', \'ssnape@escuela.com\', \'La Hilandera, Cokeworth, Inglaterra, Gran Bretaña\', \'1\', \'2\', \'2\', \'4\', \'assets/img/users/personal/S-Snape_05012516481.jpg\', \'2025-02-09 22:10:19\', \'2025-02-09 22:10:19\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Severus\', \'Snape\', \'050-1251648-1\', \'809-574-1346\', \'ssnape@escuela.com\', \'La Hilandera, Cokeworth, Inglaterra, Gran Bretaña\', \'1\', \'2\', \'2\', \'4\', \'assets/img/users/personal/S-Snape_05012516481.jpg\', \'2025-02-09 22:10:19\', \'2025-02-09 22:10:19\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :apellido:, :cedula:, :telefono:, :email:, :direccion:, :condicion:, :nombramiento:, :funcion:, :grado-academico:, :foto:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\Personal.php(127): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-02-09 22:12:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-09 22:17:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-09 22:21:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-02-09 22:45:24 --> ArgumentCountError: Too few arguments to function App\Controllers\Personal::eliminados(), 0 passed in C:\xampp\htdocs\edsn\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: personal/eliminados]
+in APPPATH\Controllers\Personal.php on line 158.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->eliminados()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-09 22:50:16 --> ErrorException: Undefined array key "codigo_asignatura"
+[Method: GET, Route: personal/eliminados]
+in APPPATH\Views\personal\eliminados.php on line 40.
+ 1 APPPATH\Views\personal\eliminados.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "codigo_asignatura"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\eliminados.php', 40)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\eliminados.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/eliminados', [], true)
+ 5 APPPATH\Controllers\Personal.php(165): view('personal/eliminados', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->eliminados()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-09 22:54:46 --> ErrorException: Undefined variable $cantidadAdministrativos
+[Method: GET, Route: home]
+in APPPATH\Views\home.php on line 18.
+ 1 APPPATH\Views\home.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cantidadAdministrativos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\home.php', 18)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\home.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home', [], true)
+ 5 APPPATH\Controllers\Home.php(29): view('home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

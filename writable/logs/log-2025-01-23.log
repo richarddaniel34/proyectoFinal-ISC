@@ -1,0 +1,173 @@
+DEBUG - 2025-01-23 00:05:55 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:07:06 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:07:26 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:07:57 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:08:01 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:08:31 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:08:45 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:09:20 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:09:41 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:09:45 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:09:58 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:10:03 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:12:36 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:13:59 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:17:02 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:17:23 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:19:33 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:20:00 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:20:13 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:20:18 --> Editando escuela con ID: 2
+DEBUG - 2025-01-23 00:20:21 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:20:26 --> Editando escuela con ID: 2
+DEBUG - 2025-01-23 00:21:25 --> Editando escuela con ID: 1
+DEBUG - 2025-01-23 00:23:00 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:23:01 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:23:02 --> Editando asignatura con ID: 2
+DEBUG - 2025-01-23 00:23:03 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:23:03 --> Editando asignatura con ID: 2
+DEBUG - 2025-01-23 00:23:10 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:23:12 --> Editando asignatura con ID: 2
+DEBUG - 2025-01-23 00:23:12 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:23:51 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:23:52 --> Editando asignatura con ID: 2
+DEBUG - 2025-01-23 00:33:02 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:33:03 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:33:04 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:33:04 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:33:04 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:33:04 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:33:04 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:33:04 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:33:05 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:33:05 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:33:05 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:33:05 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:33:05 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:33:17 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 00:36:46 --> Editando asignatura con ID: 1
+INFO - 2025-01-23 00:38:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-23 00:39:36 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 13:51:16 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 14:16:14 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 14:17:46 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 14:21:34 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 14:22:24 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 14:23:24 --> Editando asignatura con ID: 1
+INFO - 2025-01-23 14:23:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-23 14:23:49 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 14:24:36 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 14:26:47 --> Editando asignatura con ID: 2
+CRITICAL - 2025-01-23 14:26:47 --> ErrorException: Undefined array key "modalidad"
+[Method: GET, Route: asignatura/editar/2]
+in APPPATH\Views\asignatura\editar.php on line 21.
+ 1 APPPATH\Views\asignatura\editar.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "modalidad"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\editar.php', 21)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/editar', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(131): view('asignatura/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->editar('2')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-23 14:26:50 --> Editando asignatura con ID: 1
+CRITICAL - 2025-01-23 14:26:50 --> ErrorException: Undefined array key "modalidad"
+[Method: GET, Route: asignatura/editar/1]
+in APPPATH\Views\asignatura\editar.php on line 21.
+ 1 APPPATH\Views\asignatura\editar.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "modalidad"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\editar.php', 21)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\asignatura\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('asignatura/editar', [], true)
+ 5 APPPATH\Controllers\Asignatura.php(131): view('asignatura/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-23 14:27:10 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 14:28:12 --> Editando asignatura con ID: 2
+DEBUG - 2025-01-23 14:31:10 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 14:40:12 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 14:40:18 --> Editando asignatura con ID: 2
+INFO - 2025-01-23 15:03:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-23 15:04:44 --> Editando asignatura con ID: 1
+INFO - 2025-01-23 15:04:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 15:10:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-23 15:10:29 --> Editando asignatura con ID: 1
+DEBUG - 2025-01-23 15:23:52 --> Editando asignatura con ID: 2
+DEBUG - 2025-01-23 15:25:19 --> Editando asignatura con ID: 2
+CRITICAL - 2025-01-23 15:25:25 --> ArgumentCountError: Too few arguments to function App\Controllers\Asignatura::actualizar(), 0 passed in C:\xampp\htdocs\edsn\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: POST, Route: asignatura/actualizar]
+in APPPATH\Controllers\Asignatura.php on line 135.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->actualizar()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-23 15:41:29 --> ArgumentCountError: Too few arguments to function App\Controllers\Asignatura::actualizar(), 0 passed in C:\xampp\htdocs\edsn\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: POST, Route: asignatura/actualizar]
+in APPPATH\Controllers\Asignatura.php on line 135.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->actualizar()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-23 15:41:37 --> Editando asignatura con ID: 1
+CRITICAL - 2025-01-23 15:41:58 --> ArgumentCountError: Too few arguments to function App\Controllers\Asignatura::actualizar(), 0 passed in C:\xampp\htdocs\edsn\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: POST, Route: asignatura/actualizar]
+in APPPATH\Controllers\Asignatura.php on line 135.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->actualizar()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-23 15:43:20 --> ArgumentCountError: Too few arguments to function App\Controllers\Asignatura::actualizar(), 0 passed in C:\xampp\htdocs\edsn\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: POST, Route: asignatura/actualizar]
+in APPPATH\Controllers\Asignatura.php on line 135.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Asignatura->actualizar()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Asignatura))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-01-23 15:43:26 --> Editando asignatura con ID: 1
+INFO - 2025-01-23 15:43:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-23 15:43:39 --> Editando asignatura con ID: 1
+INFO - 2025-01-23 15:43:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-23 15:43:48 --> Editando asignatura con ID: 1
+INFO - 2025-01-23 15:43:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 15:43:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 15:44:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 15:44:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 15:44:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 15:44:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 15:45:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-23 15:45:49 --> Editando asignatura con ID: 5
+INFO - 2025-01-23 15:46:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 15:46:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 16:00:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 16:00:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 16:04:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 16:04:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-23 16:17:30 --> Editando asignatura con ID: 7
+INFO - 2025-01-23 16:17:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 17:26:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 17:39:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 17:39:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 17:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 17:42:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 17:42:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 17:55:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 17:55:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-23 19:21:31 --> Editando asignatura con ID: 7
+INFO - 2025-01-23 19:21:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-23 19:22:07 --> Editando asignatura con ID: 8
+INFO - 2025-01-23 19:22:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 19:22:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-23 19:22:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

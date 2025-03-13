@@ -1,0 +1,107 @@
+INFO - 2025-03-13 14:29:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-13 14:35:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-13 14:35:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-13 14:35:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-13 14:35:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-13 14:36:14 --> mysqli_sql_exception: Unknown column 'responsables.nombre_padre' in 'field list' in C:\xampp\htdocs\censa\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\censa\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `pagos`....', 0)
+#1 C:\xampp\htdocs\censa\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pagos`....')
+#2 C:\xampp\htdocs\censa\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pagos`....')
+#3 C:\xampp\htdocs\censa\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `pagos`....', Array, false)
+#4 C:\xampp\htdocs\censa\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\censa\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\censa\app\Models\PagosModel.php(66): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\censa\app\Controllers\Inscripciones.php(39): App\Models\PagosModel->getPagosConDetalles()
+#8 C:\xampp\htdocs\censa\system\CodeIgniter.php(933): App\Controllers\Inscripciones->index()
+#9 C:\xampp\htdocs\censa\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+#10 C:\xampp\htdocs\censa\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\censa\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\censa\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\censa\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-03-13 14:36:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'responsables.nombre_padre' in 'field list'
+[Method: GET, Route: inscripciones]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `pagos`.*, `concepto_pagos`.`nombre` AS `concepto_pago`, CONCAT(responsables.nombre_padre, " ", responsables.apellido_padre) AS responsable, CONCAT(estudiantes.nombre, " ", estudiantes.apellido) AS estudiante
+FROM `pagos`
+LEFT JOIN `concepto_pagos` ON `concepto_pagos`.`id` = `pagos`.`id_concepto`
+LEFT JOIN `responsables` ON `responsables`.`id` = `pagos`.`id_responsable`
+LEFT JOIN `estudiantes` ON `estudiantes`.`id` = `pagos`.`id_estudiante`
+ORDER BY `pagos`.`fecha_pago` DESC', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PagosModel.php(66): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Inscripciones.php(39): App\Models\PagosModel->getPagosConDetalles()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-13 14:36:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'responsables.nombre_padre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pagos`.*, `concepto_pagos`.`nombre` AS `concepto_pago`, CONCAT(responsables.nombre_padre, " ", responsables.apellido_padre) AS responsable, CONCAT(estudiantes.nombre, " ", estudiantes.apellido) AS estudiante
+FROM `pagos`
+LEFT JOIN `concepto_pagos` ON `concepto_pagos`.`id` = `pagos`.`id_concepto`
+LEFT JOIN `responsables` ON `responsables`.`id` = `pagos`.`id_responsable`
+LEFT JOIN `estudiantes` ON `estudiantes`.`id` = `pagos`.`id_estudiante`
+ORDER BY `pagos`.`fecha_pago` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pagos`.*, `concepto_pagos`.`nombre` AS `concepto_pago`, CONCAT(responsables.nombre_padre, " ", responsables.apellido_padre) AS responsable, CONCAT(estudiantes.nombre, " ", estudiantes.apellido) AS estudiante
+FROM `pagos`
+LEFT JOIN `concepto_pagos` ON `concepto_pagos`.`id` = `pagos`.`id_concepto`
+LEFT JOIN `responsables` ON `responsables`.`id` = `pagos`.`id_responsable`
+LEFT JOIN `estudiantes` ON `estudiantes`.`id` = `pagos`.`id_estudiante`
+ORDER BY `pagos`.`fecha_pago` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `pagos`.*, `concepto_pagos`.`nombre` AS `concepto_pago`, CONCAT(responsables.nombre_padre, " ", responsables.apellido_padre) AS responsable, CONCAT(estudiantes.nombre, " ", estudiantes.apellido) AS estudiante
+FROM `pagos`
+LEFT JOIN `concepto_pagos` ON `concepto_pagos`.`id` = `pagos`.`id_concepto`
+LEFT JOIN `responsables` ON `responsables`.`id` = `pagos`.`id_responsable`
+LEFT JOIN `estudiantes` ON `estudiantes`.`id` = `pagos`.`id_estudiante`
+ORDER BY `pagos`.`fecha_pago` DESC', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PagosModel.php(66): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Inscripciones.php(39): App\Models\PagosModel->getPagosConDetalles()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-13 14:36:14 --> [Caused by] mysqli_sql_exception: Unknown column 'responsables.nombre_padre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `pagos`.*, `concepto_pagos`.`nombre` AS `concepto_pago`, CONCAT(responsables.nombre_padre, " ", responsables.apellido_padre) AS responsable, CONCAT(estudiantes.nombre, " ", estudiantes.apellido) AS estudiante
+FROM `pagos`
+LEFT JOIN `concepto_pagos` ON `concepto_pagos`.`id` = `pagos`.`id_concepto`
+LEFT JOIN `responsables` ON `responsables`.`id` = `pagos`.`id_responsable`
+LEFT JOIN `estudiantes` ON `estudiantes`.`id` = `pagos`.`id_estudiante`
+ORDER BY `pagos`.`fecha_pago` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pagos`.*, `concepto_pagos`.`nombre` AS `concepto_pago`, CONCAT(responsables.nombre_padre, " ", responsables.apellido_padre) AS responsable, CONCAT(estudiantes.nombre, " ", estudiantes.apellido) AS estudiante
+FROM `pagos`
+LEFT JOIN `concepto_pagos` ON `concepto_pagos`.`id` = `pagos`.`id_concepto`
+LEFT JOIN `responsables` ON `responsables`.`id` = `pagos`.`id_responsable`
+LEFT JOIN `estudiantes` ON `estudiantes`.`id` = `pagos`.`id_estudiante`
+ORDER BY `pagos`.`fecha_pago` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pagos`.*, `concepto_pagos`.`nombre` AS `concepto_pago`, CONCAT(responsables.nombre_padre, " ", responsables.apellido_padre) AS responsable, CONCAT(estudiantes.nombre, " ", estudiantes.apellido) AS estudiante
+FROM `pagos`
+LEFT JOIN `concepto_pagos` ON `concepto_pagos`.`id` = `pagos`.`id_concepto`
+LEFT JOIN `responsables` ON `responsables`.`id` = `pagos`.`id_responsable`
+LEFT JOIN `estudiantes` ON `estudiantes`.`id` = `pagos`.`id_estudiante`
+ORDER BY `pagos`.`fecha_pago` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `pagos`.*, `concepto_pagos`.`nombre` AS `concepto_pago`, CONCAT(responsables.nombre_padre, " ", responsables.apellido_padre) AS responsable, CONCAT(estudiantes.nombre, " ", estudiantes.apellido) AS estudiante
+FROM `pagos`
+LEFT JOIN `concepto_pagos` ON `concepto_pagos`.`id` = `pagos`.`id_concepto`
+LEFT JOIN `responsables` ON `responsables`.`id` = `pagos`.`id_responsable`
+LEFT JOIN `estudiantes` ON `estudiantes`.`id` = `pagos`.`id_estudiante`
+ORDER BY `pagos`.`fecha_pago` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PagosModel.php(66): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Inscripciones.php(39): App\Models\PagosModel->getPagosConDetalles()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

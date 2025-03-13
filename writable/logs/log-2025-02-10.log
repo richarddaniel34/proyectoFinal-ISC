@@ -1,0 +1,694 @@
+DEBUG - 2025-02-10 15:08:16 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 15:08:16 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 1.
+ 1 APPPATH\Views\personal\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(182): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 15:18:54 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 15:18:54 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 1.
+ 1 APPPATH\Views\personal\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(182): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 15:21:06 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 15:21:06 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 1.
+ 1 APPPATH\Views\personal\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(182): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 15:21:12 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 15:21:12 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 1.
+ 1 APPPATH\Views\personal\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(182): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 15:21:21 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 15:21:21 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 1.
+ 1 APPPATH\Views\personal\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(182): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 15:22:51 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 15:22:51 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 1.
+ 1 APPPATH\Views\personal\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(182): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 15:38:55 --> Editando asignatura con ID: 3
+DEBUG - 2025-02-10 15:39:31 --> Editando asignatura con ID: 1
+DEBUG - 2025-02-10 15:40:29 --> Editando asignatura con ID: 1
+DEBUG - 2025-02-10 15:41:38 --> Editando asignatura con ID: 1
+DEBUG - 2025-02-10 15:42:22 --> Editando escuela con ID: 3
+CRITICAL - 2025-02-10 15:42:22 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/3]
+in APPPATH\Views\personal\editar.php on line 1.
+ 1 APPPATH\Views\personal\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(182): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('3')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 15:43:01 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 15:43:01 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 1.
+ 1 APPPATH\Views\personal\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(182): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 15:46:32 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 15:46:32 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 1.
+ 1 APPPATH\Views\personal\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 15:46:41 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 15:46:41 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 1.
+ 1 APPPATH\Views\personal\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 15:49:34 --> Editando escuela con ID: 3
+CRITICAL - 2025-02-10 15:49:34 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/3]
+in APPPATH\Views\personal\editar.php on line 1.
+ 1 APPPATH\Views\personal\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(184): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('3')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 15:49:38 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 15:49:38 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 1.
+ 1 APPPATH\Views\personal\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(184): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 15:55:50 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 15:55:50 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 1.
+ 1 APPPATH\Views\personal\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 15:56:05 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 15:56:05 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 1.
+ 1 APPPATH\Views\personal\editar.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 1)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 15:59:32 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 15:59:39 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 16:03:54 --> Editando escuela con ID: 3
+CRITICAL - 2025-02-10 16:03:54 --> ErrorException: Undefined array key "Apellido"
+[Method: GET, Route: personal/editar/3]
+in APPPATH\Views\personal\editar.php on line 17.
+ 1 APPPATH\Views\personal\editar.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "Apellido"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 17)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('3')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 16:03:57 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 16:03:57 --> ErrorException: Undefined array key "Apellido"
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 17.
+ 1 APPPATH\Views\personal\editar.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "Apellido"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 17)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 16:04:10 --> Editando escuela con ID: 3
+DEBUG - 2025-02-10 16:07:16 --> Editando escuela con ID: 3
+DEBUG - 2025-02-10 16:14:32 --> Editando escuela con ID: 3
+DEBUG - 2025-02-10 16:15:26 --> Editando escuela con ID: 3
+INFO - 2025-02-10 16:15:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-02-10 16:16:25 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 16:18:53 --> Editando escuela con ID: 3
+DEBUG - 2025-02-10 16:18:57 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 16:20:45 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 16:20:45 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 7.
+ 1 APPPATH\Views\personal\editar.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 7)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 16:21:06 --> Editando escuela con ID: 3
+DEBUG - 2025-02-10 16:21:09 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 16:22:47 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 16:23:32 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 16:31:54 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 16:32:01 --> Editando escuela con ID: 4
+DEBUG - 2025-02-10 16:53:13 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 17:52:33 --> Editando escuela con ID: 3
+DEBUG - 2025-02-10 17:52:45 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 17:52:52 --> Editando escuela con ID: 4
+DEBUG - 2025-02-10 17:52:57 --> Editando escuela con ID: 1
+INFO - 2025-02-10 17:55:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-10 17:57:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-02-10 17:57:08 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 17:58:25 --> Editando escuela con ID: 1
+INFO - 2025-02-10 17:58:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-10 17:59:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-02-10 17:59:53 --> Editando escuela con ID: 2
+INFO - 2025-02-10 18:02:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-02-10 18:02:34 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 18:02:34 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 49.
+ 1 APPPATH\Views\personal\editar.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 49)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 18:03:00 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 18:03:00 --> ErrorException: Undefined array key "id"
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 48.
+ 1 APPPATH\Views\personal\editar.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 48)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 18:05:34 --> Editando escuela con ID: 2
+CRITICAL - 2025-02-10 18:05:34 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: personal/editar/2]
+in APPPATH\Views\personal\editar.php on line 49.
+ 1 APPPATH\Views\personal\editar.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 49)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('2')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 18:07:08 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 18:07:08 --> ErrorException: Undefined array key "condicion"
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 49.
+ 1 APPPATH\Views\personal\editar.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "condicion"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 49)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 18:07:42 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 18:11:48 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 18:13:53 --> Editando escuela con ID: 2
+DEBUG - 2025-02-10 18:16:53 --> Editando escuela con ID: 2
+DEBUG - 2025-02-10 18:17:19 --> Editando escuela con ID: 2
+DEBUG - 2025-02-10 18:17:49 --> Editando escuela con ID: 2
+DEBUG - 2025-02-10 18:22:50 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 18:22:51 --> ErrorException: Undefined variable $nombbramiento
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 60.
+ 1 APPPATH\Views\personal\editar.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $nombbramiento', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 60)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 18:23:15 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 18:23:15 --> ErrorException: Undefined variable $nombbramiento
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 60.
+ 1 APPPATH\Views\personal\editar.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $nombbramiento', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 60)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 18:23:29 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 18:23:29 --> ErrorException: Undefined variable $nombbramiento
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 60.
+ 1 APPPATH\Views\personal\editar.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $nombbramiento', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 60)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 18:23:44 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 18:23:52 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 18:24:15 --> Editando escuela con ID: 2
+DEBUG - 2025-02-10 18:24:41 --> Editando escuela con ID: 2
+DEBUG - 2025-02-10 18:24:44 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 18:32:46 --> Editando escuela con ID: 2
+CRITICAL - 2025-02-10 18:32:46 --> ErrorException: Undefined array key "funcion"
+[Method: GET, Route: personal/editar/2]
+in APPPATH\Views\personal\editar.php on line 80.
+ 1 APPPATH\Views\personal\editar.php(80): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "funcion"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 80)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('2')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 18:33:32 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 18:33:32 --> ErrorException: Undefined array key "funcion"
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 80.
+ 1 APPPATH\Views\personal\editar.php(80): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "funcion"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 80)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 18:33:44 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 18:33:44 --> ErrorException: Undefined array key "funcion"
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 80.
+ 1 APPPATH\Views\personal\editar.php(80): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "funcion"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 80)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 18:34:31 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 18:34:38 --> Editando escuela con ID: 2
+DEBUG - 2025-02-10 18:44:41 --> Editando escuela con ID: 2
+DEBUG - 2025-02-10 18:45:08 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 18:49:32 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 18:50:31 --> Editando escuela con ID: 2
+DEBUG - 2025-02-10 18:53:57 --> Editando escuela con ID: 2
+CRITICAL - 2025-02-10 18:53:57 --> ErrorException: Undefined variable $grados_academicoss
+[Method: GET, Route: personal/editar/2]
+in APPPATH\Views\personal\editar.php on line 103.
+ 1 APPPATH\Views\personal\editar.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $grados_academicoss', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 103)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('2')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 18:54:04 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 18:54:04 --> ErrorException: Undefined variable $grados_academicoss
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 103.
+ 1 APPPATH\Views\personal\editar.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $grados_academicoss', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 103)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 18:54:14 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 18:54:14 --> ErrorException: Undefined variable $grados_academicoss
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 103.
+ 1 APPPATH\Views\personal\editar.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $grados_academicoss', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 103)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 18:54:27 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 18:54:27 --> ErrorException: Undefined array key "grado_academico"
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 105.
+ 1 APPPATH\Views\personal\editar.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "grado_academico"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 105)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 18:56:46 --> Editando escuela con ID: 1
+ERROR - 2025-02-10 18:56:46 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '-academico' at line 1 in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT id, grad...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT id, grad...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT id, grad...')
+#3 C:\xampp\htdocs\edsn\app\Controllers\Personal.php(168): CodeIgniter\Database\BaseConnection->query('SELECT id, grad...')
+#4 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+#5 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+#6 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+CRITICAL - 2025-02-10 18:56:46 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '-academico' at line 1
+[Method: GET, Route: personal/editar/1]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 APPPATH\Controllers\Personal.php(168): CodeIgniter\Database\BaseConnection->query('SELECT id, grado-academico FROM grado-academico')
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-10 18:56:46 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '-academico' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT id, grado-academico FROM grado-academico')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT id, grado-academico FROM grado-academico')
+ 3 APPPATH\Controllers\Personal.php(168): CodeIgniter\Database\BaseConnection->query('SELECT id, grado-academico FROM grado-academico')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-10 18:56:46 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '-academico' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT id, grado-academico FROM grado-academico', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT id, grado-academico FROM grado-academico')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT id, grado-academico FROM grado-academico')
+ 4 APPPATH\Controllers\Personal.php(168): CodeIgniter\Database\BaseConnection->query('SELECT id, grado-academico FROM grado-academico')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 18:59:31 --> Editando escuela con ID: 1
+CRITICAL - 2025-02-10 18:59:31 --> ErrorException: Undefined array key "nombre"
+[Method: GET, Route: personal/editar/1]
+in APPPATH\Views\personal\editar.php on line 106.
+ 1 APPPATH\Views\personal\editar.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php', 106)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\editar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/editar', [], true)
+ 5 APPPATH\Controllers\Personal.php(183): view('personal/editar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->editar('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 19:00:38 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 19:00:44 --> Editando escuela con ID: 2
+DEBUG - 2025-02-10 19:00:58 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 19:01:53 --> Editando escuela con ID: 2
+DEBUG - 2025-02-10 19:02:04 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 19:03:27 --> Editando escuela con ID: 2
+DEBUG - 2025-02-10 19:03:31 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 19:04:03 --> Editando escuela con ID: 2
+DEBUG - 2025-02-10 19:10:25 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 19:11:53 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 19:12:16 --> Editando escuela con ID: 1
+INFO - 2025-02-10 19:12:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-10 19:12:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-02-10 19:12:38 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 19:13:06 --> Editando escuela con ID: 1
+INFO - 2025-02-10 19:13:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-10 19:13:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-02-10 19:13:22 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 19:14:47 --> Editando escuela con ID: 1
+DEBUG - 2025-02-10 19:15:19 --> Editando escuela con ID: 1
+INFO - 2025-02-10 19:32:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-10 19:32:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-02-10 19:42:27 --> Editando escuela con ID: 1
+INFO - 2025-02-10 19:42:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-10 19:42:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-10 19:47:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-02-10 19:47:52 --> Editando escuela con ID: 1
+INFO - 2025-02-10 19:47:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-02-10 19:48:01 --> Editando escuela con ID: 1
+INFO - 2025-02-10 19:48:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-02-10 19:48:38 --> Editando escuela con ID: 1
+INFO - 2025-02-10 19:48:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-02-10 19:49:00 --> Editando escuela con ID: 2
+DEBUG - 2025-02-10 19:49:50 --> Editando escuela con ID: 1
+INFO - 2025-02-10 22:44:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-10 22:47:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-02-10 22:47:18 --> Editando escuela con ID: 3
+DEBUG - 2025-02-10 22:48:47 --> Editando escuela con ID: 3
+DEBUG - 2025-02-10 22:49:17 --> Editando escuela con ID: 1
+ERROR - 2025-02-10 22:49:45 --> mysqli_sql_exception: Lock wait timeout exceeded; try restarting transaction in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `persona...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `persona...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `persona...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `persona...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(1028): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\edsn\system\Model.php(865): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\edsn\app\Controllers\Personal.php(263): CodeIgniter\Model->update('3', Array)
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Personal->actualizar('3')
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-02-10 22:49:45 --> CodeIgniter\Database\Exceptions\DatabaseException: Lock wait timeout exceeded; try restarting transaction
+[Method: POST, Route: personal/actualizar/3]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `personal` SET `nombre` = :nombre:, `apellido` = :apellido:, `cedula` = :cedula:, `telefono` = :telefono:, `email` = :email:, `direccion` = :direccion:, `fecha_nac` = :fecha_nac:, `condicion` = :condicion:, `nombramiento` = :nombramiento:, `funcion` = :funcion:, `grado_academico` = :grado_academico:, `foto` = :foto:, `fecha_edit` = :fecha_edit:
+WHERE `personal`.`id` IN :personal.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Personal.php(263): CodeIgniter\Model->update('3', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->actualizar('3')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-10 22:49:45 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Lock wait timeout exceeded; try restarting transaction
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `personal` SET `nombre` = \'Arwin Pietro\', `apellido` = \'Hochauser\', `cedula` = \'050-0015485-1\', `telefono` = \'809-745-5487\', `email` = \'ahochauser@school.com\', `direccion` = \'Winkfield Row, Bracknell RG42 6UL, Reino\', `fecha_nac` = \'1990-07-12\', `condicion` = \'1\', `nombramiento` = \'13\', `funcion` = \'13\', `grado_academico` = \'1\', `foto` = \'assets/img/users/personal/A-Hochauser_05000154851.jpg\', `fecha_edit` = \'2025-02-10 22:48:54\'
+WHERE `personal`.`id` IN (\'3\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `personal` SET `nombre` = \'Arwin Pietro\', `apellido` = \'Hochauser\', `cedula` = \'050-0015485-1\', `telefono` = \'809-745-5487\', `email` = \'ahochauser@school.com\', `direccion` = \'Winkfield Row, Bracknell RG42 6UL, Reino\', `fecha_nac` = \'1990-07-12\', `condicion` = \'1\', `nombramiento` = \'13\', `funcion` = \'13\', `grado_academico` = \'1\', `foto` = \'assets/img/users/personal/A-Hochauser_05000154851.jpg\', `fecha_edit` = \'2025-02-10 22:48:54\'
+WHERE `personal`.`id` IN (\'3\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `personal` SET `nombre` = :nombre:, `apellido` = :apellido:, `cedula` = :cedula:, `telefono` = :telefono:, `email` = :email:, `direccion` = :direccion:, `fecha_nac` = :fecha_nac:, `condicion` = :condicion:, `nombramiento` = :nombramiento:, `funcion` = :funcion:, `grado_academico` = :grado_academico:, `foto` = :foto:, `fecha_edit` = :fecha_edit:
+WHERE `personal`.`id` IN :personal.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\Personal.php(263): CodeIgniter\Model->update('3', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->actualizar('3')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-10 22:49:45 --> [Caused by] mysqli_sql_exception: Lock wait timeout exceeded; try restarting transaction
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `personal` SET `nombre` = \'Arwin Pietro\', `apellido` = \'Hochauser\', `cedula` = \'050-0015485-1\', `telefono` = \'809-745-5487\', `email` = \'ahochauser@school.com\', `direccion` = \'Winkfield Row, Bracknell RG42 6UL, Reino\', `fecha_nac` = \'1990-07-12\', `condicion` = \'1\', `nombramiento` = \'13\', `funcion` = \'13\', `grado_academico` = \'1\', `foto` = \'assets/img/users/personal/A-Hochauser_05000154851.jpg\', `fecha_edit` = \'2025-02-10 22:48:54\'
+WHERE `personal`.`id` IN (\'3\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `personal` SET `nombre` = \'Arwin Pietro\', `apellido` = \'Hochauser\', `cedula` = \'050-0015485-1\', `telefono` = \'809-745-5487\', `email` = \'ahochauser@school.com\', `direccion` = \'Winkfield Row, Bracknell RG42 6UL, Reino\', `fecha_nac` = \'1990-07-12\', `condicion` = \'1\', `nombramiento` = \'13\', `funcion` = \'13\', `grado_academico` = \'1\', `foto` = \'assets/img/users/personal/A-Hochauser_05000154851.jpg\', `fecha_edit` = \'2025-02-10 22:48:54\'
+WHERE `personal`.`id` IN (\'3\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `personal` SET `nombre` = \'Arwin Pietro\', `apellido` = \'Hochauser\', `cedula` = \'050-0015485-1\', `telefono` = \'809-745-5487\', `email` = \'ahochauser@school.com\', `direccion` = \'Winkfield Row, Bracknell RG42 6UL, Reino\', `fecha_nac` = \'1990-07-12\', `condicion` = \'1\', `nombramiento` = \'13\', `funcion` = \'13\', `grado_academico` = \'1\', `foto` = \'assets/img/users/personal/A-Hochauser_05000154851.jpg\', `fecha_edit` = \'2025-02-10 22:48:54\'
+WHERE `personal`.`id` IN (\'3\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `personal` SET `nombre` = :nombre:, `apellido` = :apellido:, `cedula` = :cedula:, `telefono` = :telefono:, `email` = :email:, `direccion` = :direccion:, `fecha_nac` = :fecha_nac:, `condicion` = :condicion:, `nombramiento` = :nombramiento:, `funcion` = :funcion:, `grado_academico` = :grado_academico:, `foto` = :foto:, `fecha_edit` = :fecha_edit:
+WHERE `personal`.`id` IN :personal.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Personal.php(263): CodeIgniter\Model->update('3', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->actualizar('3')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-02-10 22:51:57 --> Editando escuela con ID: 1
+INFO - 2025-02-10 22:52:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-02-10 22:52:08 --> Editando escuela con ID: 1
+INFO - 2025-02-10 22:52:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-02-10 22:52:20 --> Editando escuela con ID: 3
+INFO - 2025-02-10 22:52:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-10 22:54:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-10 22:56:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

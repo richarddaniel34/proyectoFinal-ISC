@@ -1,0 +1,1264 @@
+INFO - 2025-03-08 18:58:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 18:59:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 18:59:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 18:59:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 18:59:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 19:00:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 19:00:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 19:00:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-08 19:01:53 --> Error: Class "App\Filters\AuthFilter" not found
+[Method: GET, Route: /]
+in SYSTEMPATH\Filters\Filters.php on line 197.
+ 1 SYSTEMPATH\Filters\Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+ 2 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 19:02:00 --> Error: Class "App\Filters\AuthFilter" not found
+[Method: GET, Route: /]
+in SYSTEMPATH\Filters\Filters.php on line 197.
+ 1 SYSTEMPATH\Filters\Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+ 2 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-08 19:03:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 19:04:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 19:05:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 19:06:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 19:06:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 19:07:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 19:07:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 19:09:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 19:09:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 19:44:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-08 19:44:48 --> mysqli_sql_exception: Unknown column 'cursos.nombre' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `distrib...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `distrib...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `distrib...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distrib...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\app\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-03-08 19:44:48 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'cursos.nombre' in 'field list'
+[Method: GET, Route: distribucionacademica]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 19:44:48 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'cursos.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 19:44:48 --> [Caused by] mysqli_sql_exception: Unknown column 'cursos.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-08 19:45:40 --> mysqli_sql_exception: Unknown column 'cursos.nombre' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `distrib...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `distrib...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `distrib...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distrib...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\app\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-03-08 19:45:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'cursos.nombre' in 'field list'
+[Method: GET, Route: distribucionacademica]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 19:45:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'cursos.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 19:45:40 --> [Caused by] mysqli_sql_exception: Unknown column 'cursos.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombre` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-08 19:47:27 --> mysqli_sql_exception: Unknown column 'schoolyear.anio' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `distrib...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `distrib...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `distrib...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distrib...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\app\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-03-08 19:47:27 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'schoolyear.anio' in 'field list'
+[Method: GET, Route: distribucionacademica]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 19:47:27 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'schoolyear.anio' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 19:47:27 --> [Caused by] mysqli_sql_exception: Unknown column 'schoolyear.anio' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`anio` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-08 19:48:08 --> mysqli_sql_exception: Unknown column 'schoolyear.anio' in 'order clause' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `distrib...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `distrib...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `distrib...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distrib...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\app\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-03-08 19:48:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'schoolyear.anio' in 'order clause'
+[Method: GET, Route: distribucionacademica]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`codigo` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 19:48:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'schoolyear.anio' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`codigo` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`codigo` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`codigo` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 19:48:09 --> [Caused by] mysqli_sql_exception: Unknown column 'schoolyear.anio' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`codigo` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`codigo` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`codigo` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `distribucion_academica`.*, `escuela`.`nombre` AS `escuela_nombre`, CONCAT(personal.nombre, " ", personal.apellido) AS docente, `cursos`.`nombreCurso` AS `curso_nombre`, `schoolyear`.`codigo` AS `periodo_academico`
+FROM `distribucion_academica`
+LEFT JOIN `escuela` ON `escuela`.`id` = `distribucion_academica`.`id_escuela`
+LEFT JOIN `personal` ON `personal`.`id` = `distribucion_academica`.`id_personal`
+LEFT JOIN `cursos` ON `cursos`.`id` = `distribucion_academica`.`id_curso`
+LEFT JOIN `schoolyear` ON `schoolyear`.`id` = `distribucion_academica`.`id_periodo_academico`
+ORDER BY `schoolyear`.`anio` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\DistribucionAcademicaModel.php(61): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\DistribucionAcademica.php(36): App\Models\DistribucionAcademicaModel->getDistribucionConDetalles()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 19:48:32 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "distribucion_academica/index.php"
+[Method: GET, Route: distribucionacademica]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('distribucion_academica/index.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('distribucion_academica/index', [], true)
+ 3 APPPATH\Controllers\DistribucionAcademica.php(40): view('distribucion_academica/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 19:49:01 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "distribucionacademica/index.php"
+[Method: GET, Route: distribucionacademica]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('distribucionacademica/index.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('distribucionacademica/index', [], true)
+ 3 APPPATH\Controllers\DistribucionAcademica.php(40): view('distribucionacademica/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-08 19:50:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 19:50:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 19:52:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-08 19:57:23 --> ErrorException: Undefined variable $datos
+[Method: GET, Route: distribucionacademica]
+in APPPATH\Views\distribucionacademica\distribucionacademica.php on line 44.
+ 1 APPPATH\Views\distribucionacademica\distribucionacademica.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datos', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\distribucionacademica.php', 44)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\distribucionacademica.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('distribucionacademica/distribucionacademica', [], true)
+ 5 APPPATH\Controllers\DistribucionAcademica.php(40): view('distribucionacademica/distribucionacademica', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 19:59:12 --> ErrorException: Undefined variable $distribuciones
+[Method: GET, Route: distribucionacademica]
+in APPPATH\Views\distribucionacademica\distribucionacademica.php on line 106.
+ 1 APPPATH\Views\distribucionacademica\distribucionacademica.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $distribuciones', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\distribucionacademica.php', 106)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\distribucionacademica.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('distribucionacademica/distribucionacademica', [], true)
+ 5 APPPATH\Controllers\DistribucionAcademica.php(40): view('distribucionacademica/distribucionacademica', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 19:59:50 --> ErrorException: Undefined variable $datios
+[Method: GET, Route: distribucionacademica]
+in APPPATH\Views\distribucionacademica\distribucionacademica.php on line 106.
+ 1 APPPATH\Views\distribucionacademica\distribucionacademica.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datios', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\distribucionacademica.php', 106)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\distribucionacademica.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('distribucionacademica/distribucionacademica', [], true)
+ 5 APPPATH\Controllers\DistribucionAcademica.php(40): view('distribucionacademica/distribucionacademica', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-08 20:00:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 20:01:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 20:02:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 20:03:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 20:03:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 20:04:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-08 20:05:05 --> ErrorException: Undefined array key "nombre"
+[Method: GET, Route: distribucionacademica/nuevo]
+in APPPATH\Views\distribucionacademica\nuevo.php on line 43.
+ 1 APPPATH\Views\distribucionacademica\nuevo.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\nuevo.php', 43)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('distribucionacademica/nuevo', [], true)
+ 5 APPPATH\Controllers\DistribucionAcademica.php(58): view('distribucionacademica/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 20:05:36 --> ErrorException: Undefined array key "anio"
+[Method: GET, Route: distribucionacademica/nuevo]
+in APPPATH\Views\distribucionacademica\nuevo.php on line 56.
+ 1 APPPATH\Views\distribucionacademica\nuevo.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "anio"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\nuevo.php', 56)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('distribucionacademica/nuevo', [], true)
+ 5 APPPATH\Controllers\DistribucionAcademica.php(58): view('distribucionacademica/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-08 20:06:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-08 20:10:23 --> ErrorException: Array to string conversion
+[Method: GET, Route: distribucionacademica/nuevo]
+in APPPATH\Views\distribucionacademica\nuevo.php on line 15.
+ 1 APPPATH\Views\distribucionacademica\nuevo.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\nuevo.php', 15)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('distribucionacademica/nuevo', [], true)
+ 5 APPPATH\Controllers\DistribucionAcademica.php(58): view('distribucionacademica/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-08 20:15:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 20:25:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 20:28:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 20:28:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 20:28:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 20:28:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 20:29:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-08 20:30:54 --> ErrorException: Undefined variable $docentes
+[Method: GET, Route: distribucionacademica/nuevo]
+in APPPATH\Views\distribucionacademica\nuevo.php on line 36.
+ 1 APPPATH\Views\distribucionacademica\nuevo.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $docentes', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\nuevo.php', 36)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('distribucionacademica/nuevo', [], true)
+ 5 APPPATH\Controllers\DistribucionAcademica.php(58): view('distribucionacademica/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-08 20:31:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 20:33:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-08 20:45:04 --> BadMethodCallException: Call to undefined method App\Models\PersonalModel::getDocentes
+[Method: GET, Route: distribucionacademica/nuevo]
+in SYSTEMPATH\Model.php on line 932.
+ 1 APPPATH\Controllers\DistribucionAcademica.php(52): CodeIgniter\Model->__call('getDocentes', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 20:45:49 --> BadMethodCallException: Call to undefined method App\Models\PersonalModel::getDocentes
+[Method: GET, Route: distribucionacademica/nuevo]
+in SYSTEMPATH\Model.php on line 932.
+ 1 APPPATH\Controllers\DistribucionAcademica.php(52): CodeIgniter\Model->__call('getDocentes', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-08 20:47:34 --> mysqli_sql_exception: Table 'censa-jar.funcion' doesn't exist in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `persona...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `persona...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `persona...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `persona...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\app\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-03-08 20:47:34 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'censa-jar.funcion' doesn't exist
+[Method: GET, Route: distribucionacademica/nuevo]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `funcion`.`nombre` = :funcion.nombre:
+AND `personal`.`activo` = :personal.activo:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 20:47:34 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'censa-jar.funcion' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `funcion`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `funcion`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `funcion`.`nombre` = :funcion.nombre:
+AND `personal`.`activo` = :personal.activo:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 20:47:34 --> [Caused by] mysqli_sql_exception: Table 'censa-jar.funcion' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `funcion`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `funcion`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `funcion`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `funcion`.`nombre` = :funcion.nombre:
+AND `personal`.`activo` = :personal.activo:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-08 20:48:24 --> mysqli_sql_exception: Table 'censa-jar.funcion' doesn't exist in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `persona...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `persona...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `persona...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `persona...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\app\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-03-08 20:48:24 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'censa-jar.funcion' doesn't exist
+[Method: GET, Route: distribucionacademica/nuevo]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = :nombramiento.nombre:
+AND `personal`.`activo` = :personal.activo:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 20:48:24 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'censa-jar.funcion' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = :nombramiento.nombre:
+AND `personal`.`activo` = :personal.activo:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 20:48:24 --> [Caused by] mysqli_sql_exception: Table 'censa-jar.funcion' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = :nombramiento.nombre:
+AND `personal`.`activo` = :personal.activo:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-08 20:48:49 --> mysqli_sql_exception: Table 'censa-jar.funcion' doesn't exist in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `persona...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `persona...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `persona...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `persona...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\app\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-03-08 20:48:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'censa-jar.funcion' doesn't exist
+[Method: GET, Route: distribucionacademica/nuevo]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = :nombramiento.nombre:
+AND `personal`.`activo` = :personal.activo:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 20:48:49 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'censa-jar.funcion' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = :nombramiento.nombre:
+AND `personal`.`activo` = :personal.activo:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 20:48:49 --> [Caused by] mysqli_sql_exception: Table 'censa-jar.funcion' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `funcion`.`id` = `personal`.`funcion`
+WHERE `nombramiento`.`nombre` = :nombramiento.nombre:
+AND `personal`.`activo` = :personal.activo:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-08 20:49:32 --> mysqli_sql_exception: Table 'censa-jar.funcion' doesn't exist in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `persona...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `persona...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `persona...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `persona...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\edsn\app\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\edsn\app\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+#8 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-03-08 20:49:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'censa-jar.funcion' doesn't exist
+[Method: GET, Route: distribucionacademica/nuevo]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `nombramiento`.`id` = `personal`.`nombramiento`
+WHERE `nombramiento`.`nombre` = :nombramiento.nombre:
+AND `personal`.`activo` = :personal.activo:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 20:49:32 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'censa-jar.funcion' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `nombramiento`.`id` = `personal`.`nombramiento`
+WHERE `nombramiento`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `nombramiento`.`id` = `personal`.`nombramiento`
+WHERE `nombramiento`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `nombramiento`.`id` = `personal`.`nombramiento`
+WHERE `nombramiento`.`nombre` = :nombramiento.nombre:
+AND `personal`.`activo` = :personal.activo:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 20:49:32 --> [Caused by] mysqli_sql_exception: Table 'censa-jar.funcion' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `nombramiento`.`id` = `personal`.`nombramiento`
+WHERE `nombramiento`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `nombramiento`.`id` = `personal`.`nombramiento`
+WHERE `nombramiento`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `nombramiento`.`id` = `personal`.`nombramiento`
+WHERE `nombramiento`.`nombre` = \'Docente\'
+AND `personal`.`activo` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `personal`.`id`, CONCAT(personal.nombre, " ", personal.apellido) AS nombre_completo, `funcion`.`nombre` AS `funcion`
+FROM `personal`
+LEFT JOIN `funcion` ON `nombramiento`.`id` = `personal`.`nombramiento`
+WHERE `nombramiento`.`nombre` = :nombramiento.nombre:
+AND `personal`.`activo` = :personal.activo:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PersonalModel.php(95): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\DistribucionAcademica.php(52): App\Models\PersonalModel->getDocentes()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-08 20:50:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 21:36:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-08 21:50:41 --> ErrorException: Undefined array key "nombre"
+[Method: GET, Route: distribucionacademica/nuevo]
+in APPPATH\Views\distribucionacademica\nuevo.php on line 37.
+ 1 APPPATH\Views\distribucionacademica\nuevo.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\nuevo.php', 37)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('distribucionacademica/nuevo', [], true)
+ 5 APPPATH\Controllers\DistribucionAcademica.php(63): view('distribucionacademica/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 21:57:52 --> ErrorException: Undefined array key "nombre"
+[Method: GET, Route: distribucionacademica/nuevo]
+in APPPATH\Views\distribucionacademica\nuevo.php on line 37.
+ 1 APPPATH\Views\distribucionacademica\nuevo.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\nuevo.php', 37)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('distribucionacademica/nuevo', [], true)
+ 5 APPPATH\Controllers\DistribucionAcademica.php(63): view('distribucionacademica/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-08 22:07:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:08:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:09:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:09:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:09:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:10:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:10:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:10:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-08 22:11:10 --> mysqli_sql_exception: Column 'activo' cannot be null in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `di...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `di...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `di...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `di...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\edsn\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\edsn\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\edsn\app\Controllers\DistribucionAcademica.php(78): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->insertar()
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+#11 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+CRITICAL - 2025-03-08 22:11:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'activo' cannot be null
+[Method: POST, Route: distribucionacademica/insertar]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `activo`, `fecha_alta`, `fecha_edit`) VALUES (:id_escuela:, :id_personal:, :id_curso:, :id_periodo_academico:, :activo:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\DistribucionAcademica.php(78): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->insertar()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 22:11:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'activo' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `activo`, `fecha_alta`, `fecha_edit`) VALUES (\'1\', \'4\', \'2\', \'1\', NULL, \'2025-03-08 22:11:10\', \'2025-03-08 22:11:10\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `activo`, `fecha_alta`, `fecha_edit`) VALUES (\'1\', \'4\', \'2\', \'1\', NULL, \'2025-03-08 22:11:10\', \'2025-03-08 22:11:10\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `activo`, `fecha_alta`, `fecha_edit`) VALUES (:id_escuela:, :id_personal:, :id_curso:, :id_periodo_academico:, :activo:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\DistribucionAcademica.php(78): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->insertar()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 22:11:10 --> [Caused by] mysqli_sql_exception: Column 'activo' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `activo`, `fecha_alta`, `fecha_edit`) VALUES (\'1\', \'4\', \'2\', \'1\', NULL, \'2025-03-08 22:11:10\', \'2025-03-08 22:11:10\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `activo`, `fecha_alta`, `fecha_edit`) VALUES (\'1\', \'4\', \'2\', \'1\', NULL, \'2025-03-08 22:11:10\', \'2025-03-08 22:11:10\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `activo`, `fecha_alta`, `fecha_edit`) VALUES (\'1\', \'4\', \'2\', \'1\', NULL, \'2025-03-08 22:11:10\', \'2025-03-08 22:11:10\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `activo`, `fecha_alta`, `fecha_edit`) VALUES (:id_escuela:, :id_personal:, :id_curso:, :id_periodo_academico:, :activo:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\DistribucionAcademica.php(78): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->insertar()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-08 22:12:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:12:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:12:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-08 22:12:28 --> ErrorException: Undefined array key "nombreCurso"
+[Method: GET, Route: distribucionacademica]
+in APPPATH\Views\distribucionacademica\distribucionacademica.php on line 48.
+ 1 APPPATH\Views\distribucionacademica\distribucionacademica.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombreCurso"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\distribucionacademica.php', 48)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\distribucionacademica.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('distribucionacademica/distribucionacademica', [], true)
+ 5 APPPATH\Controllers\DistribucionAcademica.php(40): view('distribucionacademica/distribucionacademica', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 22:13:22 --> ErrorException: Undefined variable $d
+[Method: GET, Route: distribucionacademica]
+in APPPATH\Views\distribucionacademica\distribucionacademica.php on line 51.
+ 1 APPPATH\Views\distribucionacademica\distribucionacademica.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $d', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\distribucionacademica.php', 51)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\distribucionacademica.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('distribucionacademica/distribucionacademica', [], true)
+ 5 APPPATH\Controllers\DistribucionAcademica.php(40): view('distribucionacademica/distribucionacademica', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-08 22:13:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:14:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:15:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:15:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-08 22:17:19 --> ErrorException: Undefined array key "codigo_gestion"
+[Method: GET, Route: distribucionacademica]
+in APPPATH\Views\distribucionacademica\distribucionacademica.php on line 43.
+ 1 APPPATH\Views\distribucionacademica\distribucionacademica.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "codigo_gestion"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\distribucionacademica.php', 43)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\distribucionacademica.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('distribucionacademica/distribucionacademica', [], true)
+ 5 APPPATH\Controllers\DistribucionAcademica.php(40): view('distribucionacademica/distribucionacademica', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 22:18:15 --> ErrorException: Undefined array key "escuela.codigo_gestion"
+[Method: GET, Route: distribucionacademica]
+in APPPATH\Views\distribucionacademica\distribucionacademica.php on line 43.
+ 1 APPPATH\Views\distribucionacademica\distribucionacademica.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "escuela.codigo_gestion"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\distribucionacademica.php', 43)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\distribucionacademica\\distribucionacademica.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('distribucionacademica/distribucionacademica', [], true)
+ 5 APPPATH\Controllers\DistribucionAcademica.php(40): view('distribucionacademica/distribucionacademica', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-08 22:25:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:25:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-08 22:26:07 --> mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `di...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `di...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `di...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `di...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\edsn\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\edsn\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\edsn\app\Controllers\DistribucionAcademica.php(78): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->insertar()
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+#11 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+CRITICAL - 2025-03-08 22:26:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '0' for key 'PRIMARY'
+[Method: POST, Route: distribucionacademica/insertar]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `fecha_alta`, `fecha_edit`) VALUES (:id_escuela:, :id_personal:, :id_curso:, :id_periodo_academico:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\DistribucionAcademica.php(78): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->insertar()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 22:26:07 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `fecha_alta`, `fecha_edit`) VALUES (\'2\', \'5\', \'11\', \'1\', \'2025-03-08 22:26:07\', \'2025-03-08 22:26:07\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `fecha_alta`, `fecha_edit`) VALUES (\'2\', \'5\', \'11\', \'1\', \'2025-03-08 22:26:07\', \'2025-03-08 22:26:07\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `fecha_alta`, `fecha_edit`) VALUES (:id_escuela:, :id_personal:, :id_curso:, :id_periodo_academico:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\DistribucionAcademica.php(78): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->insertar()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-08 22:26:07 --> [Caused by] mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `fecha_alta`, `fecha_edit`) VALUES (\'2\', \'5\', \'11\', \'1\', \'2025-03-08 22:26:07\', \'2025-03-08 22:26:07\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `fecha_alta`, `fecha_edit`) VALUES (\'2\', \'5\', \'11\', \'1\', \'2025-03-08 22:26:07\', \'2025-03-08 22:26:07\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `fecha_alta`, `fecha_edit`) VALUES (\'2\', \'5\', \'11\', \'1\', \'2025-03-08 22:26:07\', \'2025-03-08 22:26:07\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `distribucion_academica` (`id_escuela`, `id_personal`, `id_curso`, `id_periodo_academico`, `fecha_alta`, `fecha_edit`) VALUES (:id_escuela:, :id_personal:, :id_curso:, :id_periodo_academico:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\DistribucionAcademica.php(78): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DistribucionAcademica->insertar()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DistribucionAcademica))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-08 22:32:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:32:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:32:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:32:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:32:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 22:32:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 23:24:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 23:24:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 23:35:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 23:53:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 23:57:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 23:58:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 23:58:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 23:58:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 23:58:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 23:58:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

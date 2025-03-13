@@ -1,0 +1,439 @@
+ERROR - 2025-02-04 00:19:00 --> mysqli_sql_exception: Unknown column 'nombre' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT id, nomb...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT id, nomb...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT id, nomb...')
+#3 C:\xampp\htdocs\edsn\app\Controllers\Personal.php(37): CodeIgniter\Database\BaseConnection->query('SELECT id, nomb...')
+#4 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Personal->nuevo()
+#5 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+#6 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+CRITICAL - 2025-02-04 00:19:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'nombre' in 'field list'
+[Method: GET, Route: personal/nuevo]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 APPPATH\Controllers\Personal.php(37): CodeIgniter\Database\BaseConnection->query('SELECT id, nombre FROM grado_academico')
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->nuevo()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-04 00:19:00 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT id, nombre FROM grado_academico')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT id, nombre FROM grado_academico')
+ 3 APPPATH\Controllers\Personal.php(37): CodeIgniter\Database\BaseConnection->query('SELECT id, nombre FROM grado_academico')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->nuevo()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-04 00:19:00 --> [Caused by] mysqli_sql_exception: Unknown column 'nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT id, nombre FROM grado_academico', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT id, nombre FROM grado_academico')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT id, nombre FROM grado_academico')
+ 4 APPPATH\Controllers\Personal.php(37): CodeIgniter\Database\BaseConnection->query('SELECT id, nombre FROM grado_academico')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->nuevo()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-02-04 00:20:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-02-04 00:20:39 --> ErrorException: Undefined variable $tipo_asignaturas
+[Method: GET, Route: personal/nuevo]
+in APPPATH\Views\personal\nuevo.php on line 45.
+ 1 APPPATH\Views\personal\nuevo.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tipo_asignaturas', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\nuevo.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/nuevo', [], true)
+ 5 APPPATH\Controllers\Personal.php(50): view('personal/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-02-04 00:24:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 00:27:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 00:39:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 00:44:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 00:45:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 00:46:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 00:47:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 00:49:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 00:49:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 00:51:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 00:51:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 00:57:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 00:59:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:00:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:00:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:02:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:02:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:02:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:02:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:02:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:02:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:02:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:04:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:04:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:05:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:05:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:05:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:07:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:09:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:09:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:12:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:12:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:12:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:12:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:12:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:12:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:13:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:13:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:13:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:15:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:16:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:16:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:16:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:16:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:17:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:17:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:18:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:18:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:20:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:20:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:21:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:22:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:29:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:32:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:35:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:36:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:37:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:44:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:44:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:45:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:46:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:50:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:51:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:54:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-02-04 01:54:35 --> ErrorException: Undefined array key "nombre"
+[Method: GET, Route: personal/nuevo]
+in APPPATH\Views\personal\nuevo.php on line 116.
+ 1 APPPATH\Views\personal\nuevo.php(116): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\nuevo.php', 116)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/nuevo', [], true)
+ 5 APPPATH\Controllers\Personal.php(50): view('personal/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-02-04 01:55:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-02-04 01:55:09 --> ErrorException: Undefined array key "nombre"
+[Method: GET, Route: personal/nuevo]
+in APPPATH\Views\personal\nuevo.php on line 116.
+ 1 APPPATH\Views\personal\nuevo.php(116): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre"', 'C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\nuevo.php', 116)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\edsn\\app\\Views\\personal\\nuevo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('personal/nuevo', [], true)
+ 5 APPPATH\Controllers\Personal.php(50): view('personal/nuevo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->nuevo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-02-04 01:56:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 01:58:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 02:00:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 02:01:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 02:01:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 02:02:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 02:06:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 02:06:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 02:07:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 02:12:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 12:29:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 15:07:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 15:47:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 15:56:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 15:59:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 15:59:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 16:05:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-02-04 16:06:23 --> mysqli_sql_exception: Unknown column 'grado_academico' in 'field list' in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `pe...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pe...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pe...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pe...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\edsn\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\edsn\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\edsn\app\Controllers\Personal.php(110): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+#11 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+CRITICAL - 2025-02-04 16:06:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'grado_academico' in 'field list'
+[Method: POST, Route: personal/insertar]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado_academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :apellido:, :cedula:, :telefono:, :email:, :direccion:, :condicion:, :nombramiento:, :funcion:, :grado_academico:, :foto:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\Personal.php(110): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-04 16:06:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'grado_academico' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado_academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Director/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 16:06:23\', \'2025-02-04 16:06:23\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado_academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Director/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 16:06:23\', \'2025-02-04 16:06:23\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado_academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :apellido:, :cedula:, :telefono:, :email:, :direccion:, :condicion:, :nombramiento:, :funcion:, :grado_academico:, :foto:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\Personal.php(110): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-04 16:06:23 --> [Caused by] mysqli_sql_exception: Unknown column 'grado_academico' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado_academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Director/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 16:06:23\', \'2025-02-04 16:06:23\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado_academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Director/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 16:06:23\', \'2025-02-04 16:06:23\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado_academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Director/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 16:06:23\', \'2025-02-04 16:06:23\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado_academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :apellido:, :cedula:, :telefono:, :email:, :direccion:, :condicion:, :nombramiento:, :funcion:, :grado_academico:, :foto:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\Personal.php(110): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-02-04 16:08:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 16:08:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-04 16:08:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-02-04 16:09:31 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`funcion`) REFERENCES `nombramiento` (`id`)) in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `pe...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pe...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pe...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pe...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\edsn\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\edsn\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\edsn\app\Controllers\Personal.php(110): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+#11 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+CRITICAL - 2025-02-04 16:09:31 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`funcion`) REFERENCES `nombramiento` (`id`))
+[Method: POST, Route: personal/insertar]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :apellido:, :cedula:, :telefono:, :email:, :direccion:, :condicion:, :nombramiento:, :funcion:, :grado-academico:, :foto:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\Personal.php(110): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-04 16:09:31 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`funcion`) REFERENCES `nombramiento` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Digitador/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 16:09:31\', \'2025-02-04 16:09:31\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Digitador/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 16:09:31\', \'2025-02-04 16:09:31\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :apellido:, :cedula:, :telefono:, :email:, :direccion:, :condicion:, :nombramiento:, :funcion:, :grado-academico:, :foto:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\Personal.php(110): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-04 16:09:31 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`funcion`) REFERENCES `nombramiento` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Digitador/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 16:09:31\', \'2025-02-04 16:09:31\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Digitador/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 16:09:31\', \'2025-02-04 16:09:31\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Digitador/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 16:09:31\', \'2025-02-04 16:09:31\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :apellido:, :cedula:, :telefono:, :email:, :direccion:, :condicion:, :nombramiento:, :funcion:, :grado-academico:, :foto:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\Personal.php(110): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-02-04 17:31:46 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`funcion`) REFERENCES `nombramiento` (`id`)) in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `pe...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pe...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pe...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pe...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\edsn\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\edsn\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\edsn\app\Controllers\Personal.php(112): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+#11 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+CRITICAL - 2025-02-04 17:31:46 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`funcion`) REFERENCES `nombramiento` (`id`))
+[Method: POST, Route: personal/insertar]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :apellido:, :cedula:, :telefono:, :email:, :direccion:, :condicion:, :nombramiento:, :funcion:, :grado-academico:, :foto:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\Personal.php(112): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-04 17:31:46 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`funcion`) REFERENCES `nombramiento` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Digitador/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 17:31:46\', \'2025-02-04 17:31:46\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Digitador/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 17:31:46\', \'2025-02-04 17:31:46\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :apellido:, :cedula:, :telefono:, :email:, :direccion:, :condicion:, :nombramiento:, :funcion:, :grado-academico:, :foto:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\Personal.php(112): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-04 17:31:46 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`funcion`) REFERENCES `nombramiento` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Digitador/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 17:31:46\', \'2025-02-04 17:31:46\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Digitador/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 17:31:46\', \'2025-02-04 17:31:46\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Digitador/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 17:31:46\', \'2025-02-04 17:31:46\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :apellido:, :cedula:, :telefono:, :email:, :direccion:, :condicion:, :nombramiento:, :funcion:, :grado-academico:, :foto:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\Personal.php(112): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-02-04 17:32:40 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`funcion`) REFERENCES `nombramiento` (`id`)) in C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\edsn\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `pe...', 0)
+#1 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pe...')
+#2 C:\xampp\htdocs\edsn\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pe...')
+#3 C:\xampp\htdocs\edsn\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pe...', Array, false)
+#4 C:\xampp\htdocs\edsn\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\edsn\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\edsn\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\edsn\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\edsn\app\Controllers\Personal.php(110): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\edsn\system\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+#10 C:\xampp\htdocs\edsn\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+#11 C:\xampp\htdocs\edsn\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\edsn\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\edsn\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\edsn\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+CRITICAL - 2025-02-04 17:32:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`funcion`) REFERENCES `nombramiento` (`id`))
+[Method: POST, Route: personal/insertar]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :apellido:, :cedula:, :telefono:, :email:, :direccion:, :condicion:, :nombramiento:, :funcion:, :grado-academico:, :foto:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\Personal.php(110): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-04 17:32:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`funcion`) REFERENCES `nombramiento` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Digitador/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 17:32:40\', \'2025-02-04 17:32:40\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Digitador/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 17:32:40\', \'2025-02-04 17:32:40\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :apellido:, :cedula:, :telefono:, :email:, :direccion:, :condicion:, :nombramiento:, :funcion:, :grado-academico:, :foto:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\Personal.php(110): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-02-04 17:32:40 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`censa-jar`.`personal`, CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`funcion`) REFERENCES `nombramiento` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Digitador/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 17:32:40\', \'2025-02-04 17:32:40\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Digitador/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 17:32:40\', \'2025-02-04 17:32:40\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (\'Richard Daniel\', \'Moronta García\', \'402-1281618-1\', \'829-860-6138\', \'richarddanielgjqt0407@gmail.com\', \'104 Kauri Point Road, Laingholm\', \'1\', \'4\', \'Digitador/a\', \'3\', \'assets/img/users/personal/user_default.png\', \'2025-02-04 17:32:40\', \'2025-02-04 17:32:40\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `personal` (`nombre`, `apellido`, `cedula`, `telefono`, `email`, `direccion`, `condicion`, `nombramiento`, `funcion`, `grado-academico`, `foto`, `fecha_alta`, `fecha_edit`) VALUES (:nombre:, :apellido:, :cedula:, :telefono:, :email:, :direccion:, :condicion:, :nombramiento:, :funcion:, :grado-academico:, :foto:, :fecha_alta:, :fecha_edit:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\Personal.php(110): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Personal->insertar()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Personal))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
