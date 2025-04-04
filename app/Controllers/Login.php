@@ -17,10 +17,7 @@ class Login extends BaseController
     /**
      * Página de Login
      */
-    public function login()
-    {
-        return view('auth/login');
-    }
+   
 
     /**
      * 🔑 Procesar el Inicio de Sesión

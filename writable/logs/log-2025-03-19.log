@@ -1,0 +1,18 @@
+INFO - 2025-03-19 00:09:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-19 00:09:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-19 00:09:26 --> ErrorException: Undefined array key "nombre_padre"
+[Method: GET, Route: inscripciones/mensualidades]
+in APPPATH\Views\inscripciones\pagar_mensualidad.php on line 51.
+ 1 APPPATH\Views\inscripciones\pagar_mensualidad.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre_padre"', 'C:\\xampp\\htdocs\\censa\\app\\Views\\inscripciones\\pagar_mensualidad.php', 51)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\censa\\app\\Views\\inscripciones\\pagar_mensualidad.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('inscripciones/pagar_mensualidad', [], true)
+ 5 APPPATH\Controllers\Inscripciones.php(715): view('inscripciones/pagar_mensualidad', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Inscripciones->mensualidades()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscripciones))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-19 00:09:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-19 00:09:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

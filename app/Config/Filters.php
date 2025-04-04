@@ -34,7 +34,7 @@ class Filters extends BaseFilters
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
-            'auth' => \App\Filters\AuthFilter::class, // Agregamos el filtro de autenticación
+        'auth' => \App\Filters\Auth::class, // Agregamos el filtro de autenticación
         
     ];
 
@@ -70,16 +70,19 @@ class Filters extends BaseFilters
      * @var array<string, array<string, array<string, string>>>|array<string, list<string>>
      */
     public array $globals = [
-      /*  'before' => [
+        'before' => [
             'auth' => ['except' => [
-                'login',  // Única ruta pública
-                'logout'  // También permitimos el logout sin autenticación
-            ]]
+                'login',
+                'login/auth',
+                'logout',
+                'usuarios/verificarLogin',
+            ]],
         ],
         'after' => [
             'toolbar',
-        ],*/
+        ],
     ];
+    
 
     
     

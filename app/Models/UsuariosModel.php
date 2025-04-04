@@ -33,7 +33,7 @@ class UsuariosModel extends Model
     protected $skipValidation = false;
 
     /**
-     * 🔍 Verifica las credenciales del usuario
+     * Verifica las credenciales del usuario
      */
     public function verificarCredenciales($usuario)
     {
@@ -43,7 +43,7 @@ class UsuariosModel extends Model
     }
 
     /**
-     * 🔥 Obtiene la información del usuario con datos adicionales
+     * Obtiene la información del usuario con datos adicionales
      */
     public function getUsuarioCompleto($usuarioId)
     {
@@ -59,7 +59,7 @@ class UsuariosModel extends Model
     }
 
     /**
-     * 🔥 Obtener todos los usuarios con su información de personal o estudiante.
+     *  Obtener todos los usuarios con su información de personal o estudiante.
      */
     public function getUsuariosConInfo()
     {
@@ -71,9 +71,7 @@ class UsuariosModel extends Model
             ->findAll();
     }
 
-    /**
-     * 🔥 Verifica si el usuario necesita cambiar la contraseña en el primer login
-     */
+    // Verifica si el usuario necesita cambiar la contraseña en el primer login
     public function necesitaCambioClave($usuarioId)
     {
         return $this->where('id', $usuarioId)
@@ -81,9 +79,8 @@ class UsuariosModel extends Model
             ->first();
     }
 
-    /**
-     * 🔒 Actualiza la contraseña del usuario
-     */
+    //Actualiza la contraseña del usuario
+     
     public function actualizarClave($usuarioId, $nuevaClave)
     {
         return $this->update($usuarioId, [
@@ -93,7 +90,7 @@ class UsuariosModel extends Model
     }
 
     /**
-     * 🔍 Buscar usuario por su nombre de usuario o matrícula
+     * Buscar usuario por su nombre de usuario o matrícula
      */
     public function buscarPorUsuario($usuario)
     {
@@ -101,7 +98,7 @@ class UsuariosModel extends Model
     }
 
     /**
-     * 🔄 Restablecer contraseña a la matrícula para estudiantes
+     *  Restablecer contraseña a la matrícula para estudiantes
      */
     public function resetClaveEstudiante($usuarioId, $matricula)
     {
@@ -112,7 +109,7 @@ class UsuariosModel extends Model
     }
 
     /**
-     * 🔹 Obtener todos los tipos de usuario disponibles para personal
+     *  Obtener todos los tipos de usuario disponibles para personal
      */
     public function getTiposUsuariosParaPersonal()
     {

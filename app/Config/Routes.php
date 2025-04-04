@@ -30,17 +30,29 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+// Rutas públicas (sin autenticación)
+$routes->get('login', 'Usuarios::login');
+$routes->post('login/auth', 'Usuarios::verificarLogin');
+$routes->get('logout', 'Usuarios::logout');
 
-//$routes->get('login', 'Login::login');
-//$routes->post('login/auth', 'AuthController::auth');
-//$routes->get('logout', 'AuthController::logout');
+// Rutas protegidas
+$routes->group('', ['filter' => 'auth'], function($routes) {
+    $routes->get('home', 'Home::index');
+    $routes->get('usuarios/cambio_clave', 'Usuarios::cambioClave');
+    // otras rutas protegidas
+}); // Controlador Usuarios, método logout
+
+
+
 $routes->get('inscripciones/verFactura/(:num)', 'Inscripciones::verFactura/$1');
 $routes->get('inscripciones/imprimirFactura/(:num)', 'Inscripciones::imprimirFactura/$1');
 
 $routes->get('inscripciones/obtenerMensualidadesPendientes', 'Inscripciones::obtenerMensualidadesPendientes');
 $routes->post('inscripciones/registrarPagoMensualidad', 'Inscripciones::registrarPagoMensualidad');
 $routes->get('inscripciones/mensualidades', 'Inscripciones::mensualidades');
+$routes->post('responsables/obtenerMunicipios', 'Responsables::obtenerMunicipios');
+$routes->post('responsables/obtenerDistritos', 'Responsables::obtenerDistritos');
+
 
 
 /**

@@ -1,0 +1,361 @@
+INFO - 2025-03-17 00:11:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 00:11:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 00:14:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-17 00:33:27 --> Error: Call to a member function where() on null
+[Method: POST, Route: login/auth]
+in APPPATH\Controllers\Usuarios.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->verificarLogin()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-17 01:06:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:07:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:07:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:11:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:11:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:12:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:22:09 --> Usuario: 
+DEBUG - 2025-03-17 01:22:09 --> Clave: 
+ERROR - 2025-03-17 01:22:09 --> Usuario no encontrado: 
+ERROR - 2025-03-17 01:22:09 --> Credenciales incorrectas para el usuario: 
+INFO - 2025-03-17 01:22:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:23:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:23:31 --> Usuario: 
+DEBUG - 2025-03-17 01:23:31 --> Clave: 
+ERROR - 2025-03-17 01:23:31 --> Usuario no encontrado: 
+ERROR - 2025-03-17 01:23:31 --> Credenciales incorrectas para el usuario: 
+INFO - 2025-03-17 01:23:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:23:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:23:49 --> Usuario: 
+DEBUG - 2025-03-17 01:23:49 --> Clave: 
+ERROR - 2025-03-17 01:23:49 --> Usuario no encontrado: 
+ERROR - 2025-03-17 01:23:49 --> Credenciales incorrectas para el usuario: 
+INFO - 2025-03-17 01:23:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:23:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:24:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:24:41 --> Usuario: admin
+DEBUG - 2025-03-17 01:24:41 --> Clave: root
+CRITICAL - 2025-03-17 01:24:41 --> ErrorException: Undefined array key "password"
+[Method: POST, Route: login/auth]
+in APPPATH\Controllers\Usuarios.php on line 43.
+ 1 APPPATH\Controllers\Usuarios.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "password"', 'C:\\xampp\\htdocs\\censa\\app\\Controllers\\Usuarios.php', 43)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->verificarLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-17 01:26:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:26:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:27:09 --> Usuario: admin
+DEBUG - 2025-03-17 01:27:09 --> Clave: root
+ERROR - 2025-03-17 01:27:09 --> Credenciales incorrectas para el usuario: admin
+INFO - 2025-03-17 01:27:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:27:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:27:23 --> Usuario: admin
+DEBUG - 2025-03-17 01:27:23 --> Clave: root
+ERROR - 2025-03-17 01:27:23 --> Credenciales incorrectas para el usuario: admin
+INFO - 2025-03-17 01:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:30:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:31:05 --> Usuario: admin
+DEBUG - 2025-03-17 01:31:05 --> Clave: root
+ERROR - 2025-03-17 01:31:05 --> Credenciales incorrectas para el usuario: admin
+INFO - 2025-03-17 01:31:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:31:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:32:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:32:46 --> Usuario: admin
+DEBUG - 2025-03-17 01:32:46 --> Clave: root
+ERROR - 2025-03-17 01:32:46 --> Credenciales incorrectas para el usuario: admin
+INFO - 2025-03-17 01:32:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:32:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:34:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:34:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:34:48 --> Usuario: admin
+DEBUG - 2025-03-17 01:34:48 --> Clave: root
+ERROR - 2025-03-17 01:34:48 --> Credenciales incorrectas para el usuario: admin
+INFO - 2025-03-17 01:34:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:34:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:35:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:35:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:35:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:35:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:35:47 --> Usuario: admin
+DEBUG - 2025-03-17 01:35:47 --> Clave: root
+ERROR - 2025-03-17 01:35:47 --> Credenciales incorrectas para el usuario: admin
+INFO - 2025-03-17 01:35:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:35:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:35:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:35:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:54:23 --> Usuario: admin
+DEBUG - 2025-03-17 01:54:23 --> Clave: root
+INFO - 2025-03-17 01:54:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-17 01:54:23 --> ErrorException: Undefined array key "tipo_usuario"
+[Method: POST, Route: login/auth]
+in APPPATH\Controllers\Usuarios.php on line 50.
+ 1 APPPATH\Controllers\Usuarios.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "tipo_usuario"', 'C:\\xampp\\htdocs\\censa\\app\\Controllers\\Usuarios.php', 50)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->verificarLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-17 01:54:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:54:51 --> Usuario: admin
+DEBUG - 2025-03-17 01:54:51 --> Clave: root
+INFO - 2025-03-17 01:54:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-17 01:54:51 --> ErrorException: Undefined array key "tipo_usuario"
+[Method: POST, Route: login/auth]
+in APPPATH\Controllers\Usuarios.php on line 50.
+ 1 APPPATH\Controllers\Usuarios.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "tipo_usuario"', 'C:\\xampp\\htdocs\\censa\\app\\Controllers\\Usuarios.php', 50)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->verificarLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-17 01:57:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:58:03 --> Usuario: admin
+DEBUG - 2025-03-17 01:58:03 --> Clave: login
+ERROR - 2025-03-17 01:58:04 --> Credenciales incorrectas para el usuario: admin
+INFO - 2025-03-17 01:58:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:58:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:58:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:58:25 --> Usuario: admin
+DEBUG - 2025-03-17 01:58:25 --> Clave: root
+INFO - 2025-03-17 01:58:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:58:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:58:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:58:36 --> Usuario: admin
+DEBUG - 2025-03-17 01:58:36 --> Clave: root
+INFO - 2025-03-17 01:58:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:58:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:58:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 01:58:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 01:59:02 --> Usuario: admin
+DEBUG - 2025-03-17 01:59:02 --> Clave: root
+INFO - 2025-03-17 01:59:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-17 01:59:02 --> ErrorException: Undefined array key "tipo_usuario"
+[Method: POST, Route: login/auth]
+in APPPATH\Controllers\Usuarios.php on line 50.
+ 1 APPPATH\Controllers\Usuarios.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "tipo_usuario"', 'C:\\xampp\\htdocs\\censa\\app\\Controllers\\Usuarios.php', 50)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->verificarLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-03-17 02:06:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:06:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:07:04 --> Usuario: admin
+DEBUG - 2025-03-17 02:07:04 --> Clave: login
+ERROR - 2025-03-17 02:07:05 --> Credenciales incorrectas para el usuario: admin
+INFO - 2025-03-17 02:07:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:07:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:08:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:08:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:08:32 --> Usuario: admin
+DEBUG - 2025-03-17 02:08:32 --> Clave: root
+INFO - 2025-03-17 02:08:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:08:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:08:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:08:46 --> Usuario: admin
+DEBUG - 2025-03-17 02:08:46 --> Clave: root
+INFO - 2025-03-17 02:08:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:08:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:08:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:08:56 --> Usuario: admin
+DEBUG - 2025-03-17 02:08:56 --> Clave: login
+ERROR - 2025-03-17 02:08:56 --> Credenciales incorrectas para el usuario: admin
+INFO - 2025-03-17 02:08:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:08:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:11:50 --> Usuario: admin
+DEBUG - 2025-03-17 02:11:50 --> Clave: root
+INFO - 2025-03-17 02:11:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:11:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:11:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:12:02 --> Usuario: admin
+DEBUG - 2025-03-17 02:12:02 --> Clave: root
+INFO - 2025-03-17 02:12:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:12:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:12:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:12:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:12:49 --> usuario: admin
+DEBUG - 2025-03-17 02:12:49 --> clave: root
+INFO - 2025-03-17 02:12:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:12:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:12:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:14:50 --> usuario: admin
+DEBUG - 2025-03-17 02:14:50 --> clave: root
+INFO - 2025-03-17 02:14:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:14:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:14:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:16:19 --> usuario: admin
+DEBUG - 2025-03-17 02:16:19 --> clave: root
+INFO - 2025-03-17 02:16:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:16:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:16:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:18:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:18:37 --> Usuario recibido: admin
+DEBUG - 2025-03-17 02:18:37 --> Clave recibida: root
+INFO - 2025-03-17 02:18:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:18:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:18:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:19:01 --> Usuario recibido: admin
+DEBUG - 2025-03-17 02:19:01 --> Clave recibida: root
+INFO - 2025-03-17 02:19:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:19:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:19:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:24:59 --> Usuario recibido: 2025-EDS-0001
+DEBUG - 2025-03-17 02:24:59 --> Clave recibida: 2025-EDS-0001
+INFO - 2025-03-17 02:25:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:25:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:25:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:34:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:34:29 --> Usuario recibido: admin
+DEBUG - 2025-03-17 02:34:29 --> Clave recibida: root
+INFO - 2025-03-17 02:34:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:34:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:34:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:39:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:39:29 --> Usuario recibido: admin
+DEBUG - 2025-03-17 02:39:29 --> Clave recibida: root
+INFO - 2025-03-17 02:39:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:39:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:39:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:43:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:43:07 --> Usuario recibido: admin
+DEBUG - 2025-03-17 02:43:07 --> Clave recibida: root
+INFO - 2025-03-17 02:43:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:43:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:43:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:44:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:45:00 --> Usuario recibido: admin
+DEBUG - 2025-03-17 02:45:00 --> Clave recibida: root
+INFO - 2025-03-17 02:45:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:45:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:45:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:47:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:47:36 --> Usuario recibido: admin
+DEBUG - 2025-03-17 02:47:36 --> Clave recibida: root
+INFO - 2025-03-17 02:47:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:47:36 --> Sesión iniciada para el usuario: admin
+INFO - 2025-03-17 02:47:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:47:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:51:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:51:13 --> Usuario recibido: admin
+DEBUG - 2025-03-17 02:51:13 --> Clave recibida: root
+INFO - 2025-03-17 02:51:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:51:13 --> Sesión iniciada para el usuario: admin
+DEBUG - 2025-03-17 02:51:13 --> Redirigiendo a cambio de contraseña
+INFO - 2025-03-17 02:51:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:51:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:52:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:52:50 --> Usuario recibido: admin
+DEBUG - 2025-03-17 02:52:50 --> Clave recibida: root
+INFO - 2025-03-17 02:52:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:52:50 --> Sesión iniciada para el usuario: admin
+DEBUG - 2025-03-17 02:52:50 --> Redirigiendo a cambio de contraseña
+INFO - 2025-03-17 02:52:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:52:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:54:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:54:54 --> Usuario recibido: admin
+DEBUG - 2025-03-17 02:54:54 --> Clave recibida: root
+INFO - 2025-03-17 02:54:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 02:54:54 --> Sesión iniciada para el usuario: admin
+DEBUG - 2025-03-17 02:54:54 --> Redirigiendo a cambio de contraseña
+INFO - 2025-03-17 02:54:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 02:54:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:00:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 03:01:05 --> Usuario recibido: admin
+DEBUG - 2025-03-17 03:01:05 --> Clave recibida: root
+INFO - 2025-03-17 03:01:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 03:01:05 --> Sesión iniciada para el usuario: admin
+DEBUG - 2025-03-17 03:01:05 --> Redirigiendo a: http://localhost/censa/public/usuarios/cambio_clave
+INFO - 2025-03-17 03:01:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:01:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:02:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:02:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:11:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:11:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:17:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:17:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:17:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:17:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:18:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:21:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:21:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:25:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:25:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:25:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:25:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:25:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:25:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:26:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:26:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:26:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:26:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:26:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:26:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:26:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:40:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 03:40:22 --> Usuario recibido: admin
+DEBUG - 2025-03-17 03:40:22 --> Clave recibida: root
+DEBUG - 2025-03-17 03:40:22 --> Antes de redirección - URI: http://localhost/censa/public/index.php/login/auth
+INFO - 2025-03-17 03:40:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 03:40:22 --> Sesión actual: {"__ci_last_regenerate":1742182813,"_ci_previous_url":"http:\/\/localhost\/censa\/public\/index.php\/login","usuario":"admin","id_tipo_usuario":"5","cambio_clave":"1","id":"9","logged_in":true,"tipo_usuario":"5"}
+DEBUG - 2025-03-17 03:40:22 --> Sesión iniciada para el usuario: admin
+DEBUG - 2025-03-17 03:40:22 --> Intentando redireccionar a: http://localhost/censa/public/index.php/usuarios/cambio_clave
+INFO - 2025-03-17 03:47:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 03:47:38 --> Usuario recibido: admin
+DEBUG - 2025-03-17 03:47:38 --> Clave recibida: root
+INFO - 2025-03-17 03:47:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 03:47:38 --> Sesión iniciada para el usuario: admin
+INFO - 2025-03-17 03:47:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:47:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:52:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 03:52:15 --> Usuario recibido: admin
+DEBUG - 2025-03-17 03:52:15 --> Clave recibida: root
+DEBUG - 2025-03-17 03:52:15 --> Buscando usuario en la base de datos
+DEBUG - 2025-03-17 03:52:15 --> Usuario encontrado: admin
+DEBUG - 2025-03-17 03:52:15 --> Verificando la contraseña
+DEBUG - 2025-03-17 03:52:15 --> Contraseña verificada correctamente
+INFO - 2025-03-17 03:52:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 03:52:15 --> Sesión iniciada para el usuario: admin
+DEBUG - 2025-03-17 03:52:15 --> Verificando si el usuario necesita cambiar la contraseña
+DEBUG - 2025-03-17 03:52:15 --> El usuario debe cambiar su contraseña. Redirigiendo a cambio de contraseña.
+INFO - 2025-03-17 03:52:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:52:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:58:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 03:59:09 --> Usuario recibido: admin
+DEBUG - 2025-03-17 03:59:09 --> Clave recibida: root
+DEBUG - 2025-03-17 03:59:09 --> Buscando usuario en la base de datos
+DEBUG - 2025-03-17 03:59:09 --> Usuario encontrado: admin
+DEBUG - 2025-03-17 03:59:09 --> Verificando la contraseña
+DEBUG - 2025-03-17 03:59:10 --> Contraseña verificada correctamente
+INFO - 2025-03-17 03:59:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 03:59:10 --> Sesión iniciada para el usuario: admin
+DEBUG - 2025-03-17 03:59:10 --> Verificando si el usuario necesita cambiar la contraseña
+DEBUG - 2025-03-17 03:59:10 --> El usuario debe cambiar su contraseña. Redirigiendo a cambio de contraseña.
+INFO - 2025-03-17 03:59:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 03:59:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 13:06:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 13:06:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 13:06:52 --> Usuario recibido: admin
+DEBUG - 2025-03-17 13:06:52 --> Clave recibida: root
+DEBUG - 2025-03-17 13:06:52 --> Buscando usuario en la base de datos
+DEBUG - 2025-03-17 13:06:53 --> Usuario encontrado: admin
+DEBUG - 2025-03-17 13:06:53 --> Verificando la contraseña
+DEBUG - 2025-03-17 13:06:53 --> Contraseña verificada correctamente
+INFO - 2025-03-17 13:06:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-17 13:06:53 --> Sesión iniciada para el usuario: admin
+DEBUG - 2025-03-17 13:06:53 --> Verificando si el usuario necesita cambiar la contraseña
+DEBUG - 2025-03-17 13:06:53 --> El usuario debe cambiar su contraseña. Redirigiendo a cambio de contraseña.
+INFO - 2025-03-17 13:06:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 13:06:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 19:46:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-17 19:46:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

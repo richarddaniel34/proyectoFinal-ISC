@@ -7,6 +7,7 @@ use App\Models\EstudiantesModel;
 use App\Models\ResponsablesModel;
 use App\Models\UsuariosModel;
 use App\Models\EscuelaModel;
+use App\Models\EstudiantesResponsablesModel;
 
 
 class Estudiantes extends BaseController
@@ -15,6 +16,7 @@ class Estudiantes extends BaseController
     protected $responsables;
     protected $usuarios;
     protected $escuela;
+    protected $estudiantesResponsables;
 
 
     public function __construct()
@@ -23,6 +25,7 @@ class Estudiantes extends BaseController
         $this->responsables = new ResponsablesModel();
         $this->usuarios = new UsuariosModel();
         $this->escuela = new EscuelaModel();
+        $this->estudiantesResponsables = new EstudiantesResponsablesModel();
     }
 
     public function index($activo = 1)
@@ -41,13 +44,16 @@ class Estudiantes extends BaseController
     {
         $escuelas = $this->escuela->findAll();
 
+        // Llamada a la función para obtener los ENUM del campo parentesco
+        $parentescos = $this->estudiantesResponsables->getEnumValues('estudiantes_responsables', 'parentesco');
+
         $data = [
             'titulo' => 'Registro de Estudiantes',
             'matricula' => $this->generarMatricula(), //Generar matrícula antes de cargar la vista
             'tipos_usuarios' => $this->usuarios->getTiposUsuariosEstudiantes(),
-            'escuelas' => $escuelas
+            'escuelas' => $escuelas,
+            'parentescos' => $parentescos
         ];
-
 
         echo view('header');
         echo view('estudiantes/nuevo', $data);
@@ -55,22 +61,23 @@ class Estudiantes extends BaseController
     }
 
 
+
     public function generarMatricula()
     {
         $año = date('Y'); // Año actual
         $prefijoEscuela = "EDS"; // Prefijo del centro educativo
 
-        // 🔥 Obtener el último estudiante registrado sin importar el año
+        //  Obtener el último estudiante registrado sin importar el año
         $ultimoEstudiante = $this->estudiantes
-            ->orderBy("id", "DESC") // 🔥 Ordenamos por ID para garantizar el último registro
+            ->orderBy("id", "DESC") //  Ordenamos por ID para garantizar el último registro
             ->first();
 
-        // 🔥 Si hay un estudiante registrado, extraemos los últimos 4 dígitos de la matrícula
+        //  Si hay un estudiante registrado, extraemos los últimos 4 dígitos de la matrícula
         if ($ultimoEstudiante) {
             $ultimoNumero = intval(substr($ultimoEstudiante['matricula'], -4));
             $nuevoNumero = str_pad($ultimoNumero + 1, 4, '0', STR_PAD_LEFT); // 🔥 Sumar y rellenar con ceros
         } else {
-            $nuevoNumero = '0001'; // 🔥 Si no hay estudiantes, iniciar con "0001"
+            $nuevoNumero = '0001'; //  Si no hay estudiantes, iniciar con "0001"
         }
 
         return "{$año}-{$prefijoEscuela}-{$nuevoNumero}";
@@ -143,15 +150,52 @@ class Estudiantes extends BaseController
             'matricula' => $matricula
         ]);
 
-        // 🔥 OBTENER ID DEL ESTUDIANTE RECIÉN CREADO
+        // OBTENER ID DEL ESTUDIANTE RECIÉN CREADO
         $estudianteId = $this->estudiantes->insertID();
 
-        // 🔥 OBTENER ID DE LA ESCUELA
+        //  OBTENER ID DE LA ESCUELA
         $idEscuela = $this->request->getPost('id_escuela') ?: null;
 
-        // 🔥 CREAR USUARIO PARA EL ESTUDIANTE USANDO SU MATRÍCULA
-        $usuario = $matricula; // 🔥 Usuario = matrícula
-        $contraseña = password_hash($matricula, PASSWORD_DEFAULT); // 🔥 Clave = matrícula encriptada
+        // INSERTAR RELACIONES EN LA TABLA INTERMEDIA estudiantes-representantes
+
+        // ID de responsables
+        $padreId = $this->request->getPost('padre');
+        $madreId = $this->request->getPost('madre');
+        $tutorId = $this->request->getPost('tutor');
+
+        // Observaciones por responsable
+        $obsPadre = $this->request->getPost('Observaciones_padre');
+        $obsMadre = $this->request->getPost('Observaciones_madre');
+        $obsTutor = $this->request->getPost('Observaciones_tutor');
+
+        // MODELO PARA TABLA INTERMEDIA (Asumo que tienes un modelo llamado EstudiantesResponsablesModel)
+        $this->estudiantesResponsables->insert([
+            'estudiante_id' => $estudianteId,
+            'responsable_id' => $padreId,
+            'parentesco' => 'Padre',
+            'observaciones' => $obsPadre
+        ]);
+
+
+        $this->estudiantesResponsables->insert([
+            'estudiante_id' => $estudianteId,
+            'responsable_id' => $madreId,
+            'parentesco' => 'Madre',
+            'observaciones' => $obsMadre
+        ]);
+
+        if (!empty($tutorId)) {
+            $this->estudiantesResponsables->insert([
+                'estudiante_id' => $estudianteId,
+                'responsable_id' => $tutorId,
+                'parentesco' => 'Tutor',
+                'observaciones' => $obsTutor
+            ]);
+        }
+
+        // ⚡⚡ CREAR USUARIO PARA EL ESTUDIANTE USANDO SU MATRÍCULA
+        $usuario = $matricula; //  Usuario = matrícula
+        $contraseña = password_hash($matricula, PASSWORD_DEFAULT); // Clave = matrícula encriptada
 
         // Verificar si el usuario ya existe
         $usuarioExiste = $this->usuarios->where('usuario', $usuario)->first();
@@ -170,6 +214,7 @@ class Estudiantes extends BaseController
 
         return redirect()->to(base_url('/estudiantes'))->with('success', 'Estudiante registrado correctamente.');
     }
+
 
 
 

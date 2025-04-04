@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 	<title>CENSA-Inicio</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="<?php echo base_url();?>css/main.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
+	
 	<!-- Asegurar que los estilos de SweetAlert2 se cargan correctamente -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-	<link rel="stylesheet" href="<?php echo base_url();?>css/datatables.css">
-	<link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo base_url();?>css/font_awesome.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/datatables.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/font_awesome.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
 
 
-	<link rel="shortcut icon" href="<?php echo base_url();?>/assets/img/logo/LOGO-CENSA.png" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>/assets/img/logo/LOGO-CENSA.png" type="image/x-icon">
 
 </head>
+
 <body>
 	<!-- SideBar -->
 	<section class="full-box cover dashboard-sideBar">
@@ -28,12 +32,12 @@
 			<!-- SideBar User info -->
 			<div class="full-box dashboard-sideBar-UserInfo">
 				<figure class="full-box">
-					<img src="<?php echo base_url();?>/assets/img/avatar.jpg" alt="UserIcon">
+					<img src="<?php echo base_url(); ?>/assets/img/avatar.jpg" alt="UserIcon">
 					<figcaption class="text-center text-titles">User Name</figcaption>
 				</figure>
 				<ul class="full-box list-unstyled text-center">
 					<li>
-						<a href="#!">
+						<a href="<?php echo base_url(); ?>usuarios/logout">
 							<i class="zmdi zmdi-settings"></i>
 						</a>
 					</li>
@@ -48,7 +52,7 @@
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				<li>
 					<a href="<?php echo base_url(); ?>home">
-						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> Dashboard
+						<i class="fa-solid fa-gauge"></i> Dashboard
 					</a>
 				</li>
 				<li>
@@ -72,11 +76,22 @@
 				</li>
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
+						<i class="fa-solid fa-address-card "></i> Calificaciones <i class="zmdi zmdi-caret-down pull-right"></i>
+					</a>
+					<ul class="list-unstyled full-box">
+						<li>
+							<a href="<?php echo base_url(); ?>calificaciones"><i class=" fa-solid fa-users"></i> Calificaciones</a>
+						</li>
+					</ul>
+
+				</li>
+				<li>
+					<a href="#!" class="btn-sideBar-SubMenu">
 						<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Users <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="admin.html"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Admin</a>
+							<a href="<?php echo base_url(); ?>usuarios/docentes"><i class="zmdi zmdi-account zmdi-hc-fw"></i> docentes</a>
 						</li>
 						<li>
 							<a href="teacher.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Teacher</a>
@@ -91,7 +106,7 @@
 				</li>
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
-					<i class="fa-solid fa-dollar-sign"></i> Pagos<i class="zmdi zmdi-caret-down pull-right"></i>
+						<i class="fa-solid fa-dollar-sign"></i> Pagos<i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
@@ -106,7 +121,7 @@
 					</ul>
 				</li>
 				<li>
-                <a href="#!" class="btn-sideBar-SubMenu">
+					<a href="#!" class="btn-sideBar-SubMenu">
 						<i class="fa-solid fa-gear"></i> Configuracion <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
 					<ul class="list-unstyled full-box">
@@ -123,7 +138,7 @@
 							<a href="<?php echo base_url(); ?>asignatura"><i class="fa-solid fa-book"></i> Asignaturas</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url(); ?>distribucionacademica"><i class="fa-solid fa-book"></i> Asignaturas</a>
+							<a href="<?php echo base_url(); ?>distribucionacademica"><i class="fa-solid fa-book"></i> Distribucion Acedmica</a>
 						</li>
 					</ul>
 				</li>
@@ -132,13 +147,13 @@
 	</section>
 	<!-- Content page-->
 	<section class="full-box dashboard-contentPage">
-	<!-- NavBar -->
+		<!-- NavBar -->
 		<nav class="full-box dashboard-Navbar">
 			<ul class="full-box list-unstyled text-left">
 				<li class="pull-left">
 					<a href="#!" class="btn-menu-dashboard"><i class="fa-solid fa-bars"></i></a>
 				</li>
-				
+
 				<li>
 					<a href="#!" class="btn-modal-help">
 						<i class="zmdi zmdi-help-outline"></i>

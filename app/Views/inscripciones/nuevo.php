@@ -48,8 +48,8 @@
                                                     <?php foreach ($responsables as $responsable): ?>
                                                         <option value="<?= esc($responsable['id']); ?>"
                                                             <?= (isset($id_responsable) && $responsable['id'] == $id_responsable) ? 'selected' : ''; ?>>
-                                                            <?= esc($responsable['nombre_padre']) . ' ' . esc($responsable['apellido_padre'])
-                                                                . ' - ' . esc($responsable['cedula_padre']); ?>
+                                                            <?= esc($responsable['nombre']) . ' ' . esc($responsable['apellido'])
+                                                                . ' - ' . esc($responsable['cedula']); ?>
                                                         </option>
                                                     <?php endforeach; ?>
                                                 </select>
@@ -59,7 +59,6 @@
                                             <div class="form-group">
                                                 <label for="id_schoolYear">Año Escolar</label>
                                                 <select class="form-control" id="id_schoolYear" name="id_schoolYear" required>
-                                                    <option value="">Seleccione un año escolar</option>
                                                     <?php foreach ($schoolYears as $schoolYear): ?>
                                                         <option value="<?= esc($schoolYear['id']); ?>">
                                                             <?= esc($schoolYear['codigo']); ?>
@@ -90,6 +89,7 @@
                                                     <th>Seleccionar Curso</th>
                                                     <th>Monto</th>
                                                     <th>Inscribir</th>
+                                                    <th>Estado</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="estudiantes-list">
@@ -119,8 +119,11 @@
                                                     <?php endforeach; ?>
                                                 <?php else: ?>
                                                     <tr>
-                                                        <td colspan="5">No hay estudiantes disponibles</td>
+                                                    
+                                                        <td colspan="6">No hay estudiantes disponibles</td>
+                                            
                                                     </tr>
+                                                    
                                                 <?php endif; ?>
                                             </tbody>
                                         </table>
@@ -149,7 +152,8 @@
                                     </div>
 
                                     <!-- 🔹 Botón de Enviar -->
-                                    <button type="submit" class="btn btn-primary btn-block">Registrar Inscripción</button>
+                                    <button type="submit" id="btn-registrar-inscripcion" class="btn btn-primary btn-block" disabled>Registrar Inscripción</button>
+
                                 </form>
 
                             </div>
@@ -205,6 +209,9 @@
 
                                 $.each(estudiantes, function(index, estudiante) {
 
+                                    let inscripcionStatus = estudiante.inscrito ? 'Inscrito' : 'No Inscrito';
+                                    let inscripcionClass = estudiante.inscrito ? 'text-success' : 'text-danger';
+
                                     tablaEstudiantes.append(
                                         `<tr>
                                     <td>${estudiante.nombre} ${estudiante.apellido}</td>
@@ -221,14 +228,17 @@
                                         <input type="text" class="form-control monto-pago" name="monto[]" value="<?= esc(number_format($concepto_inscripcion['monto'], 2)) ?>" readonly>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="inscribir[]" value="${estudiante.id}">
+                                        <input type="checkbox" name="inscribir[]" value="${estudiante.id}" ${estudiante.inscrito ? 'disabled' : ''}>
+                                    </td>
+                                    <td class="${inscripcionClass}">
+                                        ${inscripcionStatus}
                                     </td>
                                 </tr>`
                                     );
                                 });
 
                             } else {
-                                tablaEstudiantes.append('<tr><td colspan="5">No hay estudiantes registrados para este responsable.</td></tr>');
+                                tablaEstudiantes.append('<tr><td colspan="6">No hay estudiantes registrados para este responsable.</td></tr>');
                             }
 
                         } else {
@@ -245,6 +255,34 @@
                 $('#estudiantes-list').empty();
             }
 
+        });
+
+    });
+
+
+    //Espera que el DOM esté cargado
+    $(document).ready(function() {
+
+        // Función para validar si hay algún estudiante seleccionado
+        function validarSeleccion() {
+            let totalSeleccionados = $("input[name='inscribir[]']:checked").length;
+
+            // Si hay al menos un estudiante seleccionado, habilitamos el botón
+            if (totalSeleccionados > 0) {
+                $('#btn-registrar-inscripcion').prop('disabled', false);
+            } else {
+                $('#btn-registrar-inscripcion').prop('disabled', true);
+            }
+        }
+
+        // Escuchamos el evento "change" en los checkboxes de inscribir[]
+        $(document).on('change', "input[name='inscribir[]']", function() {
+            validarSeleccion();
+        });
+
+        // ✅ También es buena idea validarlo justo después de cargar la tabla con AJAX
+        $('#id_responsable').on('change', function() {
+            $('#btn-registrar-inscripcion').prop('disabled', true); // lo desactivas hasta que seleccionen algo
         });
 
     });

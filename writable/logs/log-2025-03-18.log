@@ -1,0 +1,73 @@
+INFO - 2025-03-18 23:09:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:09:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:10:05 --> Usuario recibido: admin
+DEBUG - 2025-03-18 23:10:05 --> Clave recibida: root
+DEBUG - 2025-03-18 23:10:05 --> Buscando usuario en la base de datos
+DEBUG - 2025-03-18 23:10:05 --> Usuario encontrado: admin
+DEBUG - 2025-03-18 23:10:05 --> Verificando la contraseña
+DEBUG - 2025-03-18 23:10:05 --> Contraseña verificada correctamente
+INFO - 2025-03-18 23:10:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:10:05 --> Sesión iniciada para el usuario: admin
+DEBUG - 2025-03-18 23:10:05 --> Verificando si el usuario necesita cambiar la contraseña
+DEBUG - 2025-03-18 23:10:05 --> El usuario debe cambiar su contraseña. Redirigiendo a cambio de contraseña.
+INFO - 2025-03-18 23:10:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:10:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:10:31 --> Usuario recibido: admin
+DEBUG - 2025-03-18 23:10:31 --> Clave recibida: jgdsjhgfkhdjgfjds
+DEBUG - 2025-03-18 23:10:31 --> Buscando usuario en la base de datos
+DEBUG - 2025-03-18 23:10:31 --> Usuario encontrado: admin
+DEBUG - 2025-03-18 23:10:31 --> Verificando la contraseña
+ERROR - 2025-03-18 23:10:32 --> Contraseña incorrecta para el usuario: admin
+INFO - 2025-03-18 23:10:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:10:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:24:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:24:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:24:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:24:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:24:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:25:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:25:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:27:34 --> Usuario recibido: admin
+DEBUG - 2025-03-18 23:27:34 --> Clave recibida: root
+DEBUG - 2025-03-18 23:27:34 --> Buscando usuario en la base de datos
+DEBUG - 2025-03-18 23:27:34 --> Usuario encontrado: admin
+DEBUG - 2025-03-18 23:27:34 --> Verificando la contraseña
+DEBUG - 2025-03-18 23:27:34 --> Contraseña verificada correctamente
+INFO - 2025-03-18 23:27:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:27:34 --> Sesión iniciada para el usuario: admin
+DEBUG - 2025-03-18 23:27:34 --> Verificando si el usuario necesita cambiar la contraseña
+DEBUG - 2025-03-18 23:27:34 --> El usuario debe cambiar su contraseña. Redirigiendo a cambio de contraseña.
+INFO - 2025-03-18 23:27:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:27:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:29:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:29:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:30:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:30:52 --> Usuario recibido: admin
+DEBUG - 2025-03-18 23:30:52 --> Clave recibida: root
+DEBUG - 2025-03-18 23:30:52 --> Buscando usuario en la base de datos
+DEBUG - 2025-03-18 23:30:52 --> Usuario encontrado: admin
+DEBUG - 2025-03-18 23:30:52 --> Verificando la contraseña
+DEBUG - 2025-03-18 23:30:52 --> Contraseña verificada correctamente
+INFO - 2025-03-18 23:30:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:30:52 --> Sesión iniciada para el usuario: admin
+DEBUG - 2025-03-18 23:30:52 --> Verificando si el usuario necesita cambiar la contraseña
+DEBUG - 2025-03-18 23:30:52 --> El usuario debe cambiar su contraseña. Redirigiendo a cambio de contraseña.
+INFO - 2025-03-18 23:30:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:30:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:31:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:31:41 --> Usuario recibido: admin
+DEBUG - 2025-03-18 23:31:41 --> Clave recibida: root
+DEBUG - 2025-03-18 23:31:41 --> Buscando usuario en la base de datos
+DEBUG - 2025-03-18 23:31:41 --> Usuario encontrado: admin
+DEBUG - 2025-03-18 23:31:41 --> Verificando la contraseña
+DEBUG - 2025-03-18 23:31:41 --> Contraseña verificada correctamente
+INFO - 2025-03-18 23:31:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:31:41 --> Sesión iniciada para el usuario: admin
+DEBUG - 2025-03-18 23:31:41 --> Verificando si el usuario necesita cambiar la contraseña
+DEBUG - 2025-03-18 23:31:41 --> El usuario debe cambiar su contraseña. Redirigiendo a cambio de contraseña.
+INFO - 2025-03-18 23:31:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:31:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:34:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:34:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-18 23:34:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

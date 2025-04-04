@@ -72,6 +72,8 @@ body, html{
 	border-bottom: 1px solid #eee;
   }
 /*============ LogIn*/
+/* Formulario de login personalizado */
+
 .logInForm{
 	position: absolute;
 	color: #fff;
@@ -85,10 +87,46 @@ body, html{
 	border-radius: 0 0 2px 2px;
 	background-color: rgba(0, 0, 0, .7);
 }
-.logInForm p,
-.logInForm label{
-	color: #FFF;
+
+/*.logInForm {
+    background-color: rgba(0, 0, 0, 0.7);  Si quieres mantener la caja negra 
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+	width: 20%;
+}*/
+
+/* Inputs */
+.logInForm .form-control {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo del input */
+    color: #fff;
+    border-radius: 4px;
 }
+
+/* Placeholder y texto */
+.logInForm .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.logInForm label.control-label {
+    color: #fff; /* Color del label flotante */
+}
+
+.logInForm .help-block {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Botón */
+.logInForm .btn-danger {
+    background-color: #f44336;
+    border: none;
+    color: #fff;
+}
+
+.logInForm .btn-danger:hover {
+    background-color: #d32f2f;
+}
+
 /*============ Partes del dashboard*/
 .dashboard-sideBar,
 .dashboard-contentPage{
@@ -756,3 +794,4 @@ textarea.form-control {
     align-items: center !important;
     padding: 6px 12px !important;
 }
+

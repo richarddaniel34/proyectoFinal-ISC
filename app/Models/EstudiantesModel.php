@@ -13,11 +13,10 @@ class EstudiantesModel extends Model
     protected $useSoftDeletes = false;
 
     protected $allowedFields = [
-        'nombre', 'apellido', 'sexo', 'lugar_nacimiento', 'provincia', 'fecha_nac', 
-        'numero_identidad', 'sigerd_id', 'direccion', 'escuela_procedencia', 
-        'responsables', 'estado_padres', 'casa_estudiante', 'alergias', 
-        'condicion_medica', 'medicamentos', 'tipo_sangre', 'imagen', 
-        'matricula', 'activo'
+                                'nombre', 'apellido', 'sexo', 'lugar_nacimiento', 'provincia', 'fecha_nac', 
+                                'numero_identidad', 'sigerd_id', 'direccion', 'escuela_procedencia', 
+                                'estado_padres', 'casa_estudiante', 'alergias', 'condicion_medica', 
+                                'medicamentos', 'tipo_sangre', 'imagen', 'matricula', 'activo'
     ];
 
     protected $useTimestamps = true;
@@ -37,7 +36,6 @@ class EstudiantesModel extends Model
         'sigerd_id' => 'required|is_unique[estudiantes.sigerd_id]',
         'direccion' => 'required',
         'escuela_procedencia' => 'required',
-        'responsables' => 'required',
         'estado_padres' => 'required',
         'casa_estudiante' => 'required',
         'alergias' => 'permit_empty',

@@ -43,8 +43,8 @@
           <td>RD$ <?= esc(number_format($pago['monto'], 2)) ?></td>
           <td><?= esc($pago['metodo_pago']) ?></td>
           <td>
-            <?php if ($pago['estado'] === 'Pagado') : ?>
-              <span class="badge bg-success">Pagado</span>
+            <?php if ($pago['estado'] === 'Pago') : ?>
+              <span class="badge bg-success">Pago</span>
             <?php elseif ($pago['estado'] === 'Pendiente') : ?>
               <span class="badge bg-warning text-dark">Pendiente</span>
             <?php else : ?>

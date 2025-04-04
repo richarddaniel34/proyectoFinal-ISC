@@ -55,7 +55,9 @@ class Inscripciones extends BaseController
     public function nuevo()
     {
         $responsables = $this->responsables->findAll();
-        $schoolYears = $this->schoolYear->findAll();
+        $schoolYears = $this->schoolYear
+            ->where('estado', 'En curso')
+            ->findAll();
 
 
         // 🔥 Obtener monto de inscripción y mensualidad
@@ -110,8 +112,11 @@ class Inscripciones extends BaseController
             ]);
         }
 
+        // ⚠️ Hacemos el JOIN con la tabla intermedia
         $estudiantes = $this->estudiantes
-            ->where('responsables', $idResponsable)
+            ->select('estudiantes.*, estudiantes_responsables.parentesco, estudiantes_responsables.observaciones')
+            ->join('estudiantes_responsables', 'estudiantes.id = estudiantes_responsables.estudiante_id')
+            ->where('estudiantes_responsables.responsable_id', $idResponsable)
             ->findAll();
 
         if (empty($estudiantes)) {
@@ -121,11 +126,23 @@ class Inscripciones extends BaseController
             ]);
         }
 
+        // Verificamos si el estudiante ya está inscrito
+        foreach ($estudiantes as &$estudiante) {
+            // Verificamos si el estudiante tiene una inscripción con estado "Pago"
+            $inscripcion = $this->inscripciones
+                ->where('id_estudiante', $estudiante['id'])
+                ->where('condicion_inicial', 'Inscrito')
+                ->first(); // Solo necesitamos verificar si existe una inscripción activa
+
+            $estudiante['inscrito'] = ($inscripcion) ? true : false; // Marcamos si está inscrito
+        }
+
         return $this->response->setJSON([
             'status' => 'success',
             'data' => $estudiantes
         ]);
     }
+
 
 
 
@@ -158,6 +175,11 @@ class Inscripciones extends BaseController
         $montos = $this->request->getPost('monto');
         $pagoCompleto = $this->request->getPost('pago_completo');
         $id_schoolYear = $this->request->getPost('id_schoolYear');
+
+        // 🔹 LOG de depuración para ver qué está llegando desde el formulario
+        log_message('debug', 'Inscribir: ' . json_encode($inscribir));
+        log_message('debug', 'Cursos: ' . json_encode($cursos));
+        log_message('debug', 'Montos: ' . json_encode($montos));
 
         if (!$inscribir) {
             return redirect()->back()->with('error', 'Debe seleccionar al menos un estudiante.');
@@ -200,6 +222,8 @@ class Inscripciones extends BaseController
                 'fecha_pago' => date('Y-m-d')
             ];
 
+            log_message('debug', 'Estado antes de guardar el pago: ' . $pagoInscripcionData['estado']);
+
             if (!$this->pagos->save($pagoInscripcionData)) {
                 log_message('error', '❌ Error guardando pago inscripción: ' . json_encode($this->pagos->errors()));
                 return redirect()->back()->with('error', 'Error al registrar el pago de inscripción.');
@@ -228,6 +252,9 @@ class Inscripciones extends BaseController
                 'activo' => 1
             ];
 
+
+
+
             if (!$this->inscripciones->save($inscripcionData)) {
                 log_message('error', '❌ Error guardando inscripción: ' . json_encode($this->inscripciones->errors()));
                 return redirect()->back()->with('error', 'Error al registrar la inscripción.');
@@ -246,7 +273,7 @@ class Inscripciones extends BaseController
                         'id_estudiante' => $id_estudiante,
                         'monto' => $monto_mensualidad,
                         'metodo_pago' => $metodo_pago,
-                        'estado' => 'Pagado',
+                        'estado' => 'Pago',
                         'fecha_pago' => date('Y-m-d')
                     ];
 
@@ -304,10 +331,10 @@ class Inscripciones extends BaseController
         $facturaData = [
             'numero_factura' => $numeroFactura,
             'id_responsable' => $id_responsable,
-            'nombre_responsable' => $responsable['nombre_padre'] . ' ' . $responsable['apellido_padre'],
+            'nombre_responsable' => $responsable['nombre'] . ' ' . $responsable['apellido'],
             'fecha_emision' => date('Y-m-d'),
             'total' => $total,
-            'estado' => 'Pagado',
+            'estado' => 'Pago',
             'detalles' => json_encode($detalles),
             'pagos_relacionados' => json_encode($pagos)
         ];
@@ -503,7 +530,7 @@ class Inscripciones extends BaseController
         echo view('footer');
     }
 
-    
+
     //Obtiene las mensualidades pendientes de los estudiantes de un responsable
     public function obtenerMensualidadesPendientes()
     {

@@ -43,60 +43,86 @@
                                     <div class="tab-content mt-3">
                                         <!-- Padre -->
                                         <div class="tab-pane fade show active" id="padre">
-                                            <h3>Datos del Padre</h3>
+                                        <h3>Datos del Padre</h3>
+                                            <small>Los campor marcados con (*) son Obligatorios</small>
                                             <div class="row">
-                                                <div class="col-12 col-sm-3">
+                                                <input type="hidden" name="responsables[0][tipo_responsable]" value="padre">
+                                                <div class="col-12 col-sm-4">
                                                     <div class="form-group label-floating">
                                                         <label for="nombre_padre" class="control-label">Nombre(s):</label>
-                                                        <input type="text" name="nombre_padre" class="form-control" 
-                                                        value="<?= esc($responsable['nombre_padre'] ?? ''); ?>"/>
-
-                                                        <small>*</small>
+                                                        <input type="text" value="<?php echo $datos['nombre']; ?>" name="nombre" class="form-control" placeholder="">
+                                                        <small class="aviso text-danger">*</small>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-sm-3">
+                                                <div class="col-12 col-sm-4">
                                                     <div class="form-group label-floating">
                                                         <label for="apellido_padre" class="control-label">Apellido(s):</label>
-                                                        <input class="form-control" type="text" id="apellido_padre" name="apellido_padre"
-                                                        value="<?= esc($responsable['apellido_padre'] ?? ''); ?>"  />
+                                                        <input class="form-control" type="text" id="apellido_padre" name="responsables[0][apellido]" />
+                                                        <small class="aviso text-danger">*</small>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-sm-3">
+                                                <div class="col-12 col-sm-4">
                                                     <div class="form-group label-floating">
                                                         <label for="cedula_padre" class="control-label">Cédula:</label>
-                                                        <input class="form-control" type="text" id="cedula_padre" name="cedula_padre"
-                                                        value="<?= esc($responsable['cedula_padre'] ?? ''); ?>"  />
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-sm-3">
-                                                    <div class="form-group label-floating">
-                                                        <label for="telefono_padre" class="control-label">Teléfono:</label>
-                                                        <input class="form-control" type="text" id="telefono_padre" name="telefono_padre"
-                                                        value="<?= esc($responsable['telefono_padre'] ?? ''); ?>"  />
+                                                        <?php
+                                                        $hasError = isset(session('errors')['responsables.0.cedula']);
+                                                        $errorClass = $hasError ? 'is-invalid' : '';
+                                                        ?>
+                                                        <input class="form-control <?= $errorClass ?>"
+                                                            type="text"
+                                                            id="cedula_padre"
+                                                            name="responsables[0][cedula]"
+                                                            value="<?= old('responsables.0.cedula') ?>" />
+                                                        <?php if ($hasError): ?>
+                                                            <div class="invalid-feedback d-block">
+                                                                <?= session('errors')['responsables.0.cedula'] ?>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                        <small class="aviso text-danger">*</small>
+
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-12 col-sm-3">
+                                                <div class="col-12 col-sm-4">
+                                                    <div class="form-group label-floating">
+                                                        <label for="telefono_padre" class="control-label">Celular:</label>
+                                                        <input class="form-control" type="text" id="celular_padre" name="responsables[0][celular]" />
+                                                        <small class="aviso text-danger">*</small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-4">
+                                                    <div class="form-group label-floating">
+                                                        <label for="telefono_padre" class="control-label">Teléfono:</label>
+                                                        <input class="form-control" type="text" id="telefono_padre" name="responsables[0][telefono]" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-4">
                                                     <div class="form-group label-floating">
                                                         <label for="direccion_padre" class="control-label">Dirección:</label>
-                                                        <input class="form-control" type="text" id="direccion_padre" name="direccion_padre" 
-                                                        value="<?= esc($responsable['direccion_padre'] ?? ''); ?>"/>
-                                                        <small>*</small>
+                                                        <input class="form-control" type="text" id="direccion_padre" name="responsables[0][direccion]" />
+                                                        <small class="aviso text-danger">*</small>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-sm-3">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 col-sm-4">
                                                     <div class="form-group label-floating">
                                                         <label for="trabajo_padre" class="control-label">Lugar de trabajo:</label>
-                                                        <input class="form-control" type="text" id="trabajo_padre" name="trabajo_padre" 
-                                                        value="<?= esc($responsable['trabajo_padre'] ?? ''); ?>" />
+                                                        <input class="form-control" type="text" id="trabajo_padre" name="responsables[0][trabajo]" />
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-sm-3">
+                                                <div class="col-12 col-sm-4">
                                                     <div class="form-group label-floating">
                                                         <label for="telefono_trabajo_padre" class="control-label">Telefono trabajo:</label>
-                                                        <input class="form-control" type="text" id="telefono_trabajo_padre" name="telefono_trabajo_padre" 
-                                                        value="<?= esc($responsable['telefono_trabajo_padre'] ?? ''); ?>" />
+                                                        <input class="form-control" type="text" id="telefono_trabajo_padre" name="responsables[0][telefono_trabajo]" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-4">
+                                                    <div class="form-group label-floating">
+                                                        <label for="telefono_trabajo_padre" class="control-label">Contacto de emergencia:</label>
+                                                        <input class="form-control" type="text" id="contacto_emergencia_padre" name="responsables[0][contacto_emergencia]" />
+                                                        <small class="aviso text-danger">*</small>
                                                     </div>
                                                 </div>
                                             </div>

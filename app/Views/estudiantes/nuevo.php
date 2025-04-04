@@ -164,7 +164,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="button" class="btn btn-primary" onclick="siguiente('responsables')">Siguiente</button>
+                                            <button type="button" class="btn btn-primary" onclick="siguiente('responsable')">Siguiente</button>
                                             <a href="<?php echo base_url(); ?>estudiantes" class=" btn btn-danger text-light " id="plus-user"><i class="fa-solid fa-user-plus"></i>Cancelar</a>
                                         </div>
 
@@ -172,17 +172,98 @@
                                         <div class="tab-pane fade" id="responsable">
                                             <h3>RESPONSABLES</h3>
                                             <div class="row">
-                                                <div class="col-12 col-sm-3">
+                                                <div class="col-12 col-sm-4">
                                                     <div class="form-group label-floating">
-                                                        <label for="responsables" class="control-label">Padres:</label>
-                                                        <select id="responsables" name="responsables" class="form-control select2">
-                                                            <option value="">Seleccione un padre</option>
+                                                        <label for="padre" class="control-label">Padre:</label>
+                                                        <select id="padre" name="padre" class="form-control select2">
+                                                            <option value="">Seleccione al padre</option>
                                                         </select>
                                                         <small>*</small>
                                                     </div>
                                                 </div>
 
+                                                <div class="col-12 col-sm-4">
+                                                    <div class="form-group label-floating">
+                                                        <label for="parentesco_padre" class="control-label">Parentesco Padre</label>
+                                                        <select name="parentesco_padre" class="form-control" >
+                                                            <option value="">Seleccionar parentesco</option>
+                                                            <?php foreach ($parentescos as $parentesco): ?>
+                                                                <option value="<?= esc($parentesco) ?>"><?= esc($parentesco) ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
 
+                                                <div class="col-12 col-sm-4">
+                                                    <div class="form-group label-floating">
+                                                        <label for="observaciones_padre" class="control-label">Observaciones:</label>
+                                                        <input class="form-control" type="text" id="observaciones_padre" name="observaciones_padre" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 col-sm-4">
+                                                    <div class="form-group label-floating">
+                                                        <label for="madre" class="control-label">Madre:</label>
+                                                        <select id="madre" name="madre" class="form-control select2">
+                                                            <option value="">Selecione a la madre</option>
+                                                        </select>
+                                                        <small>*</small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-4">
+                                                    <div class="form-group label-floating">
+                                                        <label for="parentesco_madre" class="control-label">Parentesco Padre</label>
+                                                        <select name="parentesco_madre" class="form-control" required>
+                                                            <option value="">Seleccionar parentesco</option>
+                                                            <?php foreach ($parentescos as $parentesco): ?>
+                                                                <option value="<?= esc($parentesco) ?>"><?= esc($parentesco) ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-sm-4">
+                                                    <div class="form-group label-floating">
+                                                        <label for="observaciones_madre" class="control-label">Observaciones:</label>
+                                                        <input class="form-control" type="text" id="observaciones_madre" name="observaciones_madre" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                            <div class="col-12 col-sm-4">
+                                                    <div class="form-group label-floating">
+                                                        <label for="tutor" class="control-label">tutor:</label>
+                                                        <select id="tutor" name="tutor" class="form-control select2">
+                                                            <option value="">Selecione al tutor</option>
+                                                        </select>
+                                                        <small>Opcional</small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-4">
+                                                    <div class="form-group label-floating">
+                                                        <label for="parentesco_tutor" class="control-label">Parentesco Padre</label>
+                                                        <select name="parentesco_tutor" class="form-control">
+                                                            <option value="">Seleccionar parentesco</option>
+                                                            <?php foreach ($parentescos as $parentesco): ?>
+                                                                <option value="<?= esc($parentesco) ?>"><?= esc($parentesco) ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-sm-4">
+                                                    <div class="form-group label-floating">
+                                                        <label for="observaciones_tutor" class="control-label">Observaciones:</label>
+                                                        <input class="form-control" type="text" id="observaciones_tutor" name="observaciones_tutor" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="row">
                                                 <div class="col-12 col-sm-3">
                                                     <div class="form-group label-floating">
                                                         <label for="estado_padres" class="control-label">Estado Padres:</label>
@@ -282,9 +363,87 @@
 
 <script>
     $(document).ready(function() {
-        $('#responsables').select2({
+        $('#padre').select2({
             theme: "bootstrap-4",
-            placeholder: "---Seleccione un padre---",
+            placeholder: "---Seleccione al padre---",
+            allowClear: false,
+            minimumInputLength: 0, // Permite mostrar todas las opciones al hacer clic
+            width: '100%',
+            ajax: {
+                url: "<?= base_url('responsables/buscar'); ?>",
+                type: "GET",
+                dataType: "json",
+                delay: 250,
+                data: function(params) {
+                    return {
+                        search: params.term || '' // Si no hay búsqueda, traer todos
+                    };
+                },
+                processResults: function(data) {
+                    return {
+                        results: $.map(data, function(item) {
+                            return {
+                                id: item.id,
+                                text: item.text
+                            };
+                        })
+                    };
+                },
+                cache: true
+            }
+        });
+        $('.select2-container').addClass('form-control');
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#madre').select2({
+            theme: "bootstrap-4",
+            placeholder: "---Seleccione a la madre---",
+            allowClear: false,
+            minimumInputLength: 0, // Permite mostrar todas las opciones al hacer clic
+            width: '100%',
+            ajax: {
+                url: "<?= base_url('responsables/buscar'); ?>",
+                type: "GET",
+                dataType: "json",
+                delay: 250,
+                data: function(params) {
+                    return {
+                        search: params.term || '' // Si no hay búsqueda, traer todos
+                    };
+                },
+                processResults: function(data) {
+                    return {
+                        results: $.map(data, function(item) {
+                            return {
+                                id: item.id,
+                                text: item.text
+                            };
+                        })
+                    };
+                },
+                cache: true
+            }
+        });
+
+        // Agrega un evento para el cambio de selección
+        $('#madre').on('change', function() {
+            // Muestra en consola el valor seleccionado
+            console.log("ID seleccionado para la madre:", $(this).val());
+        });
+
+        $('.select2-container').addClass('form-control');
+    });
+</script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#tutor').select2({
+            theme: "bootstrap-4",
+            placeholder: "---Seleccione al tutor---",
             allowClear: false,
             minimumInputLength: 0, // Permite mostrar todas las opciones al hacer clic
             width: '100%',

@@ -36,7 +36,7 @@ class PagosModel extends Model
         'monto'         => 'required|decimal',
         'fecha_pago'    => 'required|valid_date',
         'metodo_pago'   => 'required|in_list[Efectivo,Transferencia,Tarjeta]',
-        'estado'        => 'required|in_list[Pagado,Pendiente,Anulado]',
+        'estado'        => 'required|in_list[Pago,Pendiente,Anulado]',
         'id_factura'    => 'permit_empty|integer',
     ];
 
@@ -56,7 +56,7 @@ class PagosModel extends Model
         return $this->select('
                 pagos.*, 
                 concepto_pagos.nombre AS concepto_pago,
-                CONCAT(responsables.nombre_padre, " ", responsables.apellido_padre) AS responsable,
+                CONCAT(responsables.nombre, " ", responsables.apellido) AS responsable,
                 CONCAT(estudiantes.nombre, " ", estudiantes.apellido) AS estudiante
             ')
             ->join('concepto_pagos', 'concepto_pagos.id = pagos.id_concepto', 'left')

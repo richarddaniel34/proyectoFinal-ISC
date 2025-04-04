@@ -24,8 +24,9 @@
             <thead class="title-table">
               <tr>
                 <th class="text-center">Nombre y Apellidos (s)</th>
-                <th class="text-center">Cedula</th>
+                <th class="text-center">Cédula</th>
                 <th class="text-center">Celular</th>
+                <th class="text-center">Teléfono</th>
                 <th class="text-center">Direccion</th>
                 <th class="text-center"></th>
                 <th class="text-center"></th>
@@ -35,18 +36,11 @@
             <tbody>
               <?php foreach ($datos as $dato) { ?>
                 <tr>
-                <td class="text-start"> 
-                  <b>Padre:</b> <?php echo $dato['nombre_padre']?> <br>
-                  <b>Madre:</b> <?php echo $dato['nombre_madre']?> <br>
-                  <b>Tutor:</b> <?php echo $dato['nombre_tutor']?>
-                 </td>
-                  <td>
-                    <b>Padre:</b> <?php echo $dato['cedula_padre']?> <br>
-                    <b>Madre:</b> <?php echo $dato['cedula_madre']?> <br>
-                    <b>Tutor:</b> <?php echo $dato['cedula_tutor']?>
-                  </td>
-                  <td>  </td>
-                  <td>  </td>
+                  <td class="text-start"> <?php echo $dato['nombre'] ?> <?php echo $dato['apellido'] ?></td>
+                  <td class="text-start"> <?php echo $dato['cedula']?></td>
+                  <td class="text-start"> <?php echo $dato['celular']?></td>
+                  <td class="text-start"> <?php echo $dato['telefono']?></td>
+                  <td class="text-start"> <?php echo $dato['direccion']?></td>
                   
                   <td><a href="#" class="text-primary" onclick="visualizarPersonal(<?= $dato['id']; ?>)"><i class="fa-solid fa-eye"></i></a></td>
                   <td><a href="<?php echo base_url() . 'responsables/editar/' . $dato['id']; ?>" class="text-warning"><i class="fa-solid fa-edit"></i></a></td>
