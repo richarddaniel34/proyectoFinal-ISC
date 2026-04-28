@@ -35,7 +35,8 @@ class Filters extends BaseFilters
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
         'auth' => \App\Filters\Auth::class, // Agregamos el filtro de autenticación
-        
+        'usuario_data' => \App\Filters\UsuarioDataFilter::class,
+
     ];
 
     /**
@@ -81,11 +82,19 @@ class Filters extends BaseFilters
         'after' => [
             'toolbar',
         ],
-    ];
-    
 
-    
-    
+        'before' => [
+            'usuario_data', // Esto se asegura de cargar los datos antes de que se procesen las vistas
+            'auth' => ['except' => ['login', 'login/auth', 'logout']],
+        ],
+        'after' => [
+            'toolbar',
+        ],
+    ];
+
+
+
+
 
     /**
      * List of filter aliases that works on a

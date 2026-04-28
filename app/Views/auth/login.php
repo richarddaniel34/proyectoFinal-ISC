@@ -13,26 +13,41 @@
     <title>LogIn</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo base_url();?>css/main.css">
-    
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
+
+
 </head>
 
-<body class="cover" style="background-image: url(./assets/img/loginFont.jpg);">
+<body class="cover" style="background-image: url(./assets/img/loginFont2.jpg);">
     <form action="<?= base_url('login/auth'); ?>" method="POST" autocomplete="off" class="full-box logInForm">
         <?= csrf_field(); ?>
-        <p class="text-center text-muted"><i class="zmdi zmdi-account-circle zmdi-hc-5x"></i></p>
-        <p class="text-center text-muted text-uppercase">Inicia sesión con tu cuenta</p>
+
+        <!-- Ícono superior -->
+        <p class="text-center text-muted">
+            <i class="zmdi zmdi-account-circle zmdi-hc-5x"></i>
+        </p>
+
+        <!-- Título -->
+        <p class="text-center text-uppercase titulo-login">Inicia sesión con tu cuenta</p>
+
+        <!-- Campo usuario -->
         <div class="form-group label-floating">
-            <label class="control-label" for="usuario">username</label>
-            <input class="form-control" id="usuario" name="usuario" type="text">
-            <p class="help-block">Escribe tú E-mail</p>
+            <label class="control-label" for="usuario">Usuario</label>
+            <input class="form-control" id="usuario" name="usuario" type="text" required>
+            <p class="help-block">Escribe tu E-mail</p>
         </div>
+
+        <!-- Campo contraseña -->
         <div class="form-group label-floating">
             <label class="control-label" for="clave">Contraseña</label>
-            <input class="form-control" id="clave" name="clave" type="text">
-            <p class="help-block">Escribe tú contraseña</p>
+            <input class="form-control" id="clave" name="clave" type="password" required>
+            <p class="help-block">Escribe tu contraseña</p>
         </div>
+
+        <!-- Botón -->
         <div class="form-group text-center">
             <input type="submit" value="Iniciar sesión" class="btn btn-raised btn-danger">
         </div>

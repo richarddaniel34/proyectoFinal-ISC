@@ -1,0 +1,1051 @@
+INFO - 2025-10-27 00:12:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:12:28 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Reportes.php(17): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Reportes->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:18:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:18:32 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(46): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:18:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:18:35 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(46): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-27 00:18:35 --> ➡️ Entrando al método REGISTRO
+DEBUG - 2025-10-27 00:18:35 -->  Usuario autenticado: ID=5 | Tipo=1 | Función=4
+DEBUG - 2025-10-27 00:18:35 --> ⚠️ No se encontró configuración para P1. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:18:35 --> ⚠️ No se encontró configuración para P2. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:18:35 --> ⚠️ No se encontró configuración para P3. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:18:35 --> ⚠️ No se encontró configuración para P4. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:18:35 --> 📦 Estado final de periodos: {"P1":{"bloqueado":true},"P2":{"bloqueado":true},"P3":{"bloqueado":true},"P4":{"bloqueado":true}}
+INFO - 2025-10-27 00:18:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:18:37 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(46): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:18:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:18:39 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(46): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:18:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:18:42 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(46): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:18:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:18:45 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(46): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:18:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:18:46 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(46): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:18:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:18:46 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(46): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:18:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:18:46 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(46): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:18:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:18:47 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(46): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:23:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:23:29 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-27 00:23:29 --> ➡️ Entrando al método REGISTRO
+DEBUG - 2025-10-27 00:23:29 -->  Usuario autenticado: ID=5 | Tipo=1 | Función=4
+DEBUG - 2025-10-27 00:23:29 --> ⚠️ No se encontró configuración para P1. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:23:29 --> ⚠️ No se encontró configuración para P2. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:23:29 --> ⚠️ No se encontró configuración para P3. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:23:29 --> ⚠️ No se encontró configuración para P4. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:23:29 --> 📦 Estado final de periodos: {"P1":{"bloqueado":true},"P2":{"bloqueado":true},"P3":{"bloqueado":true},"P4":{"bloqueado":true}}
+CRITICAL - 2025-10-27 00:23:29 --> BadMethodCallException: Call to undefined method App\Models\SchoolyearModel::getActivoId
+[Method: GET, Route: calificaciones/registro]
+in SYSTEMPATH\Model.php on line 932.
+ 1 APPPATH\Controllers\Calificaciones.php(156): CodeIgniter\Model->__call('getActivoId', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Calificaciones->registro()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Calificaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:29:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:29:35 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-27 00:29:35 --> ➡️ Entrando al método REGISTRO
+DEBUG - 2025-10-27 00:29:35 -->  Usuario autenticado: ID=5 | Tipo=1 | Función=4
+DEBUG - 2025-10-27 00:29:35 --> ⚠️ No se encontró configuración para P1. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:29:35 --> ⚠️ No se encontró configuración para P2. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:29:35 --> ⚠️ No se encontró configuración para P3. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:29:35 --> ⚠️ No se encontró configuración para P4. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:29:35 --> 📦 Estado final de periodos: {"P1":{"bloqueado":true},"P2":{"bloqueado":true},"P3":{"bloqueado":true},"P4":{"bloqueado":true}}
+INFO - 2025-10-27 00:29:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:29:38 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:29:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:29:40 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:29:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:29:42 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:29:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:29:45 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:29:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:29:45 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:29:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:29:46 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-27 00:29:46 --> Notas obtenidas: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 1
+            [nota] => 84.00
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 1
+            [nota] => 86.00
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 1
+            [nota] => 86.00
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 1
+            [nota] => 81.00
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 2
+            [nota] => 82.00
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 2
+            [nota] => 80.00
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 2
+            [nota] => 85.00
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 2
+            [nota] => 80.00
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 2
+            [nota] => 90.00
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 2
+            [nota] => 95.00
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 2
+            [nota] => 96.00
+        )
+
+    [11] => Array
+        (
+            [id] => 12
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 2
+            [nota] => 90.00
+        )
+
+    [12] => Array
+        (
+            [id] => 13
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 1
+            [nota] => 80.00
+        )
+
+    [13] => Array
+        (
+            [id] => 14
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 1
+            [nota] => 90.00
+        )
+
+    [14] => Array
+        (
+            [id] => 15
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 1
+            [nota] => 91.00
+        )
+
+    [15] => Array
+        (
+            [id] => 16
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 1
+            [nota] => 91.00
+        )
+
+)
+
+INFO - 2025-10-27 00:29:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:29:46 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:29:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:29:47 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-27 00:29:47 --> Notas obtenidas: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 1
+            [nota] => 84.00
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 1
+            [nota] => 86.00
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 1
+            [nota] => 86.00
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 1
+            [nota] => 81.00
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 2
+            [nota] => 82.00
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 2
+            [nota] => 80.00
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 2
+            [nota] => 85.00
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 2
+            [nota] => 80.00
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 2
+            [nota] => 90.00
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 2
+            [nota] => 95.00
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 2
+            [nota] => 96.00
+        )
+
+    [11] => Array
+        (
+            [id] => 12
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 2
+            [nota] => 90.00
+        )
+
+    [12] => Array
+        (
+            [id] => 13
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 1
+            [nota] => 80.00
+        )
+
+    [13] => Array
+        (
+            [id] => 14
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 1
+            [nota] => 90.00
+        )
+
+    [14] => Array
+        (
+            [id] => 15
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 1
+            [nota] => 91.00
+        )
+
+    [15] => Array
+        (
+            [id] => 16
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 1
+            [nota] => 91.00
+        )
+
+)
+
+INFO - 2025-10-27 00:29:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:29:48 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:29:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:29:48 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-27 00:29:48 --> Notas obtenidas: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 1
+            [nota] => 84.00
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 1
+            [nota] => 86.00
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 1
+            [nota] => 86.00
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 1
+            [nota] => 81.00
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 2
+            [nota] => 82.00
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 2
+            [nota] => 80.00
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 2
+            [nota] => 85.00
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 2
+            [nota] => 80.00
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 2
+            [nota] => 90.00
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 2
+            [nota] => 95.00
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 2
+            [nota] => 96.00
+        )
+
+    [11] => Array
+        (
+            [id] => 12
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 2
+            [nota] => 90.00
+        )
+
+    [12] => Array
+        (
+            [id] => 13
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 1
+            [nota] => 80.00
+        )
+
+    [13] => Array
+        (
+            [id] => 14
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 1
+            [nota] => 90.00
+        )
+
+    [14] => Array
+        (
+            [id] => 15
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 1
+            [nota] => 91.00
+        )
+
+    [15] => Array
+        (
+            [id] => 16
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 1
+            [nota] => 91.00
+        )
+
+)
+
+INFO - 2025-10-27 00:29:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:29:49 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:29:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:29:50 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-27 00:29:50 --> Notas obtenidas: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 1
+            [nota] => 84.00
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 1
+            [nota] => 86.00
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 1
+            [nota] => 86.00
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 1
+            [nota] => 81.00
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 2
+            [nota] => 82.00
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 2
+            [nota] => 80.00
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 2
+            [nota] => 85.00
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [id_inscripcion] => 3
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 2
+            [nota] => 80.00
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 2
+            [nota] => 90.00
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 2
+            [nota] => 95.00
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 2
+            [nota] => 96.00
+        )
+
+    [11] => Array
+        (
+            [id] => 12
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 2
+            [nota] => 90.00
+        )
+
+    [12] => Array
+        (
+            [id] => 13
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 1
+            [id_periodo] => 1
+            [nota] => 80.00
+        )
+
+    [13] => Array
+        (
+            [id] => 14
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 2
+            [id_periodo] => 1
+            [nota] => 90.00
+        )
+
+    [14] => Array
+        (
+            [id] => 15
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 3
+            [id_periodo] => 1
+            [nota] => 91.00
+        )
+
+    [15] => Array
+        (
+            [id] => 16
+            [id_inscripcion] => 1
+            [id_distribucion_asignatura] => 3
+            [id_competencia] => 4
+            [id_periodo] => 1
+            [nota] => 91.00
+        )
+
+)
+
+INFO - 2025-10-27 00:29:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-27 00:29:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:29:57 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Usuarios.php(24): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Usuarios->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:50:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:50:35 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-27 00:50:36 --> ➡️ Entrando al método REGISTRO
+DEBUG - 2025-10-27 00:50:36 -->  Usuario autenticado: ID=5 | Tipo=1 | Función=4
+DEBUG - 2025-10-27 00:50:36 --> ⚠️ No se encontró configuración para P1. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:50:36 --> ⚠️ No se encontró configuración para P2. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:50:36 --> ⚠️ No se encontró configuración para P3. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:50:36 --> ⚠️ No se encontró configuración para P4. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:50:36 --> 📦 Estado final de periodos: {"P1":{"bloqueado":true},"P2":{"bloqueado":true},"P3":{"bloqueado":true},"P4":{"bloqueado":true}}
+INFO - 2025-10-27 00:51:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-10-27 00:51:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:51:29 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Usuarios.php(24): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Usuarios->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-10-27 00:51:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-10-27 00:51:34 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Calificaciones.php(48): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Calificaciones->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-27 00:51:34 --> ➡️ Entrando al método REGISTRO
+DEBUG - 2025-10-27 00:51:34 -->  Usuario autenticado: ID=5 | Tipo=1 | Función=4
+DEBUG - 2025-10-27 00:51:34 --> ⚠️ No se encontró configuración para P1. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:51:34 --> ⚠️ No se encontró configuración para P2. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:51:34 --> ⚠️ No se encontró configuración para P3. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:51:34 --> ⚠️ No se encontró configuración para P4. Se establecerá como bloqueado por defecto.
+DEBUG - 2025-10-27 00:51:34 --> 📦 Estado final de periodos: {"P1":{"bloqueado":true},"P2":{"bloqueado":true},"P3":{"bloqueado":true},"P4":{"bloqueado":true}}

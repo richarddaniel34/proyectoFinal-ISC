@@ -48,15 +48,25 @@ class UsuariosModel extends Model
     public function getUsuarioCompleto($usuarioId)
     {
         return $this->select('usuarios.*, 
-        personal.nombre AS personal_nombre, personal.apellido AS personal_apellido, personal.email AS personal_email, 
-        estudiantes.nombre AS estudiante_nombre, estudiantes.apellido AS estudiante_apellido, estudiantes.matricula AS estudiante_matricula, 
+        personal.nombre AS personal_nombre, 
+        personal.apellido AS personal_apellido, 
+        personal.email AS personal_email, 
+        personal.funcion AS personal_funcion_id,
+        nombramiento.nombre AS personal_funcion, 
+        estudiantes.nombre AS estudiante_nombre, 
+        estudiantes.apellido AS estudiante_apellido, 
+        estudiantes.matricula AS estudiante_matricula, 
+        estudiantes.imagen AS estudiante_foto, 
         tipo_usuario.nombre AS tipo_usuario')
             ->join('personal', 'personal.id = usuarios.personal_id', 'left')
+            ->join('nombramiento', 'nombramiento.id = personal.funcion', 'left')
             ->join('estudiantes', 'estudiantes.id = usuarios.estudiantes_id', 'left')
             ->join('tipo_usuario', 'tipo_usuario.id = usuarios.id_tipo_usuario', 'left')
             ->where('usuarios.id', $usuarioId)
             ->first();
     }
+
+
 
     /**
      *  Obtener todos los usuarios con su información de personal o estudiante.
@@ -64,7 +74,7 @@ class UsuariosModel extends Model
     public function getUsuariosConInfo()
     {
         return $this->select('usuarios.*, 
-                              personal.nombre AS personal_nombre, personal.apellido AS personal_apellido, personal.email AS personal_email, 
+                              personal.nombre AS personal_nombre, personal.apellido AS personal_apellido, personal.email AS personal_email, personal.funcion AS personal_funcion, 
                               estudiantes.nombre AS estudiante_nombre, estudiantes.apellido AS estudiante_apellido, estudiantes.matricula AS estudiante_matricula')
             ->join('personal', 'personal.id = usuarios.personal_id', 'left')
             ->join('estudiantes', 'estudiantes.id = usuarios.estudiantes_id', 'left')
@@ -80,7 +90,7 @@ class UsuariosModel extends Model
     }
 
     //Actualiza la contraseña del usuario
-     
+
     public function actualizarClave($usuarioId, $nuevaClave)
     {
         return $this->update($usuarioId, [
@@ -128,5 +138,11 @@ class UsuariosModel extends Model
             ->whereNotIn('nombre', ['apoyo', 'administrativo', 'docente', 'administrador'])
             ->get()
             ->getResultArray();
+    }
+
+
+    public function escuela()
+    {
+        return $this->belongsTo(EscuelaModel::class, 'id_escuela', 'id');
     }
 }

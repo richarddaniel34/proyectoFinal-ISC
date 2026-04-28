@@ -1,33 +1,46 @@
-<form method="POST" action="<?php echo base_url('schoolyear/actualizar/' . $datos['id']); ?>" autocomlete="off" class="formP">
+<form method="POST" action="<?php echo base_url('schoolyear/actualizar/' . $datos['id']); ?>" autocomlete="off" class="formulario-personalizado">
     <input type="hidden" name="id" value="<?php echo $datos['id']; ?>" />
     <div class="row">
         <div class="col-12 col-sm-3">
-            <div class="form-group label-floating">
+            <div class="form-group ">
                 <label for="nombre" class="control-label">Nombre:</label>
                 <input class="form-control" type="text" id="nombre" name="nombre" autofocus value="<?php echo $datos['nombre']; ?> " />
                 <small>*</small>
             </div>
         </div>
         <div class="col-12 col-sm-3">
-            <div class="form-group label-floating">
+            <div class="form-group ">
                 <label for="fecha_inicio" class="control-label">fecha de Inicio:</label>
                 <input class="form-control" type="date" id="fecha_inicio" name="fecha_inicio"
                     value="<?php echo isset($datos['fecha_inicio']) ? date('Y-m-d', strtotime($datos['fecha_inicio'])) : ''; ?>" required />
             </div>
         </div>
         <div class="col-12 col-sm-3">
-            <div class="form-group label-floating">
+            <div class="form-group ">
                 <label for="fecha_termino" class="control-label">fecha de Termino:</label>
                 <input class="form-control" type="date" id="fecha_termino" value=" " name="fecha_termino" />
             </div>
         </div>
         <div class="col-12 col-sm-3">
-            <div class="form-group label-floating">
+            <div class="form-group ">
                 <label for="codigo" class="control-label">Codigo:</label>
                 <input class="form-control" type="text" id="codigo" name="codigo" value="<?php echo $datos['codigo']; ?> " />
                 <small>*</small>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-3">
+            <div class="form-group">
+                <label for="estado">Estado:</label>
+                <select name="estado" id="estado" class="form-control" required>
+                    <option value="En espera" <?= $datos['estado'] == 'En espera' ? 'selected' : '' ?>>En espera</option>
+                    <option value="En curso" <?= $datos['estado'] == 'En curso' ? 'selected' : '' ?>>En curso</option>
+                    <option value="Finalizado" <?= $datos['estado'] == 'Finalizado' ? 'selected' : '' ?>>Finalizado</option>
+                </select>
+            </div>
+        </div>
+
     </div>
     <p class="text-center">
 

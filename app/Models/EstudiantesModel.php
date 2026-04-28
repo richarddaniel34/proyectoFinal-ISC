@@ -13,8 +13,8 @@ class EstudiantesModel extends Model
     protected $useSoftDeletes = false;
 
     protected $allowedFields = [
-                                'nombre', 'apellido', 'sexo', 'lugar_nacimiento', 'provincia', 'fecha_nac', 
-                                'numero_identidad', 'sigerd_id', 'direccion', 'escuela_procedencia', 
+                                'id_escuela','id_grado','nombre', 'apellido', 'sexo', 'lugar_nacimiento', 'provincia', 'fecha_nac' 
+                                ,'id_nacionalidad','numero_identidad', 'sigerd_id', 'direccion', 'escuela_procedencia', 
                                 'estado_padres', 'casa_estudiante', 'alergias', 'condicion_medica', 
                                 'medicamentos', 'tipo_sangre', 'imagen', 'matricula', 'activo'
     ];
@@ -24,7 +24,7 @@ class EstudiantesModel extends Model
     protected $updatedField = 'fecha_edit';
     protected $deletedField = 'deleted_at';
 
-    // 🔥 VALIDACIONES DIRECTAMENTE EN EL MODELO (SIN VALIDAR IMAGEN AQUÍ)
+    //  VALIDACIONES DIRECTAMENTE EN EL MODELO (SIN VALIDAR IMAGEN AQUÍ)
     protected $validationRules = [
         'nombre' => 'required',
         'apellido' => 'required',
@@ -32,16 +32,15 @@ class EstudiantesModel extends Model
         'lugar_nacimiento' => 'required',
         'provincia' => 'required',
         'fecha_nac' => 'required|valid_date',
-        'numero_identidad' => 'required|is_unique[estudiantes.numero_identidad]',
+        'numero_identidad' => 'is_unique[estudiantes.numero_identidad]',
         'sigerd_id' => 'required|is_unique[estudiantes.sigerd_id]',
         'direccion' => 'required',
-        'escuela_procedencia' => 'required',
         'estado_padres' => 'required',
         'casa_estudiante' => 'required',
         'alergias' => 'permit_empty',
         'condicion_medica' => 'permit_empty',
         'medicamentos' => 'permit_empty',
-        'tipo_sangre' => 'required',
+        'tipo_sangre' => 'permit_empty',
         'matricula' => 'required|is_unique[estudiantes.matricula]',
     ];
 
@@ -52,7 +51,7 @@ class EstudiantesModel extends Model
     ];
 
     /**
-     * 🔥 Verifica si un estudiante ya está registrado por identidad, SIGERD ID o matrícula
+     *  Verifica si un estudiante ya está registrado por identidad, SIGERD ID o matrícula
      */
     public function estudianteExiste($numeroIdentidad, $sigerdId, $matricula)
     {

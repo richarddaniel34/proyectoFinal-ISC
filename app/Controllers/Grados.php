@@ -1,9 +1,9 @@
 <?php
-
+/*
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\GradoModel;
+use App\Models\GradosModel;
 use App\Models\CursosModel;
 
 class Grados extends BaseController
@@ -13,7 +13,7 @@ class Grados extends BaseController
 
     public function __construct()
     {
-        $this->grado = new GradoModel();
+        $this->grado = new GradosModel();
         $this->curso = new CursosModel();
         $cursoModel = new CursosModel();
     }
@@ -261,7 +261,7 @@ class Grados extends BaseController
 
 }
 
-
+*/
 
 
 

@@ -16,6 +16,9 @@
         <a href="<?php echo base_url(); ?>asignatura/nuevo" class=" btn btn-primary text-light " id="plus-user"><i class="fa-solid fa-user-plus"></i>Agregar</a>
         <a href="<?php echo base_url(); ?>asignatura/eliminados" class="btn btn-danger text-light" id="minus-user"><i class="fa-solid fa-user-minus"></i> Eliminados</a>
       </p>
+      <p>
+        <a href="<?php echo base_url(); ?>distribucionasignaturas" class=" btn btn-primary text-light " id="plus-user"><i class="fa-solid fa-user-plus"></i>Distribucion de asignaturas</a>
+      </p>
     </div>
     <div class="">
 
@@ -47,30 +50,6 @@
 
             </tbody>
           </table>
-
-
-          <!--
-                    <nav aria-label="Pagination">
-                        <ul class="pagination pagination-sm">
-                          <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">«</a>
-                          </li>
-                          <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="#">1</a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item"><a class="page-link" href="#">4</a></li>
-                          <li class="page-item"><a class="page-link" href="#">5</a></li>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true">»</span>
-                              <span class="visually-hidden">Next</span>
-                            </a>
-                          </li>
-                        </ul>
-                    </nav>
-                        -->
         </div>
       </div>
     </div>

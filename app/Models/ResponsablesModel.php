@@ -14,6 +14,7 @@ class ResponsablesModel extends Model
     protected $allowedFields = [
         'nombre',
         'apellido',
+        'id_nacionalidad',
         'cedula',
         'celular',
         'telefono',
@@ -31,10 +32,9 @@ class ResponsablesModel extends Model
 
     
     protected $validationRules = [
-        'nombre'  => 'permit_empty|min_length[3]|max_length[100]',
+        'nombre' => 'permit_empty|min_length[3]|max_length[100]',
         'apellido' => 'permit_empty|min_length[3]|max_length[100]',
-        // Cedula: Permitido vacío, o si no es vacío, debe ser única y cumplir el formato.
-        'cedula' => 'permit_empty|regex_match[/^[0-9\-]+$/]|is_unique[responsables.cedula,id,{id}]',
+        'cedula' => 'permit_empty|regex_match[/^[0-9\-]+$/]',  // Quitamos is_unique
         'celular' => 'permit_empty|regex_match[/^[0-9\-\(\)\s]+$/]',
         'telefono' => 'permit_empty|regex_match[/^[0-9\-\(\)\s]+$/]',
         'direccion' => 'permit_empty|max_length[255]',
@@ -42,6 +42,8 @@ class ResponsablesModel extends Model
         'telefono_trabajo' => 'permit_empty|regex_match[/^[0-9\-\(\)\s]+$/]',
         'contacto_emergencia' => 'permit_empty|max_length[255]',
     ];
+    
+    
 
     protected $validationMessages = [
         'cedula' => [
@@ -52,6 +54,18 @@ class ResponsablesModel extends Model
             'regex_match' => 'El celular solo puede contener números, espacios, guiones y paréntesis.',
         ],
     ];
+
+    // Agregar método para verificar cédula única
+    public function isCedulaUnique($cedula, $excludeId = null)
+    {
+        $builder = $this->where('cedula', $cedula);
+        
+        if ($excludeId !== null) {
+            $builder->where('id !=', $excludeId);
+        }
+        
+        return $builder->countAllResults() === 0;
+    }
 
     protected $skipValidation = false;
 }

@@ -1,0 +1,1003 @@
+<?php
+
+namespace App\Controllers;
+
+use App\Models\InscripcionesModel;
+use App\Models\EstudiantesModel;
+use App\Models\ResponsablesModel;
+use App\Models\GradosNivelesModel;
+use App\Models\SchoolYearModel;
+use App\Models\PagosModel;
+use App\Models\ConceptoPagosModel;
+use App\Models\CursosModel;
+use App\Models\EscuelaServiciosModel;
+use App\Models\ServiciosModel;
+// Añadir la importación de TCPDF
+use TCPDF;
+
+class Pagos extends BaseController
+{
+    protected $inscripciones;
+    protected $estudiantes;
+    protected $responsables;
+    protected $schoolYear;
+    protected $pagos;
+    protected $conceptoPagos;
+    protected $cursos;
+    protected $gradosNiveles;
+    protected $escuelasServicios;
+    protected $servicios;
+
+    public function __construct()
+    {
+        $this->inscripciones = new InscripcionesModel();
+        $this->estudiantes = new EstudiantesModel();
+        $this->responsables = new ResponsablesModel();
+        $this->schoolYear = new SchoolYearModel();
+        $this->pagos = new PagosModel();
+        $this->conceptoPagos = new ConceptoPagosModel();
+        $this->cursos = new CursosModel();
+        $this->gradosNiveles = new GradosNivelesModel();
+        $this->escuelasServicios = new EscuelaServiciosModel();
+        $this->servicios = new ServiciosModel();
+    }
+
+    public function index()
+    {
+        // Obtener todos los pagos con detalles
+        $pagos = $this->pagos->getPagosConDetalles();
+
+        // Pasamos los datos a la vista
+        $data = [
+            'titulo' => 'Gestión de Pagos',
+            'pagos' => $pagos
+        ];
+
+        // Renderiza las vistas
+        echo view('header');
+        echo view('pagos/gestion_pagos', $data); // Asegúrate que esta es la ruta correcta de tu vista
+        echo view('footer');
+    }
+
+
+    //Muestra el formulario de inscripción
+    public function nueva_inscripcion()
+    {
+        // 🔹 Obtener responsables y año escolar activo
+        $responsables = $this->responsables->findAll();
+        $schoolYearActivo = $this->schoolYear->where('estado', 'En curso')->first();
+        $id_schoolYear = $schoolYearActivo ? $schoolYearActivo['id'] : null;
+
+        // 🔹 Obtener conceptos de pago
+        $conceptoInscripcion = $this->conceptoPagos->where('nombre', 'Inscripción')->first();
+        $conceptoMensualidad = $this->conceptoPagos->where('nombre', 'Mensualidad')->first();
+        $cantidadMensualidades = 12;
+
+        // 🔹 Obtener responsable y sus estudiantes
+        $id_responsable = $this->request->getGet('id_responsable') ?? null;
+
+        $estudiantes = [];
+        $grados = [];
+        $servicios = [];
+        $cursos = [];
+
+        if ($id_responsable) {
+            $estudiantesResponsable = $this->estudiantes
+                ->where('responsables', $id_responsable)
+                ->findAll();
+
+            $estudiantes = $estudiantesResponsable;
+
+            $id_escuela = $estudiantesResponsable[0]['id_escuela'] ?? null;
+
+            if ($id_escuela) {
+                // 🔹 Servicios activos
+                $servicios = $this->escuelasServicios
+                    ->select('servicios.id, servicios.nombre')
+                    ->join('servicios', 'servicios.id = escuelas_servicios.id_servicio')
+                    ->where('escuelas_servicios.id_escuela', $id_escuela)
+                    ->where('escuelas_servicios.activo', 1)
+                    ->findAll();
+
+                // 🔹 Grados disponibles
+                $grados = $this->gradosNiveles
+                    ->where('id_escuela', $id_escuela)
+                    ->orderBy('orden', 'ASC')
+                    ->findAll();
+            }
+
+            // 🔹 Precargar cursos según primer estudiante
+            if (!empty($estudiantesResponsable) && $id_schoolYear) {
+                $id_grado = $estudiantesResponsable[0]['id_grado'];
+
+                if (!empty($servicios)) {
+                    $id_servicio = $servicios[0]['id']; // Primer servicio disponible
+
+                    // 🔹 Obtener cursos filtrando por grado, servicio y año
+                    $cursos = $this->cursos
+                        ->select('cursos.id, cursos_base.nombre_curso AS nombre_curso, cursos.capacidad, cursos.tipo_aula, salidas_tecnicas.nombre AS salida_tecnica')
+                        ->join('cursos_base', 'cursos_base.id = cursos.id_cursos_base')
+                        ->join('salidas_tecnicas', 'salidas_tecnicas.id_servicio = cursos.id_servicio', 'left')
+                        ->where('cursos.id_schoolyear', $id_schoolYear)
+                        ->where('cursos.id_grado', $id_grado)
+                        ->where('cursos.id_servicio', $id_servicio)
+                        ->where('cursos.activo', 1)
+                        ->orderBy('cursos_base.nombre_curso', 'ASC')
+                        ->findAll();
+                }
+            }
+        }
+
+        $data = [
+            'titulo' => 'Nueva Inscripción',
+            'responsables' => $responsables,
+            'schoolYearActivo' => $schoolYearActivo,
+            'estudiantes' => $estudiantes,
+            'grados' => $grados,
+            'servicios' => $servicios,
+            'cursos' => $cursos,
+            'concepto_inscripcion' => $conceptoInscripcion,
+            'concepto_mensualidad' => $conceptoMensualidad,
+            'cantidad_mensualidades' => $cantidadMensualidades,
+            'id_responsable' => $id_responsable,
+        ];
+
+        echo view('header');
+        echo view('pagos/nueva_inscripcion', $data);
+        echo view('footer');
+    }
+
+
+
+
+
+
+
+
+
+    /*public function nueva_inscripcion()
+    {
+        // 🔹 Obtener responsables y año escolar activo
+        $responsables = $this->responsables->findAll();
+
+        $schoolYears = $this->schoolYear
+            ->where('estado', 'En curso')
+            ->findAll();
+
+        $schoolYearActivo = $this->schoolYear
+            ->where('estado', 'En curso')
+            ->first();
+
+        $id_schoolYear = $schoolYearActivo ? $schoolYearActivo['id'] : null;
+
+        // 🔹 Obtener conceptos de pago
+        $conceptoInscripcion = $this->conceptoPagos->where('nombre', 'Inscripción')->first();
+        $conceptoMensualidad = $this->conceptoPagos->where('nombre', 'Mensualidad')->first();
+        $cantidadMensualidades = 12; // O el número real en tu sistema
+
+        // 🔹 Obtener responsable y sus estudiantes
+        $id_responsable = $this->request->getGet('id_responsable') ?? null;
+        $id_grado = $this->request->getGet('id_grado') ?? null;
+
+        $estudiantes = [];
+        $grados = [];
+        $cursos = [];
+
+        if ($id_responsable) {
+            $estudiantesResponsable = $this->estudiantes
+                ->where('responsables', $id_responsable)
+                ->findAll();
+
+            // 🔹 Filtrar estudiantes por grado si ya se seleccionó
+            if ($id_grado) {
+                $estudiantes = array_filter($estudiantesResponsable, function ($est) use ($id_grado) {
+                    return $est['id_grado'] == $id_grado;
+                });
+            } else {
+                $estudiantes = $estudiantesResponsable;
+            }
+
+            // 🔹 Obtener escuela del primer estudiante (suponiendo que todos los hijos están en la misma escuela)
+            $id_escuela = $estudiantesResponsable[0]['id_escuela'] ?? null;
+
+            // 🔹 Cargar grados disponibles según escuela
+            if ($id_escuela) {
+                $grados = $this->gradosNiveles
+                    ->where('id_escuela', $id_escuela)
+                    ->orderBy('orden', 'ASC')
+                    ->findAll();
+            }
+        }
+
+        // 🔹 Cargar cursos según grado seleccionado
+        if ($id_grado && $id_schoolYear) {
+            $cursos = $this->cursos
+                ->select('
+                cursos.id,
+                cursos_base.nombre_curso AS nombre_curso,
+                servicios.nombre AS nombre_servicio,
+                cursos.capacidad,
+                cursos.tipo_aula
+            ')
+                ->join('cursos_base', 'cursos_base.id = cursos.id_cursos_base', 'left')
+                ->join('servicios', 'servicios.id = cursos.id_servicio', 'left')
+                ->where('cursos.id_schoolyear', $id_schoolYear)
+                ->where('cursos.id_grado', $id_grado)
+                ->where('cursos.activo', 1)
+                ->orderBy('cursos_base.nombre_curso', 'ASC')
+                ->findAll();
+        }
+
+        $data = [
+            'titulo' => 'Nueva Inscripción',
+            'responsables' => $responsables,
+            'schoolYears' => $schoolYears,
+            'estudiantes' => $estudiantes,
+            'grados' => $grados,
+            'cursos' => $cursos,
+            'concepto_inscripcion' => $conceptoInscripcion,
+            'concepto_mensualidad' => $conceptoMensualidad,
+            'cantidad_mensualidades' => $cantidadMensualidades,
+            'id_responsable' => $id_responsable,
+            'id_grado' => $id_grado,
+            'id_schoolYear' => $id_schoolYear,
+        ];
+
+        echo view('header');
+        echo view('pagos/nueva_inscripcion', $data);
+        echo view('footer');
+    }*/
+
+
+    // Carga los estudiantes según el responsable seleccionado
+    public function obtenerEstudiantes()
+    {
+        $idResponsable = $this->request->getGet('id_responsable');
+        log_message('info', "obtenerEstudiantes -> idResponsable recibido: {$idResponsable}");
+
+        if (!$idResponsable) {
+            return $this->response->setJSON([
+                'status'  => 'error',
+                'message' => 'ID del responsable no proporcionado.'
+            ]);
+        }
+
+        // SELECT sin comentarios inline
+        $estudiantes = $this->estudiantes
+            ->select([
+                'estudiantes.id',
+                'estudiantes.nombre',
+                'estudiantes.apellido',
+                'estudiantes.matricula',
+                'estudiantes.id_grado AS id_grado_nivel', // <-- sin comentario SQL
+                'estudiantes.id_escuela',
+                'grados.nombre  AS grado_nombre',
+                'niveles.nombre AS nivel_nombre',
+            ])
+            ->join('estudiantes_responsables', 'estudiantes.id = estudiantes_responsables.estudiante_id')
+            ->join('grados_niveles', 'grados_niveles.id = estudiantes.id_grado')
+            ->join('grados', 'grados.id = grados_niveles.id_grado')
+            ->join('niveles', 'niveles.id = grados_niveles.id_nivel')
+            ->where('estudiantes_responsables.responsable_id', $idResponsable)
+            ->findAll();
+
+        log_message('info', 'obtenerEstudiantes -> Estudiantes crudos obtenidos: ' . json_encode($estudiantes));
+
+        if (empty($estudiantes)) {
+            return $this->response->setJSON([
+                'status'  => 'empty',
+                'message' => 'No se encontraron estudiantes para este responsable.'
+            ]);
+        }
+
+        $db = \Config\Database::connect();
+
+        foreach ($estudiantes as &$estudiante) {
+            log_message('info', 'Procesando estudiante: ' . json_encode($estudiante));
+
+            $estudiante['grado_nivel'] = $estudiante['grado_nombre'] . ' - ' . $estudiante['nivel_nombre'];
+
+            // Inscripción actual (ajusta si tienes schoolYear en juego aquí)
+            $inscripcion = $this->inscripciones
+                ->where('id_estudiante', $estudiante['id'])
+                ->where('condicion_inicial', 'Inscrito')
+                ->first();
+            $estudiante['inscrito'] = $inscripcion ? true : false;
+
+            // Servicios de la escuela + salidas técnicas
+            $rows = $db->table('escuelas_servicios esv')
+                ->select('
+                s.id AS id_servicio,
+                s.nombre AS servicio_nombre,
+                s.activo AS servicio_activo,
+                st.id AS salida_id,
+                st.nombre AS salida_nombre
+            ')
+                ->join('servicios s', 's.id = esv.id_servicio')
+                ->join('salidas_tecnicas st', 'st.id_servicio = s.id', 'left')
+                ->where('esv.id_escuela', $estudiante['id_escuela'])
+                ->where('esv.activo', 1)
+                ->where('s.activo', 1)
+                ->orderBy('s.nombre', 'ASC')
+                ->orderBy('st.nombre', 'ASC')
+                ->get()->getResultArray();
+
+            log_message('info', "Servicios+salidas crudos (escuela {$estudiante['id_escuela']}): " . json_encode($rows));
+
+            $serviciosOpciones = [];
+            foreach ($rows as $r) {
+                $esTecnico = stripos($r['servicio_nombre'], 'técnico') !== false || stripos($r['servicio_nombre'], 'tecnico') !== false;
+                $tieneSalida = !empty($r['salida_id']);
+
+                if ($esTecnico && $tieneSalida) {
+                    $serviciosOpciones[] = [
+                        'id_servicio'   => (int) $r['id_servicio'],
+                        'nombre'        => $r['servicio_nombre'] . ' - ' . $r['salida_nombre'],
+                        'salida_id'     => (int) $r['salida_id'],
+                        'salida_nombre' => $r['salida_nombre'],
+                        'es_tecnico'    => 1,
+                    ];
+                } elseif (!$esTecnico) {
+                    $serviciosOpciones[] = [
+                        'id_servicio'   => (int) $r['id_servicio'],
+                        'nombre'        => $r['servicio_nombre'],
+                        'salida_id'     => null,
+                        'salida_nombre' => null,
+                        'es_tecnico'    => 0,
+                    ];
+                }
+            }
+
+            // quita duplicados (por si el LEFT repite no técnicos)
+            $serviciosOpciones = array_values(array_unique($serviciosOpciones, SORT_REGULAR));
+            $estudiante['servicios'] = $serviciosOpciones;
+
+            log_message('info', "Estudiante {$estudiante['id']} -> servicios mapeados: " . json_encode($serviciosOpciones));
+        }
+
+        log_message('info', 'obtenerEstudiantes -> Estudiantes procesados: ' . json_encode($estudiantes));
+
+        return $this->response->setJSON([
+            'status' => 'success',
+            'data'   => $estudiantes
+        ]);
+    }
+
+
+
+
+
+
+
+
+    //Carga los cursos según la escuela seleccionada
+    /*  public function obtenerCursosPorEscuela()
+    {
+        $idEscuela = $this->request->getPost('id_escuela');
+        $idGrado   = $this->request->getPost('id_grado');
+
+        $grados = $this->distribucionAcademica
+            ->where('id_escuela', $idEscuela)
+            ->where('id_grado', $idGrado)
+            ->findAll();
+
+        return $this->response->setJSON($grados);
+    }*/
+
+
+    //Registra la inscripción y el pago si aplica
+    public function registrar_inscripcion()
+    {
+        log_message('debug', '=== INICIO registrar_inscripcion ===');
+
+        $id_responsable = $this->request->getPost('id_responsable');
+        $metodo_pago    = $this->request->getPost('metodo_pago');
+        $inscribir      = $this->request->getPost('inscribir'); // array de estudiantes seleccionados
+        $grados         = $this->request->getPost('id_grado');
+        $escuelas       = $this->request->getPost('id_escuela');
+        $cursos         = $this->request->getPost('id_curso');
+        $montos         = $this->request->getPost('monto');
+        $pagoCompleto   = $this->request->getPost('pago_completo');
+        $id_schoolYear  = $this->request->getPost('id_schoolYear');
+        $indices        = $this->request->getPost('index') ?? []; // 🔹 aseguramos que sea un array
+
+        if (empty($inscribir)) {
+            return redirect()->back()->with('error', 'Debe seleccionar al menos un estudiante.');
+        }
+
+        if (empty($id_schoolYear)) {
+            log_message('error', '❌ Año escolar no definido en la inscripción');
+            return redirect()->back()->with('error', 'No se pudo identificar el año escolar activo.');
+        }
+
+        $conceptoMensualidad = $this->conceptoPagos->where('nombre', 'Mensualidad')->first();
+        $monto_mensualidad   = $conceptoMensualidad['monto'] ?? 0;
+
+        $pagosParaFactura = [];
+        $totalFactura     = 0;
+        $detallesFactura  = [];
+
+        $db = \Config\Database::connect();
+        $db->transStart();
+
+        foreach ($inscribir as $i => $id_estudiante) {
+
+            // 🔹 Si no existe índice, usamos la posición $i por defecto
+            $index = $indices[$i] ?? $i;
+
+            $id_grado   = $grados[$index] ?? null;
+            $id_escuela = $escuelas[$index] ?? null;
+            $id_curso   = $cursos[$index] ?? null;
+            $monto_pago_inscripcion = floatval(str_replace(',', '', $montos[$index] ?? '0'));
+
+            if (!$id_grado || !$id_escuela) {
+                log_message('error', "❌ Datos incompletos para estudiante $id_estudiante");
+                continue; // saltamos este estudiante
+            }
+
+            // Evitar duplicados
+            $existe = $this->inscripciones
+                ->where('id_estudiante', $id_estudiante)
+                ->where('id_grado', $id_grado)
+                ->where('id_schoolYear', $id_schoolYear)
+                ->where('activo', 1)
+                ->first();
+
+            if ($existe) {
+                log_message('error', "❌ El estudiante $id_estudiante ya está inscrito en grado $id_grado para año $id_schoolYear");
+                $db->transRollback();
+                return redirect()->back()->with('error', 'El estudiante ya está inscrito en este grado.');
+            }
+
+            $estudiante = $this->estudiantes->find($id_estudiante);
+
+            // Guardar pago de inscripción
+            $pagoInscripcionData = [
+                'id_concepto'    => 1,
+                'id_responsable' => $id_responsable,
+                'id_estudiante'  => $id_estudiante,
+                'id_schoolYear'  => $id_schoolYear,
+                'monto'          => $monto_pago_inscripcion,
+                'metodo_pago'    => $metodo_pago,
+                'estado'         => 'Pago',
+                'fecha_pago'     => date('Y-m-d')
+            ];
+
+            if (!$this->pagos->save($pagoInscripcionData)) {
+                log_message('error', '❌ Error guardando pago inscripción: ' . json_encode($this->pagos->errors()));
+                $db->transRollback();
+                return redirect()->back()->with('error', 'Error al registrar el pago de inscripción.');
+            }
+
+            $id_pago_inscripcion = $this->pagos->getInsertID();
+
+            $pagosParaFactura[] = $id_pago_inscripcion;
+            $totalFactura      += $monto_pago_inscripcion;
+            $detallesFactura[] = [
+                'concepto'   => 'Inscripción',
+                'estudiante' => $estudiante['nombre'] . ' ' . $estudiante['apellido'],
+                'monto'      => $monto_pago_inscripcion
+            ];
+
+            // Guardar inscripción
+            $inscripcionData = [
+                'id_estudiante' => $id_estudiante,
+                'id_grado'      => $id_grado,
+                'id_seccion'    => null,
+                'id_curso'      => $id_curso,
+                'id_escuela'    => $id_escuela,
+                'id_schoolYear' => $id_schoolYear,
+                'id_pago'       => $id_pago_inscripcion,
+                'activo'        => 1
+            ];
+
+            log_message('debug', '=== Datos recibidos para inscripción ===');
+            log_message('debug', print_r($this->request->getPost(), true));
+
+
+
+            if (!$this->inscripciones->save($inscripcionData)) {
+                log_message('error', '❌ Error guardando inscripción: ' . json_encode($this->inscripciones->errors()));
+                $db->transRollback();
+                return redirect()->back()->with('error', 'Error al registrar la inscripción.');
+            }
+
+            // Registrar mensualidades si paga el año completo
+            if ($pagoCompleto) {
+                $meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+                foreach ($meses as $mes_nombre) {
+                    $pagoMensualidadData = [
+                        'id_concepto'    => $conceptoMensualidad['id'],
+                        'id_responsable' => $id_responsable,
+                        'id_estudiante'  => $id_estudiante,
+                        'id_schoolYear'  => $id_schoolYear,
+                        'monto'          => $monto_mensualidad,
+                        'metodo_pago'    => $metodo_pago,
+                        'estado'         => 'Pago',
+                        'fecha_pago'     => date('Y-m-d'),
+                        'mes'            => $mes_nombre
+                    ];
+                    if (!$this->pagos->save($pagoMensualidadData)) {
+                        log_message('error', "❌ Error guardando mensualidad ($mes_nombre): " . json_encode($this->pagos->errors()));
+                        $db->transRollback();
+                        return redirect()->back()->with('error', 'Error al registrar las mensualidades.');
+                    }
+
+                    $id_pago_mensualidad = $this->pagos->getInsertID();
+                    $pagosParaFactura[]   = $id_pago_mensualidad;
+                    $totalFactura        += $monto_mensualidad;
+                    $detallesFactura[]    = [
+                        'concepto'   => "Mensualidad ($mes_nombre)",
+                        'estudiante' => $estudiante['nombre'] . ' ' . $estudiante['apellido'],
+                        'monto'      => $monto_mensualidad
+                    ];
+                }
+            }
+        }
+
+        $db->transComplete();
+
+        if ($db->transStatus() === false) {
+            log_message('error', '❌ Error en transacción de inscripción.');
+            return redirect()->back()->with('error', 'Error al registrar la inscripción.');
+        }
+
+        if (!empty($pagosParaFactura)) {
+            $id_factura = $this->generarFactura($id_responsable, $pagosParaFactura, $totalFactura, $detallesFactura);
+            if ($id_factura) {
+                return redirect()->to(site_url('pagos/verFactura/' . $id_factura))
+                    ->with('success', 'Inscripción y pagos registrados correctamente. Puede imprimir la factura ahora.');
+            } else {
+                log_message('error', '❌ No se pudo generar la factura.');
+                return redirect()->back()->with('error', 'Error al generar la factura.');
+            }
+        } else {
+            log_message('error', '❌ No se generó la factura: lista de pagos vacía');
+            return redirect()->back()->with('error', 'No se pudo generar la factura.');
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Genera una factura para los pagos realizados
+    private function generarFactura($id_responsable, $pagos, $total, $detalles)
+    {
+        log_message('debug', '--- Generando nueva factura ---');
+        log_message('debug', "Responsable ID: $id_responsable");
+        log_message('debug', 'Pagos: ' . json_encode($pagos));
+        log_message('debug', 'Total: ' . $total);
+        log_message('debug', 'Detalles: ' . json_encode($detalles));
+
+        $facturaModel = new \App\Models\FacturaModel();
+        $responsable = $this->responsables->find($id_responsable);
+
+        if (!$responsable) {
+            log_message('error', "❌ No se encontró el responsable con ID: $id_responsable");
+            return false;
+        }
+
+        $numeroFactura = 'FAC-' . date('Ymd') . '-' . uniqid();
+
+        $facturaData = [
+            'numero_factura' => $numeroFactura,
+            'id_responsable' => $id_responsable,
+            'nombre_responsable' => $responsable['nombre'] . ' ' . $responsable['apellido'],
+            'fecha_emision' => date('Y-m-d'),
+            'total' => $total,
+            'estado' => 'Pago',
+            'detalles' => json_encode($detalles),
+            'pagos_relacionados' => json_encode($pagos)
+        ];
+
+        log_message('debug', 'Datos de factura a guardar: ' . json_encode($facturaData));
+
+        if (!$facturaModel->save($facturaData)) {
+            log_message('error', '❌ Error guardando factura: ' . json_encode($facturaModel->errors()));
+            return false;
+        }
+
+        $id_factura = $facturaModel->getInsertID();
+        log_message('debug', "✅ Factura guardada correctamente. ID generado: $id_factura");
+
+        // Actualizar los pagos con el ID de la factura
+        foreach ($pagos as $id_pago) {
+            $this->pagos->update($id_pago, ['id_factura' => $id_factura]);
+            log_message('debug', "🧾 Pago $id_pago vinculado a factura $id_factura");
+        }
+
+        log_message('debug', '--- Fin del proceso de generación de factura ---');
+        return $id_factura;
+    }
+
+
+
+
+
+
+
+
+
+
+    //Genera e imprime un PDF de la factura
+    public function imprimirFactura($id_factura)
+    {
+        // Cargar el modelo de facturas
+        $facturaModel = new \App\Models\FacturaModel();
+
+        // Obtener los datos de la factura
+        $factura = $facturaModel->find($id_factura);
+
+        if (!$factura) {
+            return redirect()->back()->with('error', 'Factura no encontrada.');
+        }
+
+        // Decodificar los detalles de la factura
+        $detalles = json_decode($factura['detalles'], true);
+
+        // Crear una instancia de TCPDF con valores explícitos en lugar de constantes
+        $pdf = new \TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
+
+        // Establecer información del documento
+        $pdf->SetCreator('EDSN Sistema');
+        $pdf->SetAuthor('Sistema EDSN');
+        $pdf->SetTitle('Factura #' . $factura['numero_factura']);
+        $pdf->SetSubject('Factura');
+        $pdf->SetKeywords('Factura, Pago, EDSN');
+
+        // Eliminar cabecera y pie de página predeterminados
+        $pdf->setPrintHeader(false);
+        $pdf->setPrintFooter(false);
+
+        // Establecer márgenes
+        $pdf->SetMargins(15, 15, 15);
+
+        // Establecer saltos de página automáticos
+        $pdf->SetAutoPageBreak(true, 15);
+
+        // Establecer la fuente
+        $pdf->SetFont('helvetica', '', 10);
+
+        // Añadir una página
+        $pdf->AddPage();
+
+        // Logo de la escuela (ajusta la ruta según donde esté tu logo)
+        $logoPath = FCPATH . 'assets/img/logo.png';
+        if (file_exists($logoPath)) {
+            $pdf->Image($logoPath, 15, 15, 30, 0, 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+        }
+
+        // Título de la factura
+        $pdf->SetFont('helvetica', 'B', 16);
+        $pdf->Cell(0, 10, 'FACTURA', 0, 1, 'C');
+        $pdf->SetFont('helvetica', '', 12);
+        $pdf->Cell(0, 6, 'Nº: ' . $factura['numero_factura'], 0, 1, 'C');
+        $pdf->Ln(10);
+
+        // Información de la escuela
+        $pdf->SetFont('helvetica', 'B', 12);
+        $pdf->Cell(0, 6, 'ESCUELA EDSN', 0, 1, 'L');
+        $pdf->SetFont('helvetica', '', 10);
+        $pdf->Cell(0, 6, 'Dirección: Calle Principal #123', 0, 1, 'L');
+        $pdf->Cell(0, 6, 'Teléfono: (123) 456-7890', 0, 1, 'L');
+        $pdf->Cell(0, 6, 'Email: info@edsn.edu', 0, 1, 'L');
+        $pdf->Ln(5);
+
+        // Información del cliente
+        $pdf->SetFont('helvetica', 'B', 12);
+        $pdf->Cell(0, 6, 'DATOS DEL CLIENTE', 0, 1, 'L');
+        $pdf->SetFont('helvetica', '', 10);
+        $pdf->Cell(0, 6, 'Responsable: ' . $factura['nombre_responsable'], 0, 1, 'L');
+        $pdf->Cell(0, 6, 'Fecha de emisión: ' . date('d/m/Y', strtotime($factura['fecha_emision'])), 0, 1, 'L');
+        $pdf->Ln(5);
+
+        // Tabla de detalles
+        $pdf->SetFont('helvetica', 'B', 12);
+        $pdf->Cell(0, 6, 'DETALLES DE LA FACTURA', 0, 1, 'L');
+        $pdf->Ln(2);
+
+        // Cabecera de la tabla
+        $pdf->SetFillColor(240, 240, 240);
+        $pdf->SetFont('helvetica', 'B', 10);
+        $pdf->Cell(90, 7, 'Concepto', 1, 0, 'C', true);
+        $pdf->Cell(60, 7, 'Estudiante', 1, 0, 'C', true);
+        $pdf->Cell(30, 7, 'Monto', 1, 1, 'C', true);
+
+        // Agrupar detalles por concepto y estudiante
+        $detallesAgrupados = [];
+        foreach ($detalles as $detalle) {
+            // Si es mensualidad, extraemos el estudiante para agrupar
+            if (strpos($detalle['concepto'], 'Mensualidad') !== false) {
+                $key = 'Mensualidad-' . $detalle['estudiante'];
+                if (!isset($detallesAgrupados[$key])) {
+                    $detallesAgrupados[$key] = [
+                        'concepto' => 'Mensualidades (Anual)',
+                        'estudiante' => $detalle['estudiante'],
+                        'monto' => 0,
+                        'count' => 0
+                    ];
+                }
+                $detallesAgrupados[$key]['monto'] += $detalle['monto'];
+                $detallesAgrupados[$key]['count']++;
+            } else {
+                // Para otros conceptos como inscripción, los mantenemos individuales
+                $key = $detalle['concepto'] . '-' . $detalle['estudiante'] . '-' . uniqid();
+                $detallesAgrupados[$key] = $detalle;
+            }
+        }
+
+        // Contenido de la tabla
+        $pdf->SetFont('helvetica', '', 10);
+        foreach ($detallesAgrupados as $detalle) {
+            $concepto = $detalle['concepto'];
+            // Si es mensualidad agrupada, añadimos el número de meses
+            if (isset($detalle['count']) && $detalle['count'] > 0) {
+                $concepto = 'Mensualidades (' . $detalle['count'] . ' meses)';
+            }
+
+            $pdf->Cell(90, 7, $concepto, 1, 0, 'L');
+            $pdf->Cell(60, 7, $detalle['estudiante'], 1, 0, 'L');
+            $pdf->Cell(30, 7, '$' . number_format($detalle['monto'], 2), 1, 1, 'R');
+        }
+
+        // Total
+        $pdf->SetFont('helvetica', 'B', 10);
+        $pdf->Cell(150, 7, 'TOTAL', 1, 0, 'R', true);
+        $pdf->Cell(30, 7, '$' . number_format($factura['total'], 2), 1, 1, 'R', true);
+
+        // Pie de página con términos y condiciones
+        $pdf->Ln(10);
+        $pdf->SetFont('helvetica', 'B', 10);
+        $pdf->Cell(0, 6, 'TÉRMINOS Y CONDICIONES', 0, 1, 'L');
+        $pdf->SetFont('helvetica', '', 8);
+        $pdf->MultiCell(0, 5, 'Esta factura es un comprobante de pago por los servicios educativos prestados. Los pagos realizados no son reembolsables. Para cualquier consulta, por favor contacte a la administración de la escuela.', 0, 'L', false);
+
+        // Firma
+        $pdf->Ln(15);
+        $pdf->Line(15, $pdf->GetY(), 80, $pdf->GetY());
+        $pdf->Cell(65, 6, 'Firma Autorizada', 0, 0, 'C');
+
+        // Generar el PDF
+        $pdfName = 'Factura_' . $factura['numero_factura'] . '.pdf';
+        $pdf->Output($pdfName, 'D'); // 'D' para forzar la descarga
+        exit;
+    }
+
+
+
+    //Muestra los detalles de una factura con opción para imprimir
+    public function verFactura($id_factura)
+    {
+        // Cargar el modelo de facturas
+        $facturaModel = new \App\Models\FacturaModel();
+
+        // Obtener los datos de la factura
+        $factura = $facturaModel->find($id_factura);
+
+        if (!$factura) {
+            return redirect()->to(base_url('/pagos'))->with('error', 'Factura no encontrada.');
+        }
+
+        // Decodificar los detalles de la factura
+        $detalles = json_decode($factura['detalles'], true);
+
+        $data = [
+            'titulo' => 'Detalles de Factura',
+            'factura' => $factura,
+            'detalles' => $detalles
+        ];
+
+        echo view('header');
+        echo view('pagos/ver_factura', $data);
+        echo view('footer');
+    }
+
+
+    //Obtiene las mensualidades pendientes de los estudiantes de un responsable
+    public function obtenerMensualidadesPendientes()
+    {
+        $id_responsable = $this->request->getGet('id_responsable');
+        $id_schoolYear = $this->request->getGet('id_schoolYear');
+
+        // 🔹 Validar parámetros obligatorios
+        if (!$id_responsable || !$id_schoolYear) {
+            return $this->response->setJSON([
+                'status'  => 'error',
+                'message' => 'Faltan parámetros requeridos (responsable o año escolar).'
+            ]);
+        }
+
+        try {
+            // 🔹 Obtener estudiantes inscritos del responsable en el año escolar actual
+            //$estudiantes = $this->inscripciones->getEstudiantesInscritos($id_responsable, $id_schoolYear);
+            $estudiantes = $this->inscripciones->getEstudiantesInscritosPorResponsable($id_responsable, $id_schoolYear);
+
+
+            if (empty($estudiantes)) {
+                return $this->response->setJSON([
+                    'status'  => 'empty',
+                    'message' => 'No hay estudiantes inscritos para este responsable en el año escolar seleccionado.'
+                ]);
+            }
+
+            // 🔹 Recorremos los estudiantes para obtener sus meses pendientes
+            $resultado = [];
+            foreach ($estudiantes as $estudiante) {
+                $mesesPendientes = $this->pagos->getMesesPendientes($estudiante['id'], $id_schoolYear);
+
+                if (!empty($mesesPendientes)) {
+                    $resultado[] = [
+                        'id'               => $estudiante['id'],
+                        'nombre'           => $estudiante['nombre'],
+                        'apellido'         => $estudiante['apellido'],
+                        'curso'            => $estudiante['curso'],
+                        'meses_pendientes' => $mesesPendientes
+                    ];
+                }
+            }
+
+            if (empty($resultado)) {
+                return $this->response->setJSON([
+                    'status'  => 'empty',
+                    'message' => 'No hay mensualidades pendientes para los estudiantes de este responsable.'
+                ]);
+            }
+
+            // ✅ Respuesta exitosa
+            return $this->response->setJSON([
+                'status' => 'success',
+                'data'   => $resultado
+            ]);
+        } catch (\Exception $e) {
+            log_message('error', 'Error al obtener mensualidades pendientes: ' . $e->getMessage());
+
+            return $this->response->setJSON([
+                'status'  => 'error',
+                'message' => 'Ha ocurrido un error inesperado. Intente nuevamente más tarde.'
+            ]);
+        }
+    }
+
+    //Registra el pago de mensualidades
+    public function registrarPagoMensualidad()
+    {
+        $id_responsable = $this->request->getPost('id_responsable');
+        $id_schoolYear = $this->request->getPost('id_schoolYear');
+        $metodo_pago = $this->request->getPost('metodo_pago');
+        $estudiantes = $this->request->getPost('estudiantes');
+        $meses = $this->request->getPost('meses');
+
+        if (!$id_responsable || !$metodo_pago || !$estudiantes || !$meses) {
+            return redirect()->back()->with('error', 'Faltan datos requeridos para procesar el pago.');
+        }
+
+        $responsable = $this->responsables->find($id_responsable);
+        if (!$responsable) {
+            return redirect()->back()->with('error', 'Responsable no encontrado.');
+        }
+
+        $pagosParaFactura = [];
+        $totalFactura = 0;
+        $detallesFactura = [];
+
+        foreach ($estudiantes as $id_estudiante) {
+
+            if (!isset($meses[$id_estudiante]) || empty($meses[$id_estudiante])) {
+                continue;
+            }
+
+            $estudiante = $this->estudiantes->find($id_estudiante);
+            if (!$estudiante) {
+                continue;
+            }
+
+            $conceptoMensualidad = $this->conceptoPagos->where('nombre', 'Mensualidad')->first();
+            if (!$conceptoMensualidad) {
+                return redirect()->back()->with('error', 'Concepto de mensualidad no encontrado.');
+            }
+
+            foreach ($meses[$id_estudiante] as $mes) {
+
+                $pagoMensualidadData = [
+                    'id_concepto'    => $conceptoMensualidad['id'],
+                    'id_responsable' => $id_responsable,
+                    'id_estudiante'  => $id_estudiante,
+                    'id_schoolYear'  => $id_schoolYear, // ⬅️ Aquí agregas el año escolar al pago
+                    'monto'          => $conceptoMensualidad['monto'],
+                    'metodo_pago'    => $metodo_pago,
+                    'estado'         => 'Pago',
+                    'fecha_pago'     => date('Y-m-d'),
+                    'mes'            => $mes
+                ];
+
+
+                if (!$this->pagos->save($pagoMensualidadData)) {
+                    log_message('error', ' Error guardando pago mensualidad: ' . json_encode($this->pagos->errors()));
+                    return redirect()->back()->with('error', 'Error al registrar el pago de mensualidad.');
+                }
+
+                $id_pago_mensualidad = $this->pagos->getInsertID();
+
+                $pagosParaFactura[] = $id_pago_mensualidad;
+                $totalFactura += $conceptoMensualidad['monto'];
+
+                $nombreMes = $this->obtenerNombreMes($mes);
+
+                $detallesFactura[] = [
+                    'concepto' => 'Mensualidad - ' . $nombreMes,
+                    'estudiante' => $estudiante['nombre'] . ' ' . $estudiante['apellido'],
+                    'monto' => $conceptoMensualidad['monto']
+                ];
+            }
+        }
+
+        if (!empty($pagosParaFactura)) {
+            $id_factura = $this->generarFactura($id_responsable, $pagosParaFactura, $totalFactura, $detallesFactura);
+
+            if ($id_factura) {
+                return redirect()->to(base_url('/inscripciones/verFactura/' . $id_factura))
+                    ->with('success', 'Pagos de mensualidades registrados correctamente. Puede imprimir la factura ahora.');
+            }
+        }
+
+        return redirect()->to(base_url('/inscripciones/mensualidades'))
+            ->with('success', 'Pagos de mensualidades registrados correctamente.');
+    }
+
+
+    //Obtiene el nombre del mes según su número
+    private function obtenerNombreMes($numeroMes)
+    {
+        $meses = [
+            1 => 'Enero',
+            2 => 'Febrero',
+            3 => 'Marzo',
+            4 => 'Abril',
+            5 => 'Mayo',
+            6 => 'Junio',
+            7 => 'Julio',
+            8 => 'Agosto',
+            9 => 'Septiembre',
+            10 => 'Octubre',
+            11 => 'Noviembre',
+            12 => 'Diciembre'
+        ];
+
+        return isset($meses[$numeroMes]) ? $meses[$numeroMes] : 'Mes ' . $numeroMes;
+    }
+
+    //Muestra la página para pagar mensualidades
+    public function otros_pagos()
+    {
+        $data = [
+            'titulo' => 'Pago de Mensualidades',
+            'responsables' => $this->responsables->findAll(),
+            'schoolYears' => $this->schoolYear->findAll()
+        ];
+
+        echo view('header');
+        echo view('pagos/otros_pagos', $data);
+        echo view('footer');
+    }
+}
+        // El resto del código permanece igual

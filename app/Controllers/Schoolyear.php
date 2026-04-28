@@ -42,28 +42,43 @@ class Schoolyear extends BaseController
 
     public function insertar()
     {
-        // Verifica si hay un año escolar sin fecha de término válida
-        $añoSinTermino = $this->schoolyear
-            ->where('fecha_termino', '0000-00-00')
-            ->orWhere('fecha_termino', null)
-            ->first(); // Busca el primer registro con fecha de término vacía
+        log_message('debug', 'Iniciando inserción de año escolar.');
 
-        if ($añoSinTermino) {
-            // Si existe un año sin fecha de término, devuelve un error
-            return redirect()->to(base_url() . '/schoolyear')
-                ->with('error', 'No puedes registrar un nuevo año escolar mientras el anterior no tenga una fecha de término válida.');
+        // Verifica si ya existe un año escolar en espera
+        $periodoEnEspera = $this->schoolyear
+            ->where('estado', 'En espera')
+            ->first();
+
+        if ($periodoEnEspera) {
+            log_message('debug', 'Ya existe un año escolar en estado "En espera" con ID: ' . $periodoEnEspera['id']);
+
+            // Flashdata y redirección al index del módulo
+            return redirect()->to(base_url('/schoolyear'))
+                ->with('error', 'Ya existe un período escolar en estado "En espera". Finalízalo o actívalo antes de agregar uno nuevo.');
         }
 
-        // Si no hay conflictos, inserta el nuevo año escolar
-        $this->schoolyear->save([
+        // No hay conflicto → insertar
+        $save = $this->schoolyear->save([
             'nombre' => $this->request->getPost('nombre'),
             'fecha_inicio' => $this->request->getPost('fecha_inicio'),
             'fecha_termino' => $this->request->getPost('fecha_termino'),
-            'codigo' => $this->request->getPost('codigo')
+            'codigo' => $this->request->getPost('codigo'),
+            'estado' => 'En espera' // Insertar con estado fijo
         ]);
 
-        return redirect()->to(base_url() . '/schoolyear')->with('success', 'Año escolar registrado con éxito.');
+        if ($save) {
+            log_message('debug', 'Año escolar insertado correctamente.');
+        } else {
+            log_message('error', 'Error al insertar el año escolar.');
+        }
+
+        return redirect()->to(base_url('/schoolyear'))
+            ->with('success', 'Año escolar registrado correctamente con estado "En espera".');
     }
+
+
+
+
 
 
 
@@ -90,6 +105,7 @@ class Schoolyear extends BaseController
 
     public function actualizar($id)
     {
+        log_message('debug', "Actualizando año escolar con ID: $id");
 
         // Buscar el año escolar en la base de datos
         $añoEscolar = $this->schoolyear->find($id);
@@ -99,17 +115,43 @@ class Schoolyear extends BaseController
         }
 
         // Obtener datos del formulario
+        $nuevoEstado = $this->request->getPost('estado');
+
+        // Validación: si se intenta activar como "En curso"
+        if ($nuevoEstado === 'En curso') {
+            $enCursoExistente = $this->schoolyear
+                ->where('estado', 'En curso')
+                ->where('id !=', $id)
+                ->first();
+
+            if ($enCursoExistente) {
+                return redirect()->to(base_url() . '/schoolyear')
+                    ->with('error', 'Ya existe un período escolar en curso. Finalízalo antes de activar otro.');
+            }
+        }
+
+        // Validación: si se intenta marcar como "Finalizado" pero no estaba en curso
+        if ($nuevoEstado === 'Finalizado' && $añoEscolar['estado'] !== 'En curso') {
+            return redirect()->to(base_url() . '/schoolyear')
+                ->with('error', 'Solo se puede finalizar un período que esté en curso.');
+        }
+
+        // Preparar datos para actualizar
         $data = [
             'nombre' => $this->request->getPost('nombre'),
             'fecha_inicio' => $this->request->getPost('fecha_inicio'),
             'fecha_termino' => $this->request->getPost('fecha_termino'),
-            'codigo' => $this->request->getPost('codigo')
+            'codigo' => $this->request->getPost('codigo'),
+            'estado' => $nuevoEstado
         ];
 
-        // Permitir la edición sin restricciones
+        // Actualizar
         $this->schoolyear->update($id, $data);
 
-        return redirect()->to(base_url() . '/schoolyear')->with('success', 'Año escolar actualizado con éxito.');
+        log_message('debug', "Año escolar con ID $id actualizado correctamente.");
+
+        return redirect()->to(base_url() . '/schoolyear')
+            ->with('success', 'Año escolar actualizado con éxito.');
     }
 
 

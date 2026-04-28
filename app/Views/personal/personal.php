@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
   <div class="page-header">
-    <h1 class="text-titles"><i class=" fa-solid fa-users"></i> Configuración/ <small><?php print_r($titulo) ?></small></h1>
+    <h1 class="text-titles"><i class=" fa-solid fa-users"></i> <?php print_r($titulo1) ?> <small><?php print_r($titulo2) ?></small></h1>
   </div>
 </div>
 
@@ -17,6 +17,8 @@
         <a href="<?php echo base_url(); ?>personal/eliminados" class="btn btn-danger text-light" id="minus-user"><i class="fa-solid fa-user-minus"></i> Eliminados</a>
       </p>
     </div>
+
+
     <div class="">
       <div class="tab-pane " id="list">
         <div class="table-responsive">
@@ -26,7 +28,7 @@
                 <th class="text-center">Nombre (s)</th>
                 <th class="text-center">Apellido (s)</th>
                 <th class="text-center">Cedula</th>
-                <th class="text-center">Celular</th>
+                <th class="text-center">Télefono / Célular</th>
                 <th class="text-center">Direccion</th>
                 <th class="text-center"></th>
                 <th class="text-center"></th>
@@ -39,42 +41,70 @@
                   <td> <?php echo $dato['nombre'] ?> </td>
                   <td> <?php echo $dato['apellido'] ?> </td>
                   <td> <?php echo $dato['cedula'] ?> </td>
-                  <td> <?php echo $dato['telefono'] ?> </td>
+                  <td> <?php echo $dato['telefono'] . ' / ' . $dato['celular']; ?>
+                  </td>
                   <td> <?php echo $dato['direccion'] ?> </td>
                   <td><a href="#" class="text-primary" onclick="visualizarPersonal(<?= $dato['id']; ?>)"><i class="fa-solid fa-eye"></i></a></td>
-                  <td><a href="#" class="text-warning" onclick="editarPersonal(<?= $dato['id']; ?>)"><i class="fa-solid fa-edit"></i></a></td>
-                  <td><a href="<?php echo base_url() . '/personal/eliminar/' . $dato['id']; ?>" class="text-danger"><i class="fa-solid fa-trash"></i></a></td>
+                  <td><a href="<?php echo base_url() . 'personal/editar/' . $dato['id']; ?>" class="text-warning"><i class="fa-solid fa-edit"></i></a></td>
+                  <td><a href="<?php echo base_url() . 'personal/eliminar/' . $dato['id']; ?>" class="text-danger"><i class="fa-solid fa-trash"></i></a></td>
 
                 </tr>
               <?php } ?>
 
             </tbody>
           </table>
-
-
-          <!--
-                    <nav aria-label="Pagination">
-                        <ul class="pagination pagination-sm">
-                          <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">«</a>
-                          </li>
-                          <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="#">1</a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item"><a class="page-link" href="#">4</a></li>
-                          <li class="page-item"><a class="page-link" href="#">5</a></li>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true">»</span>
-                              <span class="visually-hidden">Next</span>
-                            </a>
-                          </li>
-                        </ul>
-                    </nav>
-                        -->
         </div>
+      </div>
+      <div>
+        <h3>Leyenda:</h3>
+        <p>
+          <i class="fa-solid fa-eye"></i> <strong>Ver</strong> – Visualizar los detalles del registro |
+           <i class="fa-solid fa-edit"></i> <strong>Editar</strong> – Modificar los datos del registro |
+           <i class="fa-solid fa-trash"></i> <strong>Eliminar</strong> – Inactivar o eliminar el registro
+        </p>
       </div>
     </div>
 </main>
+
+
+<?= $this->section('scripts') ?>
+<script>
+  function visualizarPersonal(id) {
+    // Eliminar cualquier modal previo para evitar duplicados
+    $('#visualizarModal').remove();
+    // Agregar el modal dinámicamente al body
+    $('body').append(`
+        <div class="modal fade" id="visualizarModal" tabindex="-1" role="dialog" aria-labelledby="visualizarModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width: 80%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="visualizarModalLabel"> Datos de la Escuela</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="visualizar-modal-body">
+                        <!-- Aquí se cargará el formulario de edición vía AJAX -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    `);
+
+    // Llamada Ajax para cargar el contenido del modal
+    $.ajax({
+      url: baseUrl + '/personal/visualizar/' + id,
+      type: "GET",
+      success: function(response) {
+        $('#visualizar-modal-body').html(response);
+        $('#visualizarModal').modal('show');
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.error("Error al obtener los datos:", textStatus, errorThrown);
+        alert("Error al obtener los datos de la escuela");
+      }
+    });
+  }
+</script>
+
+<?= $this->endSection() ?>

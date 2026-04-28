@@ -39,19 +39,64 @@ $routes->get('logout', 'Usuarios::logout');
 $routes->group('', ['filter' => 'auth'], function($routes) {
     $routes->get('home', 'Home::index');
     $routes->get('usuarios/cambio_clave', 'Usuarios::cambioClave');
+    $routes->post('usuarios/actualizarClave', 'Usuarios::actualizarClave');
+    
+
     // otras rutas protegidas
-}); // Controlador Usuarios, método logout
+}); 
+// Controlador Usuarios, método logout
+
+$routes->get('calificaciones/buscar-docentes', 'Calificaciones::buscarDocentes');
+$routes->get('calificaciones/buscar-cursos/(:num)', 'Calificaciones::buscarCursos/$1');
+$routes->get('calificaciones/buscar-asignaturas/(:num)/(:num)', 'Calificaciones::buscarAsignaturas/$1/$2');
+$routes->get('calificaciones/obtener-distribucion-asignatura', 'Calificaciones::obtenerDistribucionAsignatura');
+$routes->get('calificaciones/estudiantes-por-curso/(:num)', 'Calificaciones::estudiantesPorCurso/$1');
+$routes->post('calificaciones/bloquear-periodo', 'Calificaciones::bloquearPeriodo');
+$routes->post('calificaciones/guardar-configuracion-periodos', 'Calificaciones::guardarConfiguracionPeriodos');
+$routes->get('escuela/visualizar', 'Escuela::visualizar'); // Sin ID (usa sesión)
+$routes->get('escuela/visualizar/(:num)', 'Escuela::visualizar/$1'); // Con ID directo
+$routes->post('escuela/actualizar', 'Escuela::actualizar');
+$routes->get('grados-y-secciones', 'GradosSecciones::index');
+$routes->get('grados-y-secciones/grados', 'GradosSecciones::grados');
+$routes->get('grados-y-secciones/grados/grados_inactivos', 'GradosSecciones::grados_inactivos');
+$routes->get('grados-y-secciones/grados/inactivar_grado/(:num)', 'GradosSecciones::inactivar_grado/$1');
+$routes->get('grados-y-secciones/grados/restaurar_grado/(:num)', 'GradosSecciones::restaurar_grado/$1');
+
+$routes->get('grados-y-secciones/cursos', 'GradosSecciones::cursos');
+$routes->get('grados-y-secciones/cursos/curso_nuevo', 'GradosSecciones::curso_nuevo');
+
+
+$routes->get('grados-y-secciones/configurar_cursos', 'GradosSecciones::configurar_cursos');
+
+$routes->get('gradossecciones/obtener_cursos_por_servicio/(:num)', 'GradosSecciones::obtenerCursosPorServicio/$1');
+$routes->post('gradossecciones/guardar_configuracion_cursos', 'GradosSecciones::guardar_configuracion_cursos');
+
+
+$routes->post('cursosbase/insertar', 'CursosBase::insertar');
+
+/* ESTUDIANTES */
+$routes->post('estudiantes/actualizar', 'Estudiantes::actualizar');
+
+
+$routes->get('calificaciones/reporte', 'Calificaciones::generarReportePDF');
 
 
 
-$routes->get('inscripciones/verFactura/(:num)', 'Inscripciones::verFactura/$1');
-$routes->get('inscripciones/imprimirFactura/(:num)', 'Inscripciones::imprimirFactura/$1');
 
-$routes->get('inscripciones/obtenerMensualidadesPendientes', 'Inscripciones::obtenerMensualidadesPendientes');
-$routes->post('inscripciones/registrarPagoMensualidad', 'Inscripciones::registrarPagoMensualidad');
-$routes->get('inscripciones/mensualidades', 'Inscripciones::mensualidades');
+$routes->get('usuarios/listarUsuarios', 'Usuarios::listarUsuarios');
+
+
+$routes->get('pagos/verFactura/(:num)', 'pagos::verFactura/$1');
+$routes->get('pagos/imprimirFactura/(:num)', 'pagos::imprimirFactura/$1');
+
+$routes->get('pagos/obtenerMensualidadesPendientes', 'pagos::obtenerMensualidadesPendientes');
+$routes->post('pagos/registrarPagoMensualidad', 'pagos::registrarPagoMensualidad');
+$routes->get('pagos/mensualidades', 'pagos::mensualidades');
 $routes->post('responsables/obtenerMunicipios', 'Responsables::obtenerMunicipios');
 $routes->post('responsables/obtenerDistritos', 'Responsables::obtenerDistritos');
+
+$routes->get('reportes/estadisticas/estadistica_personal', 'Reportes::estadistica_personal');
+$routes->get('reportes/listados/listado_personal', 'Reportes::listado_personal');
 
 
 

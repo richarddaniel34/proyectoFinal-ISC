@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use CodeIgniter\Model;
 
 class EscuelaModel extends Model
@@ -11,9 +12,23 @@ class EscuelaModel extends Model
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = [ 'nombre', 'id_nivel', 'id_modalidad', 'codigo_gestion',
-                                 'codigo_plantel', 'rnc', 'regional_educacion', 'distrito_educativo', 
-                                 'email', 'telefono', 'redes', 'direccion', 'web', 'logo', 'activo'
+    protected $allowedFields = [
+        'nombre',
+        'id_nivel',
+        'id_modalidad',
+        'codigo_gestion',
+        'codigo_plantel',
+        'rnc',
+        'distrito_educativo',
+        'email',
+        'telefono',
+        'redes',
+        'direccion',
+        'web',
+        'logo',
+        'activo',
+        'tanda',     // agregado
+        'tipo'       // agregado
     ];
 
     protected $useTimestamps = true;
@@ -21,24 +36,21 @@ class EscuelaModel extends Model
     protected $updatedField = 'fecha_edit';
     protected $deletedField = 'deleted_at';
 
-    // 🔹 Reglas de Validación
+    // Reglas de Validación
     protected $validationRules = [
         'nombre' => 'required|min_length[3]|max_length[100]',
         'id_nivel' => 'required|integer',
         'id_modalidad' => 'required|integer',
-        'codigo_gestion' => 'required|is_unique[escuela.codigo_gestion]|max_length[10]',
-        'codigo_plantel' => 'required|is_unique[escuela.codigo_plantel]|alpha_numeric|max_length[10]',
-        'rnc' => 'required|is_unique[escuela.rnc]|numeric|min_length[9]|max_length[11]',
-        'regional_educacion' => 'required|max_length[10]',
-        'distrito_educativo' => 'required|max_length[13]',
         'email' => 'permit_empty|valid_email|max_length[50]',
         'telefono' => 'required|regex_match[/^[0-9+\-() ]{7,20}$/]',
         'direccion' => 'required|max_length[100]',
         'web' => 'permit_empty|valid_url|max_length[50]',
-        'logo' => 'permit_empty|max_length[150]'
+        'logo' => 'permit_empty|max_length[150]',
+        'tanda' => 'required|in_list[Matutina,Vespertina,Jornada Escolar Extendida (J.E.E.),Nocturno]',
+        'tipo' => 'required|in_list[Privado,Publico]'
     ];
 
-    // 🔹 Mensajes Personalizados
+    // Mensajes Personalizados
     protected $validationMessages = [
         'nombre' => [
             'required' => 'El nombre de la escuela es obligatorio.',
@@ -47,8 +59,8 @@ class EscuelaModel extends Model
         ],
         'codigo_gestion' => [
             'required' => 'El código SIGERD es obligatorio.',
-            'is_unique' => 'Este código SIGERD ya está registrado.',
-            'alpha_numeric' => 'El código SIGERD solo puede contener letras y números.',
+            'is_unique' => 'Este código Gestion ya está registrado.',
+            'alpha_numeric' => 'El código SIGERD solo puede contener números.',
             'max_length' => 'El código SIGERD no puede superar los 10 caracteres.'
         ],
         'codigo_plantel' => [
@@ -72,30 +84,46 @@ class EscuelaModel extends Model
         'telefono' => [
             'required' => 'El teléfono es obligatorio.',
             'regex_match' => 'Debe ingresar un número de teléfono válido.'
+        ],
+        'tanda' => [
+            'required' => 'La tanda es obligatoria.',
+            'in_list' => 'La tanda seleccionada no es válida.'
+        ],
+        'tipo' => [
+            'required' => 'El tipo es obligatorio.',
+            'in_list' => 'El tipo seleccionado no es válido.'
         ]
     ];
 
     protected $skipValidation = false;
 
-    //  Método para obtener escuelas con Niveles y Modalidades (JOIN)
-    public function getEscuelasConDetalles($activo = null)
-{
-    $query = $this->select('escuela.*, niveles.nombre AS nivel, modalidad.nombre AS modalidad')
-        ->join('niveles', 'niveles.id = escuela.id_nivel', 'left')
-        ->join('modalidad', 'modalidad.id = escuela.id_modalidad', 'left');
+    // Métodos existentes ...
 
-    //  Si se proporciona un valor para $activo, se aplica el filtro
-    if (!is_null($activo)) {
-        $query->where('escuela.activo', $activo);
+    public function getEscuelasConDetalles($activo = null)
+    {
+        $query = $this->select('escuela.*, niveles.nombre AS nivel, modalidad.nombre AS modalidad')
+            ->join('niveles', 'niveles.id = escuela.id_nivel', 'left')
+            ->join('modalidad', 'modalidad.id = escuela.id_modalidad', 'left');
+
+        if (!is_null($activo)) {
+            $query->where('escuela.activo', $activo);
+        }
+
+        return $query->findAll();
     }
 
-    return $query->findAll();
-}
-
-
-    //  Método para obtener una escuela por código de plantel
     public function getEscuelaByCodigoPlantel($codigo)
     {
         return $this->where('codigo_plantel', $codigo)->first();
+    }
+
+    public function getNivelNombreByEscuela($idEscuela)
+    {
+        $escuela = $this->select('niveles.nombre AS nivel')
+            ->join('niveles', 'niveles.id = escuela.id_nivel')
+            ->where('escuela.id', $idEscuela)
+            ->first();
+
+        return $escuela['nivel'] ?? '';
     }
 }

@@ -10,7 +10,7 @@
 
 <div class="container-fluid">
     <div class="page-header">
-        <h1 class="text-titles"><i class="fa-solid fa-user-graduate"></i> Configuración/ <small><?php print_r($titulo) ?></small></h1>
+        <h1 class="text-titles"><i class="fa-solid fa-user-graduate"></i> Registro/ <small><?php print_r($titulo) ?></small></h1>
     </div>
 </div>
 <br>
@@ -22,7 +22,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xs-12 col-md-10 offset-md-1">
-                                <form method="POST" action="<?php echo base_url(); ?>estudiantes/insertar" enctype="multipart/form-data" autocomlete="off">
+                                <form method="POST" action="<?php echo base_url(); ?>estudiantes/insertar" enctype="multipart/form-data" autocomplete="off" class="formulario-personalizado" id="formulario-tabs" onsubmit="return validarFormularioCompleto();">
                                     <?= csrf_field() ?>
                                     <!-- Pestañas -->
 
@@ -40,86 +40,157 @@
 
                                     <!-- Contenido de las pestañas -->
                                     <div class="tab-content mt-3">
-                                        <!-- Padre -->
+                                        <!-- ESTUDIANTES -->
                                         <div class="tab-pane fade show active" id="basicos">
                                             <h3>DATOS BASICOS DEL ESTUDIANTE</h3>
+                                            <p class="lead">Los campos marcados con (<span class="text-danger">*</span>) son obligatorios</p>
+
+
                                             <div class="row">
                                                 <div class="col-12 col-sm-3">
                                                     <div class="form-group label-floating">
-                                                        <label for="id_escuela" class="control-label"></label>
-                                                        <select class="form-control is-filled" id="id_escuela" name="id_escuela" required>
-                                                            <option value="" selected disabled>Seleccione una Escuela</option>
-                                                            <?php foreach ($escuelas as $escuela): ?>
-                                                                <option value="<?= esc($escuela['id']); ?>">
-                                                                    <?= esc($escuela['codigo_gestion']); ?>
+                                                        <label for="id_grado" class="control-label">
+                                                            Grado al que Ingresa: <small class="obligatorio-formulario">*</small>
+                                                        </label>
+                                                        <select class="form-control is-filled" id="id_grado" name="id_grado">
+                                                            <option value="" disabled <?= old('id_grado') ? '' : 'selected'; ?>>--Seleccione una opción--</option>
+                                                            <?php foreach ($grados as $grado): ?>
+                                                                <option value="<?= esc($grado['id']); ?>" <?= old('id_grado') == $grado['id'] ? 'selected' : ''; ?>>
+                                                                    <?= esc($grado['nombre']); ?>
                                                                 </option>
                                                             <?php endforeach; ?>
                                                         </select>
+                                                        <div class="error-message text-danger small mt-1"></div>
                                                     </div>
+                                                    <input type="hidden" name="id_escuela" value="<?= esc(session()->get('id_escuela')); ?>">
                                                 </div>
+
                                                 <div class="col-12 col-sm-3">
                                                     <div class="form-group label-floating">
-                                                        <label for="nombre" class="control-label">Nombre(s):</label>
-                                                        <input class="form-control" type="text" id="nombre" name="nombre" />
-                                                        <small>*</small>
+                                                        <label for="nombre" class="control-label">
+                                                            Nombre(s): <small class="obligatorio-formulario">*</small>
+                                                        </label>
+                                                        <input class="form-control" type="text" id="nombre" name="nombre" value="<?= old('nombre'); ?>" required />
+                                                        <div class="error-message text-danger small mt-1"></div>
                                                     </div>
                                                 </div>
+
                                                 <div class="col-12 col-sm-3">
                                                     <div class="form-group label-floating">
-                                                        <label for="apellido" class="control-label">Apellido(s):</label>
-                                                        <input class="form-control" type="text" id="apellido" name="apellido" />
+                                                        <label for="apellido" class="control-label">
+                                                            Apellido(s): <small class="obligatorio-formulario">*</small>
+                                                        </label>
+                                                        <input class="form-control" type="text" id="apellido" name="apellido" value="<?= old('apellido'); ?>" required />
+                                                        <div class="error-message text-danger small mt-1"></div>
                                                     </div>
                                                 </div>
+
                                                 <div class="col-12 col-sm-3">
                                                     <div class="form-group label-floating">
-                                                        <label for="estado_padres" class="control-label">Sexo:</label>
+                                                        <label for="sexo" class="control-label">
+                                                            Sexo: <small class="obligatorio-formulario">*</small>
+                                                        </label>
                                                         <select id="sexo" name="sexo" class="form-control">
-                                                            <option value="">--SELECCIONE UNA OPCION--</option>
-                                                            <option value="M">M</option>
-                                                            <option value="F">F</option>
+                                                            <option value="" disabled <?= old('sexo') ? '' : 'selected'; ?>>--Seleccione una opción--</option>
+                                                            <option value="M" <?= old('sexo') == 'M' ? 'selected' : ''; ?>>M</option>
+                                                            <option value="F" <?= old('sexo') == 'F' ? 'selected' : ''; ?>>F</option>
                                                         </select>
+                                                        <div class="error-message text-danger small mt-1"></div>
                                                     </div>
                                                 </div>
+
                                                 <div class="col-12 col-sm-3">
                                                     <div class="form-group label-floating">
-                                                        <label for="fecha_nac" class="control-label">fecha de Nacimiento:</label>
-                                                        <input class="form-control" type="date" id="fecha_nac" name="fecha_nac" />
-                                                        <small>*</small>
+                                                        <label for="fecha_nac" class="control-label">
+                                                            Fecha de Nacimiento: <small class="obligatorio-formulario">*</small>
+                                                        </label>
+                                                        <input class="form-control" type="date" id="fecha_nac" name="fecha_nac" value="<?= old('fecha_nac'); ?>" required />
+                                                        <div class="error-message text-danger small mt-1"></div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
+
                                                 <div class="col-12 col-sm-3">
                                                     <div class="form-group label-floating is-filled">
-                                                        <label for="lugar_nacimiento" class="control-label">Lugar de Nacimiento:</label>
-                                                        <input class="form-control" type="text" id="lugar_nacimiento" name="lugar_nacimiento" />
+                                                        <label for="lugar_nacimiento" class="control-label">
+                                                            Lugar de Nacimiento: <small class="obligatorio-formulario">*</small>
+                                                        </label>
+                                                        <input class="form-control" type="text" id="lugar_nacimiento" name="lugar_nacimiento" value="<?= old('lugar_nacimiento'); ?>" required />
+                                                        <div class="error-message text-danger small mt-1"></div>
                                                     </div>
                                                 </div>
+
                                                 <div class="col-12 col-sm-3">
                                                     <div class="form-group label-floating">
-                                                        <label for="provincia" class="control-label">Provincia:</label>
-                                                        <input class="form-control" type="text" id="provincia" name="provincia" />
+                                                        <label for="provincia" class="control-label">
+                                                            Provincia: <small class="obligatorio-formulario">*</small>
+                                                        </label>
+                                                        <input class="form-control" type="text" id="provincia" name="provincia" value="<?= old('provincia'); ?>" required />
+                                                        <div class="error-message text-danger small mt-1"></div>
                                                     </div>
                                                 </div>
+
+                                                <div class="col-12 col-sm-3">
+                                                    <div class="form-group">
+                                                        <label for="id_nacionalidad" class="control-label">
+                                                            Nacionalidad: <small class="obligatorio-formulario">*</small>
+                                                        </label>
+                                                        <select class="form-control <?= session('errors.id_nacionalidad') ? 'is-invalid' : '' ?>" id="id_nacionalidad" name="id_nacionalidad">
+                                                            <option value="" disabled <?= old('id_nacionalidad') ? '' : 'selected'; ?>>--Seleccione una opción--</option>
+                                                            <?php foreach ($nacionalidades as $nac): ?>
+                                                                <option value="<?= esc($nac['id']); ?>" <?= old('id_nacionalidad') == $nac['id'] ? 'selected' : ''; ?>>
+                                                                    <?= esc($nac['gentilicio']); ?>
+                                                                </option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                        <div class="error-message text-danger small mt-1"></div>
+
+                                                        <?php if (session('errors.id_nacionalidad')): ?>
+                                                            <div class="invalid-feedback alert alert-danger">
+                                                                <?= session('errors.id_nacionalidad'); ?>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row">
                                                 <div class="col-12 col-sm-3">
                                                     <div class="form-group label-floating">
-                                                        <label for="numero_identidad" class="control-label">Numero Unico de Identidad (NUI):</label>
-                                                        <input class="form-control" type="text" id="numero_identidad" name="numero_identidad" />
+                                                        <label for="numero_identidad" class="control-label">
+                                                            Numero Unico de Identidad (NUI): <small class="text-primary">(solo dominicanos)</small>
+                                                        </label>
+
+                                                        <input
+                                                            required
+                                                            class="form-control <?= session('errors.numero_identidad') ? 'is-invalid' : '' ?>"
+                                                            type="text"
+                                                            id="numero_identidad"
+                                                            name="numero_identidad"
+                                                            value="<?= old('numero_identidad'); ?>"
+                                                            <?= (isset($nacionalidad) && $nacionalidad != 1) ? 'disabled' : '' ?> />
+
+                                                        <div class="error-message text-danger mt-1"></div>
+
+                                                        <?php if (session('errors.numero_identidad')): ?>
+                                                            <div class="invalid-feedback alert alert-danger">
+                                                                <?= session('errors.numero_identidad'); ?>
+                                                            </div>
+                                                        <?php endif; ?>
                                                     </div>
                                                 </div>
+
                                                 <div class="col-12 col-sm-3">
                                                     <div class="form-group label-floating">
                                                         <label for="sigerd_id" class="control-label">ID SIGERD:</label>
                                                         <input class="form-control" type="text" id="sigerd_id" name="sigerd_id" />
                                                     </div>
                                                 </div>
-
-                                            </div>
-                                            <div class="row">
                                                 <div class="col-12 col-sm-3">
                                                     <div class="form-group label-floating">
-                                                        <label for="direccion" class="control-label">Dirección:</label>
-                                                        <input class="form-control" type="text" id="direccion" name="direccion" />
+                                                        <label for="direccion" class="control-label">Dirección: <small class="obligatorio-formulario">*</small></label>
+                                                        <input class="form-control" type="text" id="direccion" name="direccion" required />
+                                                        <div class="error-message text-danger small mt-1"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-3">
@@ -128,13 +199,14 @@
                                                         <input class="form-control" type="text" id="escuela_procedencia" name="escuela_procedencia" />
                                                     </div>
                                                 </div>
+
+
+                                            </div>
+                                            <div class="row">
                                                 <div class="col-12 col-sm-3">
-                                                    <div class="form-group label-floating">
-                                                        <label for="imagen" class="control-label"></label>
-                                                        <div>
-                                                            <input type="text" readonly="" class="form-control" placeholder="Imagen..." />
-                                                            <input type="file" name="imagen" id="imagen" />
-                                                        </div>
+                                                    <div class="form-group">
+                                                        <label for="foto" class="control-label">Foto:</label>
+                                                        <input type="file" name="foto" id="foto" class="form-control file-input" />
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-3">
@@ -143,8 +215,6 @@
                                                         <input class="form-control" type="text" id="matricula" name="matricula" value="<?= esc($matricula); ?>" readonly />
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
                                                 <div class="col-12 col-sm-3">
                                                     <div class="form-group label-floating">
                                                         <label for="matricula" class="control-label">Contraseña:</label>
@@ -164,35 +234,34 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="button" class="btn btn-primary" onclick="siguiente('responsable')">Siguiente</button>
-                                            <a href="<?php echo base_url(); ?>estudiantes" class=" btn btn-danger text-light " id="plus-user"><i class="fa-solid fa-user-plus"></i>Cancelar</a>
+                                            <br>
+                                            <div class="text-center mt-4">
+                                                <button type="button" class="btn btn-primary" onclick="if(validarRegistroEstudiantes()){ siguiente('responsable'); }">
+                                                    Siguiente
+                                                    <i class="fa-solid fa-forward"></i></button>
+
+                                                <button type="button" class="btn btn-danger btn-cancelar" id="btn-cancelar-1">
+                                                    <i class="fa-solid fa-ban"></i> Cancelar
+                                                </button>
+                                            </div>
                                         </div>
 
-                                        <!-- Madre -->
+                                        <!-- Responsables -->
                                         <div class="tab-pane fade" id="responsable">
                                             <h3>RESPONSABLES</h3>
+                                            <p class="lead">Es necesario un registro como minimo para porder avanzar</p>
                                             <div class="row">
                                                 <div class="col-12 col-sm-4">
                                                     <div class="form-group label-floating">
                                                         <label for="padre" class="control-label">Padre:</label>
                                                         <select id="padre" name="padre" class="form-control select2">
-                                                            <option value="">Seleccione al padre</option>
+                                                            <option value="">--Seleccione una opcion--</option>
                                                         </select>
-                                                        <small>*</small>
+                                                        <div class="error-message text-danger mt-1"></div>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-12 col-sm-4">
-                                                    <div class="form-group label-floating">
-                                                        <label for="parentesco_padre" class="control-label">Parentesco Padre</label>
-                                                        <select name="parentesco_padre" class="form-control" >
-                                                            <option value="">Seleccionar parentesco</option>
-                                                            <?php foreach ($parentescos as $parentesco): ?>
-                                                                <option value="<?= esc($parentesco) ?>"><?= esc($parentesco) ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                                <!--SELECT DE PARENTESCO PADRE-->
 
                                                 <div class="col-12 col-sm-4">
                                                     <div class="form-group label-floating">
@@ -206,22 +275,12 @@
                                                     <div class="form-group label-floating">
                                                         <label for="madre" class="control-label">Madre:</label>
                                                         <select id="madre" name="madre" class="form-control select2">
-                                                            <option value="">Selecione a la madre</option>
+                                                            <option value="">--Seleccione una opcion--</option>
                                                         </select>
-                                                        <small>*</small>
+                                                        <div class="error-message text-danger mt-1"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-sm-4">
-                                                    <div class="form-group label-floating">
-                                                        <label for="parentesco_madre" class="control-label">Parentesco Padre</label>
-                                                        <select name="parentesco_madre" class="form-control" required>
-                                                            <option value="">Seleccionar parentesco</option>
-                                                            <?php foreach ($parentescos as $parentesco): ?>
-                                                                <option value="<?= esc($parentesco) ?>"><?= esc($parentesco) ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                                <!--SELECT DE PARENTESCO MADRE-->
 
                                                 <div class="col-12 col-sm-4">
                                                     <div class="form-group label-floating">
@@ -232,20 +291,20 @@
                                             </div>
 
                                             <div class="row">
-                                            <div class="col-12 col-sm-4">
+                                                <div class="col-12 col-sm-4">
                                                     <div class="form-group label-floating">
                                                         <label for="tutor" class="control-label">tutor:</label>
                                                         <select id="tutor" name="tutor" class="form-control select2">
-                                                            <option value="">Selecione al tutor</option>
+                                                            <option value="">--Seleccione una opcion--</option>
                                                         </select>
                                                         <small>Opcional</small>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-4">
                                                     <div class="form-group label-floating">
-                                                        <label for="parentesco_tutor" class="control-label">Parentesco Padre</label>
+                                                        <label for="parentesco_tutor" class="control-label">Parentesco</label>
                                                         <select name="parentesco_tutor" class="form-control">
-                                                            <option value="">Seleccionar parentesco</option>
+                                                            <option value="">--Seleccione una opcion--</option>
                                                             <?php foreach ($parentescos as $parentesco): ?>
                                                                 <option value="<?= esc($parentesco) ?>"><?= esc($parentesco) ?></option>
                                                             <?php endforeach; ?>
@@ -268,7 +327,7 @@
                                                     <div class="form-group label-floating">
                                                         <label for="estado_padres" class="control-label">Estado Padres:</label>
                                                         <select id="estado_padres" name="estado_padres" class="form-control">
-                                                            <option value="">--SELECCIONE UNA OPCION--</option>
+                                                            <option value="">--Seleccione una opción--</option>
                                                             <option value="casados y viven juntos">Casados y Viven Juntos</option>
                                                             <option value="casados y no viven juntos">Casados y no viven Juntos</option>
                                                             <option value="separados">Separados</option>
@@ -282,7 +341,7 @@
                                                     <div class="form-group label-floating">
                                                         <label for="casa_estudiante" class="control-label">Con quien vice el estudiante:</label>
                                                         <select id="casa_estudiante" name="casa_estudiante" class="form-control">
-                                                            <option value="">--SELECCIONE UNA OPCION--</option>
+                                                            <option value="">--Seleccione una opción--</option>
                                                             <option value="con ambos padres">Con ambos Padres</option>
                                                             <option value="Padre">Padre</option>
                                                             <option value="madre">Madre</option>
@@ -291,20 +350,24 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="button" class="btn btn-secondary" onclick="siguiente('basicos')">Atrás</button>
-                                            <button type="button" class="btn btn-primary" onclick="siguiente('salud')">Siguiente</button>
-                                            <a href="<?php echo base_url(); ?>estudiantes" class=" btn btn-danger text-light " id="plus-user"><i class="fa-solid fa-user-plus"></i>Cancelar</a>
+                                            <div class="text-center mt-4">
+                                                <button type="button" class="btn btn-secondary" onclick="siguiente('basicos')"><i class="fa-solid fa-backward"></i> Atrás</button>
+                                                <button type="button" class="btn btn-primary" onclick="if(validarPestanaResponsables()){ siguiente('salud'); }">Siguiente <i class="fa-solid fa-forward"></i></button>
+                                                <button type="button" class="btn btn-danger btn-cancelar" id="btn-cancelar-1">
+                                                    <i class="fa-solid fa-ban"></i> Cancelar
+                                                </button>
+                                            </div>
                                         </div>
 
-                                        <!-- Tutor -->
+                                        <!-- Datos medicos -->
                                         <div class="tab-pane fade" id="salud">
                                             <h3>DATOS MEDICOS Y DE SALUD</h3>
                                             <div class="row">
                                                 <div class="col-12 col-sm-3">
                                                     <div class="form-group label-floating">
                                                         <label class="control-label" for="tipo_sangre">Tipo de Sangre:</label>
-                                                        <select class="form-control" id="tipo_sangre" name="tipo_sangre" required>
-                                                            <option value=" ">Seleccione...</option>
+                                                        <select class="form-control" id="tipo_sangre" name="tipo_sangre">
+                                                            <option value="">--Seleccione una opcion--</option>
                                                             <option value="A+">A+</option>
                                                             <option value="A-">A-</option>
                                                             <option value="B+">B+</option>
@@ -338,18 +401,26 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="button" class="btn btn-secondary" onclick="siguiente('responsables')">Atrás</button>
-                                            <button type="submit" class="btn btn-success">Guardar</button>
-                                            <a href="<?php echo base_url(); ?>estudiantes" class=" btn btn-danger text-light " id="plus-user"><i class="fa-solid fa-user-plus"></i>Cancelar</a>
+
+                                            <div class="text-center mt-4">
+
+                                                <button type="button" class="btn btn-secondary" onclick="siguiente('responsables')"><i class="fa-solid fa-backward"></i> Atrás</button>
+                                                <button type="submit" class="btn btn-success"> <i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+                                                <button type="button" class="btn btn-danger btn-cancelar" id="btn-cancelar-1">
+                                                    <i class="fa-solid fa-ban"></i> Cancelar
+                                                </button>
+                                            </div>
                                         </div>
 
 
 
                                     </div>
 
+
+                                </form>
                             </div>
                         </div>
-                        </form>
+
                     </div>
                 </div>
             </div>
@@ -363,114 +434,94 @@
 
 <script>
     $(document).ready(function() {
-        $('#padre').select2({
-            theme: "bootstrap-4",
-            placeholder: "---Seleccione al padre---",
-            allowClear: false,
-            minimumInputLength: 0, // Permite mostrar todas las opciones al hacer clic
-            width: '100%',
-            ajax: {
-                url: "<?= base_url('responsables/buscar'); ?>",
-                type: "GET",
-                dataType: "json",
-                delay: 250,
-                data: function(params) {
-                    return {
-                        search: params.term || '' // Si no hay búsqueda, traer todos
-                    };
-                },
-                processResults: function(data) {
-                    return {
-                        results: $.map(data, function(item) {
-                            return {
-                                id: item.id,
-                                text: item.text
-                            };
-                        })
-                    };
-                },
-                cache: true
+        // IDs de los selects que usarán AJAX
+        const selectsAjax = ['#padre', '#madre', '#tutor'];
+
+        selectsAjax.forEach(function(selector) {
+            const $select = $(selector);
+
+            $select.select2({
+                theme: 'bootstrap4', // tema base, compatible
+                placeholder: "--Seleccione una opción--",
+                allowClear: false,
+                minimumInputLength: 0,
+                width: '100%',
+                ajax: {
+                    url: "<?= base_url('responsables/buscar'); ?>",
+                    type: "GET",
+                    dataType: "json",
+                    delay: 250,
+                    data: function(params) {
+                        return {
+                            search: params.term || ''
+                        };
+                    },
+                    processResults: function(data) {
+                        return {
+                            results: $.map(data, function(item) {
+                                return {
+                                    id: item.id,
+                                    text: item.text
+                                };
+                            })
+                        };
+                    },
+                    cache: true
+                }
+            });
+
+            // Aplicar los estilos personalizados del formulario
+            const select2Container = $select.next('.select2-container');
+            select2Container.addClass('form-control'); // agrega clase base
+            select2Container.css({
+                'background-color': 'white',
+                'border': 'none',
+                'border-bottom': '1px solid #d2d2d2',
+                'border-radius': '0',
+                'box-shadow': 'none',
+                'color': '#000',
+                'font-size': '14px',
+                'height': '36px',
+                'line-height': '1.2',
+                'padding': '6px 10px'
+            });
+
+            // Opcional: manejar focus/hover similar a tus selects normales
+            select2Container.find('.select2-selection').on('focus', function() {
+                $(this).css('border-bottom', '2px solid #0b1065');
+            });
+
+            // Ejemplo: evento adicional para #madre
+            if (selector === '#madre') {
+                $select.on('change', function() {
+                    console.log("ID seleccionado para la madre:", $(this).val());
+                });
             }
         });
-        $('.select2-container').addClass('form-control');
     });
-</script>
 
-<script>
-    $(document).ready(function() {
-        $('#madre').select2({
-            theme: "bootstrap-4",
-            placeholder: "---Seleccione a la madre---",
-            allowClear: false,
-            minimumInputLength: 0, // Permite mostrar todas las opciones al hacer clic
-            width: '100%',
-            ajax: {
-                url: "<?= base_url('responsables/buscar'); ?>",
-                type: "GET",
-                dataType: "json",
-                delay: 250,
-                data: function(params) {
-                    return {
-                        search: params.term || '' // Si no hay búsqueda, traer todos
-                    };
-                },
-                processResults: function(data) {
-                    return {
-                        results: $.map(data, function(item) {
-                            return {
-                                id: item.id,
-                                text: item.text
-                            };
-                        })
-                    };
-                },
-                cache: true
-            }
+    /**MODAL DE CONFIRMACION PARA CANCELACION DE UN REGISTRO */
+
+    // Todos los botones que tengan la clase 'btn-cancelar'
+    document.querySelectorAll('.btn-cancelar').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault(); // evita redirección inmediata
+            Swal.fire({
+                title: '¿Está seguro que desea cancelar?',
+                text: "Los cambios que haya hecho no se guardarán.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Sí, cancelar',
+                cancelButtonText: 'No, continuar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirige a la página base
+                    window.location.href = "<?= base_url('estudiantes') ?>";
+                }
+            });
         });
-
-        // Agrega un evento para el cambio de selección
-        $('#madre').on('change', function() {
-            // Muestra en consola el valor seleccionado
-            console.log("ID seleccionado para la madre:", $(this).val());
-        });
-
-        $('.select2-container').addClass('form-control');
-    });
-</script>
-
-
-<script>
-    $(document).ready(function() {
-        $('#tutor').select2({
-            theme: "bootstrap-4",
-            placeholder: "---Seleccione al tutor---",
-            allowClear: false,
-            minimumInputLength: 0, // Permite mostrar todas las opciones al hacer clic
-            width: '100%',
-            ajax: {
-                url: "<?= base_url('responsables/buscar'); ?>",
-                type: "GET",
-                dataType: "json",
-                delay: 250,
-                data: function(params) {
-                    return {
-                        search: params.term || '' // Si no hay búsqueda, traer todos
-                    };
-                },
-                processResults: function(data) {
-                    return {
-                        results: $.map(data, function(item) {
-                            return {
-                                id: item.id,
-                                text: item.text
-                            };
-                        })
-                    };
-                },
-                cache: true
-            }
-        });
-        $('.select2-container').addClass('form-control');
     });
 </script>
 

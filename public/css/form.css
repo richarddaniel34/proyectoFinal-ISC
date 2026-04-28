@@ -1,0 +1,201 @@
+/* Fondo general de las pestañas */
+.nav-tabs {
+  background-color: #0b1065;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+/* Estilo base de cada pestaña */
+.nav-tabs .nav-link {
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  margin-right: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilo al pasar el mouse */
+.nav-tabs .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* Pestaña activa */
+.nav-tabs .nav-link.active {
+  background-color: #ffffff;
+  color: #0b1065;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+/* Opcional: mantener coherencia en el borde redondeado */
+.nav-tabs .nav-link {
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+/*FORMULARIOS*/
+
+/* Estilo general para inputs, selects y textareas */
+.formulario-personalizado input.form-control,
+.formulario-personalizado select.form-control,
+.formulario-personalizado textarea.form-control {
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid #d2d2d2;
+  border-radius: 0;
+  box-shadow: none;
+  color: #000;
+  font-size: 14px;
+  padding: 6px 0;
+  appearance: none; /* Elimina estilos nativos (especialmente en selects) */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.formulario-personalizado input.form-control,
+.formulario-personalizado select.form-control {
+  height: 36px;
+  line-height: 1.2;
+  vertical-align: middle;
+}
+
+/* Estilo al enfocar */
+.formulario-personalizado input.form-control:focus,
+.formulario-personalizado select.form-control:focus,
+.formulario-personalizado textarea.form-control:focus {
+  border-bottom: 2px solid #0b1065;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Etiquetas */
+.formulario-personalizado label {
+  font-weight: 500;
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 0.2rem;
+  display: block;
+}
+
+/* Opcional: flecha personalizada para select */
+.formulario-personalizado select.form-control {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2210%22%20height%3D%226%22%20viewBox%3D%220%200%2010%206%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M0%200l5%206%205-6z%22%20fill%3D%22%23333%22/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 10px 6px;
+  padding-right: 24px;
+  padding-left: 10px;
+}
+
+.formulario-personalizado .file-input {
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid #d2d2d2;
+  padding: 6px 0;
+  font-size: 14px;
+  color: #000;
+  border-radius: 0;
+  box-shadow: none;
+  height: auto;
+  width: 100%;
+}
+
+.formulario-personalizado .file-input::file-selector-button,
+.formulario-personalizado .file-input::-webkit-file-upload-button {
+  background-color: #0b1065;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/*VALIDACIONES*/
+
+.invalid-feedback {
+  display: none;
+  animation: shake 0.3s ease-in-out;
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+.invalid-feedback.visible {
+  display: block;
+}
+
+.formulario-personalizado input[readonly] {
+  background-color: #f0f0f0; /* gris claro */
+  color: #555; /* texto más oscuro para mejor contraste */
+  cursor: not-allowed; /* indica que no es editable */
+}
+
+/* También puedes aplicarlo a selects o textareas si los tienes readonly */
+.formulario-personalizado select[readonly],
+.formulario-personalizado textarea[readonly] {
+  background-color: #f0f0f0;
+  color: #555;
+  cursor: not-allowed;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/*============== ESTILOS DE LOS CHIPS =====================*/
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  background: #e9ecef;
+  border-radius: 25px;
+  padding: 6px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.chip:hover {
+  background: #dee2e6;
+}
+
+.chip.selected {
+  background: #0d6efd;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 0 6px rgba(13, 110, 253, 0.4);
+}
+
+.asignacion-item {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  border: 1px solid #dee2e6;
+}
+
+.asignacion-item .delete-btn {
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 8px;
+}

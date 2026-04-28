@@ -20,30 +20,33 @@
     <div class="">
       <div class="tab-pane " id="list">
         <div class="table-responsive">
-          <table class="table table-hover table-striped text-center" id="datatablesSimple">
+          <table class="table table-hover table-striped" id="datatablesSimple">
             <thead class="title-table">
               <tr>
-                <th class="text-center">Nombre (s)</th>
-                <th class="text-center">Apellido (s)</th>
-                <th class="text-center">Cedula</th>
-                <th class="text-center">Celular</th>
-                <th class="text-center">Direccion</th>
-                <th class="text-center"></th>
-                <th class="text-center"></th>
-                <th class="text-center"></th>
+                <th class="text-center">Nombre</th>
+                <th class="text-center">Padre, Madre o Tutor</th>
+                <th class="text-center">NUI</th>
+                <th class="text-center">Fecha de Nacimiento</th>
+                <th class="text-center">Edad</th>
+                <th class="text-center"> Acciones</th>
               </tr>
             </thead>
             <tbody>
               <?php foreach ($datos as $dato) { ?>
                 <tr>
-                  <td> <?php echo $dato['nombre'] ?></td>
-                  <td>  </td>
-                  <td>  </td>
-                  <td>  </td>
-                  <td> </td>
-                  <td><a href="#" class="text-primary" onclick="visualizarPersonal(<?= $dato['id']; ?>)"><i class="fa-solid fa-eye"></i></a></td>
-                  <td><a href="#" class="text-warning" onclick="editarPersonal(<?= $dato['id']; ?>)"><i class="fa-solid fa-edit"></i></a></td>
-                  <td><a href="<?php echo base_url() . '/personal/eliminar/' . $dato['id']; ?>" class="text-danger"><i class="fa-solid fa-trash"></i></a></td>
+                  <td >
+                    <?= esc(trim($dato['matricula'].' - '.$dato['nombre'] . ' ' . $dato['apellido'])); ?>
+                  </td>
+                  <td class="text-center"> <?php echo $dato['matricula'] ?> </td>
+                  <td class="text-center"> <?php echo $dato['numero_identidad'] ?> </td>
+                  <td> <?php echo $dato['fecha_nac'] ?></td>
+                  <td><?= $dato['edad'] !== null ? esc($dato['edad']) . ' años' : '—'; ?></td>
+                  <td>
+                    <a href="#" class="text-primary" onclick="visualizarPersonal(<?= $dato['id']; ?>)"><i class="fa-solid fa-eye"> </i></a>
+                    <a href="<?php echo base_url() . '/estudiantes/editar/' . $dato['id']; ?>" class="text-warning"><i class="fa-solid fa-edit"></i> </a>
+                    <a href="<?php echo base_url() . '/personal/eliminar/' . $dato['id']; ?>" class="text-danger"><i class="fa-solid fa-trash"></i></a>
+                  </td>
+
 
                 </tr>
               <?php } ?>

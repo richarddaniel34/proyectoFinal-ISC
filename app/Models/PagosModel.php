@@ -16,12 +16,15 @@ class PagosModel extends Model
         'id_concepto',
         'id_responsable',
         'id_estudiante',
+        'id_schoolYear',
+        'mes',
         'monto',
         'fecha_pago',
         'metodo_pago',
         'estado',
         'id_factura'
     ];
+
 
     protected $useTimestamps = true;
     protected $createdField = 'fecha_alta';
@@ -96,39 +99,52 @@ class PagosModel extends Model
     }
 
     public function getMesesPendientes($id_estudiante, $id_schoolYear)
-{
-    // Meses 1 a 12
-    $todosLosMeses = range(1, 12);
-
-    // Buscar meses que ya tienen pago registrado en la tabla pagos
-    $pagosRealizados = $this->select('mes')
-        ->where('id_estudiante', $id_estudiante)
-        ->where('id_schoolYear', $id_schoolYear)
-        ->where('id_concepto', 3) // Concepto de Mensualidad (ajusta si usas otro id)
-        ->findAll();
-
-    // Si no se encuentra el campo mes en la tabla, te tocará agregarlo (ya lo hablamos)
-    $mesesPagados = array_column($pagosRealizados, 'mes');
-
-    // Filtrar meses pendientes
-    $mesesPendientes = array_diff($todosLosMeses, $mesesPagados);
-
-    $resultado = [];
-
-    // Obtener el monto de la mensualidad
-    $conceptoMensualidad = $this->db->table('concepto_pagos')->where('nombre', 'Mensualidad')->get()->getRowArray();
-    $montoMensual = $conceptoMensualidad ? $conceptoMensualidad['monto'] : 0;
-
-    // Recorrer meses pendientes y devolverlos en el formato que tu controlador espera
-    foreach ($mesesPendientes as $numeroMes) {
-        $resultado[] = [
-            'numero' => $numeroMes,
-            'nombre' => $this->obtenerNombreMes($numeroMes), // El método que agregaste antes
-            'monto'  => $montoMensual
+    {
+        // Meses 1 a 12
+        $todosLosMeses = [
+            'enero',
+            'febrero',
+            'marzo',
+            'abril',
+            'mayo',
+            'junio',
+            'julio',
+            'agosto',
+            'septiembre',
+            'octubre',
+            'noviembre',
+            'diciembre'
         ];
+
+
+        // Buscar meses que ya tienen pago registrado en la tabla pagos
+        $pagosRealizados = $this->select('mes')
+            ->where('id_estudiante', $id_estudiante)
+            ->where('id_schoolYear', $id_schoolYear)
+            ->where('id_concepto', 3) // Concepto de Mensualidad (ajusta si usas otro id)
+            ->findAll();
+
+        // Si no se encuentra el campo mes en la tabla, te tocará agregarlo (ya lo hablamos)
+        $mesesPagados = array_column($pagosRealizados, 'mes');
+
+        // Filtrar meses pendientes
+        $mesesPendientes = array_diff($todosLosMeses, $mesesPagados);
+
+        $resultado = [];
+
+        // Obtener el monto de la mensualidad
+        $conceptoMensualidad = $this->db->table('concepto_pagos')->where('nombre', 'Mensualidad')->get()->getRowArray();
+        $montoMensual = $conceptoMensualidad ? $conceptoMensualidad['monto'] : 0;
+
+        // Recorrer meses pendientes y devolverlos en el formato que tu controlador espera
+        foreach ($mesesPendientes as $nombreMes) {
+            $resultado[] = [
+                'numero' => array_search($nombreMes, $todosLosMeses) + 1,
+                'nombre' => ucfirst($nombreMes),
+                'monto'  => $montoMensual
+            ];
+        }
+
+        return $resultado;
     }
-
-    return $resultado;
-}
-
 }

@@ -4,15 +4,25 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UsuariosModel;
+use App\Models\EscuelaModel;
+use App\Models\PersonalModel;
+use App\Models\EstudiantesModel;
+
 use CodeIgniter\HTTP\RedirectResponse;
 
 class Usuarios extends BaseController
 {
     protected $usuarios;
+    protected $escuela;
+    protected $personal;
+    protected $estudiantes;
 
     public function __construct()
     {
         $this->usuarios = new UsuariosModel();
+        $this->escuela = new EscuelaModel();
+        $this->personal = new PersonalModel();
+        $this->estudiantes = new EstudiantesModel();
     }
 
     public function login()
@@ -22,58 +32,151 @@ class Usuarios extends BaseController
 
 
 
+
+
+
     public function verificarLogin()
     {
-        // Capturar los datos del formulario
         $usuario = $this->request->getPost('usuario');
         $clave = $this->request->getPost('clave');
 
-        log_message('debug', 'Usuario recibido: ' . $usuario);
-
-        // Buscar el usuario en la base de datos
-        $datosUsuario = $this->usuarios->where('usuario', $usuario)->first();
+        // Paso 1: Buscar usuario básico
+        $datosUsuario = $this->usuarios->verificarCredenciales($usuario);
 
         if (!$datosUsuario) {
-            log_message('error', 'Usuario no encontrado: ' . $usuario);
             return redirect()->to(base_url('login'))->with('error', 'Usuario o contraseña incorrectos');
         }
 
-        log_message('debug', 'Usuario encontrado en BD: ' . $datosUsuario['usuario']);
-
-        // Verificar contraseña
-        if (password_verify($clave, $datosUsuario['clave'])) {
-
-            $session = session();
-            session_regenerate_id(true);
-
-            $session->set([
-                'usuario' => $datosUsuario['usuario'],
-                'usuario_id' => $datosUsuario['id'],   // ESTE DEBE EXISTIR
-                'tipo_usuario' => $datosUsuario['id_tipo_usuario'],
-                'cambio_clave' => $datosUsuario['cambio_clave'],
-                'isLoggedIn'   => true // Asegúrate que coincida con el filtro
-            ]);
-
-            log_message('debug', 'Sesión iniciada para el usuario: ' . $datosUsuario['usuario']);
-
-            if ($datosUsuario['cambio_clave'] == 1) {
-                log_message('debug', 'Redirigiendo a cambio de clave');
-                return redirect()->to(base_url('usuarios/cambio_clave'));
-            }
-
-            log_message('debug', 'Redirigiendo al dashboard home');
-            return redirect()->to(base_url('home')); // o ->route('home') si tienes alias
+        // Paso 2: Verificar contraseña
+        if (!password_verify($clave, $datosUsuario['clave'])) {
+            return redirect()->to(base_url('login'))->with('error', 'Usuario o contraseña incorrectos');
         }
 
-        log_message('error', 'Contraseña incorrecta para el usuario: ' . $usuario);
-        return redirect()->to(base_url('login'))->with('error', 'Usuario o contraseña incorrectos');
+        // Paso 3: Obtener datos extendidos
+        $datosUsuarioBase = $this->usuarios->getUsuarioCompleto($datosUsuario['id']);
+
+
+
+
+        // Paso 4: Preparar sesión
+        $session = session();
+        session_regenerate_id(true);
+
+        log_message('debug', 'Datos usuario: ' . print_r($datosUsuario, true));
+
+
+        // Paso 4.5: Si es personal, guardar nombre completo
+        if (!empty($datosUsuario['personal_id'])) {
+            $personal = $this->personal->find($datosUsuario['personal_id']);
+
+            if ($personal) {
+                $nombreCompleto = $personal['nombre'] . ' ' . $personal['apellido'];
+            }
+        }
+
+        $tipoUsuarioNombre = 'usuario';
+        if ($datosUsuario['id_tipo_usuario'] == 5) {
+            $tipoUsuarioNombre = 'administrador';
+        } elseif ($datosUsuarioBase['tipo_usuario'] == 'administrativo' && !empty($datosUsuarioBase['personal_funcion'])) {
+            $tipoUsuarioNombre = strtolower($datosUsuarioBase['personal_funcion']);
+        } else {
+            $tipoUsuarioNombre = strtolower($datosUsuarioBase['tipo_usuario']);
+        }
+
+        $sessionData = [
+            'usuario'             => $datosUsuario['usuario'],
+            'usuario_id'          => $datosUsuario['id'],
+            'personal_id'         => $datosUsuario['personal_id'] ?? null,
+            'tipo_usuario'        => $datosUsuario['id_tipo_usuario'],
+            'tipo_usuario_nombre' => $tipoUsuarioNombre,
+            'funcion'             => $datosUsuarioBase['personal_funcion'] ?? null,
+            'cambio_clave'        => $datosUsuario['cambio_clave'],
+            'nombre_completo'     => $nombreCompleto ?? null,
+            'isLoggedIn'          => true,
+        ];
+
+        // Si el usuario es estudiante, asignar la foto desde el campo estudiante_foto
+        if (isset($datosUsuarioBase['estudiante_foto'])) {
+            $sessionData['foto'] = $datosUsuarioBase['estudiante_foto'];
+        }
+
+        $session->set($sessionData);
+
+
+
+        // Paso 5: Datos de escuela
+        if (!empty($datosUsuario['id_escuela'])) {
+            $escuela = $this->escuela->find($datosUsuario['id_escuela']);
+            $session->set([
+                'id_escuela'      => $datosUsuario['id_escuela'],
+                'codigo_gestion'  => $escuela['codigo_gestion'] ?? 'N/A',
+                'nombre_escuela'  => $escuela['nombre'] ?? 'Sin nombre',
+            ]);
+        } else {
+            $session->set([
+                'codigo_gestion'  => 'N/A',
+                'nombre_escuela'  => 'Administrador',
+            ]);
+        }
+
+        // Paso 6: Redirigir a cambio de clave si aplica
+        if ($datosUsuario['cambio_clave'] == 1) {
+            return redirect()->to(base_url('usuarios/cambio_clave'));
+        }
+
+        // Paso 7: Foto del usuario
+        $foto = null;
+        if ($datosUsuario['id_tipo_usuario'] == 5) {
+            $foto = base_url('assets/img/users/admin/default-avatar.png');
+        } elseif (!empty($datosUsuario['personal_id'])) {
+            $personal = $this->personal->find($datosUsuario['personal_id']);
+            $foto = isset($personal['foto']) && strpos($personal['foto'], 'assets/img/users/personal/') === false
+                ? base_url('assets/img/users/personal/' . $personal['foto'])
+                : base_url($personal['foto'] ?? '');
+        } elseif (!empty($datosUsuario['estudiantes_id'])) {
+            $estudiante = $this->estudiantes->find($datosUsuario['estudiantes_id']);
+            $foto = isset($estudiante['imagen']) && strpos($estudiante['imagen'], 'assets/img/estudiantes/') === false
+                ? base_url('assets/img/estudiantes/' . $estudiante['imagen'])
+                : base_url($estudiante['imagen'] ?? '');
+        }
+
+        $session->set('foto', $foto);
+
+        // Paso 8: Redirigir a inicio
+        return redirect()->to(base_url('home'));
     }
+
+
+
+
 
     public function cambioClave()
     {
         log_message('debug', 'Accediendo a la vista de cambio de clave');
         return view('usuarios/cambio_clave');
     }
+
+
+    public function listarUsuarios()
+    {
+        // Definir si el usuario está activo o no
+        $activo = 1; // O 0 dependiendo de si quieres solo usuarios activos o no
+
+        // Obtener los usuarios filtrados por activo
+        $usuarios = $this->usuarios->where('activo', $activo)->findAll();
+
+        // Pasar los datos a la vista
+        $data = [
+            'titulo' => 'Lista de Usuarios', // Título de la vista
+            'usuarios' => $usuarios // Los datos de los usuarios
+        ];
+
+        // Cargar las vistas
+        echo view('header');
+        echo view('usuarios/usuarios', $data); // Vista con la lista de usuarios
+        echo view('footer');
+    }
+
 
 
 
@@ -120,6 +223,11 @@ class Usuarios extends BaseController
         return $this->response->setJSON(['usuario' => $usuarioFinal]);
     }
 
+
+
+
+
+
     public function docentes()
     {
 
@@ -138,21 +246,22 @@ class Usuarios extends BaseController
 
     public function administrativoUser() {}
 
+
     public function homeAdmin()
     {
         // Verificar si el usuario está autenticado
-        if (!isset($_SESSION['usuario_id'])) {
-            return redirect()->to('/login'); // Si no está logueado, redirigir al login
-        }
+        //if (!isset($_SESSION['usuario_id'])) {
+        // return redirect()->to('/login'); // Si no está logueado, redirigir al login
+        // }
 
         // Obtener el ID del usuario
-        $usuario_id = $_SESSION['usuario_id'];
+        //  $usuario_id = $_SESSION['usuario_id'];
 
         // Obtener la información completa del usuario, incluyendo el tipo de usuario
-        $usuario = $this->usuarios->getUsuarioCompleto($usuario_id); // Método en el modelo
+        // $usuario = $this->usuarios->getUsuarioCompleto($usuario_id); // Método en el modelo
 
         // Pasar la información del usuario a la vista
-        return view('usuarios/admin/home', ['usuario' => $usuario]);
+        // return view('usuarios/admin/home', ['usuario' => $usuario]);
     }
 
 
@@ -168,63 +277,130 @@ class Usuarios extends BaseController
     // Controlador Usuarios.php
     public function actualizarClave()
     {
-        $session = session();
+        log_message('debug', ' Entrando al método actualizarClave');
 
-        // Verificar si el usuario está autenticado
-        if (!$session->get('usuario_id')) {
+        $session = session();
+        $usuario_id = $session->get('usuario_id');
+
+        log_message('debug', ' usuario_id en sesión: ' . $usuario_id);
+
+        if (!$usuario_id) {
+            log_message('error', ' Usuario no autenticado, redirigiendo al login');
             return redirect()->to('/login');
         }
 
-        // Si es un post
-        if ($this->request->getMethod() === 'post') {
+        // Detectar si es POST de forma robusta
+        $metodo = strtoupper($this->request->getMethod());
+        $metodo_real = strtoupper($this->request->getServer('REQUEST_METHOD'));
 
-            // Recoger las contraseñas desde el formulario
-            $nuevo_password = $this->request->getPost('nuevo_password');
-            $confirmar_password = $this->request->getPost('confirmar_password');
+        log_message('debug', 'Método recibido: ' . $metodo);
+        log_message('debug', 'REQUEST_METHOD real: ' . $metodo_real);
 
-            // Validaciones básicas
-            if (empty($nuevo_password) || empty($confirmar_password)) {
-                return redirect()->back()->with('error', 'Todos los campos son obligatorios');
-            }
-
-            if ($nuevo_password !== $confirmar_password) {
-                return redirect()->back()->with('error', 'Las contraseñas no coinciden');
-            }
-
-            // Hashear la contraseña
-            $hashPassword = password_hash($nuevo_password, PASSWORD_DEFAULT);
-
-            // Preparar los datos para el update
-            $usuario_id = $session->get('usuario_id');
-
-            $datos = [
-                'clave' => $hashPassword,
-                'cambio_clave' => 0 // Ya no debe cambiar la clave obligatoriamente
-            ];
-
-            log_message('debug', 'ID usuario: ' . $usuario_id);
-            log_message('debug', 'Datos actualizados: ' . print_r($datos, true));
-
-            // Actualizar la contraseña en la base de datos
-            if ($this->usuarios->update($usuario_id, $datos)) {
-
-                // Actualizar también en la sesión el estado de cambio de clave
-                $session->set('cambio_clave', 0);
-
-                return redirect()->to('/home')->with('success', 'Contraseña actualizada correctamente');
-            } else {
-                return redirect()->back()->with('error', 'Hubo un problema al actualizar la contraseña');
-            }
+        if ($metodo !== 'POST' || $metodo_real !== 'POST') {
+            log_message('warning', 'No es una solicitud POST, redirigiendo al formulario');
+            return redirect()->to('/usuarios/cambio_clave');
         }
 
-        // Si no es POST, redirige al formulario de cambio de clave
-        return redirect()->to('/usuarios/cambio_clave');
+        // Recoger contraseñas del formulario
+        $nuevo_password     = $this->request->getPost('nuevo_password');
+        $confirmar_password = $this->request->getPost('confirmar_password');
+
+        log_message('debug', 'Nueva contraseña: ' . $nuevo_password);
+        log_message('debug', 'Confirmar contraseña: ' . $confirmar_password);
+
+        if (empty($nuevo_password) || empty($confirmar_password)) {
+            log_message('error', ' Campos vacíos');
+            return redirect()->back()->with('error', 'Todos los campos son obligatorios');
+        }
+
+        if ($nuevo_password !== $confirmar_password) {
+            log_message('error', ' Las contraseñas no coinciden');
+            return redirect()->back()->with('error', 'Las contraseñas no coinciden');
+        }
+
+        // Preparar datos para actualización
+        $hashPassword = password_hash($nuevo_password, PASSWORD_DEFAULT);
+
+        $datos = [
+            'clave' => $hashPassword,
+            'cambio_clave' => 0
+        ];
+
+        log_message('debug', ' ID usuario: ' . $usuario_id);
+        log_message('debug', ' Datos a actualizar: ' . print_r($datos, true));
+
+        if ($this->usuarios->update($usuario_id, $datos)) {
+            log_message('info', ' Contraseña actualizada exitosamente en la BD');
+            $session->set('cambio_clave', 0);
+            return redirect()->to('/home')->with('success', 'Contraseña actualizada correctamente');
+        } else {
+            log_message('error', ' Falló la actualización de la contraseña en la base de datos');
+            return redirect()->back()->with('error', 'Hubo un problema al actualizar la contraseña');
+        }
     }
+
+
+
+
 
 
     public function logout()
     {
         session()->destroy(); // Destruir la sesión
-        return redirect()->to('/login'); // Redirigir al login
+        return redirect()->to(base_url('login')); // Redirigir al login
+    }
+
+
+
+
+
+
+
+
+    public function cambiarEscuela()
+    {
+        // Verificar si el usuario es administrador
+        if (session('tipo_usuario') != '5') {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'No autorizado']);
+        }
+
+        $escuelaId = $this->request->getPost('id_escuela');
+        $codigoGestion = $this->request->getPost('codigo_gestion');
+        $nombreEscuela = $this->request->getPost('nombre_escuela');
+
+        // Si se envió el ID pero no el código o nombre, buscar la escuela
+        if ($escuelaId && (empty($codigoGestion) || empty($nombreEscuela))) {
+            $escuela = $this->escuela->find($escuelaId);
+            if ($escuela) {
+                $codigoGestion = $escuela['codigo_gestion'];
+                $nombreEscuela = $escuela['nombre'];
+            } else {
+                return $this->response->setJSON(['status' => 'error', 'message' => 'Escuela no encontrada']);
+            }
+        }
+
+        // Actualizar datos de sesión
+        session()->set([
+            'id_escuela' => $escuelaId,
+            'codigo_gestion' => $codigoGestion,
+            'nombre_escuela' => $nombreEscuela
+        ]);
+
+        return $this->response->setJSON(['status' => 'success', 'message' => 'Escuela cambiada correctamente']);
+    }
+
+
+
+
+    public function getEscuelas()
+    {
+        // Verificar si el usuario es administrador
+        if (session('tipo_usuario') != '5') {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'No autorizado']);
+        }
+
+        $escuelas = $this->escuela->findAll();
+
+        return $this->response->setJSON($escuelas);
     }
 }

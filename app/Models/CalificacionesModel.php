@@ -17,7 +17,7 @@ class CalificacionesModel extends Model
         'id_periodo',
         'nota'
     ];
-    
+
     protected $validationRules = [
         'id_inscripcion' => 'required|integer',
         'id_distribucion_asignatura'  => 'required|integer',
@@ -25,7 +25,30 @@ class CalificacionesModel extends Model
         'id_periodo'     => 'required|integer',
         'nota'           => 'required|decimal'
     ];
+
+
+    public function guardarOActualizar($data)
+    {
+        $builder = $this->db->table('calificaciones');
+
+        // Verifica si ya existe un registro para esa inscripción, asignatura, competencia y periodo
+        $registro = $builder
+            ->where('id_inscripcion', $data['id_inscripcion'])
+            ->where('id_distribucion_asignatura', $data['id_distribucion_asignatura'])
+            ->where('id_competencia', $data['id_competencia'])
+            ->where('id_periodo', $data['id_periodo'])
+            ->get()
+            ->getRow();
+
+        if ($registro) {
+            $builder
+                ->where('id_inscripcion', $data['id_inscripcion'])
+                ->where('id_distribucion_asignatura', $data['id_distribucion_asignatura'])
+                ->where('id_competencia', $data['id_competencia'])
+                ->where('id_periodo', $data['id_periodo'])
+                ->update($data);
+        } else {
+            $builder->insert($data);
+        }
+    }
 }
-
-
-?>

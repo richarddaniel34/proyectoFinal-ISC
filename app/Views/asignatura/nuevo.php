@@ -80,7 +80,41 @@
     </div>
 </div>
 
- 
+ <?= $this->section('scripts') ?>
+
+ <script>
+    function generarCodigo() {
+    const nombre = document.getElementById('nombre').value.trim();
+
+    if (nombre === '') {
+        document.getElementById('codigo_asignatura').value = '';
+        return;
+    }
+
+    // Palabras irrelevantes que se deben ignorar
+    const palabrasIrrelevantes = ['y', 'de', 'del', 'la', 'el', 'los', 'las', 'en'];
+
+    // Separar palabras, ignorar espacios adicionales y convertir a mayúsculas
+    const palabras = nombre.split(/\s+/).filter(p => !palabrasIrrelevantes.includes(p.toLowerCase())).map(p => p.toUpperCase());
+
+    // Generar el código tomando las primeras tres letras de cada palabra relevante
+    let codigo = palabras.map((palabra, index) => {
+        return palabra.substring(0, 3); // Máximo 3 letras por palabra
+    }).join('-'); // Separador "-"
+
+    // Limitar la longitud máxima del código (opcional)
+    const maxLongitud = 15; // Ajusta este valor según tus necesidades
+    if (codigo.length > maxLongitud) {
+        codigo = codigo.substring(0, maxLongitud);
+    }
+
+    // Asignar el código generado al campo correspondiente
+    document.getElementById('codigo_asignatura').value = codigo;
+}
+
+ </script>
+
+ <?= $this->endSection() ?>
 
 
 

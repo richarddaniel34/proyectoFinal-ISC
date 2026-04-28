@@ -39,4 +39,7 @@ class EstudiantesResponsablesModel extends Model
         // Devuelve array vacío si no encuentra ENUM o error
         return [];
     }
+
+
+    
 }

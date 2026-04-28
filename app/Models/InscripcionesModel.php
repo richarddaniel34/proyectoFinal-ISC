@@ -13,13 +13,15 @@ class InscripcionesModel extends Model
     protected $useSoftDeletes = false;
 
     protected $allowedFields = [
-        'id_distribucion_academica',
+        'id_escuela',
+        'id_grado',
+        'id_curso',
         'id_estudiante',
         'id_schoolYear',
         'id_pago',
         'condicion_inicial',
         'estado',
-        'Condicion_final',
+        'condicion_final',
         'activo'
     ];
 
@@ -29,23 +31,22 @@ class InscripcionesModel extends Model
     protected $deletedField = 'deleted_at';
 
     // Validaciones
-    protected $validationRules = [
-        'id_distribucion_academica' => 'required|integer',
-        'id_estudiante' => 'required|integer',
-        'id_schoolYear' => 'required|integer',
+   protected $validationRules = [
+    'id_grado' => 'required|integer',
+    'id_estudiante' => 'required|integer',
+    'id_schoolYear' => 'required|integer',
+    'estado' => 'permit_empty|in_list[Normal, Prematricula, Pendiente de Pago]' // agrega todos los estados posibles
+];
 
-        // Estado ahora es opcional
-        'estado' => 'permit_empty|in_list[Pre-Matricula]'
-    ];
 
 
     protected $validationMessages = [
         'id_estudiante' => ['required' => 'Debe seleccionar un estudiante.'],
-        'id_distribucion_academica' => ['required' => 'Debe seleccionar un curso.'],
+        'id_curso' => ['required' => 'Debe seleccionar un curso.'],
         'id_schoolYear' => ['required' => 'Debe seleccionar un año escolar.'],
     ];
 
-    
+
     //Verifica si un estudiante ya está inscrito en el año actual
     public function estudianteYaInscrito($idEstudiante, $idSchoolYear)
     {
@@ -54,8 +55,8 @@ class InscripcionesModel extends Model
             ->first();
     }
 
-    
-     //Obtener inscripciones con detalles (estudiante, curso, año escolar, estado)
+
+    //Obtener inscripciones con detalles (estudiante, curso, año escolar, estado)
     public function getInscripcionesConDetalles()
     {
         return $this->select('
@@ -80,16 +81,79 @@ class InscripcionesModel extends Model
             estudiantes.id,
             estudiantes.nombre,
             estudiantes.apellido,
-            cursos.nombreCurso AS curso
+            cursos_base.nombre_curso AS curso
         ')
             ->join('estudiantes', 'estudiantes.id = inscripciones.id_estudiante')
-            ->join('distribucion_academica', 'distribucion_academica.id = inscripciones.id_distribucion_academica')
-            ->join('cursos', 'cursos.id = distribucion_academica.id_curso')
+            ->join('cursos', 'cursos.id = inscripciones.id_curso') // <---- ahora enlaza directo con cursos
+            ->join('cursos_base', 'cursos_base.id = cursos.id_cursos_base', 'left') // <---- para obtener el nombre del curso
             ->join('pagos', 'pagos.id_estudiante = estudiantes.id')
-            ->where('pagos.id_responsable', $id_responsable) // Aquí filtramos por responsable
+            ->where('pagos.id_responsable', $id_responsable)
             ->where('inscripciones.id_schoolYear', $id_schoolYear)
             ->where('inscripciones.activo', 1)
-            ->groupBy('estudiantes.id')
+            ->orderBy('inscripciones.id', 'DESC')
             ->findAll();
+    }
+
+
+    /*public function getEstudiantesPorCurso($id_curso)
+    {
+        return $this->select('estudiantes.id, estudiantes.nombre, estudiantes.apellido')
+            ->join('estudiantes', 'estudiantes.id = inscripciones.id_estudiante')
+            ->join('distribucion_asignaturas', 'distribucion_asignaturas.id = inscripciones.id_distribucion_academica')
+            ->where('distribucion_asignaturas.id_curso', $id_curso)
+            ->where('inscripciones.activo', 1)
+            ->orderBy('estudiantes.apellido', 'ASC') // Puedes cambiar a nombre si quieres
+            ->findAll();
+    }
+*/
+
+
+
+    public function getEstudiantesPorCurso($id_curso)
+    {
+        return $this->select('
+            inscripciones.id AS id_inscripcion, 
+            estudiantes.nombre, 
+            estudiantes.apellido
+        ')
+            ->join('estudiantes', 'estudiantes.id = inscripciones.id_estudiante')
+            ->join('cursos', 'cursos.id = inscripciones.id_curso') // ← ahora va directo
+            ->where('cursos.id', $id_curso)
+            ->where('inscripciones.activo', 1)
+            ->orderBy('estudiantes.apellido', 'ASC')
+            ->findAll();
+    }
+
+
+
+    public function contarEstudiantesPorEscuela($idEscuela)
+    {
+        return $this->select("
+            COUNT(inscripciones.id_estudiante) AS total,
+            SUM(CASE WHEN estudiantes.sexo = 'M' THEN 1 ELSE 0 END) AS total_masculino,
+            SUM(CASE WHEN estudiantes.sexo = 'F' THEN 1 ELSE 0 END) AS total_femenino
+        ")
+            ->join('estudiantes', 'estudiantes.id = inscripciones.id_estudiante')
+            ->join('schoolyear', 'schoolyear.id = inscripciones.id_schoolYear')
+            ->where('inscripciones.id_escuela', $idEscuela)
+            ->where('inscripciones.activo', 1)
+            ->where('schoolyear.estado', 'En curso')
+            ->get()
+            ->getRowArray();
+    }
+
+
+    public function contarFamiliasPorEscuela($idEscuela)
+    {
+        return $this->db->table('inscripciones i')
+            ->join('estudiantes e', 'e.id = i.id_estudiante')
+            ->join('estudiantes_responsables er', 'er.estudiante_id = e.id')
+            ->join('schoolyear sy', 'sy.id = i.id_schoolYear')
+            ->where('i.id_escuela', $idEscuela)
+            ->where('i.activo', 1)
+            ->where('sy.estado', 'En curso')
+            ->select('COUNT(DISTINCT er.responsable_id) AS total_familias')
+            ->get()
+            ->getRowArray();
     }
 }

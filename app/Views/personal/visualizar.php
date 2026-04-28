@@ -1,44 +1,86 @@
-    <input type="hidden" name="id" value="<?php echo $datos['id']; ?>" />
-
-    <div class="container">
-        <div class="row">
-            <!-- Sección de Imagen -->
-            <div class="col-md-3">
-                <div class="image-placeholder">
-                    <img src="<?= base_url($datos['foto']); ?>" class="img-fluid mb-2">
-                </div>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sección de Imagen -->
+        <div class="col-md-3 text-center">
+            <div class="image-container mb-3">
+                <img src="<?= base_url($datos['foto']); ?>" class="img-fluid rounded shadow-sm" alt="Foto del personal" style="max-width: 180px; border: 2px solid #e9ecef;">
             </div>
-        
-            <!-- Sección de inputs junto a la imagen -->
-            <div class="col-md-9">
-                <div>
-                    <div class="form-row">
-                        <div class="form-group col-sm-4">
-                        <label class="control-label">Nombre:</label>
-                            <input type="text" value="<?php echo $datos['nombre']; ?>" name="nombre" class="form-control" readonly>
-                        </div>
-                        <div class="form-group col-sm-4">
-                        <label class="control-label">Apellido(s):</label>
-                            <input type="text" value="<?php echo $datos['apellido']; ?>" name="apellido" class="form-control" readonly/>
-                        </div>
-                        <div class="form-group col-sm-4">
-                        <label class="control-label">Cédula:</label>
-                            <input type="text" value="<?php echo $datos['cedula']; ?>" name="cedula" class="form-control" readonly/>
-                        </div>
-                        <div class="form-group col-sm-4">
-                        <label class="control-label">Telefono:</label>
-                            <input type="text" value="<?php echo $datos['telefono']; ?>" name="telefono" class="form-control" readonly/>
-                        </div>
-                        
+        </div>
+
+        <!-- Información Personal -->
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-sm-5 mb-9">
+                    <div class="info-item">
+                        <strong class="text-primary">Nombre:</strong>
+                        <p class="mb-1 ml-2"><?= esc($datos['nombre']); ?></p>
                     </div>
+                </div>
+                <div class="col-sm-5 mb-2">
+                    <div class="info-item">
+                        <strong class="text-primary">Apellido(s):</strong>
+                        <p class="mb-1 ml-2"><?= esc($datos['apellido']); ?></p>
+                    </div>
+                </div>
+
+                <div class="col-sm-5 mb-2">
+                    <div class="info-item">
+                        <strong class="text-primary">Cédula:</strong>
+                        <p class="mb-1 ml-2"><?= esc($datos['cedula']); ?></p>
+                    </div>
+                </div>
+                <div class="col-sm-5 mb-3">
+                    <div class="info-item">
+                        <strong class="text-primary">Sexo:</strong>
+                        <p class="mb-1 ml-2"><?= esc($datos['sexo']); ?></p>
+                    </div>
+                </div>
+                <div class="col-sm-5 mb-3">
+                    <div class="info-item">
+                        <strong class="text-primary">Célular:</strong>
+                        <p class="mb-1 ml-2"><?= esc($datos['celular']); ?></p>
+                    </div>
+                </div>
+                <div class="col-sm-5 mb-3">
+                    <div class="info-item">
+                        <strong class="text-primary">Teléfono:</strong>
+                        <p class="mb-1 ml-2"><?= esc($datos['telefono']); ?></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-sm-4 mb-3">
+                    <div class="info-item">
+                        <strong class="text-primary">Email:</strong>
+                        <p class="mb-1 ml-2"><?= esc($datos['email']); ?></p>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-3">
+                    <div class="info-item">
+                        <strong class="text-primary">Dirección:</strong>
+                        <p class="mb-1 ml-2"><?= esc($datos['direccion']); ?></p>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-3">
+                    <div class="info-item">
+                        <strong class="text-primary">Fecha de Nacimiento:</strong>
+                        <p class="mb-1 ml-2"><?= esc($datos['fecha_nac']); ?></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-        
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+    <!-- Línea separadora -->
+    <hr class="my-4">
 
-
-    <!-- Agrega más campos para editar los datos -->
-
-    
+    <!-- Botón de Acción -->
+    <div class="text-center">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            <i class="fas fa-times"></i> Cerrar
+        </button>
+    </div>
+</div>

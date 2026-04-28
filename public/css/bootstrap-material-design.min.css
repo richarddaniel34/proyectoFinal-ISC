@@ -198,7 +198,12 @@ body .container-fluid .well-danger {
 .input-group-btn .btn:not(.btn-raised).btn-danger {
   color: #f44336;
 }
-/*.btn:not(.btn-raised):not(.btn-link):focus,
+/*//////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+*/
+
+/*==========REVISAR================
+.btn:not(.btn-raised):not(.btn-link):focus,
 .btn:not(.btn-raised):not(.btn-link):hover,
 .input-group-btn .btn:not(.btn-raised):not(.btn-link):focus,
 .input-group-btn .btn:not(.btn-raised):not(.btn-link):hover {
@@ -210,6 +215,7 @@ body .container-fluid .well-danger {
 .theme-dark .input-group-btn .btn:not(.btn-raised):not(.btn-link):hover {
   background-color: rgba(204, 204, 204, 0.15);
 }
+
 .btn-group-raised .btn,
 .btn-group-raised .btn.btn-default,
 .btn-group-raised .input-group-btn .btn,
