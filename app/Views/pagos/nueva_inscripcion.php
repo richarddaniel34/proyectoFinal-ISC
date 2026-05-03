@@ -96,63 +96,66 @@
                             </tr>
                         </thead>
                         <tbody id="estudiantes-list">
-                            <?php if (!empty($estudiantes)): ?>
-                                <?php foreach ($estudiantes as $index => $estudiante): ?>
-                                    <tr>
-                                        <td><?= esc($estudiante['nombre'] . ' ' . $estudiante['apellido']); ?></td>
-                                        <td><?= esc($estudiante['matricula']); ?></td>
-                                        <td>
-                                            <select class="form-control servicio-select"
-                                                name="id_servicio[]"
-                                                data-estudiante-id="<?= esc($estudiante['id']); ?>"
-                                                required>
-                                                <option value="">Seleccione un servicio</option>
-                                                <?php foreach ($servicios as $servicio): ?>
-                                                    <?php if ($servicio['id_escuela'] == $estudiante['id_escuela']): ?>
-                                                        <?php
-                                                        $nombreServicio = $servicio['nombre'];
-                                                        $salida = '';
-                                                        if ($servicio['nombre'] === 'Técnico Profesional' && !empty($servicio['salida_tecnica'])) {
-                                                            $nombreServicio .= ' - ' . $servicio['salida_tecnica'];
-                                                            $salida = $servicio['salida_tecnica'];
-                                                        }
-                                                        ?>
-                                                        <option value="<?= esc($servicio['id_servicio']); ?>" data-salida="<?= esc($salida); ?>">
-                                                            <?= esc($nombreServicio); ?>
-                                                        </option>
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
-                                            </select>
+<?php if (!empty($estudiantes)): ?>
+    <?php foreach ($estudiantes as $estudiante): ?>
+        <tr>
+            <td><?= esc($estudiante['nombre'] . ' ' . $estudiante['apellido']); ?></td>
+            <td><?= esc($estudiante['matricula']); ?></td>
 
+            <td>
+                <select class="form-control servicio-select"
+                    data-id="<?= $estudiante['id']; ?>"
+                    name="estudiantes[<?= $estudiante['id']; ?>][id_servicio]"
+                    <?= $estudiante['inscrito'] ? 'disabled' : '' ?>>
+                    
+                    <option value="">Seleccione</option>
 
-                                            <!-- Hidden inputs -->
-                                            <input type="hidden" name="id_curso[]" id="curso-<?= esc($estudiante['id']); ?>" value="">
-                                            <input type="hidden" name="id_grado[]" value="<?= esc($estudiante['id_grado_nivel']); ?>">
-                                            <input type="hidden" name="id_escuela[]" value="<?= esc($estudiante['id_escuela']); ?>">
-                                            <input type="hidden" name="index[]" value="<?= $index; ?>">
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control text-center" id="curso-visual-<?= esc($estudiante['id']); ?>" readonly>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control text-end monto-pago" name="monto[]" value="<?= esc(number_format($concepto_inscripcion['monto'], 2)) ?>" readonly>
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" name="inscribir[]" value="<?= esc($estudiante['id']); ?>" data-index="<?= $index; ?>">
-                                        </td>
-                                        <td>
-                                            <?= $estudiante['inscrito']
-                                                ? '<span class="badge bg-success px-3 py-2">Inscrito</span>'
-                                                : '<span class="badge bg-danger px-3 py-2">No Inscrito</span>'; ?>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <tr>
-                                    <td colspan="7" class="text-muted">No hay estudiantes disponibles</td>
-                                </tr>
-                            <?php endif; ?>
-                        </tbody>
+                    <?php foreach ($servicios as $servicio): ?>
+                        <?php if ($servicio['id_escuela'] == $estudiante['id_escuela']): ?>
+                            <option value="<?= $servicio['id_servicio']; ?>">
+                                <?= esc($servicio['nombre']); ?>
+                            </option>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </select>
+
+                <!-- 🔹 Datos ocultos -->
+                <input type="hidden" name="estudiantes[<?= $estudiante['id']; ?>][id_grado]" value="<?= $estudiante['id_grado_nivel']; ?>">
+                <input type="hidden" name="estudiantes[<?= $estudiante['id']; ?>][id_escuela]" value="<?= $estudiante['id_escuela']; ?>">
+                <input type="hidden" id="curso-<?= $estudiante['id']; ?>" name="estudiantes[<?= $estudiante['id']; ?>][id_curso]">
+            </td>
+
+            <td>
+                <input type="text" class="form-control text-center" id="curso-visual-<?= $estudiante['id']; ?>" readonly>
+            </td>
+
+            <td>
+                <input type="text" class="form-control text-end"
+                    value="<?= number_format($concepto_inscripcion['monto'], 2); ?>" readonly>
+            </td>
+
+            <td>
+                <input type="checkbox"
+                    class="check-inscribir"
+                    data-id="<?= $estudiante['id']; ?>"
+                    name="estudiantes[<?= $estudiante['id']; ?>][inscribir]"
+                    value="1"
+                    <?= $estudiante['inscrito'] ? 'disabled' : '' ?>>
+            </td>
+
+            <td>
+                <?= $estudiante['inscrito']
+                    ? '<span class="badge bg-success">Inscrito</span>'
+                    : '<span class="badge bg-danger">No Inscrito</span>'; ?>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+<?php else: ?>
+    <tr>
+        <td colspan="7">No hay estudiantes</td>
+    </tr>
+<?php endif; ?>
+</tbody>
                     </table>
                 </div>
 
@@ -218,202 +221,208 @@
 
 
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
 
-        // Inicializar Select2 en el responsable
-        $('#id_responsable').select2({
-            theme: "bootstrap-4",
-            placeholder: "Buscar responsable por nombre o cédula",
-            allowClear: false,
-            minimumInputLength: 0,
-            width: '100%'
-        }).next('.select2-container').addClass('form-control');
+    // 🔹 Select2 responsable
+    $('#id_responsable').select2({
+        theme: "bootstrap-4",
+        placeholder: "Buscar responsable",
+        width: '100%'
+    }).next('.select2-container').addClass('form-control');
 
-        const totalInput = document.getElementById("total_pago");
-        const pagarTodoCheckbox = document.getElementById("pago_completo");
-        const costoInscripcion = <?= esc($concepto_inscripcion['monto']); ?>;
-        const costoMensualidad = <?= esc($concepto_mensualidad['monto']); ?>;
-        const cantidadMensualidades = <?= esc($cantidad_mensualidades); ?>;
-        const costoAnualMensualidades = costoMensualidad * cantidadMensualidades;
+    const totalInput = document.getElementById("total_pago");
+    const pagarTodoCheckbox = document.getElementById("pago_completo");
 
-        // Validar si hay estudiantes seleccionados
-        function validarSeleccion() {
-            let totalSeleccionados = $("input[name='inscribir[]']:checked").length;
-            $('#btn-registrar-inscripcion').prop('disabled', totalSeleccionados === 0);
-        }
+    const costoInscripcion = <?= esc($concepto_inscripcion['monto']); ?>;
+    const costoMensualidad = <?= esc($concepto_mensualidad['monto']); ?>;
+    const cantidadMensualidades = <?= esc($cantidad_mensualidades); ?>;
 
-        // Calcular total
-        function actualizarTotal() {
-            let total = 0;
-            $("input[name='inscribir[]']:checked").each(function() {
-                total += pagarTodoCheckbox.checked ? costoInscripcion + costoAnualMensualidades : costoInscripcion;
-            });
-            totalInput.value = total.toFixed(2);
-        }
+    const costoAnualMensualidades = costoMensualidad * cantidadMensualidades;
 
-        // Evento cambio en checkbox "Pago Completo"
-        pagarTodoCheckbox.addEventListener("change", actualizarTotal);
+    // 🧠 Validar selección
+    function validarSeleccion() {
+        let total = $(".check-inscribir:checked").length;
+        $('#btn-registrar-inscripcion').prop('disabled', total === 0);
+    }
 
-        // Evento cambio en checkboxes de estudiantes
-        $(document).on('change', "input[name='inscribir[]']", function() {
-            validarSeleccion();
-            actualizarTotal();
+    // 💰 Calcular total
+    function actualizarTotal() {
+        let total = 0;
+
+        $(".check-inscribir:checked").each(function () {
+            total += pagarTodoCheckbox.checked 
+                ? costoInscripcion + costoAnualMensualidades 
+                : costoInscripcion;
         });
 
-        // 🔹 Cargar estudiantes al seleccionar responsable
-        $('#id_responsable').on('change', function() {
-            let id_responsable = $(this).val();
-            let tablaEstudiantes = $('#estudiantes-list');
-            tablaEstudiantes.empty();
-            $('#btn-registrar-inscripcion').prop('disabled', true);
+        totalInput.value = total.toFixed(2);
+    }
 
-            if (id_responsable !== "") {
-                $.ajax({
-                    url: "<?= base_url('pagos/obtenerEstudiantes') ?>",
-                    type: "GET",
-                    data: {
-                        id_responsable: id_responsable
-                    },
-                    dataType: "json",
-                    success: function(response) {
-                        if (response.status === 'success') {
-                            let estudiantes = response.data;
-
-                            if (estudiantes.length > 0) {
-                                $.each(estudiantes, function(index, estudiante) {
-                                    let inscripcionStatus = estudiante.inscrito ? 'Inscrito' : 'No Inscrito';
-                                    let inscripcionClass = estudiante.inscrito ? 'text-success' : 'text-danger';
-
-                                    // Construir options de servicios según escuela
-                                    let opcionesServicios = '<option value="">Seleccione un servicio</option>';
-
-                                    if (estudiante.servicios && estudiante.servicios.length > 0) {
-                                        estudiante.servicios.forEach(function(serv) {
-                                            const esTecnico = serv.nombre.toLowerCase().includes('técnico') || serv.nombre.toLowerCase().includes('tecnico');
-                                            const salidaTxt = (serv.salida_nombre || serv.salida || '').trim();
-
-                                            const text = esTecnico && salidaTxt ?
-                                                `${serv.nombre}` // ya viene "Técnico Profesional - X"
-                                                :
-                                                serv.nombre;
-
-                                            const value = (esTecnico && serv.salida_id) ?
-                                                `${serv.id_servicio}|${serv.salida_id}` // 👈 combo técnico
-                                                :
-                                                `${serv.id_servicio}`; // 👈 no técnico
-
-                                            opcionesServicios += `<option value="${value}">${text}</option>`;
-                                        });
-                                    }
-
-
-
-                                    tablaEstudiantes.append(`
-                                    <tr>
-        <td>${estudiante.nombre} ${estudiante.apellido}</td>
-        <td>${estudiante.matricula}</td>
-        <td>
-            <input type="hidden" name="id_grado[]" value="${estudiante.id_grado_nivel}">
-            <input type="hidden" name="id_escuela[]" value="${estudiante.id_escuela}">
-            <select class="form-control servicio-select" data-estudiante-id="${estudiante.id}" name="id_servicio[]" ${estudiante.inscrito ? 'disabled' : ''}>
-                ${opcionesServicios}
-            </select>
-        </td>
-        <td>
-            <input type="text" class="form-control" id="curso-visual-${estudiante.id}" readonly>
-        </td>
-        <td>
-            <input type="text" class="form-control monto-pago" name="monto[]" value="<?= esc(number_format($concepto_inscripcion['monto'], 2)) ?>" readonly>
-        </td>
-        <td>
-            <input type="checkbox" name="inscribir[]" value="${estudiante.id}" ${estudiante.inscrito ? 'disabled' : ''}>
-        </td>
-        <td class="${inscripcionClass}">${inscripcionStatus}</td>
-        <input type="hidden" id="curso-${estudiante.id}" name="id_curso[]">
-    </tr>`);
-
-                                });
-                            } else {
-                                tablaEstudiantes.append('<tr><td colspan="7">No hay estudiantes registrados para este responsable.</td></tr>');
-                            }
-
-                        } else if (response.status === 'empty') {
-                            tablaEstudiantes.append('<tr><td colspan="7">No hay estudiantes registrados para este responsable.</td></tr>');
-                        } else {
-                            alert(response.message);
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(xhr.responseText);
-                        alert("Error al obtener los estudiantes. Intenta de nuevo.");
-                    }
-                });
-            }
-        });
-
-        // 🔹 Cargar curso automáticamente al seleccionar servicio
-        $(document).on('change', '.servicio-select', function() {
-            let servicioCompuesto = $(this).val(); // "idServicio" o "idServicio|idSalida"
-            let estudianteId = $(this).data('estudiante-id');
-            let fila = $(this).closest('tr');
-            let idGrado = fila.find("input[name='id_grado[]']").val();
-            let idEscuela = fila.find("input[name='id_escuela[]']").val();
-            let idSchoolYear = $('#id_schoolYear').val();
-
-            if (servicioCompuesto && idGrado) {
-                $.ajax({
-                    url: "<?= base_url('gradossecciones/obtenerCursosPorServicioInscripcion') ?>",
-                    type: "GET",
-                    data: {
-                        servicio_compuesto: servicioCompuesto, // 👈 clave
-                        id_grado: idGrado,
-                        id_escuela: idEscuela, // 👈 recomendado
-                        id_schoolyear: idSchoolYear,
-                        debug: 1 // 👈 activado
-                    },
-                    dataType: "json",
-                    success: function(response) {
-                        if (response.status === 'success' && response.data.length > 0) {
-                            response.data.forEach(c => {
-                                c.disponibilidad_num = c.capacidad - c.ocupados;
-                                c.disponibilidad = `${c.ocupados}/${c.capacidad}`;
-                            });
-                            let cursosDisponibles = response.data.filter(c => c.disponibilidad_num > 0);
-                            if (cursosDisponibles.length > 0) {
-                                let curso = cursosDisponibles[0];
-
-                                console.log('Curso elegido:', cursosDisponibles[0]);
-
-                                // 👇 fallback por si alguna clave cambia
-                                const nombre = curso.nombre_curso || curso.nombre || curso.text || 'Curso sin nombre';
-
-                                $('#curso-' + estudianteId).val(curso.id);
-                                $('#curso-visual-' + estudianteId).val(`${nombre} (${curso.disponibilidad})`);
-                            } else {
-                                $('#curso-' + estudianteId).val('');
-                                $('#curso-visual-' + estudianteId).val('');
-                                alert('No hay cursos disponibles con cupo.');
-                            }
-                        } else {
-                            $('#curso-' + estudianteId).val('');
-                            $('#curso-visual-' + estudianteId).val('');
-                            alert(response.message || 'No se encontraron cursos.');
-                        }
-                    },
-                    error: function(xhr) {
-                        console.error('Error AJAX:', xhr.responseText);
-                        alert("Error al obtener el curso.");
-                    }
-                });
-            }
-        });
-
-
-
-
-
-
+    // Eventos
+    $(document).on('change', '.check-inscribir', function () {
+        validarSeleccion();
+        actualizarTotal();
     });
+
+    $('#pago_completo').on('change', actualizarTotal);
+
+    // 🔹 Cargar estudiantes
+    $('#id_responsable').on('change', function() {
+
+        let id_responsable = $(this).val();
+        let tabla = $('#estudiantes-list');
+
+        tabla.empty();
+        $('#btn-registrar-inscripcion').prop('disabled', true);
+
+        if (!id_responsable) return;
+
+        $.ajax({
+            url: "<?= base_url('pagos/obtenerEstudiantes') ?>",
+            type: "GET",
+            data: { id_responsable },
+            dataType: "json",
+            success: function(response) {
+
+                if (response.status !== 'success' || response.data.length === 0) {
+                    tabla.append('<tr><td colspan="7">No hay estudiantes</td></tr>');
+                    return;
+                }
+
+                response.data.forEach(est => {
+
+                    let estado = est.inscrito ? 'Inscrito' : 'No Inscrito';
+                    let clase = est.inscrito ? 'text-success' : 'text-danger';
+
+                    // 🔹 Servicios
+                    let opciones = `<option value="">Seleccione</option>`;
+
+                    if (est.servicios) {
+                        est.servicios.forEach(serv => {
+
+                            const esTecnico = serv.nombre.toLowerCase().includes('tecnico');
+                            const salida = (serv.salida_nombre || '').trim();
+
+                            const text = (esTecnico && salida)
+                                ? `${serv.nombre}`
+                                : serv.nombre;
+
+                            const value = (esTecnico && serv.salida_id)
+                                ? `${serv.id_servicio}|${serv.salida_id}`
+                                : serv.id_servicio;
+
+                            opciones += `<option value="${value}">${text}</option>`;
+                        });
+                    }
+
+                    tabla.append(`
+<tr>
+    <td>${est.nombre} ${est.apellido}</td>
+    <td>${est.matricula}</td>
+
+    <td>
+        <select class="form-control servicio-select"
+            data-id="${est.id}"
+            name="estudiantes[${est.id}][id_servicio]"
+            ${est.inscrito ? 'disabled' : ''}>
+            ${opciones}
+        </select>
+
+        <input type="hidden" name="estudiantes[${est.id}][id_grado]" value="${est.id_grado_nivel}">
+        <input type="hidden" name="estudiantes[${est.id}][id_escuela]" value="${est.id_escuela}">
+        <input type="hidden" id="curso-${est.id}" name="estudiantes[${est.id}][id_curso]">
+    </td>
+
+    <td>
+        <input type="text" class="form-control text-center"
+            id="curso-visual-${est.id}" readonly>
+    </td>
+
+    <td>
+        <input type="text" class="form-control text-end"
+            value="<?= number_format($concepto_inscripcion['monto'], 2); ?>" readonly>
+    </td>
+
+    <td>
+        <input type="checkbox"
+            class="check-inscribir"
+            data-id="${est.id}"
+            name="estudiantes[${est.id}][inscribir]"
+            value="1"
+            ${est.inscrito ? 'disabled' : ''}>
+    </td>
+
+    <td class="${clase}">${estado}</td>
+</tr>
+                    `);
+                });
+
+            },
+            error: function(xhr) {
+                console.error(xhr.responseText);
+                alert("Error cargando estudiantes");
+            }
+        });
+    });
+
+    // 🔹 Asignación automática de curso (MEJORADA)
+    $(document).on('change', '.servicio-select', function() {
+
+        let estudianteId = $(this).data('id');
+        let fila = $(this).closest('tr');
+
+        let servicio = $(this).val();
+        let idGrado = fila.find(`input[name="estudiantes[${estudianteId}][id_grado]"]`).val();
+        let idEscuela = fila.find(`input[name="estudiantes[${estudianteId}][id_escuela]"]`).val();
+        let idSchoolYear = $('#id_schoolYear').val();
+
+        if (!servicio) return;
+
+        $.ajax({
+            url: "<?= base_url('gradossecciones/obtenerCursosPorServicioInscripcion') ?>",
+            type: "GET",
+            data: {
+                servicio_compuesto: servicio,
+                id_grado: idGrado,
+                id_escuela: idEscuela,
+                id_schoolyear: idSchoolYear
+            },
+            dataType: "json",
+            success: function(response) {
+
+                if (response.status !== 'success' || response.data.length === 0) {
+                    alert('No hay cursos');
+                    return;
+                }
+
+                // 🔥 algoritmo inteligente
+                response.data.forEach(c => {
+                    c.disponibles = c.capacidad - c.ocupados;
+                });
+
+                let mejor = response.data
+                    .filter(c => c.disponibles > 0)
+                    .sort((a, b) => b.disponibles - a.disponibles)[0];
+
+                if (!mejor) {
+                    alert('No hay cupo disponible');
+                    return;
+                }
+
+                let nombre = mejor.nombre_curso || 'Curso';
+
+                $(`#curso-${estudianteId}`).val(mejor.id);
+                $(`#curso-visual-${estudianteId}`)
+                    .val(`${nombre} (${mejor.ocupados}/${mejor.capacidad})`);
+            },
+            error: function(xhr) {
+                console.error(xhr.responseText);
+                alert("Error al obtener cursos");
+            }
+        });
+    });
+
+});
 </script>
 
 

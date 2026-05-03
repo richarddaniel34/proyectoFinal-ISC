@@ -133,7 +133,7 @@
 <script>
     $(document).ready(function() {
 
-        // Inicializar Select2
+        // 🔹 Select2
         $('#id_responsable').select2({
             theme: "bootstrap-4",
             placeholder: "Buscar responsable...",
@@ -141,7 +141,7 @@
             width: '100%'
         }).next('.select2-container').addClass('form-control');
 
-        // Eventos al cambiar responsable o año escolar
+        // 🔹 Detectar cambios
         $('#id_responsable, #id_schoolYear').on('change', function() {
             let id_responsable = $('#id_responsable').val();
             let id_schoolYear = $('#id_schoolYear').val();
@@ -151,103 +151,158 @@
             }
         });
 
-        // 🔥 Función para cargar mensualidades pendientes
+        //  Cargar mensualidades
         function cargarMensualidadesPendientes(id_responsable, id_schoolYear) {
+
             $.ajax({
                 url: "<?= base_url('pagos/obtenerMensualidadesPendientes') ?>",
                 type: "GET",
                 data: {
-                    id_responsable: id_responsable,
-                    id_schoolYear: id_schoolYear
+                    id_responsable,
+                    id_schoolYear
                 },
                 dataType: "json",
+
                 success: function(response) {
-                    let tablaMensualidades = $('#estudiantes-mensualidades-list');
-                    tablaMensualidades.empty();
 
-                    if (response.status === 'success') {
-                        let estudiantes = response.data;
+                    let tabla = $('#estudiantes-mensualidades-list');
+                    tabla.empty();
 
-                        if (estudiantes.length > 0) {
-                            $.each(estudiantes, function(index, estudiante) {
-                                let mesesPendientes = '';
-                                
-                                $.each(estudiante.meses_pendientes, function(i, mes) {
-                                    mesesPendientes += `
-                                        <div class="form-check">
-                                            <input class="form-check-input mes-checkbox" type="checkbox"
-                                                name="meses[${estudiante.id}][]" 
-                                                value="${mes.numero}" 
-                                                data-monto="${mes.monto}"
-                                                id="mes-${estudiante.id}-${mes.numero}">
-                                            <label class="form-check-label" for="mes-${estudiante.id}-${mes.numero}">
-                                                ${mes.nombre} - RD$${mes.monto}
-                                            </label>
-                                        </div>
-                                    `;
-                                });
+                    if (response.status === 'success' && response.data.length > 0) {
 
-                                tablaMensualidades.append(`
-                                    <tr>
-                                        <td>${estudiante.nombre} ${estudiante.apellido}</td>
-                                        <td>${estudiante.curso}</td>
-                                        <td>${mesesPendientes}</td>
-                                        <td>
-                                            <input type="text" class="form-control monto-total-estudiante" 
-                                                id="monto-estudiante-${estudiante.id}" 
-                                                value="0.00" readonly>
-                                        </td>
-                                        <td>
-                                            <input type="checkbox" class="form-check-input estudiante-checkbox" 
-                                                name="estudiantes[]" value="${estudiante.id}">
-                                        </td>
-                                    </tr>
-                                `);
+                        response.data.forEach(est => {
+
+                            let mesesHTML = '';
+
+                            const pagados = (est.meses_pagados || []).map(m => m.toLowerCase());
+
+                            est.meses_pendientes.forEach(mes => {
+
+                                let nombreMes = mes.nombre.toLowerCase();
+                                let isPagado = pagados.includes(nombreMes);
+
+                                mesesHTML += `
+                                <div class="form-check">
+                                    <input class="form-check-input mes-checkbox"
+                                        type="checkbox"
+                                        name="meses[${est.id}][]"
+                                        value="${mes.nombre}"
+                                        data-monto="${mes.monto}"
+                                        data-estudiante="${est.id}"
+                                        ${isPagado ? 'checked disabled' : ''}>
+
+                                    <label class="form-check-label ${isPagado ? 'text-success fw-bold' : ''}">
+                                        ${mes.nombre} - RD$${mes.monto}
+                                        ${isPagado ? '✔ Pagado' : ''}
+                                    </label>
+                                </div>
+                            `;
                             });
 
-                            $('.mes-checkbox').on('change', function() {
-                                actualizarMontos();
-                            });
+                            tabla.append(`
+                            <tr>
+                                <td>${est.nombre} ${est.apellido}</td>
+                                <td>${est.curso}</td>
+                                <td>${mesesHTML}</td>
+                                <td>
+                                    <input type="text" class="form-control"
+                                        id="total-${est.id}" value="0.00" readonly>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                        class="estudiante-checkbox"
+                                        value="${est.id}">
+                                </td>
+                            </tr>
+                        `);
+                        });
 
-                            $('.estudiante-checkbox').on('change', function() {
-                                let estudianteId = $(this).val();
-                                let isChecked = $(this).prop('checked');
-
-                                $(`input[name="meses[${estudianteId}][]"]`).prop('checked', isChecked);
-                                actualizarMontos();
-                            });
-                        } else {
-                            tablaMensualidades.append('<tr><td colspan="5">No hay mensualidades pendientes.</td></tr>');
-                        }
                     } else {
-                        tablaMensualidades.append(`<tr><td colspan="5">${response.message}</td></tr>`);
+                        tabla.append(`<tr><td colspan="5">No hay mensualidades pendientes.</td></tr>`);
                     }
-                },
-                error: function(xhr) {
-                    console.error('Error:', xhr.responseText);
-                    $('#estudiantes-mensualidades-list').html('<tr><td colspan="5">Error al cargar los datos.</td></tr>');
                 }
             });
         }
 
-        // 🔥 Función para actualizar montos
+        //  Evento: seleccionar mes
+        $(document).on('change', '.mes-checkbox', function() {
+
+            let estudianteId = $(this).data('estudiante');
+
+            let algunoMarcado = $(`.mes-checkbox[data-estudiante="${estudianteId}"]:checked`).length > 0;
+
+            $(`.estudiante-checkbox[value="${estudianteId}"]`)
+                .prop('checked', algunoMarcado);
+
+            actualizarMontos();
+        });
+
+        //  Evento: seleccionar estudiante
+        $(document).on('change', '.estudiante-checkbox', function() {
+
+            let estudianteId = $(this).val();
+            let checked = $(this).prop('checked');
+
+            $(`.mes-checkbox[data-estudiante="${estudianteId}"]`)
+                .not(':disabled') //  CLAVE: no tocar meses pagados
+                .prop('checked', checked);
+
+            actualizarMontos();
+        });
+
+        //  Calcular totales (VERSIÓN CORREGIDA)
         function actualizarMontos() {
+
             let totalGeneral = 0;
 
-            $('.estudiante-checkbox').each(function() {
-                let estudianteId = $(this).val();
-                let totalEstudiante = 0;
+            let estudiantes = new Set();
 
-                $(`input[name="meses[${estudianteId}][]"]:checked`).each(function() {
-                    totalEstudiante += parseFloat($(this).data('monto'));
+            $('.mes-checkbox').each(function() {
+                estudiantes.add($(this).data('estudiante'));
+            });
+
+            estudiantes.forEach(estudianteId => {
+
+                let totalEst = 0;
+
+                $(`.mes-checkbox[data-estudiante="${estudianteId}"]:checked`).each(function() {
+
+                    if (!$(this).is(':disabled')) { //  CLAVE FINAL
+
+                        totalEst += parseFloat($(this).data('monto')) || 0;
+                    }
                 });
 
-                $(`#monto-estudiante-${estudianteId}`).val(totalEstudiante.toFixed(2));
-                totalGeneral += totalEstudiante;
+                $(`#total-${estudianteId}`).val(totalEst.toFixed(2));
+
+                totalGeneral += totalEst;
             });
 
             $('#total_pago').val(totalGeneral.toFixed(2));
         }
+
+        //  Validación antes de enviar
+        $('form').on('submit', function(e) {
+
+            let valido = false;
+
+            $('.estudiante-checkbox:checked').each(function() {
+                let id = $(this).val();
+
+                if ($(`.mes-checkbox[data-estudiante="${id}"]:checked:not(:disabled)`).length > 0) {
+                    valido = true;
+                }
+            });
+
+            if (!valido) {
+                e.preventDefault();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Debe seleccionar al menos un mes para un estudiante.'
+                });
+            }
+        });
 
     });
 </script>

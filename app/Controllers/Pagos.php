@@ -12,6 +12,8 @@ use App\Models\ConceptoPagosModel;
 use App\Models\CursosModel;
 use App\Models\EscuelaServiciosModel;
 use App\Models\ServiciosModel;
+use App\Models\ConceptoPagosConfigModel;
+use App\Models\MesesModel;
 // Añadir la importación de TCPDF
 use TCPDF;
 
@@ -27,6 +29,8 @@ class Pagos extends BaseController
     protected $gradosNiveles;
     protected $escuelasServicios;
     protected $servicios;
+    protected $conceptoConfig;
+    protected $meses;
 
     public function __construct()
     {
@@ -40,6 +44,8 @@ class Pagos extends BaseController
         $this->gradosNiveles = new GradosNivelesModel();
         $this->escuelasServicios = new EscuelaServiciosModel();
         $this->servicios = new ServiciosModel();
+        $this->conceptoConfig = new ConceptoPagosConfigModel();
+        $this->meses = new MesesModel();
     }
 
     public function index()
@@ -155,98 +161,7 @@ class Pagos extends BaseController
 
 
 
-    /*public function nueva_inscripcion()
-    {
-        // 🔹 Obtener responsables y año escolar activo
-        $responsables = $this->responsables->findAll();
 
-        $schoolYears = $this->schoolYear
-            ->where('estado', 'En curso')
-            ->findAll();
-
-        $schoolYearActivo = $this->schoolYear
-            ->where('estado', 'En curso')
-            ->first();
-
-        $id_schoolYear = $schoolYearActivo ? $schoolYearActivo['id'] : null;
-
-        // 🔹 Obtener conceptos de pago
-        $conceptoInscripcion = $this->conceptoPagos->where('nombre', 'Inscripción')->first();
-        $conceptoMensualidad = $this->conceptoPagos->where('nombre', 'Mensualidad')->first();
-        $cantidadMensualidades = 12; // O el número real en tu sistema
-
-        // 🔹 Obtener responsable y sus estudiantes
-        $id_responsable = $this->request->getGet('id_responsable') ?? null;
-        $id_grado = $this->request->getGet('id_grado') ?? null;
-
-        $estudiantes = [];
-        $grados = [];
-        $cursos = [];
-
-        if ($id_responsable) {
-            $estudiantesResponsable = $this->estudiantes
-                ->where('responsables', $id_responsable)
-                ->findAll();
-
-            // 🔹 Filtrar estudiantes por grado si ya se seleccionó
-            if ($id_grado) {
-                $estudiantes = array_filter($estudiantesResponsable, function ($est) use ($id_grado) {
-                    return $est['id_grado'] == $id_grado;
-                });
-            } else {
-                $estudiantes = $estudiantesResponsable;
-            }
-
-            // 🔹 Obtener escuela del primer estudiante (suponiendo que todos los hijos están en la misma escuela)
-            $id_escuela = $estudiantesResponsable[0]['id_escuela'] ?? null;
-
-            // 🔹 Cargar grados disponibles según escuela
-            if ($id_escuela) {
-                $grados = $this->gradosNiveles
-                    ->where('id_escuela', $id_escuela)
-                    ->orderBy('orden', 'ASC')
-                    ->findAll();
-            }
-        }
-
-        // 🔹 Cargar cursos según grado seleccionado
-        if ($id_grado && $id_schoolYear) {
-            $cursos = $this->cursos
-                ->select('
-                cursos.id,
-                cursos_base.nombre_curso AS nombre_curso,
-                servicios.nombre AS nombre_servicio,
-                cursos.capacidad,
-                cursos.tipo_aula
-            ')
-                ->join('cursos_base', 'cursos_base.id = cursos.id_cursos_base', 'left')
-                ->join('servicios', 'servicios.id = cursos.id_servicio', 'left')
-                ->where('cursos.id_schoolyear', $id_schoolYear)
-                ->where('cursos.id_grado', $id_grado)
-                ->where('cursos.activo', 1)
-                ->orderBy('cursos_base.nombre_curso', 'ASC')
-                ->findAll();
-        }
-
-        $data = [
-            'titulo' => 'Nueva Inscripción',
-            'responsables' => $responsables,
-            'schoolYears' => $schoolYears,
-            'estudiantes' => $estudiantes,
-            'grados' => $grados,
-            'cursos' => $cursos,
-            'concepto_inscripcion' => $conceptoInscripcion,
-            'concepto_mensualidad' => $conceptoMensualidad,
-            'cantidad_mensualidades' => $cantidadMensualidades,
-            'id_responsable' => $id_responsable,
-            'id_grado' => $id_grado,
-            'id_schoolYear' => $id_schoolYear,
-        ];
-
-        echo view('header');
-        echo view('pagos/nueva_inscripcion', $data);
-        echo view('footer');
-    }*/
 
 
     // Carga los estudiantes según el responsable seleccionado
@@ -366,76 +281,69 @@ class Pagos extends BaseController
 
 
 
-
-
-
-
-    //Carga los cursos según la escuela seleccionada
-    /*  public function obtenerCursosPorEscuela()
-    {
-        $idEscuela = $this->request->getPost('id_escuela');
-        $idGrado   = $this->request->getPost('id_grado');
-
-        $grados = $this->distribucionAcademica
-            ->where('id_escuela', $idEscuela)
-            ->where('id_grado', $idGrado)
-            ->findAll();
-
-        return $this->response->setJSON($grados);
-    }*/
-
-
     //Registra la inscripción y el pago si aplica
     public function registrar_inscripcion()
     {
-        log_message('debug', '=== INICIO registrar_inscripcion ===');
-
         $id_responsable = $this->request->getPost('id_responsable');
         $metodo_pago    = $this->request->getPost('metodo_pago');
-        $inscribir      = $this->request->getPost('inscribir'); // array de estudiantes seleccionados
-        $grados         = $this->request->getPost('id_grado');
-        $escuelas       = $this->request->getPost('id_escuela');
-        $cursos         = $this->request->getPost('id_curso');
-        $montos         = $this->request->getPost('monto');
         $pagoCompleto   = $this->request->getPost('pago_completo');
         $id_schoolYear  = $this->request->getPost('id_schoolYear');
-        $indices        = $this->request->getPost('index') ?? []; // 🔹 aseguramos que sea un array
 
-        if (empty($inscribir)) {
-            return redirect()->back()->with('error', 'Debe seleccionar al menos un estudiante.');
+        $estudiantes = $this->request->getPost('estudiantes');
+
+        if (empty($estudiantes)) {
+            return redirect()->back()->with('error', 'No hay datos de estudiantes.');
         }
 
-        if (empty($id_schoolYear)) {
-            log_message('error', '❌ Año escolar no definido en la inscripción');
-            return redirect()->back()->with('error', 'No se pudo identificar el año escolar activo.');
-        }
-
+        // 🔹 Conceptos reales desde BD (NO frontend)
+        $conceptoInscripcion = $this->conceptoPagos->where('nombre', 'Inscripción')->first();
         $conceptoMensualidad = $this->conceptoPagos->where('nombre', 'Mensualidad')->first();
-        $monto_mensualidad   = $conceptoMensualidad['monto'] ?? 0;
 
-        $pagosParaFactura = [];
-        $totalFactura     = 0;
-        $detallesFactura  = [];
+        if (!$conceptoInscripcion) {
+            return redirect()->back()->with('error', 'Concepto inscripción no configurado.');
+        }
+
+        $configInscripcion = $this->conceptoConfig
+            ->where('id_concepto', $conceptoInscripcion['id'])
+            ->where('id_schoolYear', $id_schoolYear)
+            ->first();
+
+        $configMensualidad = $this->conceptoConfig
+            ->where('id_concepto', $conceptoMensualidad['id'])
+            ->where('id_schoolYear', $id_schoolYear)
+            ->first();
+
+        if (!$configInscripcion) {
+            return redirect()->back()->with('error', 'Config de inscripción no definida para este año.');
+        }
+
+        $monto_inscripcion = $configInscripcion['monto'];
+        $monto_mensualidad = $configMensualidad['monto'] ?? 0;
 
         $db = \Config\Database::connect();
         $db->transStart();
 
-        foreach ($inscribir as $i => $id_estudiante) {
+        $pagosParaFactura = [];
+        $totalFactura = 0;
+        $detallesFactura = [];
 
-            // 🔹 Si no existe índice, usamos la posición $i por defecto
-            $index = $indices[$i] ?? $i;
+        foreach ($estudiantes as $id_estudiante => $data) {
 
-            $id_grado   = $grados[$index] ?? null;
-            $id_escuela = $escuelas[$index] ?? null;
-            $id_curso   = $cursos[$index] ?? null;
-            $monto_pago_inscripcion = floatval(str_replace(',', '', $montos[$index] ?? '0'));
-
-            if (!$id_grado || !$id_escuela) {
-                log_message('error', "❌ Datos incompletos para estudiante $id_estudiante");
-                continue; // saltamos este estudiante
+            //  SOLO procesar los marcados
+            if (empty($data['inscribir'])) {
+                continue;
             }
 
-            // Evitar duplicados
+            $id_grado   = $data['id_grado'] ?? null;
+            $id_escuela = $data['id_escuela'] ?? null;
+            $id_curso   = $data['id_curso'] ?? null;
+
+            if (!$id_grado || !$id_escuela || !$id_curso) {
+                $db->transRollback();
+                return redirect()->back()->with('error', 'Datos incompletos en la inscripción.');
+            }
+
+            //  Validar duplicado
             $existe = $this->inscripciones
                 ->where('id_estudiante', $id_estudiante)
                 ->where('id_grado', $id_grado)
@@ -444,69 +352,94 @@ class Pagos extends BaseController
                 ->first();
 
             if ($existe) {
-                log_message('error', "❌ El estudiante $id_estudiante ya está inscrito en grado $id_grado para año $id_schoolYear");
                 $db->transRollback();
-                return redirect()->back()->with('error', 'El estudiante ya está inscrito en este grado.');
+                return redirect()->back()->with('error', 'Uno de los estudiantes ya está inscrito.');
             }
 
-            $estudiante = $this->estudiantes->find($id_estudiante);
+            //  VALIDAR CURSO REAL (ANTI-MANIPULACIÓN)
+            $curso = $this->cursos->find($id_curso);
 
-            // Guardar pago de inscripción
-            $pagoInscripcionData = [
-                'id_concepto'    => 1,
+            if (!$curso) {
+                $db->transRollback();
+                return redirect()->back()->with('error', 'Curso inválido.');
+            }
+
+            // VALIDAR CUPO (CRÍTICO)
+            $capacidad = $curso['capacidad'];
+            $ocupados = $this->inscripciones
+                ->where('id_curso', $id_curso)
+                ->where('activo', 1)
+                ->countAllResults();
+
+            if ($ocupados >= $capacidad) {
+                $db->transRollback();
+                return redirect()->back()->with('error', 'Uno de los cursos ya no tiene cupo.');
+            }
+
+            //  Registrar pago inscripción
+            $pagoInscripcion = [
+                'id_concepto'    => $conceptoInscripcion['id'],
                 'id_responsable' => $id_responsable,
                 'id_estudiante'  => $id_estudiante,
                 'id_schoolYear'  => $id_schoolYear,
-                'monto'          => $monto_pago_inscripcion,
+                'monto'          => $monto_inscripcion,
                 'metodo_pago'    => $metodo_pago,
                 'estado'         => 'Pago',
                 'fecha_pago'     => date('Y-m-d')
             ];
 
-            if (!$this->pagos->save($pagoInscripcionData)) {
-                log_message('error', '❌ Error guardando pago inscripción: ' . json_encode($this->pagos->errors()));
+            if (!$this->pagos->save($pagoInscripcion)) {
                 $db->transRollback();
-                return redirect()->back()->with('error', 'Error al registrar el pago de inscripción.');
+                return redirect()->back()->with('error', 'Error al registrar pago.');
             }
 
-            $id_pago_inscripcion = $this->pagos->getInsertID();
+            $id_pago = $this->pagos->getInsertID();
 
-            $pagosParaFactura[] = $id_pago_inscripcion;
-            $totalFactura      += $monto_pago_inscripcion;
-            $detallesFactura[] = [
-                'concepto'   => 'Inscripción',
-                'estudiante' => $estudiante['nombre'] . ' ' . $estudiante['apellido'],
-                'monto'      => $monto_pago_inscripcion
-            ];
-
-            // Guardar inscripción
-            $inscripcionData = [
+            // 🔹 Registrar inscripción
+            $inscripcion = [
                 'id_estudiante' => $id_estudiante,
                 'id_grado'      => $id_grado,
-                'id_seccion'    => null,
                 'id_curso'      => $id_curso,
                 'id_escuela'    => $id_escuela,
                 'id_schoolYear' => $id_schoolYear,
-                'id_pago'       => $id_pago_inscripcion,
+                'id_pago'       => $id_pago,
                 'activo'        => 1
             ];
 
-            log_message('debug', '=== Datos recibidos para inscripción ===');
-            log_message('debug', print_r($this->request->getPost(), true));
-
-
-
-            if (!$this->inscripciones->save($inscripcionData)) {
-                log_message('error', '❌ Error guardando inscripción: ' . json_encode($this->inscripciones->errors()));
+            if (!$this->inscripciones->save($inscripcion)) {
                 $db->transRollback();
-                return redirect()->back()->with('error', 'Error al registrar la inscripción.');
+                return redirect()->back()->with('error', 'Error al registrar inscripción.');
             }
 
-            // Registrar mensualidades si paga el año completo
+            // Factura
+            $estudiante = $this->estudiantes->find($id_estudiante);
+
+            $pagosParaFactura[] = $id_pago;
+            $totalFactura += $monto_inscripcion;
+
+            $detallesFactura[] = [
+                'concepto'   => 'Inscripción',
+                'estudiante' => $estudiante['nombre'] . ' ' . $estudiante['apellido'],
+                'monto'      => $monto_inscripcion
+            ];
+
+            //  Pago completo (mensualidades)
             if ($pagoCompleto) {
-                $meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
-                foreach ($meses as $mes_nombre) {
-                    $pagoMensualidadData = [
+
+                //  Obtener meses desde BD (ordenados)
+                $meses = $this->meses
+                    ->orderBy('orden', 'ASC')
+                    ->findAll();
+
+                log_message('debug', '📅 Meses desde BD: ' . json_encode($meses));
+
+                foreach ($meses as $mesData) {
+
+                    $mes = ucfirst(strtolower($mesData['nombre'])); //  normalización elegante
+
+                    log_message('debug', "   📌 Procesando mes: $mes");
+
+                    $pagoMensual = [
                         'id_concepto'    => $conceptoMensualidad['id'],
                         'id_responsable' => $id_responsable,
                         'id_estudiante'  => $id_estudiante,
@@ -515,19 +448,24 @@ class Pagos extends BaseController
                         'metodo_pago'    => $metodo_pago,
                         'estado'         => 'Pago',
                         'fecha_pago'     => date('Y-m-d'),
-                        'mes'            => $mes_nombre
+                        'mes'            => $mes
                     ];
-                    if (!$this->pagos->save($pagoMensualidadData)) {
-                        log_message('error', "❌ Error guardando mensualidad ($mes_nombre): " . json_encode($this->pagos->errors()));
+
+                    if (!$this->pagos->save($pagoMensual)) {
+                        log_message('error', '❌ Error guardando mensualidad: ' . json_encode($this->pagos->errors()));
                         $db->transRollback();
-                        return redirect()->back()->with('error', 'Error al registrar las mensualidades.');
+                        return redirect()->back()->with('error', 'Error en mensualidades.');
                     }
 
-                    $id_pago_mensualidad = $this->pagos->getInsertID();
-                    $pagosParaFactura[]   = $id_pago_mensualidad;
-                    $totalFactura        += $monto_mensualidad;
-                    $detallesFactura[]    = [
-                        'concepto'   => "Mensualidad ($mes_nombre)",
+                    $id_pago_m = $this->pagos->getInsertID();
+
+                    log_message('debug', "   ✅ Pago mensual guardado ID: $id_pago_m");
+
+                    $pagosParaFactura[] = $id_pago_m;
+                    $totalFactura += $monto_mensualidad;
+
+                    $detallesFactura[] = [
+                        'concepto'   => "Mensualidad ($mes)",
                         'estudiante' => $estudiante['nombre'] . ' ' . $estudiante['apellido'],
                         'monto'      => $monto_mensualidad
                     ];
@@ -538,23 +476,17 @@ class Pagos extends BaseController
         $db->transComplete();
 
         if ($db->transStatus() === false) {
-            log_message('error', '❌ Error en transacción de inscripción.');
-            return redirect()->back()->with('error', 'Error al registrar la inscripción.');
+            return redirect()->back()->with('error', 'Error en la transacción.');
         }
 
         if (!empty($pagosParaFactura)) {
             $id_factura = $this->generarFactura($id_responsable, $pagosParaFactura, $totalFactura, $detallesFactura);
-            if ($id_factura) {
-                return redirect()->to(site_url('pagos/verFactura/' . $id_factura))
-                    ->with('success', 'Inscripción y pagos registrados correctamente. Puede imprimir la factura ahora.');
-            } else {
-                log_message('error', '❌ No se pudo generar la factura.');
-                return redirect()->back()->with('error', 'Error al generar la factura.');
-            }
-        } else {
-            log_message('error', '❌ No se generó la factura: lista de pagos vacía');
-            return redirect()->back()->with('error', 'No se pudo generar la factura.');
+
+            return redirect()->to(site_url('pagos/verFactura/' . $id_factura))
+                ->with('success', 'Inscripción registrada correctamente.');
         }
+
+        return redirect()->back()->with('error', 'No se procesaron estudiantes.');
     }
 
 
@@ -817,33 +749,59 @@ class Pagos extends BaseController
     public function obtenerMensualidadesPendientes()
     {
         $id_responsable = $this->request->getGet('id_responsable');
-        $id_schoolYear = $this->request->getGet('id_schoolYear');
+        $id_schoolYear  = $this->request->getGet('id_schoolYear');
 
-        // 🔹 Validar parámetros obligatorios
         if (!$id_responsable || !$id_schoolYear) {
             return $this->response->setJSON([
                 'status'  => 'error',
-                'message' => 'Faltan parámetros requeridos (responsable o año escolar).'
+                'message' => 'Faltan parámetros requeridos.'
             ]);
         }
 
         try {
-            // 🔹 Obtener estudiantes inscritos del responsable en el año escolar actual
-            //$estudiantes = $this->inscripciones->getEstudiantesInscritos($id_responsable, $id_schoolYear);
-            $estudiantes = $this->inscripciones->getEstudiantesInscritosPorResponsable($id_responsable, $id_schoolYear);
-
+            $estudiantes = $this->inscripciones
+                ->getEstudiantesInscritosPorResponsable($id_responsable, $id_schoolYear);
 
             if (empty($estudiantes)) {
                 return $this->response->setJSON([
                     'status'  => 'empty',
-                    'message' => 'No hay estudiantes inscritos para este responsable en el año escolar seleccionado.'
+                    'message' => 'No hay estudiantes inscritos.'
                 ]);
             }
 
-            // 🔹 Recorremos los estudiantes para obtener sus meses pendientes
+            //  eliminar duplicados
+            $estudiantesUnicos = [];
+            foreach ($estudiantes as $e) {
+                $estudiantesUnicos[$e['id']] = $e;
+            }
+            $estudiantes = array_values($estudiantesUnicos);
+
             $resultado = [];
+
             foreach ($estudiantes as $estudiante) {
-                $mesesPendientes = $this->pagos->getMesesPendientes($estudiante['id'], $id_schoolYear);
+
+                log_message('debug', "👤 Estudiante {$estudiante['id']}");
+
+                //  PAGOS REALMENTE REALIZADOS
+                $pagos = $this->pagos
+                    ->select('mes')
+                    ->where('id_estudiante', $estudiante['id'])
+                    ->where('id_schoolYear', $id_schoolYear)
+                    ->where('estado', 'Pago')
+                    ->findAll();
+
+                //  normalizar meses pagados
+                $mesesPagados = array_map(function ($p) {
+                    return strtolower(trim($p['mes']));
+                }, $pagos);
+
+                log_message('debug', "💰 Meses pagados: " . json_encode($mesesPagados));
+
+                //  meses pendientes desde tu lógica actual
+                $mesesPendientes = $this->pagos
+                    ->getMesesPendientes($estudiante['id'], $id_schoolYear);
+
+                log_message('debug', "📊 Pendientes: " . json_encode($mesesPendientes));
 
                 if (!empty($mesesPendientes)) {
                     $resultado[] = [
@@ -851,7 +809,10 @@ class Pagos extends BaseController
                         'nombre'           => $estudiante['nombre'],
                         'apellido'         => $estudiante['apellido'],
                         'curso'            => $estudiante['curso'],
-                        'meses_pendientes' => $mesesPendientes
+
+                        //  nuevos datos para el front
+                        'meses_pendientes' => $mesesPendientes,
+                        'meses_pagados'    => $mesesPagados
                     ];
                 }
             }
@@ -859,21 +820,20 @@ class Pagos extends BaseController
             if (empty($resultado)) {
                 return $this->response->setJSON([
                     'status'  => 'empty',
-                    'message' => 'No hay mensualidades pendientes para los estudiantes de este responsable.'
+                    'message' => 'No hay mensualidades pendientes.'
                 ]);
             }
 
-            // ✅ Respuesta exitosa
             return $this->response->setJSON([
                 'status' => 'success',
                 'data'   => $resultado
             ]);
         } catch (\Exception $e) {
-            log_message('error', 'Error al obtener mensualidades pendientes: ' . $e->getMessage());
+            log_message('error', '❌ ERROR: ' . $e->getMessage());
 
             return $this->response->setJSON([
                 'status'  => 'error',
-                'message' => 'Ha ocurrido un error inesperado. Intente nuevamente más tarde.'
+                'message' => 'Error inesperado.'
             ]);
         }
     }
@@ -881,14 +841,26 @@ class Pagos extends BaseController
     //Registra el pago de mensualidades
     public function registrarPagoMensualidad()
     {
-        $id_responsable = $this->request->getPost('id_responsable');
-        $id_schoolYear = $this->request->getPost('id_schoolYear');
-        $metodo_pago = $this->request->getPost('metodo_pago');
-        $estudiantes = $this->request->getPost('estudiantes');
-        $meses = $this->request->getPost('meses');
+        log_message('debug', '=== 🚀 INICIO registrarPagoMensualidad ===');
 
-        if (!$id_responsable || !$metodo_pago || !$estudiantes || !$meses) {
-            return redirect()->back()->with('error', 'Faltan datos requeridos para procesar el pago.');
+        $id_responsable = $this->request->getPost('id_responsable');
+        $id_schoolYear  = $this->request->getPost('id_schoolYear');
+        $metodo_pago    = $this->request->getPost('metodo_pago');
+        $meses          = $this->request->getPost('meses');
+
+        $estudiantes = array_keys($meses ?? []);
+
+        log_message('debug', '📥 RAW INPUT: ' . json_encode([
+            'id_responsable' => $id_responsable,
+            'id_schoolYear'  => $id_schoolYear,
+            'metodo_pago'    => $metodo_pago,
+            'meses'          => $meses
+        ]));
+
+        $estudiantes = array_values(array_unique($estudiantes));
+
+        if (!$id_responsable || !$metodo_pago || empty($meses)) {
+            return redirect()->back()->with('error', 'Datos incompletos.');
         }
 
         $responsable = $this->responsables->find($id_responsable);
@@ -896,77 +868,154 @@ class Pagos extends BaseController
             return redirect()->back()->with('error', 'Responsable no encontrado.');
         }
 
+        // AQUÍ ESTÁ EL CAMBIO IMPORTANTE
+        $conceptoMensualidad = $this->conceptoPagos
+            ->where('nombre', 'Mensualidad')
+            ->first();
+
+        $configMensualidad = $this->conceptoConfig
+            ->where('id_schoolYear', $id_schoolYear)
+            ->where('id_concepto', $conceptoMensualidad['id'])
+            ->first();
+
+        if (!$configMensualidad) {
+            return redirect()->back()->with('error', 'Mensualidad no configurada para este año.');
+        }
+
+        $montoMensualidad = $configMensualidad['monto'];
+        $idConcepto       = $configMensualidad['id_concepto'];
+
+        $db = \Config\Database::connect();
+        $db->transStart();
+
         $pagosParaFactura = [];
         $totalFactura = 0;
         $detallesFactura = [];
 
         foreach ($estudiantes as $id_estudiante) {
 
-            if (!isset($meses[$id_estudiante]) || empty($meses[$id_estudiante])) {
-                continue;
-            }
+            if (empty($meses[$id_estudiante])) continue;
 
             $estudiante = $this->estudiantes->find($id_estudiante);
-            if (!$estudiante) {
-                continue;
-            }
+            if (!$estudiante) continue;
 
-            $conceptoMensualidad = $this->conceptoPagos->where('nombre', 'Mensualidad')->first();
-            if (!$conceptoMensualidad) {
-                return redirect()->back()->with('error', 'Concepto de mensualidad no encontrado.');
-            }
+            foreach ($meses[$id_estudiante] as $mesTexto) {
 
-            foreach ($meses[$id_estudiante] as $mes) {
+                //  NORMALIZACIÓN GOD MODE
+                $mes = ucfirst(strtolower(trim($mesTexto)));
 
-                $pagoMensualidadData = [
-                    'id_concepto'    => $conceptoMensualidad['id'],
+                if (empty($mes)) continue;
+
+                log_message('debug', "📅 Procesando: $mes");
+
+                // 🔍 VALIDAR DUPLICADO
+                $existePago = $this->pagos
+                    ->where('id_estudiante', $id_estudiante)
+                    ->where('mes', $mes)
+                    ->where('id_schoolYear', $id_schoolYear)
+                    ->where('id_concepto', $idConcepto)
+                    ->where('estado', 'Pago')
+                    ->first();
+
+                if ($existePago) {
+                    log_message('warning', "⚠️ YA EXISTE: Est $id_estudiante Mes $mes");
+                    continue;
+                }
+
+                $dataPago = [
+                    'id_concepto'    => $idConcepto,
                     'id_responsable' => $id_responsable,
                     'id_estudiante'  => $id_estudiante,
-                    'id_schoolYear'  => $id_schoolYear, // ⬅️ Aquí agregas el año escolar al pago
-                    'monto'          => $conceptoMensualidad['monto'],
+                    'id_schoolYear'  => $id_schoolYear,
+                    'monto'          => $montoMensualidad, //  desde config
                     'metodo_pago'    => $metodo_pago,
                     'estado'         => 'Pago',
                     'fecha_pago'     => date('Y-m-d'),
                     'mes'            => $mes
                 ];
 
-
-                if (!$this->pagos->save($pagoMensualidadData)) {
-                    log_message('error', ' Error guardando pago mensualidad: ' . json_encode($this->pagos->errors()));
-                    return redirect()->back()->with('error', 'Error al registrar el pago de mensualidad.');
+                if (!$this->pagos->save($dataPago)) {
+                    $db->transRollback();
+                    return redirect()->back()->with('error', 'Error guardando pago.');
                 }
 
-                $id_pago_mensualidad = $this->pagos->getInsertID();
+                $id_pago = $this->pagos->getInsertID();
 
-                $pagosParaFactura[] = $id_pago_mensualidad;
-                $totalFactura += $conceptoMensualidad['monto'];
-
-                $nombreMes = $this->obtenerNombreMes($mes);
+                $pagosParaFactura[] = $id_pago;
+                $totalFactura += $montoMensualidad;
 
                 $detallesFactura[] = [
-                    'concepto' => 'Mensualidad - ' . $nombreMes,
+                    'concepto'   => 'Mensualidad - ' . $mes,
                     'estudiante' => $estudiante['nombre'] . ' ' . $estudiante['apellido'],
-                    'monto' => $conceptoMensualidad['monto']
+                    'monto'      => $montoMensualidad
                 ];
             }
         }
 
-        if (!empty($pagosParaFactura)) {
-            $id_factura = $this->generarFactura($id_responsable, $pagosParaFactura, $totalFactura, $detallesFactura);
+        $db->transComplete();
 
-            if ($id_factura) {
-                return redirect()->to(base_url('/inscripciones/verFactura/' . $id_factura))
-                    ->with('success', 'Pagos de mensualidades registrados correctamente. Puede imprimir la factura ahora.');
-            }
+        if ($db->transStatus() === false) {
+            return redirect()->back()->with('error', 'Error en la transacción.');
         }
 
-        return redirect()->to(base_url('/inscripciones/mensualidades'))
-            ->with('success', 'Pagos de mensualidades registrados correctamente.');
+        if (empty($pagosParaFactura)) {
+            return redirect()->back()->with('error', 'No se registraron pagos.');
+        }
+
+        $id_factura = $this->generarFactura(
+            $id_responsable,
+            $pagosParaFactura,
+            $totalFactura,
+            $detallesFactura
+        );
+
+        return redirect()->to(base_url('/pagos/verFactura/' . $id_factura))
+            ->with('success', 'Pagos registrados correctamente.');
     }
 
 
+
+
+
+
+
+
+
+    private function convertirMesANumero($mes)
+    {
+        $mes = ucfirst(strtolower(trim($mes)));
+
+        $mapa = [
+            'Enero' => 1,
+            'Febrero' => 2,
+            'Marzo' => 3,
+            'Abril' => 4,
+            'Mayo' => 5,
+            'Junio' => 6,
+            'Julio' => 7,
+            'Agosto' => 8,
+            'Septiembre' => 9,
+            'Octubre' => 10,
+            'Noviembre' => 11,
+            'Diciembre' => 12
+        ];
+
+        return $mapa[$mes] ?? null;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     //Obtiene el nombre del mes según su número
-    private function obtenerNombreMes($numeroMes)
+    /*private function obtenerNombreMes($numeroMes)
     {
         $meses = [
             1 => 'Enero',
@@ -984,7 +1033,7 @@ class Pagos extends BaseController
         ];
 
         return isset($meses[$numeroMes]) ? $meses[$numeroMes] : 'Mes ' . $numeroMes;
-    }
+    }*/
 
     //Muestra la página para pagar mensualidades
     public function otros_pagos()
