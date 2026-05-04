@@ -564,154 +564,117 @@ class Pagos extends BaseController
 
 
 
-
-
-
-
-
-
-
     //Genera e imprime un PDF de la factura
     public function imprimirFactura($id_factura)
     {
-        // Cargar el modelo de facturas
         $facturaModel = new \App\Models\FacturaModel();
-
-        // Obtener los datos de la factura
         $factura = $facturaModel->find($id_factura);
 
         if (!$factura) {
             return redirect()->back()->with('error', 'Factura no encontrada.');
         }
 
-        // Decodificar los detalles de la factura
         $detalles = json_decode($factura['detalles'], true);
+        $nombreEscuela = session('nombre_escuela') ?? 'Centro Educativo';
 
-        // Crear una instancia de TCPDF con valores explícitos en lugar de constantes
-        $pdf = new \TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
+        // 📄 MEDIA CARTA MÁS COMPACTA
+        $pdf = new \TCPDF('P', 'mm', [216, 120], true, 'UTF-8', false);
 
-        // Establecer información del documento
-        $pdf->SetCreator('EDSN Sistema');
-        $pdf->SetAuthor('Sistema EDSN');
-        $pdf->SetTitle('Factura #' . $factura['numero_factura']);
-        $pdf->SetSubject('Factura');
-        $pdf->SetKeywords('Factura, Pago, EDSN');
-
-        // Eliminar cabecera y pie de página predeterminados
         $pdf->setPrintHeader(false);
         $pdf->setPrintFooter(false);
+        $pdf->SetMargins(10, 10, 10);
+        $pdf->SetAutoPageBreak(true, 8);
 
-        // Establecer márgenes
-        $pdf->SetMargins(15, 15, 15);
-
-        // Establecer saltos de página automáticos
-        $pdf->SetAutoPageBreak(true, 15);
-
-        // Establecer la fuente
-        $pdf->SetFont('helvetica', '', 10);
-
-        // Añadir una página
         $pdf->AddPage();
 
-        // Logo de la escuela (ajusta la ruta según donde esté tu logo)
-        $logoPath = FCPATH . 'assets/img/logo.png';
-        if (file_exists($logoPath)) {
-            $pdf->Image($logoPath, 15, 15, 30, 0, 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
-        }
+        // 🧾 HEADER
+        $pdf->SetFont('helvetica', 'B', 14);
+        $pdf->Cell(0, 6, strtoupper($nombreEscuela), 0, 1, 'C');
 
-        // Título de la factura
-        $pdf->SetFont('helvetica', 'B', 16);
-        $pdf->Cell(0, 10, 'FACTURA', 0, 1, 'C');
-        $pdf->SetFont('helvetica', '', 12);
-        $pdf->Cell(0, 6, 'Nº: ' . $factura['numero_factura'], 0, 1, 'C');
-        $pdf->Ln(10);
-
-        // Información de la escuela
-        $pdf->SetFont('helvetica', 'B', 12);
-        $pdf->Cell(0, 6, 'ESCUELA EDSN', 0, 1, 'L');
         $pdf->SetFont('helvetica', '', 10);
-        $pdf->Cell(0, 6, 'Dirección: Calle Principal #123', 0, 1, 'L');
-        $pdf->Cell(0, 6, 'Teléfono: (123) 456-7890', 0, 1, 'L');
-        $pdf->Cell(0, 6, 'Email: info@edsn.edu', 0, 1, 'L');
-        $pdf->Ln(5);
+        $pdf->Cell(0, 5, 'Factura #' . $factura['numero_factura'], 0, 1, 'C');
+        $pdf->Cell(0, 5, date('d/m/Y', strtotime($factura['fecha_emision'])), 0, 1, 'C');
 
-        // Información del cliente
-        $pdf->SetFont('helvetica', 'B', 12);
-        $pdf->Cell(0, 6, 'DATOS DEL CLIENTE', 0, 1, 'L');
-        $pdf->SetFont('helvetica', '', 10);
-        $pdf->Cell(0, 6, 'Responsable: ' . $factura['nombre_responsable'], 0, 1, 'L');
-        $pdf->Cell(0, 6, 'Fecha de emisión: ' . date('d/m/Y', strtotime($factura['fecha_emision'])), 0, 1, 'L');
-        $pdf->Ln(5);
+        $pdf->Ln(4);
 
-        // Tabla de detalles
-        $pdf->SetFont('helvetica', 'B', 12);
-        $pdf->Cell(0, 6, 'DETALLES DE LA FACTURA', 0, 1, 'L');
+        // 👤 CLIENTE
+        $pdf->Cell(0, 5, 'Cliente: ' . $factura['nombre_responsable'], 0, 1);
+
+        // 🔥 línea separadora
+        $pdf->Ln(2);
+        $pdf->Cell(0, 0, '', 'T', 1);
         $pdf->Ln(2);
 
-        // Cabecera de la tabla
-        $pdf->SetFillColor(240, 240, 240);
-        $pdf->SetFont('helvetica', 'B', 10);
-        $pdf->Cell(90, 7, 'Concepto', 1, 0, 'C', true);
-        $pdf->Cell(60, 7, 'Estudiante', 1, 0, 'C', true);
-        $pdf->Cell(30, 7, 'Monto', 1, 1, 'C', true);
+        // 🔥 AGRUPAR POR ESTUDIANTE
+        $estudiantes = [];
 
-        // Agrupar detalles por concepto y estudiante
-        $detallesAgrupados = [];
-        foreach ($detalles as $detalle) {
-            // Si es mensualidad, extraemos el estudiante para agrupar
-            if (strpos($detalle['concepto'], 'Mensualidad') !== false) {
-                $key = 'Mensualidad-' . $detalle['estudiante'];
-                if (!isset($detallesAgrupados[$key])) {
-                    $detallesAgrupados[$key] = [
-                        'concepto' => 'Mensualidades (Anual)',
-                        'estudiante' => $detalle['estudiante'],
-                        'monto' => 0,
-                        'count' => 0
-                    ];
-                }
-                $detallesAgrupados[$key]['monto'] += $detalle['monto'];
-                $detallesAgrupados[$key]['count']++;
+        foreach ($detalles as $d) {
+
+            $est = $d['estudiante'];
+
+            if (!isset($estudiantes[$est])) {
+                $estudiantes[$est] = [
+                    'inscripcion' => 0,
+                    'mensualidad' => 0,
+                    'count' => 0
+                ];
+            }
+
+            if (strpos($d['concepto'], 'Mensualidad') !== false) {
+                $estudiantes[$est]['mensualidad'] += $d['monto'];
+                $estudiantes[$est]['count']++;
             } else {
-                // Para otros conceptos como inscripción, los mantenemos individuales
-                $key = $detalle['concepto'] . '-' . $detalle['estudiante'] . '-' . uniqid();
-                $detallesAgrupados[$key] = $detalle;
+                $estudiantes[$est]['inscripcion'] += $d['monto'];
             }
         }
 
-        // Contenido de la tabla
-        $pdf->SetFont('helvetica', '', 10);
-        foreach ($detallesAgrupados as $detalle) {
-            $concepto = $detalle['concepto'];
-            // Si es mensualidad agrupada, añadimos el número de meses
-            if (isset($detalle['count']) && $detalle['count'] > 0) {
-                $concepto = 'Mensualidades (' . $detalle['count'] . ' meses)';
+        // 🧾 IMPRIMIR BONITO
+        foreach ($estudiantes as $nombre => $data) {
+
+            // 👤 Nombre estudiante
+            $pdf->SetFont('helvetica', 'B', 10);
+            $pdf->Cell(0, 5, $nombre, 0, 1);
+
+            $pdf->SetFont('helvetica', '', 9);
+
+            // 📌 Inscripción
+            if ($data['inscripcion'] > 0) {
+                $pdf->Cell(120, 5, '  Inscripción', 0, 0);
+                $pdf->Cell(60, 5, 'RD$' . number_format($data['inscripcion'], 2), 0, 1, 'R');
             }
 
-            $pdf->Cell(90, 7, $concepto, 1, 0, 'L');
-            $pdf->Cell(60, 7, $detalle['estudiante'], 1, 0, 'L');
-            $pdf->Cell(30, 7, '$' . number_format($detalle['monto'], 2), 1, 1, 'R');
+            // 📌 Mensualidades
+            if ($data['mensualidad'] > 0) {
+                $texto = '  Mensualidades (' . $data['count'] . ' meses)';
+                $pdf->Cell(120, 5, $texto, 0, 0);
+                $pdf->Cell(60, 5, 'RD$' . number_format($data['mensualidad'], 2), 0, 1, 'R');
+            }
+
+            // 🔥 separador
+            $pdf->Ln(1);
+            $pdf->Cell(0, 0, '', 'T', 1);
+            $pdf->Ln(2);
         }
 
-        // Total
-        $pdf->SetFont('helvetica', 'B', 10);
-        $pdf->Cell(150, 7, 'TOTAL', 1, 0, 'R', true);
-        $pdf->Cell(30, 7, '$' . number_format($factura['total'], 2), 1, 1, 'R', true);
+        // 💰 TOTAL
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->Cell(120, 6, 'TOTAL', 0, 0);
+        $pdf->Cell(60, 6, 'RD$' . number_format($factura['total'], 2), 0, 1, 'R');
 
-        // Pie de página con términos y condiciones
-        $pdf->Ln(10);
-        $pdf->SetFont('helvetica', 'B', 10);
-        $pdf->Cell(0, 6, 'TÉRMINOS Y CONDICIONES', 0, 1, 'L');
-        $pdf->SetFont('helvetica', '', 8);
-        $pdf->MultiCell(0, 5, 'Esta factura es un comprobante de pago por los servicios educativos prestados. Los pagos realizados no son reembolsables. Para cualquier consulta, por favor contacte a la administración de la escuela.', 0, 'L', false);
+        // 🧠 FOOTER
+        $pdf->Ln(4);
+        $pdf->SetFont('helvetica', '', 9);
+        $pdf->Cell(0, 5, 'Gracias por su pago.', 0, 1, 'C');
 
-        // Firma
-        $pdf->Ln(15);
-        $pdf->Line(15, $pdf->GetY(), 80, $pdf->GetY());
-        $pdf->Cell(65, 6, 'Firma Autorizada', 0, 0, 'C');
+        // 🔥 limpiar buffer
+        if (ob_get_length()) {
+            ob_end_clean();
+        }
 
-        // Generar el PDF
-        $pdfName = 'Factura_' . $factura['numero_factura'] . '.pdf';
-        $pdf->Output($pdfName, 'D'); // 'D' para forzar la descarga
+        header('Content-Type: application/pdf');
+        header('Content-Disposition: inline; filename="Factura_' . $factura['numero_factura'] . '.pdf"');
+
+        $pdf->Output('Factura_' . $factura['numero_factura'] . '.pdf', 'I');
         exit;
     }
 
@@ -978,63 +941,6 @@ class Pagos extends BaseController
 
 
 
-
-
-
-    private function convertirMesANumero($mes)
-    {
-        $mes = ucfirst(strtolower(trim($mes)));
-
-        $mapa = [
-            'Enero' => 1,
-            'Febrero' => 2,
-            'Marzo' => 3,
-            'Abril' => 4,
-            'Mayo' => 5,
-            'Junio' => 6,
-            'Julio' => 7,
-            'Agosto' => 8,
-            'Septiembre' => 9,
-            'Octubre' => 10,
-            'Noviembre' => 11,
-            'Diciembre' => 12
-        ];
-
-        return $mapa[$mes] ?? null;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-    //Obtiene el nombre del mes según su número
-    /*private function obtenerNombreMes($numeroMes)
-    {
-        $meses = [
-            1 => 'Enero',
-            2 => 'Febrero',
-            3 => 'Marzo',
-            4 => 'Abril',
-            5 => 'Mayo',
-            6 => 'Junio',
-            7 => 'Julio',
-            8 => 'Agosto',
-            9 => 'Septiembre',
-            10 => 'Octubre',
-            11 => 'Noviembre',
-            12 => 'Diciembre'
-        ];
-
-        return isset($meses[$numeroMes]) ? $meses[$numeroMes] : 'Mes ' . $numeroMes;
-    }*/
-
     //Muestra la página para pagar mensualidades
     public function otros_pagos()
     {
@@ -1049,4 +955,3 @@ class Pagos extends BaseController
         echo view('footer');
     }
 }
-        // El resto del código permanece igual

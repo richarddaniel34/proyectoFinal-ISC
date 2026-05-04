@@ -21,56 +21,59 @@
     <div class="">
       <div class="tab-pane " id="list">
         <div class="table-responsive">
-        <table class="table table-hover table-striped text-center" id="datatablesSimple">
-  <thead class="title-table">
-    <tr>
-      <th class="text-center">Responsable</th>
-      <th class="text-center">Estudiante</th>
-      <th class="text-center">Concepto</th>
-      <th class="text-center">Monto</th>
-      <th class="text-center">Método de Pago</th>
-      <th class="text-center">Estado</th>
-      <th class="text-center">Fecha de Pago</th>
-      <th class="text-center">Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php if (!empty($pagos)) : ?>
-      <?php foreach ($pagos as $pago) : ?>
-        <tr>
-          <td><?= esc($pago['responsable']) ?></td>
-          <td><?= esc($pago['estudiante']) ?></td>
-          <td><?= esc($pago['concepto_pago']) ?></td>
-          <td>RD$ <?= esc(number_format($pago['monto'], 2)) ?></td>
-          <td><?= esc($pago['metodo_pago']) ?></td>
-          <td>
-            <?php if ($pago['estado'] === 'Pago') : ?>
-              <span class="badge bg-success">Pago</span>
-            <?php elseif ($pago['estado'] === 'Pendiente') : ?>
-              <span class="badge bg-warning text-dark">Pendiente</span>
-            <?php else : ?>
-              <span class="badge bg-danger">Anulado</span>
-            <?php endif; ?>
-          </td>
-          <td><?= esc(date('d/m/Y', strtotime($pago['fecha_pago']))) ?></td>
-          <!-- En la tabla donde muestras las inscripciones o pagos, añade una columna para acciones -->
-          <td>
-              <a href="<?= base_url('pagos/verFactura/' . $pago['id_factura']) ?>" class="btn btn-info btn-sm" title="Ver Factura">
-                  <i class="fas fa-file-invoice"></i>
-              </a>
-              <a href="<?= base_url('pagos/imprimirFactura/' . $pago['id_factura']) ?>" class="btn btn-primary btn-sm" target="_blank" title="Imprimir Factura">
-                  <i class="fas fa-print"></i>
-              </a>
-          </td>
-        </tr>
-      <?php endforeach; ?>
-    <?php else : ?>
-      <tr>
-        <td colspan="8">No hay pagos registrados.</td>
-      </tr>
-    <?php endif; ?>
-  </tbody>
-</table>
+          <table class="table table-hover table-striped text-center" id="datatablesSimple">
+            <thead class="title-table">
+              <tr>
+                <th class="text-center">Responsable</th>
+                <th class="text-center">Estudiante</th>
+                <th class="text-center">Concepto</th>
+                <th class="text-center">Monto</th>
+                <th class="text-center">Método de Pago</th>
+                <th class="text-center">Estado</th>
+                <th class="text-center">Fecha de Pago</th>
+                <th class="text-center">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php if (!empty($pagos)) : ?>
+                <?php foreach ($pagos as $pago) : ?>
+                  <tr>
+                    <td><?= esc($pago['responsable']) ?></td>
+                    <td><?= esc($pago['estudiante']) ?></td>
+                    <td><?= esc($pago['concepto_pago']) ?></td>
+                    <td>RD$ <?= esc(number_format($pago['monto'], 2)) ?></td>
+                    <td><?= esc($pago['metodo_pago']) ?></td>
+                    <td>
+                      <?php if ($pago['estado'] === 'Pago') : ?>
+                        <span class="badge bg-success">Pago</span>
+                      <?php elseif ($pago['estado'] === 'Pendiente') : ?>
+                        <span class="badge bg-warning text-dark">Pendiente</span>
+                      <?php else : ?>
+                        <span class="badge bg-danger">Anulado</span>
+                      <?php endif; ?>
+                    </td>
+                    <td><?= esc(date('d/m/Y', strtotime($pago['fecha_pago']))) ?></td>
+                    <!-- En la tabla donde muestras las inscripciones o pagos, añade una columna para acciones -->
+                    <td>
+                      <a href="<?= base_url('pagos/verFactura/' . $pago['id_factura']) ?>" class="btn btn-info btn-sm" title="Ver Factura">
+                        <i class="fas fa-file-invoice"></i>
+                      </a>
+                      <a href="<?= base_url('pagos/imprimirFactura/' . $pago['id_factura']) ?>"
+                        class="btn btn-primary btn-sm"
+                        onclick="abrirFactura(event, this.href)"
+                        title="Imprimir Factura">
+                        <i class="fas fa-print"></i>
+                      </a>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+              <?php else : ?>
+                <tr>
+                  <td colspan="8">No hay pagos registrados.</td>
+                </tr>
+              <?php endif; ?>
+            </tbody>
+          </table>
 
 
 
@@ -100,3 +103,18 @@
       </div>
     </div>
 </main>
+
+<?= $this->section('scripts') ?>
+<script>
+  function abrirFactura(e, url) {
+    e.preventDefault();
+
+    window.open(
+      url,
+      'Factura',
+      'width=800,height=600,scrollbars=yes,resizable=yes'
+    );
+  }
+</script>
+
+<?= $this->endSection() ?>
