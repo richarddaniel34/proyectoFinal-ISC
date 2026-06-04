@@ -6,20 +6,30 @@
 
 <br>
 
-<div class="form-calificaciones-wrapper">
-  <form action="/guardar-completiva" method="POST" class="tabla-calificaciones-form">
+<?php
+$tipo_usuario = session('tipo_usuario');
+$esDocente = ($tipo_usuario == 3);
+?>
 
+<div class="form-calificaciones-wrapper">
+  <form action="<?= base_url('calificaciones/guardarCompletivo') ?>" method="POST" class="tabla-calificaciones-form">
+
+    <input type="hidden" name="id_distribucion_asignatura" id="id_distribucion_asignatura">
+    <div id="inscripciones-container"></div>
     <div class="form-row mb-3">
+
       <div class="col-md-3">
         <label for="docente">Docente:</label>
-        <?php if (session('tipo_usuario') == 3): ?>
-          <input type="text" class="form-control" value="<?= session('nombre_completo'); ?>" disabled>
-          <input type="hidden" name="docente" id="docente" value="<?= session('usuario_id'); ?>">
+
+        <?php if ($esDocente): ?>
+          <input type="text" class="form-control" value="<?= esc(session('nombre_completo')); ?>" readonly>
+          <input type="hidden" name="docente" id="docente" value="<?= esc(session('usuario_data.personal_id')); ?>">
         <?php else: ?>
           <select id="docente" name="docente" class="form-control select2" required>
             <option value="">Seleccione un docente</option>
           </select>
         <?php endif; ?>
+
       </div>
 
       <div class="col-md-3">
@@ -44,20 +54,10 @@
       </div>
     </div>
 
-    <div class="tabla-calificaciones-container">
-      <table class="tabla-calificaciones" id="tabla-estudiantes">
-        <thead>
-          <tr>
-            <th>No.</th>
-            <th>Alumno</th>
-            <th>C.E.C.</th> <!-- Calificación Examen Completivo -->
-            <th>C.C.F.</th> <!-- Calificación Completiva Final -->
-            <th>C.E. 50%</th> <!-- Parte práctica o teórica -->
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Se carga por AJAX -->
-        </tbody>
+    <div class="tabla-calificaciones-container mt-3">
+      <table class="tabla-calificaciones table table-striped" id="tabla-completivo">
+        <thead></thead>
+        <tbody></tbody>
       </table>
     </div>
 
@@ -66,3 +66,26 @@
     </div>
   </form>
 </div>
+
+
+
+<input type="hidden" id="buscar-cursos-url" value="<?= base_url('calificaciones/buscar-cursos/') ?>">
+<input type="hidden" id="buscar-asignaturas-url" value="<?= base_url('calificaciones/buscar-asignaturas/') ?>">
+<input type="hidden" id="buscar-docentes-url" value="<?= base_url('calificaciones/buscar-docentes') ?>">
+<input type="hidden" id="estudiantes-completivo-url" value="<?= base_url('calificaciones/estudiantes-completivo') ?>">
+<input type="hidden" id="tipo_usuario" value="<?= esc($tipo_usuario) ?>">
+
+<?= $this->section('scripts') ?>
+<script>
+  (function initCompetencias() {
+    try {
+      const raw = document.getElementById('competenciasJson').value;
+      window.competencias = JSON.parse(raw || '[]');
+    } catch (e) {
+      window.competencias = [];
+    }
+  })();
+</script>
+
+<script src="<?= base_url('js/modules/calificaciones/completivo.js') ?>"></script>
+<?= $this->endSection() ?>

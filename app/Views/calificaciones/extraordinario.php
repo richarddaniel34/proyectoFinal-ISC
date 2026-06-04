@@ -1,25 +1,35 @@
 <div class="container-fluid">
   <div class="page-header">
-    <h1 class="text-titles">Calificaciones / <small><?= esc($titulo); ?></small></h1>
+    <h1 class="text-titles">REGISTRO DE COMPLETIVA / <small><?= esc($titulo); ?></small></h1>
   </div>
 </div>
 
 <br>
 
-<div class="form-calificaciones-wrapper">
-  <form action="/guardar-extraordinario" method="POST" class="tabla-calificaciones-form">
+<?php
+$tipo_usuario = session('tipo_usuario');
+$esDocente = ($tipo_usuario == 3);
+?>
 
+<div class="form-calificaciones-wrapper">
+  <form action="<?= base_url('calificaciones/guardarExtraordinario') ?>" method="POST" class="tabla-calificaciones-form">
+
+  <input type="hidden" name="id_distribucion_asignatura" id="id_distribucion_asignatura">
+    <div id="inscripciones-container"></div>
     <div class="form-row mb-3">
+
       <div class="col-md-3">
         <label for="docente">Docente:</label>
-        <?php if (session('tipo_usuario') == 3): ?>
-          <input type="text" class="form-control" value="<?= session('nombre_completo'); ?>" disabled>
-          <input type="hidden" name="docente" id="docente" value="<?= session('usuario_id'); ?>">
+
+        <?php if ($esDocente): ?>
+          <input type="text" class="form-control" value="<?= esc(session('nombre_completo')); ?>" readonly>
+          <input type="hidden" name="docente" id="docente" value="<?= esc(session('usuario_data.personal_id')); ?>">
         <?php else: ?>
           <select id="docente" name="docente" class="form-control select2" required>
             <option value="">Seleccione un docente</option>
           </select>
         <?php endif; ?>
+
       </div>
 
       <div class="col-md-3">
@@ -44,25 +54,38 @@
       </div>
     </div>
 
-    <div class="tabla-calificaciones-container">
-      <table class="tabla-calificaciones" id="tabla-estudiantes">
-        <thead>
-          <tr>
-            <th>No.</th>
-            <th>Alumno</th>
-            <th>30%</th>
-            <th>70%</th>
-            <th>C.E.F.</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Se cargan dinámicamente con AJAX -->
-        </tbody>
+    <div class="tabla-calificaciones-container mt-3">
+      <table class="tabla-calificaciones table table-striped" id="tabla-extraordinario">
+        <thead></thead>
+        <tbody></tbody>
       </table>
     </div>
 
     <div class="form-calificaciones-footer">
-      <button type="submit" class="btn-enviar-calif">Guardar Extraordinario</button>
+      <button type="submit" class="btn-enviar-calif">Guardar Completiva</button>
     </div>
   </form>
 </div>
+
+
+
+  <input type="hidden" id="buscar-cursos-url" value="<?= base_url('calificaciones/buscar-cursos/') ?>">
+  <input type="hidden" id="buscar-asignaturas-url" value="<?= base_url('calificaciones/buscar-asignaturas/') ?>">
+  <input type="hidden" id="buscar-docentes-url" value="<?= base_url('calificaciones/buscar-docentes') ?>">
+  <input type="hidden" id="estudiantes-extraordinario-url" value="<?= base_url('calificaciones/estudiantes-extraordinario') ?>">
+  <input type="hidden" id="tipo_usuario" value="<?= esc($tipo_usuario) ?>">
+
+  <?= $this->section('scripts') ?>
+  <script>
+    (function initCompetencias() {
+      try {
+        const raw = document.getElementById('competenciasJson').value;
+        window.competencias = JSON.parse(raw || '[]');
+      } catch (e) {
+        window.competencias = [];
+      }
+    })();
+  </script>
+
+  <script src="<?= base_url('js/modules/calificaciones/extraordinario.js') ?>"></script>
+  <?= $this->endSection() ?>

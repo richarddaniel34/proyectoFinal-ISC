@@ -34,9 +34,11 @@ class Filters extends BaseFilters
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
-        'auth' => \App\Filters\Auth::class, // Agregamos el filtro de autenticación
-        'usuario_data' => \App\Filters\UsuarioDataFilter::class,
-
+        
+            // 🔐 TUS FILTROS
+    'auth'         => \App\Filters\Auth::class,
+    'usuarioData'  => \App\Filters\UsuarioDataFilter::class,
+    'permiso'      => \App\Filters\PermisoFilter::class,
     ];
 
     /**
@@ -70,28 +72,22 @@ class Filters extends BaseFilters
      *
      * @var array<string, array<string, array<string, string>>>|array<string, list<string>>
      */
-    public array $globals = [
+     public array $globals = [
         'before' => [
-            'auth' => ['except' => [
-                'login',
-                'login/auth',
-                'logout',
-                'usuarios/verificarLogin',
-            ]],
-        ],
-        'after' => [
-            'toolbar',
-        ],
-
-        'before' => [
-            'usuario_data', // Esto se asegura de cargar los datos antes de que se procesen las vistas
-            'auth' => ['except' => ['login', 'login/auth', 'logout']],
+            'auth' => [
+                'except' => [
+                    'login',
+                    'login/auth',
+                    'logout',
+                    'usuarios/verificarLogin',
+                ]
+            ],
+            'usuarioData', // ahora se ejecuta después de validar login
         ],
         'after' => [
             'toolbar',
         ],
     ];
-
 
 
 

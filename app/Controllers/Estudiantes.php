@@ -33,7 +33,7 @@ class Estudiantes extends BaseController
         $this->nacionalidad = new NacionalidadesModel();
     }
 
-    
+
     /**rederizar home del modulo estudiantes */
     public function index($activo = 1)
     {
@@ -100,7 +100,7 @@ class Estudiantes extends BaseController
 
 
 
-/**Generar matricula de forma Automatica */
+    /**Generar matricula de forma Automatica */
     public function generarMatricula()
     {
         $año = date('Y'); // Año actual
@@ -114,7 +114,7 @@ class Estudiantes extends BaseController
         //  Si hay un estudiante registrado, extraemos los últimos 4 dígitos de la matrícula
         if ($ultimoEstudiante) {
             $ultimoNumero = intval(substr($ultimoEstudiante['matricula'], -4));
-            $nuevoNumero = str_pad($ultimoNumero + 1, 4, '0', STR_PAD_LEFT); // 🔥 Sumar y rellenar con ceros
+            $nuevoNumero = str_pad($ultimoNumero + 1, 4, '0', STR_PAD_LEFT); //  Sumar y rellenar con ceros
         } else {
             $nuevoNumero = '0001'; //  Si no hay estudiantes, iniciar con "0001"
         }
@@ -127,7 +127,7 @@ class Estudiantes extends BaseController
 
 
 
-/**Insertar los nuevos registros */
+    /**Insertar los nuevos registros */
     public function insertar()
     {
         $session = session();
@@ -268,7 +268,7 @@ class Estudiantes extends BaseController
 
 
 
-/**rederizar vista de edicion de registro de estudiantes */
+    /**rederizar vista de edicion de registro de estudiantes */
     public function editar($id)
     {
         $idEscuela = session()->get('id_escuela');
@@ -400,7 +400,7 @@ class Estudiantes extends BaseController
 
 
 
-/**Insertar los cambios realizados en registro de un estudiante */
+    /**Insertar los cambios realizados en registro de un estudiante */
     public function actualizar()
     {
         $id = $this->request->getPost('id');
@@ -590,20 +590,35 @@ class Estudiantes extends BaseController
     }
 
 
-
-
-
-
-
-
-
-
-
     //public function eliminar($id){}
 
 
 
-    public function eliminados($activo = 0) {}
+    public function eliminados($activo = 0)
+    {
+        $estudiantes = $this->estudiantes->where('activo', $activo)->findAll();
+
+        foreach ($estudiantes as &$estudiante) {
+            if (!empty($estudiante['fecha_nac'])) {
+                $fechaNacimiento = new \DateTime($estudiante['fecha_nac']);
+                $hoy = new \DateTime();
+                $edad = $hoy->diff($fechaNacimiento);
+
+                $estudiante['edad'] = $edad->y; // años
+            } else {
+                $estudiante['edad'] = null;
+            }
+        }
+
+        $data = [
+            'titulo' => 'Estudiantes',
+            'datos' => $estudiantes
+        ];
+
+        echo view('header');
+        echo view('estudiantes/eliminados', $data);
+        echo view('footer');
+    }
 
     public function restaurar($id)
     {

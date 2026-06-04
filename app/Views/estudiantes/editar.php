@@ -270,9 +270,10 @@
                                             </div>
                                             <br>
                                             <div class="text-center mt-4">
-                                                <button type="button" class="btn btn-primary" onclick="if(validarRegistroEstudiantes()){ siguiente('responsable'); }">
+                                                <button type="button" class="btn btn-primary" onclick="if(validarPestanaDatosBasicos()){ siguiente('responsable'); }">
                                                     Siguiente
                                                     <i class="fa-solid fa-forward"></i></button>
+
                                                 <button type="button" class="btn btn-danger btn-cancelar" id="btn-cancelar-1">
                                                     <i class="fa-solid fa-ban"></i> Cancelar
                                                 </button>
@@ -473,7 +474,10 @@
 
                                             <div class="text-center mt-4">
 
-                                                <button type="button" class="btn btn-secondary" onclick="siguiente('responsable')"><i class="fa-solid fa-backward"></i> Atrás</button>
+                                                <button type="button" class="btn btn-primary" onclick="if(validarPestanaDatosBasicos()){ siguiente('responsable'); }">
+                                                    Siguiente
+                                                    <i class="fa-solid fa-forward"></i></button>
+
                                                 <button type="submit" class="btn btn-success"> <i class="fa-solid fa-floppy-disk"></i> Actuaizar</button>
                                                 <button type="button" class="btn btn-danger btn-cancelar" id="btn-cancelar-1">
                                                     <i class="fa-solid fa-ban"></i> Cancelar

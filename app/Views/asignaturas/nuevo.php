@@ -1,0 +1,120 @@
+<script>
+  var baseUrl = "<?= base_url(); ?>";
+</script>
+
+
+<div class="container-fluid">
+    <div class="page-header">
+        <h1 class="text-titles"><i class="fa-solid fa-school"></i><?php print_r($titulo_1) ?>/ <small><?php print_r($titulo) ?></small></h1>
+    </div>
+</div>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="new">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-10 offset-md-1">
+                                <form method="POST" enctype="multipart/form-data" action="<?php echo base_url(); ?>/asignaturas/insertar" autocomlete="off" class="formulario-personalizado">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-3">
+                                            <div class="form-group label-floating">
+                                                <label for="nombre" class="control-label">Nombre asignatura:</label>
+                                                <input class="form-control <?= session('errors.nombre') ? 'is-invalid' : '' ?>" type="text" id="nombre" name="nombre" value="<?= old('nombre', '') ?>" autofocus oninput="generarCodigo()" required />
+                                                <small>*</small>
+                                                <?php if (session('errors.nombre')) : ?>
+                                                    <div class="invalid-feedback d-block">
+                                                        <?= esc(session('errors.nombre')) ?>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-3">
+                                            <div class="form-group label-floating">
+                                                <label for="codigo-asignatura" class="control-label">Codigo Asignatura:</label>
+                                                <input class="form-control <?= session('errors.codigo_asignatura') ? 'is-invalid' : '' ?>" type="text" id="codigo_asignatura" name="codigo_asignatura" value="<?= old('codigo_asignatura', ' ') ?>" required />
+                                                <?php if (session('errors.codigo_asignatura')) : ?>
+                                                    <div class="invalid-feedback d-block">
+                                                        <?= esc(session('errors.codigo_asignatura')) ?>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-3">
+                                            <div class="form-group label-floating">
+                                                <label for="tipo_asignatura" class="control-label">tipo_asignatura:</label>
+                                                <select class="form-control <?= session('errors.tipo_asignatura') ? 'is-invalid' : '' ?>" id="tipo_asignatura" name="tipo_asignatura" required>
+                                                    <option value="">Selecciona tipo de asignatura</option>
+                                                    <?php foreach ($tipo_asignaturas as $tipo_asignatura): ?>
+                                                        <option value="<?= esc($tipo_asignatura['id']); ?>" <?= old('tipo_asignatura') == $tipo_asignatura['id'] ? 'selected' : '' ?>><?= esc($tipo_asignatura['nombre']); ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                                <?php if (session('errors.tipo_asignatura')) : ?>
+                                                    <div class="invalid-feedback d-block">
+                                                        <?= esc(session('errors.tipo_asignatura')) ?>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <p class="text-center">
+
+                                        <button type="submit" class=" btn btn-success text-light ">
+                                            <i class="fa-solid fa-floppy-disk"></i> Guardar
+                                        </button>
+
+                                        <a
+                                            href="#"
+                                            onclick="CancelarRegistroAsignatura()"
+                                            class="btn btn-danger text-light">
+                                            <i class="fa-solid fa-ban"></i> Cancelar
+                                        </a>
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?= $this->section('scripts') ?>
+
+<script>
+    function generarCodigo() {
+        const nombre = document.getElementById('nombre').value.trim();
+
+        if (nombre === '') {
+            document.getElementById('codigo_asignatura').value = '';
+            return;
+        }
+
+        // Palabras irrelevantes que se deben ignorar
+        const palabrasIrrelevantes = ['y', 'de', 'del', 'la', 'el', 'los', 'las', 'en'];
+
+        // Separar palabras, ignorar espacios adicionales y convertir a mayúsculas
+        const palabras = nombre.split(/\s+/).filter(p => !palabrasIrrelevantes.includes(p.toLowerCase())).map(p => p.toUpperCase());
+
+        // Generar el código tomando las primeras tres letras de cada palabra relevante
+        let codigo = palabras.map((palabra, index) => {
+            return palabra.substring(0, 3); // Máximo 3 letras por palabra
+        }).join('-'); // Separador "-"
+
+        // Limitar la longitud máxima del código (opcional)
+        const maxLongitud = 15; // Ajusta este valor según tus necesidades
+        if (codigo.length > maxLongitud) {
+            codigo = codigo.substring(0, maxLongitud);
+        }
+
+        // Asignar el código generado al campo correspondiente
+        document.getElementById('codigo_asignatura').value = codigo;
+    }
+</script>
+
+<?= $this->endSection() ?>

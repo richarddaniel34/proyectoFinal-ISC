@@ -22,7 +22,7 @@ class App extends BaseConfig
     public function __construct()
     {
     if (isset($_SERVER['HTTP_HOST'])) {
-        $this->baseURL = 'http://' . $_SERVER['HTTP_HOST'] . '/censa/public/';
+        $this->baseURL = 'http://' . $_SERVER['HTTP_HOST'] . '/censa-prueba/public/';
     } else {
         $this->baseURL = 'http://localhost/censa-proyecto/public/'; // Valor por defecto para CLI u otros entornos.
     }

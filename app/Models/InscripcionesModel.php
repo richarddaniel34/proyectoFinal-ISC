@@ -31,12 +31,12 @@ class InscripcionesModel extends Model
     protected $deletedField = 'deleted_at';
 
     // Validaciones
-   protected $validationRules = [
-    'id_grado' => 'required|integer',
-    'id_estudiante' => 'required|integer',
-    'id_schoolYear' => 'required|integer',
-    'estado' => 'permit_empty|in_list[Normal, Prematricula, Pendiente de Pago]' // agrega todos los estados posibles
-];
+    protected $validationRules = [
+        'id_grado' => 'required|integer',
+        'id_estudiante' => 'required|integer',
+        'id_schoolYear' => 'required|integer',
+        'estado' => 'permit_empty|in_list[Normal, Prematricula, Pendiente de Pago]' // agrega todos los estados posibles
+    ];
 
 
 
@@ -75,27 +75,27 @@ class InscripcionesModel extends Model
     }
 
 
-   public function getEstudiantesInscritosPorResponsable($id_responsable, $id_schoolYear)
-{
-    return $this->select('
+    public function getEstudiantesInscritosPorResponsable($id_responsable, $id_schoolYear)
+    {
+        return $this->select('
             estudiantes.id,
             estudiantes.nombre,
             estudiantes.apellido,
             cursos_base.nombre_curso AS curso
         ')
-        ->join('estudiantes', 'estudiantes.id = inscripciones.id_estudiante')
-        ->join('cursos', 'cursos.id = inscripciones.id_curso')
-        ->join('cursos_base', 'cursos_base.id = cursos.id_cursos_base', 'left')
-        ->where('inscripciones.id_schoolYear', $id_schoolYear)
-        ->where('inscripciones.activo', 1)
-        ->where("EXISTS (
+            ->join('estudiantes', 'estudiantes.id = inscripciones.id_estudiante')
+            ->join('cursos', 'cursos.id = inscripciones.id_curso')
+            ->join('cursos_base', 'cursos_base.id = cursos.id_cursos_base', 'left')
+            ->where('inscripciones.id_schoolYear', $id_schoolYear)
+            ->where('inscripciones.activo', 1)
+            ->where("EXISTS (
             SELECT 1 FROM pagos 
             WHERE pagos.id_estudiante = estudiantes.id 
             AND pagos.id_responsable = {$id_responsable}
         )", null, false)
-        ->orderBy('inscripciones.id', 'DESC')
-        ->findAll();
-}
+            ->orderBy('inscripciones.id', 'DESC')
+            ->findAll();
+    }
 
 
     /*public function getEstudiantesPorCurso($id_curso)

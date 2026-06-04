@@ -211,7 +211,7 @@ class Usuarios extends BaseController
 
         $usuarioBase .= $primerApellido . $segundoApellidoLetra;
 
-        // 🔥 Verificar si el usuario ya existe en la BD y agregar número incremental si es necesario
+        //  Verificar si el usuario ya existe en la BD y agregar número incremental si es necesario
         $contador = 1;
         $usuarioFinal = $usuarioBase;
 
@@ -222,10 +222,6 @@ class Usuarios extends BaseController
 
         return $this->response->setJSON(['usuario' => $usuarioFinal]);
     }
-
-
-
-
 
 
     public function docentes()
@@ -388,7 +384,6 @@ class Usuarios extends BaseController
 
         return $this->response->setJSON(['status' => 'success', 'message' => 'Escuela cambiada correctamente']);
     }
-
 
 
 

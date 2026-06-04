@@ -304,7 +304,7 @@ class DocenteGuia extends BaseController
 
 
     /**
-     * 🔥 Eliminar distribución académica
+     *  Eliminar distribución académica
      */
     public function eliminar($id)
     {

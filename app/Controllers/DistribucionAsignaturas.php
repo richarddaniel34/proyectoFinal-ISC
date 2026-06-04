@@ -113,11 +113,6 @@ class DistribucionAsignaturas extends BaseController
     }
 
 
-
-
-
-
-
     /**
      *  Guardar nueva asignación.
      */
@@ -176,16 +171,13 @@ class DistribucionAsignaturas extends BaseController
 
         // Retornar con mensaje según corresponda
         if ($insertados > 0 && empty($duplicados)) {
-            return redirect()->to(base_url('/distribucionasignaturas/nuevo'))->with('success', $mensaje);
+            return redirect()->to(base_url('/distribucion-asignaturas/nuevo'))->with('success', $mensaje);
         } elseif ($insertados > 0 && !empty($duplicados)) {
-            return redirect()->to(base_url('/distribucionasignaturas/nuevo'))->with('warning', $mensaje);
+            return redirect()->to(base_url('/distribucion-asignaturas/nuevo'))->with('warning', $mensaje);
         } else {
-            return redirect()->to(base_url('/distribucionasignaturas/nuevo'))->with('error', $mensaje);
+            return redirect()->to(base_url('/distribucion-asignaturas/nuevo'))->with('error', $mensaje);
         }
     }
-
-
-
 
 
 
@@ -244,29 +236,27 @@ class DistribucionAsignaturas extends BaseController
     }
 
 
-
-
-
-
     public function getAsignaturasAjax()
     {
-        $q = $this->request->getGet('q') ?? '';
+        $q = $this->request->getGet('q');
 
-        $asignaturas = $this->asignaturas
-            ->like('nombre', $q)
-            ->where('activo', 1) // ✅ solo activas
-            ->findAll();
+        $data = $this->asignaturas->buscar($q);
 
         $results = [];
-        foreach ($asignaturas as $asig) {
+
+        foreach ($data as $row) {
             $results[] = [
-                'id' => $asig['id'],
-                'text' => $asig['nombre']
+                'id' => $row['id'],
+                'text' => $row['nombre']
             ];
         }
 
-        return $this->response->setJSON(['items' => $results]);
+        return $this->response->setJSON([
+            'items' => $results
+        ]);
     }
+
+
 
     public function getDistribucionesAjax()
     {

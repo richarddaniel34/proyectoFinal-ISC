@@ -18,7 +18,7 @@
 	<!--<link rel="stylesheet" href="css/bootstrap-material-design.min">-->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/form.css" type="text/css">
-	<link rel="shortcut icon" href="<?php echo base_url(); ?>/assets/img/logo/LOGO-CENSA.png" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/logo/censa-favicon.ico" type="image/x-icon">
 
 	<!-- Estilo personalizado para el dropdown de escuelas -->
 	<style>
@@ -178,42 +178,66 @@
 						</a>
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>usuarios/logout" class="btn-exit-system">
+						<a href="<?php echo base_url(); ?>logout" class="btn-exit-system">
 							<i class="zmdi zmdi-power"></i>
 						</a>
 					</li>
 				</ul>
 			</div>
 			<!-- SideBar Menu -->
+			<?php
+			$usuario = session()->get('usuario_data');
+
+			$tipo = trim($usuario['tipo_usuario'] ?? '');
+			$funcion = trim($usuario['personal_funcion'] ?? '');
+
+			$puedeRegistro = (
+				in_array($tipo, ['Administrador', 'S-ADMIN']) ||
+				(
+					$tipo === 'Administrativo' &&
+					in_array($funcion, ['Digitador/a', 'Secretaria/o'])
+				)
+			);
+			$puedePago = (
+				in_array($tipo, ['Administrador', 'S-ADMIN']) ||
+				(
+					$tipo === 'Administrativo' &&
+					in_array($funcion, ['Digitador/a', 'Secretaria/o'])
+				)
+			);
+			?>
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				<li>
 					<a href="<?php echo base_url(); ?>home">
 						<i class="fa-solid fa-gauge"></i> Dashboard
 					</a>
 				</li>
-				<li>
-					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="fa-solid fa-address-card "></i> REGISTRO <i class="zmdi zmdi-caret-down pull-right"></i>
-					</a>
-					<ul class="list-unstyled full-box">
-						<li>
-							<a href="<?php echo base_url(); ?>personal"><i class=" fa-solid fa-users"></i> Personal</a>
-						</li>
-						<li>
-							<a href="<?php echo base_url(); ?>responsables"><i class="fa-solid fa-person"></i><i class="fa-solid fa-person-dress"></i> Padres</a>
-						</li>
-						<li>
-							<a href="<?php echo base_url(); ?>estudiantes"><i class="fa-solid fa-user-graduate"></i> Estudiantes</a>
-						</li>
-						<li>
-							<a href="<?php echo base_url(); ?>inscripciones/relacion"><i class="fa-solid fa-user-graduate"></i> Relación Estudiantes</a>
-						</li>
-						<li>
-							<a href="<?php echo base_url(); ?>asistencia"><i class="fa-solid fa-user-graduate"></i> Asistencia</a>
-						</li>
-					</ul>
-				</li>
-				
+				<?php if ($puedeRegistro): ?>
+					<li>
+						<a href="#!" class="btn-sideBar-SubMenu">
+							<i class="fa-solid fa-address-card "></i> REGISTRO
+							<i class="zmdi zmdi-caret-down pull-right"></i>
+						</a>
+						<ul class="list-unstyled full-box">
+							<li>
+								<a href="<?php echo base_url(); ?>personal"><i class=" fa-solid fa-users"></i> Personal</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>responsables"><i class="fa-solid fa-person"></i> Padres</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>estudiantes"><i class="fa-solid fa-user-graduate"></i> Estudiantes</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>inscripciones/relacion"><i class="fa-solid fa-user-graduate"></i> Relación Estudiantes</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>asistencia"><i class="fa-solid fa-user-graduate"></i> Asistencia</a>
+							</li>
+						</ul>
+					</li>
+				<?php endif; ?>
+
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
 						<i class="fa-solid fa-address-card "></i> Calificaciones <i class="zmdi zmdi-caret-down pull-right"></i>
@@ -251,22 +275,24 @@
 						</li>
 					</ul>
 				</li>
-				<li>
-					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="fa-solid fa-dollar-sign"></i> Pagos<i class="zmdi zmdi-caret-down pull-right"></i>
-					</a>
-					<ul class="list-unstyled full-box">
-						<li>
-							<a href="<?php echo base_url(); ?>pagos"><i class="fa-solid fa-money-bill-1"></i> Gestión de Pagos</a>
-						</li>
-						<li>
-							<a href="<?php echo base_url(); ?>inscripciones/mensualidades"><i class="fa-solid fa-calendar-check"></i> Mensualidades</a>
-						</li>
-						<li>
-							<a href="payments.html"><i class="zmdi zmdi-money zmdi-hc-fw"></i> </a>
-						</li>
-					</ul>
-				</li>
+				<?php if ($puedePago): ?>
+					<li>
+						<a href="#!" class="btn-sideBar-SubMenu">
+							<i class="fa-solid fa-dollar-sign"></i> Pagos<i class="zmdi zmdi-caret-down pull-right"></i>
+						</a>
+						<ul class="list-unstyled full-box">
+							<li>
+								<a href="<?php echo base_url(); ?>pagos"><i class="fa-solid fa-money-bill-1"></i> Gestión de Pagos</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>inscripciones/mensualidades"><i class="fa-solid fa-calendar-check"></i> Mensualidades</a>
+							</li>
+							<li>
+								<a href="payments.html"><i class="zmdi zmdi-money zmdi-hc-fw"></i> </a>
+							</li>
+						</ul>
+					</li>
+				<?php endif; ?>
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
 						<i class="fa-solid fa-gear"></i> Configuracion <i class="zmdi zmdi-caret-down pull-right"></i>
@@ -282,7 +308,7 @@
 							<a href="<?php echo base_url(); ?>grados-y-secciones"><i class="fa-solid fa-graduation-cap"></i> <i class="fa-solid fa-a"></i><i class="fa-solid fa-b"></i><i class="fa-solid fa-c"></i> Grados y secciones</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url(); ?>asignatura"><i class="fa-solid fa-book"></i> Asignaturas</a>
+							<a href="<?php echo base_url(); ?>asignaturas"><i class="fa-solid fa-book"></i> Asignaturas</a>
 						</li>
 						<li>
 							<a href="<?php echo base_url(); ?>docenteguia"><i class="fa-solid fa-book"></i> Docente Guia</a>

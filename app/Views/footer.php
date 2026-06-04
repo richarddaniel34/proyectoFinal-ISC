@@ -15,23 +15,36 @@
 
 
 <!--====== Scripts (Orden optimizado) -->
-<script src="<?php echo base_url(); ?>/js/jquery-3.1.1.min.js"></script> <!-- jQuery debe cargarse primero -->
+<script src="<?php echo base_url(); ?>js/vendor/jquery-3.1.1.min.js"></script> <!-- jQuery debe cargarse primero -->
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
-<script src="<?php echo base_url(); ?>/js/bootstrap.bundle.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
+
+<script src="<?php echo base_url(); ?>/js/vendor/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 después de jQuery -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 <!-- Script de Bootstrap-Select -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-<script src="<?php echo base_url(); ?>/js/modal.js"></script>
-<script src="<?php echo base_url(); ?>/js/material.min.js"></script>
-<script src="<?php echo base_url(); ?>/js/font_awesome.js"></script>
-<script src="<?php echo base_url(); ?>/js/datatables-simple-demo.js"></script>
-<script src="<?php echo base_url(); ?>/js/simple-datatable.js"></script>
-<script src="<?php echo base_url(); ?>/js/ripples.min.js"></script>
-<script src="<?php echo base_url(); ?>/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="<?php echo base_url(); ?>/js/main.js"></script>
-<script src="<?php echo base_url(); ?>/js/validaciones.js"></script>
+
+<script src="<?php echo base_url(); ?>js/core/modal.js"></script>
+<script src="<?php echo base_url(); ?>js/vendor/material.min.js"></script>
+<script src="<?php echo base_url(); ?>js/font_awesome.js"></script>
+<script src="<?php echo base_url(); ?>js/datatables-simple-demo.js"></script>
+<script src="<?php echo base_url(); ?>js/vendor/simple-datatable.js"></script>
+<script src="<?php echo base_url(); ?>js/vendor/ripples.min.js"></script>
+<script src="<?php echo base_url(); ?>js/vendor/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="<?php echo base_url(); ?>js/core/main.js"></script>
+<script src="<?php echo base_url(); ?>/js/core/formularios.js"></script>
 <script src="<?php echo base_url(); ?>/js/usuarios.js"></script>
 
 <script>
@@ -282,7 +295,7 @@
                 $botonPrincipal.prop('disabled', true);
 
                 $.ajax({
-                    url: '<?php echo base_url(); ?>usuarios/cambiarEscuela',
+                    url: '<?= base_url('usuarios/cambiarEscuela') ?>',
                     type: 'POST',
                     data: {
                         id_escuela: escuelaId,

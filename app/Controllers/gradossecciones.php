@@ -439,10 +439,9 @@ class GradosSecciones extends BaseController
 
 
 
-    public function obtenerCursosPorServicio()
+    public function obtenerCursosPorServicio($id_servicio = null)
     {
-        $id_servicio = $this->request->getGet('id_servicio');
-        $salida = $this->request->getGet('salida'); // puede ser null o vacío
+        $salida = $this->request->getGet('salida');
 
         if (!$id_servicio) {
             return $this->response->setJSON([]);
@@ -451,7 +450,6 @@ class GradosSecciones extends BaseController
         $cursosQuery = $this->cursosBase
             ->where('id_servicio', intval($id_servicio));
 
-        // Filtrar por salida técnica si se proporcionó
         if (!empty($salida)) {
             $cursosQuery->like('nombre_curso', $salida);
         }

@@ -14,7 +14,7 @@
     <h4 class="mt-4"></h4>
     <div>
       <p>
-        <a href="<?php echo base_url(); ?>personal/" class=" btn btn-primary text-light "><i class="fa-solid fa-backward"></i> Regresar</a>
+        <a href="<?php echo base_url(); ?>estudiantes/" class=" btn btn-primary text-light "><i class="fa-solid fa-backward"></i> Regresar</a>
       </p>
     </div>
     <div class="">

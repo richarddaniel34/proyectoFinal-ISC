@@ -206,6 +206,34 @@
                     url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
                 },
                 responsive: true,
+                dom: 'Bfrtip',
+                buttons: [{
+                        extend: 'excelHtml5',
+                        text: '<i class="fas fa-file-excel"></i> Excel',
+                        title: 'Listado de estudiantes por curso',
+                        exportOptions: {
+                            columns: [1, 2, 3, 4, 5]
+                        }
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        text: '<i class="fas fa-file-pdf"></i> PDF',
+                        title: 'Listado de estudiantes por curso',
+                        orientation: 'landscape',
+                        pageSize: 'LETTER',
+                        exportOptions: {
+                            columns: [1, 2, 3, 4, 5]
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        text: '<i class="fas fa-print"></i> Imprimir',
+                        title: 'Listado de estudiantes por curso',
+                        exportOptions: {
+                            columns: [1, 2, 3, 4, 5]
+                        }
+                    }
+                ],
                 lengthMenu: [5, 10, 25, 50],
                 drawCallback: function() {
                     $('#tabla-estudiantes .check-fila').off('change').on('change', function() {

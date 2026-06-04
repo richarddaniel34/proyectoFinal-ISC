@@ -156,14 +156,6 @@ class Pagos extends BaseController
 
 
 
-
-
-
-
-
-
-
-
     // Carga los estudiantes según el responsable seleccionado
     public function obtenerEstudiantes()
     {
@@ -578,7 +570,9 @@ class Pagos extends BaseController
         $nombreEscuela = session('nombre_escuela') ?? 'Centro Educativo';
 
         // 📄 MEDIA CARTA MÁS COMPACTA
-        $pdf = new \TCPDF('P', 'mm', [216, 120], true, 'UTF-8', false);
+        //$pdf = new \TCPDF('P', 'mm', [216, 120], true, 'UTF-8', false);
+        // 📄 MEDIA CARTA REAL: 8.5 x 5.5 pulgadas aprox.
+        $pdf = new \TCPDF('L', 'mm', [216, 140], true, 'UTF-8', false);
 
         $pdf->setPrintHeader(false);
         $pdf->setPrintFooter(false);
@@ -588,28 +582,28 @@ class Pagos extends BaseController
         $pdf->AddPage();
 
         // 🧾 HEADER
-        $pdf->SetFont('helvetica', 'B', 14);
+        $pdf->SetFont('courier', 'B', 13);
         $pdf->Cell(0, 6, strtoupper($nombreEscuela), 0, 1, 'C');
 
-        $pdf->SetFont('helvetica', '', 10);
-        $pdf->Cell(0, 5, 'Factura #' . $factura['numero_factura'], 0, 1, 'C');
-        $pdf->Cell(0, 5, date('d/m/Y', strtotime($factura['fecha_emision'])), 0, 1, 'C');
+        $pdf->SetFont('courier', 'B', 9);
+        $pdf->Cell(0, 5, 'FACTURA No. ' . $factura['numero_factura'], 0, 1, 'C');
+        $pdf->Cell(0, 5, 'Fecha: ' . date('d/m/Y', strtotime($factura['fecha_emision'])), 0, 1, 'C');
 
+        $pdf->Ln(3);
+
+        $pdf->SetFont('courier', '', 10);
+        $pdf->Cell(25, 6, 'Cliente:', 0, 0);
+        $pdf->SetFont('courier', '', 10);
+        $pdf->Cell(0, 6, $factura['nombre_responsable'], 0, 1);
+
+        $pdf->Ln(1);
+        $pdf->Line(10, $pdf->GetY(), 206, $pdf->GetY());
         $pdf->Ln(4);
 
-        // 👤 CLIENTE
-        $pdf->Cell(0, 5, 'Cliente: ' . $factura['nombre_responsable'], 0, 1);
-
-        // 🔥 línea separadora
-        $pdf->Ln(2);
-        $pdf->Cell(0, 0, '', 'T', 1);
-        $pdf->Ln(2);
-
-        // 🔥 AGRUPAR POR ESTUDIANTE
+        // Agrupar por estudiante
         $estudiantes = [];
 
         foreach ($detalles as $d) {
-
             $est = $d['estudiante'];
 
             if (!isset($estudiantes[$est])) {
@@ -628,42 +622,48 @@ class Pagos extends BaseController
             }
         }
 
-        // 🧾 IMPRIMIR BONITO
+        // Cabecera de detalle
+        $pdf->SetFont('courier', 'B', 9);
+        $pdf->Cell(85, 6, 'ESTUDIANTE', 0, 0);
+        $pdf->Cell(65, 6, 'CONCEPTO', 0, 0);
+        $pdf->Cell(35, 6, 'MONTO', 0, 1, 'R');
+
+        $pdf->Line(10, $pdf->GetY(), 206, $pdf->GetY());
+        $pdf->Ln(2);
+
+        $pdf->SetFont('courier', '', 9);
+
         foreach ($estudiantes as $nombre => $data) {
 
-            // 👤 Nombre estudiante
-            $pdf->SetFont('helvetica', 'B', 10);
-            $pdf->Cell(0, 5, $nombre, 0, 1);
+            $primeraLinea = true;
 
-            $pdf->SetFont('helvetica', '', 9);
-
-            // 📌 Inscripción
             if ($data['inscripcion'] > 0) {
-                $pdf->Cell(120, 5, '  Inscripción', 0, 0);
-                $pdf->Cell(60, 5, 'RD$' . number_format($data['inscripcion'], 2), 0, 1, 'R');
+                $pdf->Cell(85, 5, $primeraLinea ? $nombre : '', 0, 0);
+                $pdf->Cell(65, 5, 'Inscripción', 0, 0);
+                $pdf->Cell(35, 5, 'RD$ ' . number_format($data['inscripcion'], 2), 0, 1, 'R');
+                $primeraLinea = false;
             }
 
-            // 📌 Mensualidades
             if ($data['mensualidad'] > 0) {
-                $texto = '  Mensualidades (' . $data['count'] . ' meses)';
-                $pdf->Cell(120, 5, $texto, 0, 0);
-                $pdf->Cell(60, 5, 'RD$' . number_format($data['mensualidad'], 2), 0, 1, 'R');
+                $pdf->Cell(85, 5, $primeraLinea ? $nombre : '', 0, 0);
+                $pdf->Cell(65, 5, 'Mensualidades (' . $data['count'] . ' meses)', 0, 0);
+                $pdf->Cell(35, 5, 'RD$ ' . number_format($data['mensualidad'], 2), 0, 1, 'R');
             }
 
-            // 🔥 separador
             $pdf->Ln(1);
-            $pdf->Cell(0, 0, '', 'T', 1);
-            $pdf->Ln(2);
         }
 
-        // 💰 TOTAL
-        $pdf->SetFont('helvetica', 'B', 11);
-        $pdf->Cell(120, 6, 'TOTAL', 0, 0);
-        $pdf->Cell(60, 6, 'RD$' . number_format($factura['total'], 2), 0, 1, 'R');
+        $pdf->Ln(2);
+        $pdf->Line(10, $pdf->GetY(), 206, $pdf->GetY());
+        $pdf->Ln(3);
 
-        // 🧠 FOOTER
-        $pdf->Ln(4);
-        $pdf->SetFont('helvetica', '', 9);
+        // TOTAL
+        $pdf->SetFont('courier', 'B', 11);
+        $pdf->Cell(150, 6, 'TOTAL', 0, 0, 'R');
+        $pdf->Cell(35, 6, 'RD$ ' . number_format($factura['total'], 2), 0, 1, 'R');
+
+        $pdf->Ln(6);
+        $pdf->SetFont('courier', '', 8);
         $pdf->Cell(0, 5, 'Gracias por su pago.', 0, 1, 'C');
 
         // 🔥 limpiar buffer

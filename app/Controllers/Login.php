@@ -28,7 +28,7 @@ class Login extends BaseController
         $usuario = trim($this->request->getPost('usuario'));
         $clave = trim($this->request->getPost('clave'));
 
-        // 🔥 Validaciones básicas
+        //  Validaciones básicas
         if (empty($usuario) || empty($clave)) {
             return redirect()->back()->withInput()->with('errors', ['usuario' => 'Debe ingresar usuario y contraseña']);
         }
@@ -40,7 +40,7 @@ class Login extends BaseController
             return redirect()->back()->withInput()->with('errors', ['usuario' => 'Usuario o contraseña incorrectos']);
         }
 
-        // 🔥 Obtener detalles adicionales
+        //  Obtener detalles adicionales
         $usuarioDetalles = $this->usuarios->getUsuarioConDetalles($usuarioData['id']);
 
         // ✅ Crear sesión del usuario

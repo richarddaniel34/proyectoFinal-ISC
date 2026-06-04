@@ -25,7 +25,8 @@
 			Personal Docente
 		</div>
 		<div class="full-box tile-icon text-center">
-			<i class="zmdi zmdi-male-female"></i>
+			<i class="fa-solid fa-chalkboard-user"></i>
+			
 		</div>
 		<div class="full-box tile-number text-titles">
 			<p class="full-box"><?= esc($total_docentes) ?></p>
@@ -37,7 +38,7 @@
 			Personal Administrativo
 		</div>
 		<div class="full-box tile-icon text-center">
-			<i class="zmdi zmdi-account-box"></i>
+			<i class="zmdi zmdi-male-female"></i>
 		</div>
 		<div class="full-box tile-number text-titles">
             <p class="full-box"><?= esc($total_administrativos) ?></p>
@@ -65,7 +66,7 @@
 			Estudiantes
 		</div>
 		<div class="full-box tile-icon text-center">
-			<i class="zmdi zmdi-school"></i>
+			<i class="fa-solid fa-user-graduate"></i>
 
 		</div>
 		<div class="full-box tile-number text-titles">

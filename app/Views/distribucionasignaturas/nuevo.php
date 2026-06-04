@@ -12,7 +12,7 @@
         <div class="col-md-10">
             <div class="card shadow-sm border-0 rounded-3">
                 <div class="card-body p-4">
-                    <form method="POST" action="<?= base_url('distribucionasignaturas/insertar') ?>" enctype="multipart/form-data" autocomplete="off" class="formulario-personalizado">
+                    <form method="POST" action="<?= base_url('distribucion-asignaturas/insertar') ?>" enctype="multipart/form-data" autocomplete="off" class="formulario-personalizado">
                         <?= csrf_field() ?>
                         <input type="hidden" name="asignaciones" id="asignaciones-json">
 
@@ -156,7 +156,7 @@
             allowClear: true,
             minimumInputLength: 0,
             ajax: {
-                url: '<?= base_url('DistribucionAsignaturas/getAsignaturasAjax') ?>',
+                url: '<?= base_url('distribucion-asignaturas/asignaturas') ?>',
                 dataType: 'json',
                 delay: 250,
                 data: params => ({

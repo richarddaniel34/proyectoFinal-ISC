@@ -1,119 +1,225 @@
-<?php namespace Config;
+<?php
 
-// Create a new instance of our RouteCollection class.
+namespace Config;
+
 $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
-{
-	require SYSTEMPATH . 'Config/Routes.php';
+if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
+    require SYSTEMPATH . 'Config/Routes.php';
 }
 
-/**
- * --------------------------------------------------------------------
- * Router Setup
- * --------------------------------------------------------------------
- */
+
+// CONFIG BASE
 $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false); // 👈 clave, pero ahora TODO debe estar declarado
 
-/**
- * --------------------------------------------------------------------
- * Route Definitions
- * --------------------------------------------------------------------
- */
-
-// We get a performance increase by specifying the default
-// route since we don't have to scan directories.
-// Rutas públicas (sin autenticación)
+// ======================
+//  RUTAS PÚBLICAS
+// ======================
 $routes->get('login', 'Usuarios::login');
 $routes->post('login/auth', 'Usuarios::verificarLogin');
 $routes->get('logout', 'Usuarios::logout');
 
-// Rutas protegidas
-$routes->group('', ['filter' => 'auth'], function($routes) {
+// ======================
+//  RUTAS CON LOGIN
+// ======================
+$routes->group('', ['filter' => 'auth'], function ($routes) {
+
     $routes->get('home', 'Home::index');
-    $routes->get('usuarios/cambio_clave', 'Usuarios::cambioClave');
-    $routes->post('usuarios/actualizarClave', 'Usuarios::actualizarClave');
-    
 
-    // otras rutas protegidas
-}); 
-// Controlador Usuarios, método logout
+    $routes->group('usuarios', function ($routes) {
+        $routes->get('cambio_clave', 'Usuarios::cambioClave');
+        $routes->post('actualizarClave', 'Usuarios::actualizarClave');
+    });
+});
 
-$routes->get('calificaciones/buscar-docentes', 'Calificaciones::buscarDocentes');
-$routes->get('calificaciones/buscar-cursos/(:num)', 'Calificaciones::buscarCursos/$1');
-$routes->get('calificaciones/buscar-asignaturas/(:num)/(:num)', 'Calificaciones::buscarAsignaturas/$1/$2');
-$routes->get('calificaciones/obtener-distribucion-asignatura', 'Calificaciones::obtenerDistribucionAsignatura');
-$routes->get('calificaciones/estudiantes-por-curso/(:num)', 'Calificaciones::estudiantesPorCurso/$1');
-$routes->post('calificaciones/bloquear-periodo', 'Calificaciones::bloquearPeriodo');
-$routes->post('calificaciones/guardar-configuracion-periodos', 'Calificaciones::guardarConfiguracionPeriodos');
-$routes->get('escuela/visualizar', 'Escuela::visualizar'); // Sin ID (usa sesión)
-$routes->get('escuela/visualizar/(:num)', 'Escuela::visualizar/$1'); // Con ID directo
-$routes->post('escuela/actualizar', 'Escuela::actualizar');
-$routes->get('grados-y-secciones', 'GradosSecciones::index');
-$routes->get('grados-y-secciones/grados', 'GradosSecciones::grados');
-$routes->get('grados-y-secciones/grados/grados_inactivos', 'GradosSecciones::grados_inactivos');
-$routes->get('grados-y-secciones/grados/inactivar_grado/(:num)', 'GradosSecciones::inactivar_grado/$1');
-$routes->get('grados-y-secciones/grados/restaurar_grado/(:num)', 'GradosSecciones::restaurar_grado/$1');
+// ======================
+//  RUTAS COMPLETAS (CON DATOS DE USUARIO)
+// ======================
+$routes->group('', ['filter' => ['auth', 'usuarioData']], function ($routes) {
 
-$routes->get('grados-y-secciones/cursos', 'GradosSecciones::cursos');
-$routes->get('grados-y-secciones/cursos/curso_nuevo', 'GradosSecciones::curso_nuevo');
+    // HOME
+    $routes->get('home', 'Home::index');
+
+    // USUARIOS
+    $routes->group('usuarios', function ($routes) {
+        $routes->get('listarUsuarios', 'Usuarios::listarUsuarios');
+        $routes->get('getEscuelas', 'Usuarios::getEscuelas');
+        $routes->post('cambiarEscuela', 'Usuarios::cambiarEscuela');
+    });
 
 
-$routes->get('grados-y-secciones/configurar_cursos', 'GradosSecciones::configurar_cursos');
-
-$routes->get('gradossecciones/obtener_cursos_por_servicio/(:num)', 'GradosSecciones::obtenerCursosPorServicio/$1');
-$routes->post('gradossecciones/guardar_configuracion_cursos', 'GradosSecciones::guardar_configuracion_cursos');
-
-
-$routes->post('cursosbase/insertar', 'CursosBase::insertar');
-
-/* ESTUDIANTES */
-$routes->post('estudiantes/actualizar', 'Estudiantes::actualizar');
+    //Schoolyear
+    $routes->group('schoolyear', function ($routes) {
+        $routes->get('/', 'Schoolyear::index');
+        $routes->get('nuevo', 'Schoolyear::nuevo');
+        $routes->post('insertar', 'Schoolyear::insertar');
+        $routes->post('actualizar/(:num)', 'Schoolyear::actualizar/$1');
+        $routes->get('editar/(:num)', 'Schoolyear::editar/$1');
+    });
 
 
-$routes->get('calificaciones/reporte', 'Calificaciones::generarReportePDF');
+    // ESTUDIANTES
+    $routes->group('estudiantes', function ($routes) {
+        $routes->get('/', 'Estudiantes::index');
+        $routes->get('nuevo', 'Estudiantes::nuevo');
+        $routes->post('insertar', 'Estudiantes::insertar');
+        $routes->get('eliminados', 'Estudiantes::eliminados');
+        $routes->get('editar/(:num)', 'Estudiantes::editar/$1');
+        $routes->get('visualizar/(:num)', 'Estudiantes::visualizar/$1');
+        $routes->post('actualizar', 'Estudiantes::actualizar');
+    });
+
+    // PERSONAL
+    $routes->group('personal', function ($routes) {
+        $routes->get('/', 'Personal::index');
+        $routes->get('nuevo', 'Personal::nuevo');
+        $routes->get('eliminados', 'Personal::eliminados');
+        $routes->get('editar/(:num)', 'Personal::editar/$1');
+        $routes->get('eliminar/(:num)', 'Personal::eliminar/$1');
+        $routes->get('restaurar/(:num)', 'Personal::restaurar/$1');
+        $routes->get('visualizar/(:num)', 'Personal::visualizar/$1');
+    });
+
+    // RESPONSABLES
+    $routes->group('responsables', function ($routes) {
+        $routes->get('/', 'Responsables::index');
+        $routes->get('nuevo', 'Responsables::nuevo');
+        $routes->get('eliminados', 'Responsables::eliminados');
+        $routes->post('obtenerDistritos', 'Responsables::obtenerDistritos');
+        $routes->get('buscar', 'Responsables::buscar');
+    });
+
+    // ESCUELA
+    $routes->group('escuela', function ($routes) {
+        $routes->get('/', 'Escuela::index');
+        $routes->get('info_escuela', 'Escuela::info_escuela');
+        $routes->get('nuevo', 'Escuela::nuevo');
+        $routes->get('eliminados', 'Escuela::eliminados');
+        $routes->get('editar/(:num)', 'Escuela::editar/$1');
+        $routes->get('eliminar/(:num)', 'Escuela::eliminar/$1');
+        $routes->get('restaurar/(:num)', 'Escuela::restaurar/$1');
+        $routes->get('visualizar', 'Escuela::visualizar');
+        $routes->get('visualizar/(:num)', 'Escuela::visualizar/$1');
+        $routes->post('actualizar', 'Escuela::actualizar');
+    });
+
+
+    // GRADOS
+    $routes->group('grados-y-secciones', function ($routes) {
+        $routes->get('/', 'GradosSecciones::index');
+
+        $routes->get('grados', 'GradosSecciones::grados');
+        $routes->get('grados/grados_inactivos', 'GradosSecciones::grados_inactivos');
+        $routes->get('grados/inactivar_grado/(:num)', 'GradosSecciones::inactivar_grado/$1');
+        $routes->get('grados/restaurar_grado/(:num)', 'GradosSecciones::restaurar_grado/$1');
+
+        $routes->get('cursos', 'GradosSecciones::cursos');
+        $routes->get('cursos/curso_nuevo', 'GradosSecciones::curso_nuevo');
+
+        $routes->get('configurar_cursos', 'GradosSecciones::configurar_cursos');
+        $routes->get('obtener_cursos_por_servicio/(:num)', 'GradosSecciones::obtenerCursosPorServicio/$1');
+        $routes->post('guardar_configuracion_cursos', 'GradosSecciones::guardar_configuracion_cursos');
+        $routes->get(
+            'obtenerCursosPorServicioInscripcion',
+            'GradosSecciones::obtenerCursosPorServicioInscripcion'
+        );
+    });
+
+    // CALIFICACIONES
+    $routes->group('calificaciones', function ($routes) {
+        $routes->get('/', 'Calificaciones::index');
+        $routes->get('registro', 'Calificaciones::registro');
+        $routes->get('completivo', 'Calificaciones::completivo');
+        $routes->get('extraordinario', 'Calificaciones::extraordinario');
+        $routes->get('especiales', 'Calificaciones::especiales');
+        $routes->get('buscar-docentes', 'Calificaciones::buscarDocentes');
+        $routes->get('buscar-cursos/(:num)', 'Calificaciones::buscarCursos/$1');
+        $routes->get('buscar-asignaturas/(:num)/(:num)', 'Calificaciones::buscarAsignaturas/$1/$2');
+        $routes->get('obtener-distribucion-asignatura', 'Calificaciones::obtenerDistribucionAsignatura');
+        $routes->get('estudiantes-por-curso/(:num)', 'Calificaciones::estudiantesPorCurso/$1');
+
+        $routes->get('estudiantes-completivo', 'Calificaciones::estudiantesCompletivo');
+        $routes->get('estudiantes-extraordinario', 'Calificaciones::estudiantesExtraordinario');
+        $routes->get('estudiantes-especial', 'Calificaciones::estudiantesEspecial');
+
+        $routes->post('guardarNotas', 'Calificaciones::guardarNotas');
+        $routes->post('guardarCompletivo', 'Calificaciones::guardarCompletivo');
+        $routes->post('guardarExtraordinario', 'Calificaciones::guardarExtraordinario');
+        $routes->post('guardarEspecial', 'Calificaciones::guardarEspecial');
+        $routes->get('obtenerNotas', 'Calificaciones::obtenerNotas');
+
+        $routes->post('guardar-configuracion-periodos', 'Calificaciones::guardarConfiguracionPeriodos');
+        $routes->get('reporte', 'Calificaciones::generarReportePDF');
+    });
+    // PAGOS
+    $routes->group('pagos', function ($routes) {
+        $routes->get('/', 'Pagos::index');
+        $routes->get('nueva_inscripcion', 'Pagos::nueva_Inscripcion');
+        $routes->get('otros_pagos', 'Pagos::otros_pagos');
+        $routes->post('registrar_inscripcion', 'Pagos::registrar_inscripcion');
+
+        $routes->get('verFactura/(:num)', 'Pagos::verFactura/$1');
+        $routes->get('imprimirFactura/(:num)', 'Pagos::imprimirFactura/$1');
+        $routes->get('obtenerEstudiantes', 'Pagos::obtenerEstudiantes');
+
+        $routes->get('obtenerMensualidadesPendientes', 'Pagos::obtenerMensualidadesPendientes');
+        $routes->post('registrarPagoMensualidad', 'Pagos::registrarPagoMensualidad');
+    });
+
+    // REPORTES
+    $routes->group('reportes', function ($routes) {
+        $routes->get('/', 'Reportes::index');
+        $routes->get('estadisticas/estadistica_personal', 'Reportes::estadistica_personal');
+        $routes->get('listados/listado_personal', 'Reportes::listado_personal');
+    });
+
+    // DOCENTE GUIA
+    $routes->group('docenteguia', function ($routes) {
+        $routes->get('/', 'DocenteGuia::index');
+        $routes->get('nuevo', 'DocenteGuia::nuevo');
+        $routes->post('insertar', 'DocenteGuia::insertar');
+        $routes->get('editar/(:num)', 'DocenteGuia::editar/$1');
+        $routes->post('actualizar/(:num)', 'DocenteGuia::actualizar/$1');
+    });
+
+    // ASIGNATURAS
+    $routes->group('asignaturas', function ($routes) {
+        $routes->get('/', 'Asignaturas::index');
+        $routes->get('nuevo', 'Asignaturas::nuevo');
+        $routes->post('insertar', 'Asignaturas::insertar');
+
+        $routes->get('inactivas', 'Asignaturas::asignaturasInactivas');
+        $routes->get('editar/(:num)', 'Asignaturas::editar/$1');
+        $routes->get('inactivar/(:num)', 'Asignaturas::inactivar/$1');
+        $routes->get('restaurar/(:num)', 'Asignaturas::restaurar/$1');
+
+        $routes->post('actualizar/(:num)', 'Asignaturas::actualizar/$1');
+    });
 
 
 
-
-$routes->get('usuarios/listarUsuarios', 'Usuarios::listarUsuarios');
-
-
-$routes->get('pagos/verFactura/(:num)', 'pagos::verFactura/$1');
-$routes->get('pagos/imprimirFactura/(:num)', 'pagos::imprimirFactura/$1');
-
-$routes->get('pagos/obtenerMensualidadesPendientes', 'pagos::obtenerMensualidadesPendientes');
-$routes->post('pagos/registrarPagoMensualidad', 'pagos::registrarPagoMensualidad');
-$routes->get('pagos/mensualidades', 'pagos::mensualidades');
-$routes->post('responsables/obtenerMunicipios', 'Responsables::obtenerMunicipios');
-$routes->post('responsables/obtenerDistritos', 'Responsables::obtenerDistritos');
-
-$routes->get('reportes/estadisticas/estadistica_personal', 'Reportes::estadistica_personal');
-$routes->get('reportes/listados/listado_personal', 'Reportes::listado_personal');
+    // DISTRIBUCIÓN DE ASIGNATURAS
+    $routes->group('distribucion-asignaturas', function ($routes) {
+        $routes->get('/', 'DistribucionAsignaturas::index');
+        $routes->get('nuevo', 'DistribucionAsignaturas::nuevo');
+        $routes->post('insertar', 'DistribucionAsignaturas::insertar');
+        $routes->get('asignaturas', 'DistribucionAsignaturas::getAsignaturasAjax');
+    });
 
 
-
-/**
- * --------------------------------------------------------------------
- * Additional Routing
- * --------------------------------------------------------------------
- *
- * There will often be times that you need additional routing and you
- * need it to be able to override any defaults in this file. Environment
- * based routes is one such time. require() additional route files here
- * to make that happen.
- *
- * You will have access to the $routes object within that file without
- * needing to reload it.
- */
-if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
-{
-	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
-}
+    //INSCRIPCIONES
+    $routes->group('inscripciones', function ($routes) {
+        $routes->get('/', 'Inscripciones::index');
+        $routes->get('relacion', 'Inscripciones::relacion');
+        //$routes->get('obtenerCursosPorServicioInscripcion', 'inscripciones::obtenerCursosPorServicioInscripcion');
+        $routes->get('obtenerInscripcionesPorCurso', 'inscripciones::obtenerInscripcionesPorCurso');
+        $routes->get('obtenerCursosPorServicioRelacion', 'inscripciones::obtenerCursosPorServicioRelacion');
+    });
+});

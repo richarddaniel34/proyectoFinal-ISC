@@ -28,7 +28,7 @@
 
                                     <ul class="nav nav-tabs" id="registroTabs">
                                         <li class="nav-item">
-                                            <a class="nav-link active" id="Datos-basicos-tab" data-toggle="tab" href="#basicos">Datos Básicos</a>
+                                            <a class="nav-link active" id="Datos-basicos-tab" data-toggle="tab" href="#datos-basicos">Datos Básicos</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" id="responsables-tab" data-toggle="tab" href="#responsable">Responsables</a>
@@ -41,7 +41,7 @@
                                     <!-- Contenido de las pestañas -->
                                     <div class="tab-content mt-3">
                                         <!-- ESTUDIANTES -->
-                                        <div class="tab-pane fade show active" id="basicos">
+                                        <div class="tab-pane fade show active" id="datos-basicos">
                                             <h3>DATOS BASICOS DEL ESTUDIANTE</h3>
                                             <p class="lead">Los campos marcados con (<span class="text-danger">*</span>) son obligatorios</p>
 
@@ -183,7 +183,14 @@
                                                 <div class="col-12 col-sm-3">
                                                     <div class="form-group label-floating">
                                                         <label for="sigerd_id" class="control-label">ID SIGERD:</label>
-                                                        <input class="form-control" type="text" id="sigerd_id" name="sigerd_id" />
+
+                                                        <input
+                                                            class="form-control"
+                                                            type="text"
+                                                            id="sigerd_id"
+                                                            name="sigerd_id" />
+
+                                                        <small class="error-message text-danger"></small>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-3">
@@ -236,7 +243,7 @@
                                             </div>
                                             <br>
                                             <div class="text-center mt-4">
-                                                <button type="button" class="btn btn-primary" onclick="if(validarRegistroEstudiantes()){ siguiente('responsable'); }">
+                                                <button type="button" class="btn btn-primary" onclick="if(validarPestanaDatosBasicos()){ siguiente('responsable'); }">
                                                     Siguiente
                                                     <i class="fa-solid fa-forward"></i></button>
 

@@ -1,5 +1,5 @@
 <script>
-  var baseUrl = "<?= base_url(); ?>";
+    const baseUrl = "<?= base_url() ?>";
 </script>
 
 

@@ -199,3 +199,31 @@
   font-size: 14px;
   margin-left: 8px;
 }
+
+
+
+.select2-linea .select2-selection {
+  background-color: white !important;
+  border: none !important;
+  border-bottom: 1px solid #d2d2d2 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  height: 36px !important;
+  padding: 3px 10px !important;
+}
+
+.select2-linea .select2-selection__rendered {
+  color: #000 !important;
+  font-size: 14px !important;
+  line-height: 28px !important;
+  padding-left: 0 !important;
+}
+
+.select2-linea .select2-selection__arrow {
+  height: 34px !important;
+}
+
+.select2-linea.select2-container--focus .select2-selection,
+.select2-linea.select2-container--open .select2-selection {
+  border-bottom: 2px solid #0b1065 !important;
+}

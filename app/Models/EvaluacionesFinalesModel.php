@@ -15,8 +15,11 @@ class EvaluacionesFinalesModel extends Model
         'id_inscripcion',
         'id_distribucion_asignatura',
         'calificacion_final',
+        'calif_e_completiva',
         'calif_completiva',
+        'calif_e_extraordinaria',
         'calif_extraordinaria',
+        'calif_e_especial',
         'calif_especial',
         'situacion_asignatura'
     ];

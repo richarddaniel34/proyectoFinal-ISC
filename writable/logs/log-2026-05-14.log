@@ -1,0 +1,1145 @@
+INFO - 2026-05-14 13:34:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-14 13:34:25 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Usuarios.php(24): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Usuarios->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2026-05-14 13:34:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 13:34:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-14 13:34:35 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Usuarios.php(24): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Usuarios->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2026-05-14 13:34:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-14 13:34:37 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Usuarios.php(24): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Usuarios->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-14 13:34:38 --> Datos usuario: Array
+(
+    [id] => 12
+    [usuario] => rdmorontag
+    [clave] => $2y$10$HcB20FQFTn/DZkwYD4TtIOtxcgd5855tTd6qS6Mg3ahkON8.LVAXy
+    [id_tipo_usuario] => 1
+    [personal_id] => 5
+    [estudiantes_id] => 
+    [activo] => 1
+    [cambio_clave] => 0
+    [id_escuela] => 2
+    [fecha_alta] => 2025-05-31 21:06:33
+    [fecha_edit] => 2025-05-31 21:07:23
+)
+
+INFO - 2026-05-14 13:34:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-14 13:34:39 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Home.php(17): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Home->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2026-05-14 13:34:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 13:34:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 13:34:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 13:34:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 13:35:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 13:35:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 13:36:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-05-14 13:36:18 --> [DEPRECATED] Optional parameter $term declared before required parameter $idEscuela is implicitly treated as a required parameter in APPPATH\Models\PersonalModel.php on line 122.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(317): include_once('C:\\xampp\\htdocs\\censa-prueba\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\censa-prueba\\app\\Models\\PersonalModel.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PersonalModel')
+ 4 APPPATH\Controllers\Usuarios.php(24): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PersonalModel')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Usuarios->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2026-05-14 13:57:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 13:57:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 13:57:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 13:58:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 13:58:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 13:58:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 13:58:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:01:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:01:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:18:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:18:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:19:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:19:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:19:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:19:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:19:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:19:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:19:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:19:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:20:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:21:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:21:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:21:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:44:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 14:44:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 15:12:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-05-14 15:12:31 --> ErrorException: Namespace declaration statement has to be the very first statement or after any declare call in the script
+[Method: GET, Route: pagos]
+in APPPATH\Controllers\Pagos.php on line 3.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+INFO - 2026-05-14 15:52:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 15:52:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 15:57:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 15:57:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 15:58:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 15:58:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 15:58:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 15:58:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 15:58:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-14 15:58:13 --> mysqli_sql_exception: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\xampp\htdocs\censa-prueba\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\censa-prueba\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `estudia...', 0)
+#1 C:\xampp\htdocs\censa-prueba\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudia...')
+#2 C:\xampp\htdocs\censa-prueba\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudia...')
+#3 C:\xampp\htdocs\censa-prueba\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudia...', Array, false)
+#4 C:\xampp\htdocs\censa-prueba\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\censa-prueba\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\censa-prueba\app\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\censa-prueba\app\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('2', '1')
+#8 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+#9 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+#10 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\censa-prueba\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\censa-prueba\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\censa-prueba\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-05-14 15:58:13 --> CodeIgniter\Database\Exceptions\DatabaseException: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[Method: GET, Route: pagos/obtenerMensualidadesPendientes]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('2', '1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-14 15:58:13 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'2\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'2\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('2', '1')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-14 15:58:13 --> [Caused by] mysqli_sql_exception: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'2\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'2\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'2\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('2', '1')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2026-05-14 15:58:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-14 15:58:17 --> mysqli_sql_exception: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\xampp\htdocs\censa-prueba\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\censa-prueba\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `estudia...', 0)
+#1 C:\xampp\htdocs\censa-prueba\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudia...')
+#2 C:\xampp\htdocs\censa-prueba\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudia...')
+#3 C:\xampp\htdocs\censa-prueba\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudia...', Array, false)
+#4 C:\xampp\htdocs\censa-prueba\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\censa-prueba\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\censa-prueba\app\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\censa-prueba\app\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+#8 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+#9 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+#10 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\censa-prueba\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\censa-prueba\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\censa-prueba\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-05-14 15:58:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[Method: GET, Route: pagos/obtenerMensualidadesPendientes]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-14 15:58:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-14 15:58:17 --> [Caused by] mysqli_sql_exception: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2026-05-14 15:58:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-14 15:58:20 --> mysqli_sql_exception: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\xampp\htdocs\censa-prueba\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\censa-prueba\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `estudia...', 0)
+#1 C:\xampp\htdocs\censa-prueba\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudia...')
+#2 C:\xampp\htdocs\censa-prueba\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudia...')
+#3 C:\xampp\htdocs\censa-prueba\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudia...', Array, false)
+#4 C:\xampp\htdocs\censa-prueba\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\censa-prueba\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\censa-prueba\app\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\censa-prueba\app\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '2')
+#8 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+#9 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+#10 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\censa-prueba\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\censa-prueba\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\censa-prueba\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-05-14 15:58:20 --> CodeIgniter\Database\Exceptions\DatabaseException: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[Method: GET, Route: pagos/obtenerMensualidadesPendientes]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '2')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-14 15:58:20 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'2\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'2\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '2')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-14 15:58:20 --> [Caused by] mysqli_sql_exception: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'2\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'2\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'2\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '2')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2026-05-14 15:58:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-14 15:58:22 --> mysqli_sql_exception: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\xampp\htdocs\censa-prueba\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\censa-prueba\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `estudia...', 0)
+#1 C:\xampp\htdocs\censa-prueba\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudia...')
+#2 C:\xampp\htdocs\censa-prueba\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudia...')
+#3 C:\xampp\htdocs\censa-prueba\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudia...', Array, false)
+#4 C:\xampp\htdocs\censa-prueba\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\censa-prueba\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\censa-prueba\app\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\censa-prueba\app\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+#8 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+#9 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+#10 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\censa-prueba\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\censa-prueba\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\censa-prueba\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-05-14 15:58:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[Method: GET, Route: pagos/obtenerMensualidadesPendientes]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-14 15:58:22 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-14 15:58:22 --> [Caused by] mysqli_sql_exception: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2026-05-14 15:58:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-14 15:58:24 --> mysqli_sql_exception: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\xampp\htdocs\censa-prueba\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\censa-prueba\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `estudia...', 0)
+#1 C:\xampp\htdocs\censa-prueba\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudia...')
+#2 C:\xampp\htdocs\censa-prueba\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudia...')
+#3 C:\xampp\htdocs\censa-prueba\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudia...', Array, false)
+#4 C:\xampp\htdocs\censa-prueba\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\censa-prueba\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\censa-prueba\app\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\censa-prueba\app\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '3')
+#8 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+#9 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+#10 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\censa-prueba\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\censa-prueba\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\censa-prueba\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-05-14 15:58:24 --> CodeIgniter\Database\Exceptions\DatabaseException: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[Method: GET, Route: pagos/obtenerMensualidadesPendientes]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '3')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-14 15:58:24 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'3\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'3\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '3')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-14 15:58:24 --> [Caused by] mysqli_sql_exception: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'3\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'3\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'3\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '3')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2026-05-14 15:58:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-14 15:58:26 --> mysqli_sql_exception: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\xampp\htdocs\censa-prueba\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\censa-prueba\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `estudia...', 0)
+#1 C:\xampp\htdocs\censa-prueba\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudia...')
+#2 C:\xampp\htdocs\censa-prueba\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudia...')
+#3 C:\xampp\htdocs\censa-prueba\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudia...', Array, false)
+#4 C:\xampp\htdocs\censa-prueba\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\censa-prueba\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\censa-prueba\app\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\censa-prueba\app\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+#8 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+#9 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+#10 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\censa-prueba\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\censa-prueba\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\censa-prueba\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-05-14 15:58:26 --> CodeIgniter\Database\Exceptions\DatabaseException: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[Method: GET, Route: pagos/obtenerMensualidadesPendientes]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-14 15:58:26 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-14 15:58:26 --> [Caused by] mysqli_sql_exception: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2026-05-14 15:58:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 15:58:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 16:03:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-14 16:03:25 --> mysqli_sql_exception: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in C:\xampp\htdocs\censa-prueba\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\censa-prueba\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `estudia...', 0)
+#1 C:\xampp\htdocs\censa-prueba\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudia...')
+#2 C:\xampp\htdocs\censa-prueba\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudia...')
+#3 C:\xampp\htdocs\censa-prueba\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudia...', Array, false)
+#4 C:\xampp\htdocs\censa-prueba\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\censa-prueba\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\censa-prueba\app\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\censa-prueba\app\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+#8 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+#9 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+#10 C:\xampp\htdocs\censa-prueba\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\censa-prueba\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\censa-prueba\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\censa-prueba\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-05-14 16:03:25 --> CodeIgniter\Database\Exceptions\DatabaseException: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[Method: GET, Route: pagos/obtenerMensualidadesPendientes]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-14 16:03:25 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-14 16:03:25 --> [Caused by] mysqli_sql_exception: Expression #4 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'censa_prueba.cursos_base.nombre_curso' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = \'1\'
+AND `inscripciones`.`id_schoolYear` = \'1\'
+AND `inscripciones`.`activo` = 1
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `estudiantes`.`id`, `estudiantes`.`nombre`, `estudiantes`.`apellido`, `cursos_base`.`nombre_curso` AS `curso`
+FROM `inscripciones`
+JOIN `estudiantes` ON `estudiantes`.`id` = `inscripciones`.`id_estudiante`
+JOIN `estudiantes_responsables` ON `estudiantes_responsables`.`estudiante_id` = `estudiantes`.`id`
+JOIN `cursos` ON `cursos`.`id` = `inscripciones`.`id_curso`
+LEFT JOIN `cursos_base` ON `cursos_base`.`id` = `cursos`.`id_cursos_base`
+WHERE `estudiantes_responsables`.`responsable_id` = :estudiantes_responsables.responsable_id:
+AND `inscripciones`.`id_schoolYear` = :inscripciones.id_schoolYear:
+AND `inscripciones`.`activo` = :inscripciones.activo:
+GROUP BY `estudiantes`.`id`
+ORDER BY `inscripciones`.`id` DESC', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\InscripcionesModel.php(106): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Pagos.php(726): App\Models\InscripcionesModel->getEstudiantesInscritosPorResponsable('1', '1')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2026-05-14 16:04:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 16:04:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 16:04:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 16:04:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 16:04:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-14 16:04:48 --> 👤 Estudiante 1
+WARNING - 2026-05-14 16:04:48 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Controllers\Pagos.php on line 758.
+ 1 APPPATH\Controllers\Pagos.php(758): trim(null)
+ 2 [internal function]: App\Controllers\Pagos->App\Controllers\{closure}([...])
+ 3 APPPATH\Controllers\Pagos.php(757): array_map(Object(Closure), [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pagos->obtenerMensualidadesPendientes()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pagos))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-14 16:04:48 --> 💰 Meses pagados: ["","enero"]
+DEBUG - 2026-05-14 16:04:48 --> 📊 Pendientes: [{"numero":1,"nombre":"Enero","monto":"800.00"},{"numero":2,"nombre":"Febrero","monto":"800.00"},{"numero":3,"nombre":"Marzo","monto":"800.00"},{"numero":4,"nombre":"Abril","monto":"800.00"},{"numero":5,"nombre":"Mayo","monto":"800.00"},{"numero":6,"nombre":"Junio","monto":"800.00"},{"numero":7,"nombre":"Julio","monto":"800.00"},{"numero":8,"nombre":"Agosto","monto":"800.00"},{"numero":9,"nombre":"Septiembre","monto":"800.00"},{"numero":10,"nombre":"Octubre","monto":"800.00"},{"numero":11,"nombre":"Noviembre","monto":"800.00"},{"numero":12,"nombre":"Diciembre","monto":"800.00"}]
+INFO - 2026-05-14 16:29:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 16:29:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 16:29:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-14 16:29:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

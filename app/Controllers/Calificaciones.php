@@ -15,6 +15,7 @@ use App\Models\PeriodosConfiguracionUsuarioModel;
 use App\Models\PromedioCompetenciasModel;
 use App\Models\EvaluacionesFinalesModel;
 use App\Models\SchoolyearModel;
+use App\Models\RecuperacionModel;
 
 use TCPDF;
 
@@ -35,6 +36,7 @@ class Calificaciones extends BaseController
     protected $promedio_competencia;
     protected $evaluaciones_finales;
     protected $schoolYear;
+    protected $recuperacion;
 
 
 
@@ -52,13 +54,13 @@ class Calificaciones extends BaseController
         $this->promedio_competencia = new PromedioCompetenciasModel();
         $this->evaluaciones_finales = new EvaluacionesFinalesModel();
         $this->schoolYear = new SchoolyearModel();
+        $this->recuperacion = new RecuperacionModel();
         //$this->configPeriodosModel = new ConfigPeriodosModel();
     }
 
     /**
      * Vista principal del módulo de calificaciones.
      */
-
 
     public function index()
     {
@@ -69,97 +71,39 @@ class Calificaciones extends BaseController
         echo view('footer');
     }
 
+    /**
+     * Vista de registro de calificaciones
+     */
     public function registro()
     {
-        $schoolYearActual = $this->schoolYear->getEnCurso(); // devuelve array
+        $schoolYearActual = $this->schoolYear->getEnCurso();
+
         $idSchoolYear = null;
         if (!empty($schoolYearActual)) {
-            // Toma el primero (más reciente)
             $idSchoolYear = $schoolYearActual[0]['id'];
         }
-        helper('log');
 
-        log_message('debug', '➡️ Entrando al método REGISTRO');
+        $idUsuario   = session('personal_id');
+        $tipoUsuario = session('tipo_usuario');
+        $funcion     = null;
 
-        $competencias = $this->competencias->findAll();
-        $periodos     = $this->periodos->findAll();
-        $distribucion = $this->distribucionasignaturas->findAll();
-        $docentes     = $this->personal->where('funcion', 'Docente')->findAll();
-
-        $estadoPeriodosDocente = [];
-
-        $idUsuario    = session('personal_id');
-        $tipoUsuario  = session('tipo_usuario');
-        $funcion      = null;
-
-        // Obtener función desde la tabla personal
         $registroPersonal = $this->personal->find($idUsuario);
+
         if ($registroPersonal && isset($registroPersonal['funcion'])) {
             $funcion = $registroPersonal['funcion'];
         }
 
-        log_message('debug', ' Usuario autenticado: ID=' . $idUsuario . ' | Tipo=' . $tipoUsuario . ' | Función=' . $funcion);
-
-        // 🔹 Si el usuario es docente
-        if ($tipoUsuario == 3) {
-            log_message('debug', '🎓 Usuario tipo docente. Buscando configuración por ID docente: ' . $idUsuario);
-
-            $configuraciones = $this->configPeriodos
-                ->select('p.nombre AS periodo, periodos_configuracion_usuario.bloqueado')
-                ->join('periodos p', 'p.id = periodos_configuracion_usuario.id_periodo')
-                ->where('periodos_configuracion_usuario.id_personal', $idUsuario)
-                ->findAll();
-
-            log_message('debug', '🔍 Configuraciones encontradas (docente): ' . json_encode($configuraciones));
-
-            foreach ($configuraciones as $conf) {
-                $estadoPeriodosDocente[$conf['periodo']] = [
-                    'bloqueado' => $conf['bloqueado'] == '1' ? true : false
-                ];
-            }
-        }
-
-        // 🔹 Si es administrativo con función válida
-        $funcionesPermitidas = ['Director', 'Secretaria', 'Digitador', 'Coordinador', 'Contable'];
-
-        if ($tipoUsuario == 2 && in_array($funcion, $funcionesPermitidas)) {
-            log_message('debug', '🛠 Usuario administrativo con función válida (' . $funcion . '). Buscando configuración global');
-
-            $configuraciones = $this->configPeriodos
-                ->select('p.nombre AS periodo, periodos_configuracion_usuario.bloqueado')
-                ->join('periodos p', 'p.id = periodos_configuracion_usuario.id_periodo')
-                ->where('periodos_configuracion_usuario.id_personal', $idUsuario)
-                ->where('periodos_configuracion_usuario.id_distribucion_asignatura IS NULL')
-                ->findAll();
-
-            log_message('debug', '🔍 Configuraciones encontradas (admin-función): ' . json_encode($configuraciones));
-
-            foreach ($configuraciones as $conf) {
-                $estadoPeriodosDocente[$conf['periodo']] = [
-                    'bloqueado' => $conf['bloqueado'] == '1' ? true : false
-                ];
-            }
-        }
-
-        // 🔒 Establecer por defecto si no hay datos
-        foreach (['P1', 'P2', 'P3', 'P4'] as $p) {
-            if (!isset($estadoPeriodosDocente[$p])) {
-                log_message('debug', "⚠️ No se encontró configuración para $p. Se establecerá como bloqueado por defecto.");
-                $estadoPeriodosDocente[$p] = ['bloqueado' => true];
-            }
-        }
-
-        log_message('debug', '📦 Estado final de periodos: ' . json_encode($estadoPeriodosDocente));
+        $competencias = $this->competencias->findAll();
+        $periodos     = $this->periodos->findAll();
 
         $data = [
-            'titulo'                 => 'Gestión de Calificaciones',
+            'titulo'                => 'Gestión de Calificaciones',
             'competencias'          => $competencias,
             'periodos'              => $periodos,
-            'asignaturas'           => $distribucion,
-            'docentes'              => $docentes,
-            'estadoPeriodosDocente' => $estadoPeriodosDocente,
             'funcion'               => $funcion,
-            'id_schoolyear_actual' => $idSchoolYear
+            'id_schoolyear_actual'  => $idSchoolYear,
+            'usuario_actual'        => $registroPersonal,
+            'tipo_usuario'          => $tipoUsuario,
         ];
 
         echo view('header');
@@ -167,44 +111,25 @@ class Calificaciones extends BaseController
         echo view('footer');
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function guardarNotas()
     {
-        $request = service('request');
-        $post = $request->getPost();
+        $post = $this->request->getPost();
 
-        log_message('debug', 'POST recibido en guardarNotas: ' . print_r($post, true));
+        if (session('tipo_usuario') != 3) {
+            return redirect()->back()->with('error', 'No tiene permiso para guardar calificaciones.');
+        }
 
         $idInscripciones = $post['id_inscripcion'] ?? [];
-        $idDistribucion = $post['id_distribucion_asignatura'] ?? null;
+        $idDistribucion  = $post['id_distribucion_asignatura'] ?? null;
 
-        if (!$idDistribucion) {
+        if (empty($idDistribucion)) {
             return redirect()->back()->with('error', 'Falta el ID de distribución de asignatura.');
         }
 
-        // Mapa de periodos (ajusta si los IDs son diferentes en tu BD)
+        if (empty($idInscripciones)) {
+            return redirect()->back()->with('error', 'No hay estudiantes para guardar.');
+        }
+
         $idPeriodos = [
             'P1' => 1,
             'P2' => 2,
@@ -212,56 +137,110 @@ class Calificaciones extends BaseController
             'P4' => 4,
         ];
 
-        foreach ($idInscripciones as $i => $idInscripcion) {
+        foreach ($idInscripciones as $idInscripcion) {
 
-            // Guardar calificaciones por competencia y periodo
+            $promediosCompetencias = [];
+
             foreach (['c1', 'c2', 'c3', 'c4'] as $idx => $comp) {
-                $idCompetencia = $idx + 1;
 
-                $notasCompetencia = []; // para calcular promedio
+                $idCompetencia = $idx + 1;
+                $notasCompetencia = [];
 
                 foreach ($idPeriodos as $label => $idPeriodo) {
-                    $key = "{$comp}_{$label}";
-                    $nota = $post[$key][$i] ?? null;
+
+                    $keyNota = "{$comp}_{$label}";
+                    $keyRp   = "rp_{$comp}_{$label}";
+
+                    $nota = $post[$keyNota][$idInscripcion] ?? null;
+                    $rp   = $post[$keyRp][$idInscripcion] ?? null;
+
+                    if (($nota === null || $nota === '') && ($rp === null || $rp === '')) {
+                        continue;
+                    }
+
+                    $notaBase = is_numeric($nota) ? (int) $nota : null;
+                    $rpBase   = is_numeric($rp) ? (int) $rp : null;
+
+                    // Validar nota normal
+                    if ($notaBase !== null && ($notaBase < 0 || $notaBase > 100)) {
+                        return redirect()->back()->with('error', 'Las calificaciones deben estar entre 0 y 100.');
+                    }
+
+                    // Validar RP
+                    if ($rpBase !== null && ($rpBase < 0 || $rpBase > 100)) {
+                        return redirect()->back()->with('error', 'Las recuperaciones pedagógicas deben estar entre 0 y 100.');
+                    }
+
+                    // RP no puede existir si no hay nota base
+                    if ($rpBase !== null && $notaBase === null) {
+                        return redirect()->back()->with('error', 'No puede registrar una RP sin una calificación del período.');
+                    }
+
+                    // RP solo aplica si la nota base es menor que 70
+                    if ($rpBase !== null && $notaBase >= 70) {
+                        return redirect()->back()->with('error', 'No puede registrar RP para una calificación aprobada.');
+                    }
+
+                    // RP no puede ser menor que la nota base
+                    if ($rpBase !== null && $notaBase !== null && $rpBase < $notaBase) {
+                        return redirect()->back()->with('error', 'La RP no puede ser menor que la calificación del período.');
+                    }
 
                     if ($nota !== null && $nota !== '') {
-                        // Guardar en tabla calificaciones
                         $this->calificaciones->guardarOActualizar([
                             'id_inscripcion' => $idInscripcion,
                             'id_distribucion_asignatura' => $idDistribucion,
                             'id_competencia' => $idCompetencia,
                             'id_periodo' => $idPeriodo,
-                            'nota' => $nota
+                            'nota' => $nota,
                         ]);
+                    }
 
-                        $notasCompetencia[] = $nota;
+                    if ($rp !== null && $rp !== '') {
+                        $this->recuperacion->guardarOActualizar([
+                            'id_inscripcion' => $idInscripcion,
+                            'id_distribucion_asignatura' => $idDistribucion,
+                            'id_competencia' => $idCompetencia,
+                            'id_periodo' => $idPeriodo,
+                            'nota_rp' => $rp,
+                        ]);
+                    }
+
+                    if ($notaBase !== null && $rpBase !== null) {
+                        $notasCompetencia[] = max($notaBase, $rpBase);
+                    } elseif ($notaBase !== null) {
+                        $notasCompetencia[] = $notaBase;
+                    } elseif ($rpBase !== null) {
+                        $notasCompetencia[] = $rpBase;
                     }
                 }
 
-                // Calcular promedio solo si hay notas
                 if (!empty($notasCompetencia)) {
-                    $promedio = array_sum($notasCompetencia) / count($notasCompetencia);
+                    $promedio = array_sum($notasCompetencia) / 4;
 
-                    // Guardar en promedio_competencias por periodo (promedio global de la competencia)
-                    // Si quieres promedio por periodo individual, deberíamos iterar sobre $idPeriodos y guardar cada uno
                     $this->promedio_competencia->insertarOActualizar([
                         'id_inscripcion' => $idInscripcion,
                         'id_distribucion_asignatura' => $idDistribucion,
                         'id_competencia' => $idCompetencia,
-                        'id_periodo' => 0, // 0 si es promedio global de la competencia, o puedes hacer un foreach para cada periodo
-                        'promedio' => $promedio
+                        'id_periodo' => 0,
+                        'promedio' => $promedio,
                     ]);
+
+                    $promediosCompetencias[] = $promedio;
                 }
             }
 
-            // Guardar calificación final
-            $final = $post['final_area'][$i] ?? null;
-            if ($final !== null && $final !== '') {
+            if (!empty($promediosCompetencias)) {
+                $calificacionFinal = array_sum($promediosCompetencias) / count($promediosCompetencias);
+
                 $this->evaluaciones_finales->insertarOActualizar([
                     'id_inscripcion' => $idInscripcion,
                     'id_distribucion_asignatura' => $idDistribucion,
-                    'calificacion_final' => $final,
-                    'situacion_asignatura' => $final >= 70 ? 'A' : 'R'
+                    'calificacion_final' => $calificacionFinal,
+                    'calif_completiva' => null,
+                    'calif_extraordinaria' => null,
+                    'calif_especial' => null,
+                    'situacion_asignatura' => $calificacionFinal >= 70 ? 'A' : 'R',
                 ]);
             }
         }
@@ -270,15 +249,325 @@ class Calificaciones extends BaseController
     }
 
 
+    /**
+     * EVALUACIONES COMPLETIVAS
+     */
+
 
     public function completivo()
     {
-        $data = ['titulo' => 'Registro de Completivo',];
+        $schoolYearActual = $this->schoolYear->getEnCurso();
+
+
+        $idSchoolYear = null;
+        if (!empty($schoolYearActual)) {
+            $idSchoolYear = $schoolYearActual[0]['id'];
+        }
+
+        $idUsuario   = session('personal_id');
+        $tipoUsuario = session('tipo_usuario');
+        $funcion     = null;
+
+        $registroPersonal = $this->personal->find($idUsuario);
+
+        if ($registroPersonal && isset($registroPersonal['funcion'])) {
+            $funcion = $registroPersonal['funcion'];
+        }
+        $data = [
+            'titulo'                => 'Registro de Completivo',
+            'funcion'               => $funcion,
+            'id_schoolyear_actual'  => $idSchoolYear,
+            'usuario_actual'        => $registroPersonal,
+            'tipo_usuario'          => $tipoUsuario,
+        ];
 
         echo view('header');
         echo view('calificaciones/completivo', $data);
         echo view('footer');
     }
+
+
+    /**
+     * Evaluaciones Especiales
+     */
+
+    public function especiales()
+    {
+        $schoolYearActual = $this->schoolYear->getEnCurso();
+
+        $idSchoolYear = null;
+        if (!empty($schoolYearActual)) {
+            $idSchoolYear = $schoolYearActual[0]['id'];
+        }
+
+        $idUsuario   = session('personal_id');
+        $tipoUsuario = session('tipo_usuario');
+        $funcion     = null;
+
+        $registroPersonal = $this->personal->find($idUsuario);
+
+        if ($registroPersonal && isset($registroPersonal['funcion'])) {
+            $funcion = $registroPersonal['funcion'];
+        }
+
+        $data = [
+            'titulo'               => 'Registro de Evaluación Especial',
+            'funcion'              => $funcion,
+            'id_schoolyear_actual' => $idSchoolYear,
+            'usuario_actual'       => $registroPersonal,
+            'tipo_usuario'         => $tipoUsuario,
+        ];
+
+        echo view('header');
+        echo view('calificaciones/especiales', $data);
+        echo view('footer');
+    }
+
+
+    public function guardarCompletivo()
+    {
+        $post = $this->request->getPost();
+
+        if (session('tipo_usuario') != 3) {
+            return redirect()->back()->with('error', 'No tiene permiso para guardar completivos.');
+        }
+
+        $idDistribucion = $post['id_distribucion_asignatura'] ?? null;
+        $completivas = $post['calif_e_completiva'] ?? [];
+
+        if (empty($idDistribucion)) {
+            return redirect()->back()->with('error', 'Falta el ID de distribución de asignatura.');
+        }
+
+        if (empty($completivas)) {
+            return redirect()->back()->with('error', 'No hay calificaciones completivas para guardar.');
+        }
+
+        foreach ($completivas as $idInscripcion => $notaCompletiva) {
+
+            if ($notaCompletiva === null || $notaCompletiva === '') {
+                continue;
+            }
+
+            $notaCompletiva = (float) $notaCompletiva;
+
+            if ($notaCompletiva < 0 || $notaCompletiva > 100) {
+                continue;
+            }
+
+            $registroFinal = $this->evaluaciones_finales
+                ->where('id_inscripcion', $idInscripcion)
+                ->where('id_distribucion_asignatura', $idDistribucion)
+                ->first();
+
+            if (!$registroFinal) {
+                continue;
+            }
+
+            $calificacionFinal = (float) $registroFinal['calificacion_final'];
+
+            $cf50  = $calificacionFinal * 0.5;
+            $cec50 = $notaCompletiva * 0.5;
+            $ccf   = $cf50 + $cec50;
+
+            $situacion = $ccf >= 70 ? 'A' : 'R';
+
+            $this->evaluaciones_finales
+                ->where('id', $registroFinal['id'])
+                ->set([
+                    'calif_e_completiva' => $notaCompletiva,
+                    'calif_completiva'   => $ccf,
+                    'situacion_asignatura' => $situacion,
+                ])
+                ->update();
+        }
+
+        return redirect()->back()->with('mensaje', 'Completivos guardados correctamente.');
+    }
+
+
+
+    public function guardarEspecial()
+    {
+        $post = $this->request->getPost();
+
+        if (session('tipo_usuario') != 3) {
+            return redirect()->back()->with('error', 'No tiene permiso para guardar evaluaciones especiales.');
+        }
+
+        $idDistribucion = $post['id_distribucion_asignatura'] ?? null;
+        $especiales     = $post['calif_e_especial'] ?? [];
+
+        if (empty($idDistribucion)) {
+            return redirect()->back()->with('error', 'Falta el ID de distribución de asignatura.');
+        }
+
+        if (empty($especiales)) {
+            return redirect()->back()->with('error', 'No hay calificaciones especiales para guardar.');
+        }
+
+        foreach ($especiales as $idInscripcion => $notaEspecial) {
+
+            if ($notaEspecial === null || $notaEspecial === '') {
+                continue;
+            }
+
+            $notaEspecial = (float) $notaEspecial;
+
+            if ($notaEspecial < 0 || $notaEspecial > 100) {
+                continue;
+            }
+
+            $registroFinal = $this->evaluaciones_finales
+                ->where('id_inscripcion', $idInscripcion)
+                ->where('id_distribucion_asignatura', $idDistribucion)
+                ->first();
+
+            if (!$registroFinal) {
+                continue;
+            }
+
+            $calificacionFinal = (float) $registroFinal['calificacion_final'];
+            $puntosFaltantes   = 100 - $calificacionFinal;
+
+            if ($notaEspecial > $puntosFaltantes) {
+                $notaEspecial = $puntosFaltantes;
+            }
+
+            $calificacionEspecialFinal = $calificacionFinal + $notaEspecial;
+
+            $situacion = $calificacionEspecialFinal >= 70 ? 'A' : 'R';
+
+            $this->evaluaciones_finales
+                ->where('id', $registroFinal['id'])
+                ->set([
+                    'calif_e_especial'     => $notaEspecial,
+                    'calif_especial'       => $calificacionEspecialFinal,
+                    'situacion_asignatura' => $situacion,
+                ])
+                ->update();
+        }
+
+        return redirect()->back()->with('mensaje', 'Evaluaciones especiales guardadas correctamente.');
+    }
+
+
+    /*  public function estudiantesReprobados()
+    {
+        $idDistribucion = $this->request->getGet('id_distribucion_asignatura');
+
+        if (empty($idDistribucion)) {
+            return $this->response->setJSON([]);
+        }
+
+        $estudiantes = $this->db->table('evaluaciones_finales ef')
+            ->select('
+            ef.id_inscripcion,
+            e.nombre,
+            e.apellido,
+            ef.calificacion_final,
+            ef.calif_e_completiva,
+            ef.calif_completiva,
+            ef.situacion_asignatura
+        ')
+            ->join('inscripciones i', 'i.id = ef.id_inscripcion')
+            ->join('estudiantes e', 'e.id = i.id_estudiante')
+            ->where('ef.id_distribucion_asignatura', $idDistribucion)
+            ->where('ef.calificacion_final <', 70)
+            ->orderBy('e.apellido', 'ASC')
+            ->orderBy('e.nombre', 'ASC')
+            ->get()
+            ->getResultArray();
+
+        return $this->response->setJSON($estudiantes);
+    }*/
+
+    private function obtenerEstudiantesEvaluacion($idDistribucion, $campoFiltro)
+    {
+        if (empty($idDistribucion)) {
+            return [];
+        }
+
+        return $this->db->table('evaluaciones_finales ef')
+            ->select('
+            ef.id_inscripcion,
+
+            e.nombre,
+            e.apellido,
+
+            ef.calificacion_final,
+
+            ef.calif_e_completiva,
+            ef.calif_completiva,
+
+            ef.calif_e_extraordinaria,
+            ef.calif_extraordinaria,
+
+            ef.calif_especial,
+
+            ef.situacion_asignatura
+        ')
+            ->join('inscripciones i', 'i.id = ef.id_inscripcion')
+            ->join('estudiantes e', 'e.id = i.id_estudiante')
+            ->where('ef.id_distribucion_asignatura', $idDistribucion)
+            ->where("ef.$campoFiltro <", 70)
+            ->orderBy('e.apellido', 'ASC')
+            ->orderBy('e.nombre', 'ASC')
+            ->get()
+            ->getResultArray();
+    }
+
+
+    public function estudiantesCompletivo()
+    {
+        $idDistribucion = $this->request->getGet('id_distribucion_asignatura');
+
+        return $this->response->setJSON(
+            $this->obtenerEstudiantesEvaluacion(
+                $idDistribucion,
+                'calificacion_final'
+            )
+        );
+    }
+
+    public function estudiantesExtraordinario()
+    {
+        $idDistribucion = $this->request->getGet('id_distribucion_asignatura');
+
+        return $this->response->setJSON(
+            $this->obtenerEstudiantesEvaluacion(
+                $idDistribucion,
+                'calif_completiva'
+            )
+        );
+    }
+
+    public function estudiantesEspecial()
+    {
+        $idDistribucion = $this->request->getGet('id_distribucion_asignatura');
+
+        return $this->response->setJSON(
+            $this->obtenerEstudiantesEvaluacion(
+                $idDistribucion,
+                'calif_extraordinaria'
+            )
+        );
+    }
+
+    /**
+     * Los RP nunca deben ser menor al P, para calcular se tomara en cuenta los puntos que faltan para aprobar,
+     * ejemplo: si tiene 68 le falta 32 punto para completar 100, las practicas, examenes se evaluan en base a 32.
+     * 
+     * 
+     * La evaluacion especial, se hace en base a la calificacion final (Completando, como en los P,
+     * en base a lo que falta para completar.)
+     * 
+     * Calificaiones Tecnicas: investigar 
+     */
+
+    /**
+     * EVALUACIONES EXTRAORDINARIAS
+     */
 
     public function extraordinario()
     {
@@ -289,6 +578,66 @@ class Calificaciones extends BaseController
         echo view('footer');
     }
 
+    public function guardarExtraordinario()
+    {
+        $post = $this->request->getPost();
+
+        if (session('tipo_usuario') != 3) {
+            return redirect()->back()->with('error', 'No tiene permiso para guardar extraordinarios.');
+        }
+
+        $idDistribucion = $post['id_distribucion_asignatura'] ?? null;
+        $extraordinarias = $post['calif_e_extraordinaria'] ?? [];
+
+        if (empty($idDistribucion)) {
+            return redirect()->back()->with('error', 'Falta el ID de distribución de asignatura.');
+        }
+
+        if (empty($extraordinarias)) {
+            return redirect()->back()->with('error', 'No hay calificaciones extraordinarias para guardar.');
+        }
+
+        foreach ($extraordinarias as $idInscripcion => $notaExtraordinaria) {
+
+            if ($notaExtraordinaria === null || $notaExtraordinaria === '') {
+                continue;
+            }
+
+            $notaExtraordinaria = (float) $notaExtraordinaria;
+
+            if ($notaExtraordinaria < 0 || $notaExtraordinaria > 100) {
+                continue;
+            }
+
+            $registroFinal = $this->evaluaciones_finales
+                ->where('id_inscripcion', $idInscripcion)
+                ->where('id_distribucion_asignatura', $idDistribucion)
+                ->first();
+
+            if (!$registroFinal) {
+                continue;
+            }
+
+            $calificacionFinal = (float) $registroFinal['calificacion_final'];
+
+            $cf30   = $calificacionFinal * 0.3;
+            $ceex70 = $notaExtraordinaria * 0.7;
+            $cexf   = $cf30 + $ceex70;
+
+            $situacion = $cexf >= 70 ? 'A' : 'R';
+
+            $this->evaluaciones_finales
+                ->where('id', $registroFinal['id'])
+                ->set([
+                    'calif_e_extraordinaria' => $notaExtraordinaria,
+                    'calif_extraordinaria'   => $cexf,
+                    'situacion_asignatura'   => $situacion,
+                ])
+                ->update();
+        }
+
+        return redirect()->back()->with('mensaje', 'Extraordinarios guardados correctamente.');
+    }
 
 
     public function buscarDocentes()
@@ -338,104 +687,7 @@ class Calificaciones extends BaseController
 
 
 
-    public function guardarConfiguracionPeriodos()
-    {
 
-        if (session('tipo_usuario') == 3) {
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'No autorizado.'
-            ]);
-        }
-
-        if (!$this->request->isAJAX()) {
-            return $this->response->setStatusCode(405)->setJSON(['error' => 'Método no permitido']);
-        }
-
-        $configuracion = $this->request->getPost('configuracion');
-        $curso = $this->request->getPost('curso');
-        $asignatura = $this->request->getPost('asignatura');
-        $docente = $this->request->getPost('docente');
-
-        $esGlobal = !$curso && !$asignatura && !$docente;
-        $id_docente = null;
-        $idDistribucion = null;
-
-        // 🔹 Configuración específica: buscar distribución UNA sola vez
-        if (!$esGlobal) {
-            $dist = $this->distribucionasignaturas
-                ->where('id_personal', $docente)
-                ->where('id_curso', $curso)
-                ->where('id_asignatura', $asignatura)
-                ->first();
-
-            if (!$dist) {
-                return $this->response->setJSON([
-                    'success' => false,
-                    'message' => 'No se encontró la distribución para esa asignatura.'
-                ]);
-            }
-
-            $id_docente = $docente;
-            $idDistribucion = $dist['id'];
-        }
-
-        // 🔹 Configuración GLOBAL: aplicar a todas las distribuciones
-        if ($esGlobal) {
-            $distribuciones = $this->distribucionasignaturas->findAll();
-
-            foreach ($configuracion as $nombrePeriodo => $valores) {
-                $periodo = $this->periodos->where('nombre', $nombrePeriodo)->first();
-                if (!$periodo) continue;
-
-                foreach ($distribuciones as $dist) {
-                    $data = [
-                        'id_distribucion_asignatura' => $dist['id'],
-                        'id_personal' => $dist['id_personal'],
-                        'id_periodo' => $periodo['id'],
-                        'bloqueado' => $valores['bloqueado'],
-                        'fecha_configuracion' => date('Y-m-d H:i:s')
-                    ];
-
-                    $existe = $this->configPeriodos
-                        ->where('id_distribucion_asignatura', $dist['id'])
-                        ->where('id_personal', $dist['id_personal'])
-                        ->where('id_periodo', $periodo['id'])
-                        ->first();
-
-                    if ($existe) {
-                        $this->configPeriodos->update($existe['id'], $data);
-                    } else {
-                        $this->configPeriodos->insert($data);
-                    }
-                }
-            }
-
-            return $this->response->setJSON(['success' => true]);
-        }
-
-        // 🔹 Configuración ESPECÍFICA: aplicar solo al docente y distribución asignada
-        foreach ($configuracion as $nombrePeriodo => $valores) {
-            $periodo = $this->periodos->where('nombre', $nombrePeriodo)->first();
-            if (!$periodo) continue;
-
-            $dataInsert = [
-                'id_personal' => $id_docente,
-                'id_distribucion_asignatura' => $idDistribucion,
-                'id_periodo' => $periodo['id'],
-                'bloqueado' => $valores['bloqueado'],
-                'fecha_configuracion' => date('Y-m-d H:i:s')
-            ];
-
-            $this->configPeriodos->updateOrInsert([
-                'id_personal' => $id_docente,
-                'id_distribucion_asignatura' => $idDistribucion,
-                'id_periodo' => $periodo['id']
-            ], $dataInsert);
-        }
-
-        return $this->response->setJSON(['success' => true]);
-    }
 
 
 
@@ -502,83 +754,6 @@ class Calificaciones extends BaseController
 
 
 
-    public function bloquearPeriodo()
-    {
-        if (!$this->request->isAJAX()) {
-            return $this->response->setJSON(['success' => false, 'message' => 'Petición no válida.']);
-        }
-
-        $periodo   = $this->request->getPost('periodo');
-        $bloquear  = $this->request->getPost('bloquear');
-        $id_docente = $this->request->getPost('docente');
-        $id_curso = $this->request->getPost('curso');
-        $id_asignatura = $this->request->getPost('asignatura');
-
-        $periodoRow = $this->periodos->where('nombre', $periodo)->first();
-        if (!$periodoRow) {
-            return $this->response->setJSON(['success' => false, 'message' => 'Periodo inválido.']);
-        }
-
-        // ⚙️ Cuando no se especifica curso ni asignatura, se asume configuración global para el docente
-        if (empty($id_curso) || empty($id_asignatura)) {
-            $data = [
-                'id_personal' => $id_docente,
-                'id_periodo' => $periodoRow['id'],
-                'id_distribucion_asignatura' => null
-            ];
-
-            $existente = $this->configPeriodos
-                ->where('id_personal', $id_docente)
-                ->where('id_periodo', $periodoRow['id'])
-                ->where('id_distribucion_asignatura IS NULL') // importante
-                ->first();
-
-            $data['bloqueado'] = $bloquear;
-            $data['visible']   = $existente['visible'] ?? 1;
-
-            if ($existente) {
-                $this->configPeriodos->update($existente['id'], $data);
-            } else {
-                $this->configPeriodos->insert($data);
-            }
-
-            return $this->response->setJSON(['success' => true]);
-        }
-
-        // 🔍 Si hay curso y asignatura, buscar distribución específica
-        $dist = $this->distribucionasignaturas
-            ->where('id_personal', $id_docente)
-            ->where('id_curso', $id_curso)
-            ->where('id_asignatura', $id_asignatura)
-            ->first();
-
-        if (!$dist) {
-            return $this->response->setJSON(['success' => false, 'message' => 'Distribución no encontrada.']);
-        }
-
-        $data = [
-            'id_distribucion_asignatura' => $dist['id'],
-            'id_personal' => $id_docente,
-            'id_periodo' => $periodoRow['id'],
-        ];
-
-        $existente = $this->configPeriodos
-            ->where('id_personal', $id_docente)
-            ->where('id_periodo', $periodoRow['id'])
-            ->where('id_distribucion_asignatura', $dist['id'])
-            ->first();
-
-        $data['bloqueado'] = $bloquear;
-        $data['visible']   = $existente['visible'] ?? 1;
-
-        if ($existente) {
-            $this->configPeriodos->update($existente['id'], $data);
-        } else {
-            $this->configPeriodos->insert($data);
-        }
-
-        return $this->response->setJSON(['success' => true]);
-    }
 
 
     public function obtenerDistribucionAsignatura()
@@ -614,62 +789,92 @@ class Calificaciones extends BaseController
     {
         $curso      = $this->request->getGet('curso');
         $asignatura = $this->request->getGet('asignatura');
-        $schoolYear = $this->request->getGet('schoolYear'); // id del año escolar
+        $schoolYear = $this->request->getGet('schoolYear');
+        $periodo    = $this->request->getGet('periodo'); // P1, P2, P3, P4
 
-        // Validar parámetros
-        if (!$curso || !$asignatura || !$schoolYear) {
-            log_message('error', "Parámetros inválidos: curso={$curso}, asignatura={$asignatura}, schoolYear={$schoolYear}");
+        if (!$curso || !$asignatura || !$schoolYear || !$periodo) {
+            log_message('error', "Parámetros inválidos: curso={$curso}, asignatura={$asignatura}, schoolYear={$schoolYear}, periodo={$periodo}");
             return $this->response->setJSON([]);
         }
 
-        // Obtener inscripciones del curso
-        $inscripciones = $this->db->table('inscripciones')
-            ->select('id, id_estudiante, id_curso, id_grado')
-            ->where('id_curso', $curso)
+        $periodoRow = $this->db->table('periodos')
+            ->select('id')
+            ->where('nombre', $periodo)
             ->get()
-            ->getResultArray();
+            ->getRowArray();
 
-        if (empty($inscripciones)) {
-            log_message('debug', "No se encontraron inscripciones para curso={$curso}");
+        if (!$periodoRow) {
+            log_message('error', "No se encontró el período: {$periodo}");
             return $this->response->setJSON([]);
         }
 
-        // Obtener distribución de asignaturas
+        $idPeriodo = $periodoRow['id'];
+
         $distribucion = $this->db->table('distribucion_asignaturas')
-            ->select('id, id_asignatura')
+            ->select('id')
             ->where('id_asignatura', $asignatura)
             ->where('id_curso', $curso)
             ->where('id_schoolyear', $schoolYear)
             ->get()
-            ->getResultArray();
+            ->getRowArray();
 
-        if (empty($distribucion)) {
+        if (!$distribucion) {
             log_message('debug', "No se encontró distribución para asignatura={$asignatura}, curso={$curso}, schoolYear={$schoolYear}");
             return $this->response->setJSON([]);
         }
 
-        // Obtener notas
-        $distribucion_ids = array_column($distribucion, 'id');
-        $inscripcion_ids  = array_column($inscripciones, 'id');
+        $idDistribucion = $distribucion['id'];
 
-        $notas = $this->db->table('calificaciones')
-            ->whereIn('id_inscripcion', $inscripcion_ids)
-            ->whereIn('id_distribucion_asignatura', $distribucion_ids)
+        $notas = $this->db->table('calificaciones c')
+            ->select('
+            c.id_inscripcion,
+            c.id_competencia,
+            c.nota,
+            rp.nota_rp
+        ')
+            ->join(
+                'recuperaciones_pedagogicas rp',
+                'rp.id_inscripcion = c.id_inscripcion
+             AND rp.id_distribucion_asignatura = c.id_distribucion_asignatura
+             AND rp.id_periodo = c.id_periodo
+             AND rp.id_competencia = c.id_competencia',
+                'left'
+            )
+            ->where('c.id_distribucion_asignatura', $idDistribucion)
+            ->where('c.id_periodo', $idPeriodo)
             ->get()
             ->getResultArray();
 
-        log_message('debug', "Notas obtenidas: " . print_r($notas, true));
+        $resultado = [];
 
-        return $this->response->setJSON($notas);
+        foreach ($notas as $n) {
+            $idInscripcion = $n['id_inscripcion'];
+            $comp = 'c' . $n['id_competencia'];
+
+            if (!isset($resultado[$idInscripcion])) {
+                $resultado[$idInscripcion] = [
+                    'id_inscripcion' => $idInscripcion,
+                    'c1_nota' => null,
+                    'c1_rp' => null,
+                    'c2_nota' => null,
+                    'c2_rp' => null,
+                    'c3_nota' => null,
+                    'c3_rp' => null,
+                    'c4_nota' => null,
+                    'c4_rp' => null,
+                ];
+            }
+
+            $resultado[$idInscripcion]["{$comp}_nota"] = $n['nota'];
+            $resultado[$idInscripcion]["{$comp}_rp"]   = $n['nota_rp'];
+        }
+
+        log_message('debug', 'Notas formateadas para JS: ' . print_r(array_values($resultado), true));
+
+        return $this->response->setJSON(array_values($resultado));
     }
 
-
-
-
-
-
-
-
+    /*
     public function obtenerCalificacionesGuardadas()
     {
         if (!$this->request->isAJAX()) {
@@ -722,7 +927,7 @@ class Calificaciones extends BaseController
         return $this->response->setJSON($estudiantes);
     }
 
-
+*/
 
 
 

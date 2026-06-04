@@ -35,11 +35,11 @@
                                                 <label for="schoolyear">
                                                     Año Escolar: <small class="obligatorio-formulario">*</small>
                                                 </label>
-                                                    <input type="text" class="form-control"
-                                                        id="schoolyear"
-                                                        name="schoolyear"
-                                                        value="<?= esc($schoolYear['nombre'] ?? 'No definido') ?>"
-                                                        readonly />
+                                                <input type="text" class="form-control"
+                                                    id="schoolyear"
+                                                    name="schoolyear"
+                                                    value="<?= esc($schoolYear['nombre'] ?? 'No definido') ?>"
+                                                    readonly />
                                                 <input type="" hidden
                                                     id="id_schoolyear"
                                                     name="id_schoolyear"
@@ -203,7 +203,7 @@
             return;
         }
 
-        fetch(`<?= base_url('gradossecciones/obtenerCursosPorServicio') ?>?id_servicio=${servicioId}&salida=${encodeURIComponent(nombreSalida)}`)
+        fetch(`<?= base_url('grados-y-secciones/obtener_cursos_por_servicio') ?>/${servicioId}`)
             .then(res => res.json())
             .then(cursos => {
                 selectCursos.innerHTML = '<option value="">--Seleccione el Curso--</option>';

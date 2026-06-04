@@ -9,13 +9,16 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-md-4 mb-3">
-      <a href="<?= base_url('calificaciones/registro') ?>" class="btn btn-outline-primary btn-block">📝 Registro de Calificaciones</a>
+      <a href="<?= base_url('calificaciones/registro') ?>" class="btn btn-outline-primary btn-block">📝 Registrar Calificaciones</a>
     </div>
     <div class="col-md-4 mb-3">
-      <a href="<?= base_url('calificaciones/completivo') ?>" class="btn btn-outline-secondary btn-block">🔁 Registro Completivo</a>
+      <a href="<?= base_url('calificaciones/completivo') ?>" class="btn btn-outline-secondary btn-block">🔁 Registrar Calificaciones completivas</a>
     </div>
     <div class="col-md-4 mb-3">
-      <a href="<?= base_url('calificaciones/extraordinario') ?>" class="btn btn-outline-danger btn-block">🧪 Registro Extraordinario</a>
+      <a href="<?= base_url('calificaciones/extraordinario') ?>" class="btn btn-outline-danger btn-block">🧪 Registrar Calificaiones Extraordinarias</a>
+    </div>
+    <div class="col-md-4 mb-3">
+      <a href="<?= base_url('calificaciones/especiales') ?>" class="btn btn-outline-danger btn-block">🧪 Registrar calificaciones especiales</a>
     </div>
     <div class="col-md-4 mb-3">
       <a href="<?= base_url('calificaciones/reporte') ?>" class="btn btn-outline-success btn-block">📊 Reporte de Calificaciones</a>

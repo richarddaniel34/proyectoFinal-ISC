@@ -14,7 +14,7 @@
     <div>
       <p>
         <a href="<?php echo base_url(); ?>estudiantes/nuevo" class=" btn btn-primary text-light " id="plus-user"><i class="fa-solid fa-user-plus"></i>Agregar</a>
-        <a href="<?php echo base_url(); ?>reponsable/eliminados" class="btn btn-danger text-light" id="minus-user"><i class="fa-solid fa-user-minus"></i> Eliminados</a>
+        <a href="<?php echo base_url(); ?>estudiantes/eliminados" class="btn btn-danger text-light" id="minus-user"><i class="fa-solid fa-user-minus"></i> Eliminados</a>
       </p>
     </div>
     <div class="">

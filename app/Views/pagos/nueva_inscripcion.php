@@ -35,7 +35,7 @@
 
             <form action="<?= base_url('pagos/registrar_inscripcion'); ?>" method="POST" class="formulario-personalizado">
 
-                <!-- 🧾 Encabezado -->
+                <!-- Encabezado -->
                 <h4 class="mb-4 text-center text-primary">
                     <i class="fas fa-file-invoice-dollar"></i> Registro de Pago de Inscripción
                 </h4>
@@ -379,7 +379,7 @@ $(document).ready(function() {
         if (!servicio) return;
 
         $.ajax({
-            url: "<?= base_url('gradossecciones/obtenerCursosPorServicioInscripcion') ?>",
+            url: "<?= base_url('grados-y-secciones/obtenerCursosPorServicioInscripcion') ?>",
             type: "GET",
             data: {
                 servicio_compuesto: servicio,

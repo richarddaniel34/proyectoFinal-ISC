@@ -26,7 +26,7 @@ class Asistencia extends BaseController
     }
 
     /**
-     * 🔥 Mostrar todas las asistencias
+     *  Mostrar todas las asistencias
      */
     public function index()
     {
@@ -43,7 +43,7 @@ class Asistencia extends BaseController
     }
 
     /**
-     * 🔥 Mostrar formulario de registro de asistencia
+     *  Mostrar formulario de registro de asistencia
      */
     public function nuevo()
     {
@@ -66,7 +66,7 @@ class Asistencia extends BaseController
     }
 
     /**
-     * 🔥 Insertar nueva asistencia
+     *  Insertar nueva asistencia
      */
     public function insertar()
     {
@@ -89,7 +89,7 @@ class Asistencia extends BaseController
     }
 
     /**
-     * 🔥 Mostrar formulario de edición
+     *  Mostrar formulario de edición
      */
     public function editar($id)
     {
@@ -116,7 +116,7 @@ class Asistencia extends BaseController
     }
 
     /**
-     * 🔥 Actualizar asistencia
+     *  Actualizar asistencia
      */
     public function actualizar()
     {
@@ -139,7 +139,7 @@ class Asistencia extends BaseController
     }
 
     /**
-     * 🔥 Eliminar asistencia
+     *  Eliminar asistencia
      */
     public function eliminar($id)
     {

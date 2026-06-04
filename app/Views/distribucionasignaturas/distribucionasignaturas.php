@@ -13,7 +13,7 @@
         <?php endif; ?>
 
         <div class="mb-3">
-            <a href="<?= base_url('distribucionasignaturas/nuevo') ?>" class="btn btn-primary">
+            <a href="<?= base_url('distribucion-asignaturas/nuevo') ?>" class="btn btn-primary">
                 <i class="fa-solid fa-user-plus"></i> Agregar
             </a>
         </div>

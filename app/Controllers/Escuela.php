@@ -382,6 +382,7 @@ class Escuela extends BaseController
     {
         $escuelas = $this->escuela->getEscuelasConDetalles($activo);
 
+
         $data = ['titulo' => 'Datos del Centro', 'datos' => $escuelas];
 
         echo view('header');

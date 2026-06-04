@@ -13,8 +13,8 @@
 @font-face {
   font-family: "RobotoCondensedLight";
   src: url("../fonts/robotocondensed-light.eot");
-  src: url("../fonts/robotocondensed-light.eot?#iefix")
-      format("embedded-opentype"),
+  src:
+    url("../fonts/robotocondensed-light.eot?#iefix") format("embedded-opentype"),
     url("../fonts/robotocondensed-light.woff2") format("woff2"),
     url("../fonts/robotocondensed-light.woff") format("woff"),
     url("../fonts/robotocondensed-light.ttf") format("truetype"),
@@ -26,7 +26,8 @@
 @font-face {
   font-family: "RobotoCondensed";
   src: url("../fonts/robotocondensed-regular.eot");
-  src: url("../fonts/robotocondensed-regular.eot?#iefix")
+  src:
+    url("../fonts/robotocondensed-regular.eot?#iefix")
       format("embedded-opentype"),
     url("../fonts/robotocondensed-regular.woff2") format("woff2"),
     url("../fonts/robotocondensed-regular.woff") format("woff"),
@@ -502,7 +503,6 @@ html {
   bottom: 0;
   height: 140px;
   width: 150px;
-  
 }
 .tile-icon {
   left: 0;
@@ -856,6 +856,19 @@ textarea.form-control {
   background-color: #f5f5f5;
 }
 
+.tabla-calificaciones .col-no {
+  width: 45px !important;
+  min-width: 45px;
+  max-width: 45px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.tabla-calificaciones .col-alumno {
+  width: 260px;
+  min-width: 220px;
+}
+
 .tabla-calificaciones-form {
   background-color: #ffffff;
   border: 1px solid #ddd;
@@ -880,28 +893,160 @@ textarea.form-control {
 }
 
 /* Tabla */
+/* =========================
+   TABLA CALIFICACIONES
+========================= */
+
+.nota-baja {
+  background-color: #fdeaea !important;
+  border-color: #e5a3a3 !important;
+}
+
+.nota-baja:focus {
+  background-color: #fdeaea !important;
+  border-color: #dc3545 !important;
+}
+
+.rp-comp:disabled {
+  background-color: #f1f1f1 !important;
+  cursor: not-allowed;
+}
+
 .tabla-calificaciones-container {
   overflow-x: auto;
+  border-radius: 10px;
 }
+
 .tabla-calificaciones {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   width: max-content;
-  min-width: 1000px;
   font-size: 14px;
-}
-.tabla-calificaciones th,
-.tabla-calificaciones td {
-  border: 1px solid #ccc;
-  text-align: center;
-  padding: 8px;
-  min-width: 80px;
   background-color: #fff;
 }
+
+/* CELDAS GENERALES */
+.tabla-calificaciones th,
+.tabla-calificaciones td {
+  border: 1px solid #d5d5d5;
+  text-align: center;
+  padding: 8px 10px;
+  vertical-align: middle;
+  background-color: #fff;
+}
+
+/* CABECERA */
 .tabla-calificaciones thead th {
   background-color: #2d2d2d;
   color: #fff;
-  font-weight: bold;
+  font-weight: 600;
+  white-space: nowrap;
 }
+
+/* EFECTO CEBRA */
+.tabla-calificaciones tbody tr:nth-child(even) td {
+  background-color: #f5f5f5;
+}
+
+/* COLUMNA NUMERO */
+.tabla-calificaciones .col-no {
+  width: 48px !important;
+  min-width: 48px !important;
+  max-width: 48px !important;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* COLUMNA NOMBRE */
+.tabla-calificaciones .col-alumno {
+  width: 320px !important;
+  min-width: 320px !important;
+  max-width: 380px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* COLUMNAS P / RP */
+.tabla-calificaciones th.col-nota,
+.tabla-calificaciones td.col-nota {
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
+  padding: 6px !important;
+  text-align: center;
+  align-items: center;
+}
+
+/* ENCABEZADO C1 C2 C3 C4 */
+.grupo-comp {
+  min-width: 156px !important;
+}
+
+/* INPUTS */
+.input-nota-calif {
+  width: 65px !important;
+  max-width: 65px !important;
+  height: 34px;
+  padding: 4px;
+  border: 1px solid #b5b5b5;
+  border-radius: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 14px;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+
+/* FOCUS */
+.input-nota-calif:focus {
+  border-color: #0b1065;
+  box-shadow: 0 0 0 2px rgba(11, 16, 101, 0.15);
+  outline: none;
+}
+
+/* Quitar flechas Chrome */
+.input-nota-calif::-webkit-outer-spin-button,
+.input-nota-calif::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Quitar flechas Firefox */
+.input-nota-calif[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* CELDAS RESUMEN */
+.pc-cell {
+  background-color: #fff4dc !important;
+}
+
+.pc-input,
+.final-anual-input {
+  background-color: transparent !important;
+  border: none !important;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+}
+
+/* SCROLL BONITO */
+.tabla-calificaciones-container::-webkit-scrollbar {
+  height: 10px;
+}
+
+.tabla-calificaciones-container::-webkit-scrollbar-thumb {
+  background: #bdbdbd;
+  border-radius: 10px;
+}
+
+.tabla-calificaciones-container::-webkit-scrollbar-track {
+  background: #ececec;
+}
+
+/* ========================================*/
 
 /* Inputs */
 .input-nota-calif {
@@ -975,14 +1120,18 @@ textarea.form-control {
   }
 }
 
-
 /*ESTILOS INDICACIONES, FORMULARIO*/
-.indicacion-formulario{
+.indicacion-formulario {
   font-style: italic;
   font-weight: bold;
 }
 
-.obligatorio-formulario{
+.obligatorio-formulario {
   color: red;
   font-weight: bold;
+}
+
+.rp-comp.is-invalid {
+  border-color: #dc3545 !important;
+  background-color: #fdeaea !important;
 }

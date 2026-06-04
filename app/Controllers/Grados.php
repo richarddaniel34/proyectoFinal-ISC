@@ -156,7 +156,7 @@ class Grados extends BaseController
         }
     }
 
-    // 🔥 Validar que no exista el mismo curso en el mismo grado y sección
+    //  Validar que no exista el mismo curso en el mismo grado y sección
     $cursoExistente = $this->curso
         ->where('id_grado', $id_grado)
         ->where('id_secciones', $id_secciones)
@@ -171,7 +171,7 @@ class Grados extends BaseController
             ]);
     }
 
-    // 🔥 Validar que el código del curso sea único
+    //  Validar que el código del curso sea único
     $codigoExistente = $this->curso
         ->where('codigoCurso', $codigoCurso)
         ->first();
@@ -184,7 +184,7 @@ class Grados extends BaseController
             ]);
     }
 
-    // 🔥 Validar que el nombre del curso sea único
+    //  Validar que el nombre del curso sea único
     $nombreExistente = $this->curso
         ->where('nombreCurso', $nombreCurso)
         ->first();
