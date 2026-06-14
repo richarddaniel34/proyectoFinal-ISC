@@ -24,13 +24,17 @@ class AsignaturaModel extends Model
     protected $skipValidation = false;
 
 
-
+    //======> consulta que trae las asignaturas, con estado activo, para distribucion academica
     public function buscar($q = null)
     {
-        if ($q) {
-            return $this->like('nombre', $q)->findAll();
+        $builder = $this
+            ->select('id, nombre, tipo_asignatura')
+            ->where('activo', 1);
+
+        if (!empty($q)) {
+            $builder->like('nombre', $q);
         }
 
-        return $this->findAll();
+        return $builder->orderBy('nombre', 'ASC')->findAll();
     }
 }

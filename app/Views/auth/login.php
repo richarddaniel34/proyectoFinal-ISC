@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/font_awesome.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
 
     <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/logo/censa-favicon.ico" type="image/x-icon">
@@ -33,25 +34,28 @@
         </p>
 
         <!-- Título -->
-        <p class="text-center text-uppercase titulo-login">Inicia sesión con tu cuenta</p>
+        <p class="text-center text-uppercase titulo-login"><b>Inicia sesión con tu cuenta</b></p>
 
         <!-- Campo usuario -->
         <div class="form-group label-floating">
-            <label class="control-label" for="usuario">Usuario</label>
+            <label class="control-label" for="usuario"><b>USUARIO:</b></label>
             <input class="form-control" id="usuario" name="usuario" type="text" required>
             <p class="help-block">Escribe tu E-mail</p>
         </div>
 
         <!-- Campo contraseña -->
         <div class="form-group label-floating">
-            <label class="control-label" for="clave">Contraseña</label>
+            <label class="control-label" for="clave"><b>CONTRASEÑA:</b></label>
             <input class="form-control" id="clave" name="clave" type="password" required>
             <p class="help-block">Escribe tu contraseña</p>
         </div>
 
         <!-- Botón -->
         <div class="form-group text-center">
-            <input type="submit" value="Iniciar sesión" class="btn btn-raised btn-danger">
+            <button type="submit" class="btn btn-raised btn-danger">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Iniciar sesión
+            </button>
         </div>
     </form>
     <!--====== Scripts -->
@@ -61,6 +65,7 @@
     <script src="<?php echo base_url(); ?>/js/material.min.js"></script>
     <script src="<?php echo base_url(); ?>/js/ripples.min.js"></script>
     <script src="<?php echo base_url(); ?>/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="<?php echo base_url(); ?>js/font_awesome.js"></script>
     <script>
         $.material.init();
     </script>

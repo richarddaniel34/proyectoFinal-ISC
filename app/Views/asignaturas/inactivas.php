@@ -5,7 +5,7 @@
 
 <div class="container-fluid">
   <div class="page-header">
-    <h1 class="text-titles"><i class="fa-solid fa-school"></i> <?php print_r($titulo_1) ?>/ <small><?php print_r($titulo) ?></small></h1>
+    <h1 class="text-titles"><i class="fa-solid fa-book"></i> <?php print_r($titulo_1) ?>/ <small><?php print_r($titulo) ?></small></h1>
   </div>
 </div>
 
@@ -14,8 +14,10 @@
     <h4 class="mt-4"></h4>
     <div>
       <p>
-        <a href="<?php echo base_url(); ?>asignaturas/" class=" btn btn-primary text-light "><i class="fa-solid fa-backward"></i> Regresar</a>
-      </p>
+        <a href="<?= base_url('asignaturas/') ?>" class="btn btn-secondary">
+          <i class="fa-solid fa-circle-left"></i> <b>REGRESAR</b>
+        </a>
+        </p>
     </div>
     <div class="">
 
@@ -23,14 +25,13 @@
 
       <div class="tab-pane " id="list">
         <div class="table-responsive">
-          <table class="table table-hover table-striped text-center" id="datatablesSimple">
+          <table class="table table-hover table-striped text-center tabla-basica" id="">
             <thead class="title-table">
               <tr>
                 <th class="text-center">Nombre Asignatura</th>
                 <th class="text-center">Codigo Asignatura</th>
                 <th class="text-center">Tipo asignatura</th>
-                <th class="text-center"></th>
-                <th class="text-center"></th>
+                <th class="text-center"> Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -39,12 +40,11 @@
                   <td> <?php echo $dato['nombre'] ?> </td>
                   <td> <?php echo $dato['codigo_asignatura'] ?> </td>
                   <td> <?php echo $dato['tipo_asignatura_nombre'] ?> </td>
-                  <td><a href="#" class="text-warning" onclick="editarAsignatura(<?= $dato['id']; ?>)"><i class="fa-solid fa-edit"></i></a></td>
                   <td>
                     <a href="#"
-                      class="text-danger"
-                      onclick="confirmarReactivarAsignatura(<?= $dato['id']; ?>)">
-                      <i class="fa-solid fa-rotate-left"></i>
+                      class="text-success"
+                      onclick="confirmarRestaurarAsignatura(<?= $dato['id']; ?>)">
+                      <i class="fa-solid fa-trash-can-arrow-up"></i> 
                     </a>
                   </td>
                 </tr>
@@ -78,5 +78,25 @@
                         -->
         </div>
       </div>
+      <div>
+        <h3>Leyenda:</h3>
+        <p>
+          <i class="fa-solid fa-trash-can-arrow-up"></i>  <strong>Restaurar</strong> – Restaurar el registro
+        </p>
+      </div>
     </div>
 </main>
+
+<?= $this->section('scripts') ?>
+
+<script>
+  function confirmarRestaurarAsignatura(id) {
+    mostrarModalRestaurar({
+      titulo: 'RESTAURAR ASIGNATURA',
+      mensaje: '¿Está seguro que desea restaurar esta asignatura?',
+      url: `${baseUrl}/asignaturas/restaurar/${id}`
+    });
+  }
+</script>
+
+<?= $this->endSection() ?>

@@ -1,5 +1,7 @@
+
 <!--
-<div class="footerPage">
+<section>
+    <div class="footerPage">
         <div class="col-12 footerInfo">
             <small>© 2024 Richard Daniel Moronta. Todos los derechos reservados.</small> <br>
             <small>Proyecto Final de Grado, Ing. en Sistemas de Computacion P3-2024 --UCATECI--</small>
@@ -16,14 +18,24 @@
 
 <!--====== Scripts (Orden optimizado) -->
 <script src="<?php echo base_url(); ?>js/vendor/jquery-3.1.1.min.js"></script> <!-- jQuery debe cargarse primero -->
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
 
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+<!--=========================================== DATATABLES ===========================================-->
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap4.min.js"></script>
+
 
 <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap4.min.js"></script>
+
 <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+<!--configuracion de datatable personalizada-->
+<script src="<?php echo base_url(); ?>js/core/datatables-config.js"></script>
+<!--==================================================================================================-->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
@@ -44,8 +56,8 @@
 <script src="<?php echo base_url(); ?>js/vendor/ripples.min.js"></script>
 <script src="<?php echo base_url(); ?>js/vendor/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="<?php echo base_url(); ?>js/core/main.js"></script>
-<script src="<?php echo base_url(); ?>/js/core/formularios.js"></script>
-<script src="<?php echo base_url(); ?>/js/usuarios.js"></script>
+<script src="<?= base_url('js/core/formularios.js') ?>"></script>
+<script src="<?php echo base_url(); ?>js/modules/usuarios.js"></script>
 
 <script>
     $.material.init();
@@ -341,8 +353,10 @@
 <?php endif; ?>
 
 
-<?= $this->renderSection('scripts') ?>
 
+
+<?= $this->renderSection('scripts') ?>
+<?= $this->include('layouts/alerts'); ?>
 </body>
 
 </html>

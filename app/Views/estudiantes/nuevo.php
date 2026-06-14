@@ -243,12 +243,15 @@
                                             </div>
                                             <br>
                                             <div class="text-center mt-4">
-                                                <button type="button" class="btn btn-primary" onclick="if(validarPestanaDatosBasicos()){ siguiente('responsable'); }">
+                                                <button type="button" class="btn btn-primary btn-sistema" onclick="if(validarPestanaDatosBasicos()){ siguiente('responsable'); }">
                                                     Siguiente
                                                     <i class="fa-solid fa-forward"></i></button>
 
-                                                <button type="button" class="btn btn-danger btn-cancelar" id="btn-cancelar-1">
-                                                    <i class="fa-solid fa-ban"></i> Cancelar
+                                                <button type="button"
+                                                    class="btn btn-danger btn-sistema btn-cancelar"
+                                                    id="btn-cancelar-1">
+                                                    <i class="fa-solid fa-ban"></i>
+                                                    Cancelar
                                                 </button>
                                             </div>
                                         </div>
@@ -358,9 +361,9 @@
                                                 </div>
                                             </div>
                                             <div class="text-center mt-4">
-                                                <button type="button" class="btn btn-secondary" onclick="siguiente('basicos')"><i class="fa-solid fa-backward"></i> Atrás</button>
-                                                <button type="button" class="btn btn-primary" onclick="if(validarPestanaResponsables()){ siguiente('salud'); }">Siguiente <i class="fa-solid fa-forward"></i></button>
-                                                <button type="button" class="btn btn-danger btn-cancelar" id="btn-cancelar-1">
+                                                <button type="button" class="btn btn-secondary btn-sistema" onclick="siguiente('basicos')"><i class="fa-solid fa-backward"></i> Atrás</button>
+                                                <button type="button" class="btn btn-primary btn-sistema" onclick="if(validarPestanaResponsables()){ siguiente('salud'); }">Siguiente <i class="fa-solid fa-forward"></i></button>
+                                                <button type="button" class="btn btn-danger btn-cancelar btn-sistema" id="btn-cancelar-1">
                                                     <i class="fa-solid fa-ban"></i> Cancelar
                                                 </button>
                                             </div>
@@ -411,9 +414,9 @@
 
                                             <div class="text-center mt-4">
 
-                                                <button type="button" class="btn btn-secondary" onclick="siguiente('responsables')"><i class="fa-solid fa-backward"></i> Atrás</button>
-                                                <button type="submit" class="btn btn-success"> <i class="fa-solid fa-floppy-disk"></i> Guardar</button>
-                                                <button type="button" class="btn btn-danger btn-cancelar" id="btn-cancelar-1">
+                                                <button type="button" class="btn btn-secondary btn-sistema" onclick="siguiente('responsables')"><i class="fa-solid fa-backward"></i> Atrás</button>
+                                                <button type="submit" class="btn btn-success btn-sistema"> <i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+                                                <button type="button" class="btn btn-danger btn-cancelar btn-sistema" id="btn-cancelar-1">
                                                     <i class="fa-solid fa-ban"></i> Cancelar
                                                 </button>
                                             </div>

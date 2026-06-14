@@ -32,7 +32,7 @@ class Asignaturas extends BaseController
         // Almacenar el resultado en un arreglo
         $tipo_asignaturas = $query->getResultArray();
 
-        $data = ['titulo_1' => 'Configuración','titulo' => 'Asignaturas', 'datos' => $asignatura, 'tipo_asignaturas' => $tipo_asignaturas];
+        $data = ['titulo_1' => 'CONFIGURACIÓN', 'titulo' => 'ASIGNATURAS', 'datos' => $asignatura, 'tipo_asignaturas' => $tipo_asignaturas];
 
         echo view('header');
         echo view('asignaturas/asignaturas', $data);
@@ -159,7 +159,8 @@ class Asignaturas extends BaseController
 
 
 
-    public function actualizar($id) {
+    public function actualizar($id)
+    {
         // Reglas de validación
         $rules = [
             'nombre' => 'required',
@@ -231,15 +232,23 @@ class Asignaturas extends BaseController
 
 
 
-    public function inactivar($id) {
+    public function inactivar($id)
+    {
+        if ($this->asignatura->update($id, ['activo' => 0])) {
 
-        $this->asignatura->update($id, ['activo' => 0]);
-        return redirect()->to(base_url() . 'asignaturas');
+            return redirect()->to(base_url('asignaturas'))
+                ->with('success', 'Asignatura inactivada correctamente.');
+        } else {
+
+            return redirect()->to(base_url('asignaturas'))
+                ->with('error', 'No fue posible inactivar la asignatura.');
+        }
     }
 
 
 
-    public function asignaturasInactivas($activo = 0) {
+    public function asignaturasInactivas($activo = 0)
+    {
 
         // Realiza un join entre la tabla 'asignatura' y 'atipo_asignatura'
         $asignatura = $this->asignatura->select('asignatura.*, tipo_asignatura.nombre AS tipo_asignatura_nombre')
@@ -256,17 +265,25 @@ class Asignaturas extends BaseController
         // Almacenar el resultado en un arreglo
         $tipo_asignaturas = $query->getResultArray();
 
-        $data = ['titulo_1' => 'Configuración','titulo' => 'Asignaturas Inactivas', 'datos' => $asignatura, 'tipo_asignaturas' => $tipo_asignaturas];
+        $data = ['titulo_1' => 'Configuración', 'titulo' => 'Asignaturas Inactivas', 'datos' => $asignatura, 'tipo_asignaturas' => $tipo_asignaturas];
 
         echo view('header');
         echo view('asignaturas/inactivas', $data);
         echo view('footer');
     }
 
-    public function restaurar($id) {
+    public function restaurar($id)
+    {
 
-        $this->asignatura->update($id, ['activo' => 1]);
-        return redirect()->to(base_url() . 'asignaturas/inactivas');
+         if ($this->asignatura->update($id, ['activo' => 1])) {
+
+            return redirect()->to(base_url('asignaturas/inactivas'))
+                ->with('success', 'Asignatura restaurada correctamente.');
+        } else {
+
+            return redirect()->to(base_url('asignaturas/inactivas'))
+                ->with('error', 'No fue posible reactivar la asignatura.');
+        }
     }
 
 

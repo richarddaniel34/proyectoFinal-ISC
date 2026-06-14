@@ -49,9 +49,17 @@ $routes->group('', ['filter' => ['auth', 'usuarioData']], function ($routes) {
 
     // USUARIOS
     $routes->group('usuarios', function ($routes) {
+
         $routes->get('listarUsuarios', 'Usuarios::listarUsuarios');
         $routes->get('getEscuelas', 'Usuarios::getEscuelas');
         $routes->post('cambiarEscuela', 'Usuarios::cambiarEscuela');
+
+        // Cambio de clave propio
+        $routes->get('cambioClave', 'Usuarios::cambioClave');
+
+        // Reset administrativo
+        $routes->get('modalResetearClave/(:num)', 'Usuarios::modalResetearClave/$1');
+        $routes->post('resetearClave', 'Usuarios::resetearClave');
     });
 
 
@@ -74,6 +82,14 @@ $routes->group('', ['filter' => ['auth', 'usuarioData']], function ($routes) {
         $routes->get('editar/(:num)', 'Estudiantes::editar/$1');
         $routes->get('visualizar/(:num)', 'Estudiantes::visualizar/$1');
         $routes->post('actualizar', 'Estudiantes::actualizar');
+    });
+
+
+    // STUDENTS
+    $routes->group('student', function ($routes) {
+        $routes->get('mis_pagos', 'student::mis_pagos');
+        $routes->get('calificaciones', 'Estudiante::calificaciones');
+        $routes->get('asistencia', 'Estudiante::asistencia');
     });
 
     // PERSONAL
@@ -111,31 +127,40 @@ $routes->group('', ['filter' => ['auth', 'usuarioData']], function ($routes) {
     });
 
 
-    // GRADOS
-    $routes->group('grados-y-secciones', function ($routes) {
-        $routes->get('/', 'GradosSecciones::index');
+    // ESTRUCTURA ACADEMICA
+    $routes->group('estructura-academica', function ($routes) {
+        $routes->get('/', 'EstructuraAcademica::index');
+        //===========> GRADOS
+        $routes->get('grados', 'EstructuraAcademica::grados');
+        $routes->get('grados/inactivos', 'EstructuraAcademica::inactivos');
+        $routes->get('grados/inactivarGrado/(:num)', 'EstructuraAcademica::inactivarGrado/$1');
+        $routes->get('grados/restaurarGrado/(:num)', 'EstructuraAcademica::restaurarGrado/$1');
+        //===========> CURSOS
+        $routes->get('cursos', 'EstructuraAcademica::cursos');
+        $routes->get('cursos/nuevo', 'EstructuraAcademica::cursoNuevo');
+        $routes->post('cursos/guardar', 'EstructuraAcademica::guardarCursos');
+        //===========> CURSOS POR AÑO
+        $routes->get('configurarCursos', 'EstructuraAcademica::configurarCursos');
+        $routes->get('configurarCursos/nuevo', 'EstructuraAcademica::nuevo');
+        $routes->post('configurarCursos/guardar', 'EstructuraAcademica::guardar_configuracion_cursos');
 
-        $routes->get('grados', 'GradosSecciones::grados');
-        $routes->get('grados/grados_inactivos', 'GradosSecciones::grados_inactivos');
-        $routes->get('grados/inactivar_grado/(:num)', 'GradosSecciones::inactivar_grado/$1');
-        $routes->get('grados/restaurar_grado/(:num)', 'GradosSecciones::restaurar_grado/$1');
-
-        $routes->get('cursos', 'GradosSecciones::cursos');
-        $routes->get('cursos/curso_nuevo', 'GradosSecciones::curso_nuevo');
-
-        $routes->get('configurar_cursos', 'GradosSecciones::configurar_cursos');
-        $routes->get('obtener_cursos_por_servicio/(:num)', 'GradosSecciones::obtenerCursosPorServicio/$1');
-        $routes->post('guardar_configuracion_cursos', 'GradosSecciones::guardar_configuracion_cursos');
         $routes->get(
-            'obtenerCursosPorServicioInscripcion',
-            'GradosSecciones::obtenerCursosPorServicioInscripcion'
+            'obtener_cursos_por_servicio/(:segment)',
+            'EstructuraAcademica::obtenerCursosPorServicio/$1'
         );
+
+        $routes->get('obtenerCursosPorServicioInscripcion', 'EstructuraAcademica::obtenerCursosPorServicioInscripcion');
+
+        $routes->post('configurarCursos/actualizar_curso/(:num)', 'EstructuraAcademica::actualizar_curso/$1');
     });
+
+
 
     // CALIFICACIONES
     $routes->group('calificaciones', function ($routes) {
         $routes->get('/', 'Calificaciones::index');
         $routes->get('registro', 'Calificaciones::registro');
+        $routes->get('configurarra', 'Calificaciones::configurarra');
         $routes->get('completivo', 'Calificaciones::completivo');
         $routes->get('extraordinario', 'Calificaciones::extraordinario');
         $routes->get('especiales', 'Calificaciones::especiales');
@@ -144,16 +169,22 @@ $routes->group('', ['filter' => ['auth', 'usuarioData']], function ($routes) {
         $routes->get('buscar-asignaturas/(:num)/(:num)', 'Calificaciones::buscarAsignaturas/$1/$2');
         $routes->get('obtener-distribucion-asignatura', 'Calificaciones::obtenerDistribucionAsignatura');
         $routes->get('estudiantes-por-curso/(:num)', 'Calificaciones::estudiantesPorCurso/$1');
+        $routes->get('obtener', 'Calificaciones::obtener');
+        $routes->get('obtenerNotasTecnicas', 'Calificaciones::obtenerNotasTecnicas');
 
         $routes->get('estudiantes-completivo', 'Calificaciones::estudiantesCompletivo');
         $routes->get('estudiantes-extraordinario', 'Calificaciones::estudiantesExtraordinario');
         $routes->get('estudiantes-especial', 'Calificaciones::estudiantesEspecial');
 
+        $routes->post('guardarNotasTecnicas', 'Calificaciones::guardarNotasTecnicas');
+        $routes->post('guardarra', 'Calificaciones::guardarra');
         $routes->post('guardarNotas', 'Calificaciones::guardarNotas');
         $routes->post('guardarCompletivo', 'Calificaciones::guardarCompletivo');
         $routes->post('guardarExtraordinario', 'Calificaciones::guardarExtraordinario');
         $routes->post('guardarEspecial', 'Calificaciones::guardarEspecial');
         $routes->get('obtenerNotas', 'Calificaciones::obtenerNotas');
+
+        $routes->get('tecnicas', 'Calificaciones::tecnicas');
 
         $routes->post('guardar-configuracion-periodos', 'Calificaciones::guardarConfiguracionPeriodos');
         $routes->get('reporte', 'Calificaciones::generarReportePDF');
@@ -167,11 +198,28 @@ $routes->group('', ['filter' => ['auth', 'usuarioData']], function ($routes) {
 
         $routes->get('verFactura/(:num)', 'Pagos::verFactura/$1');
         $routes->get('imprimirFactura/(:num)', 'Pagos::imprimirFactura/$1');
-        $routes->get('obtenerEstudiantes', 'Pagos::obtenerEstudiantes');
+        //$routes->get('obtenerEstudiantes', 'Pagos::obtenerEstudiantes');
+        $routes->get('obtenerGrupoFamiliarPorEstudiante', 'Pagos::obtenerGrupoFamiliarPorEstudiante');
 
         $routes->get('obtenerMensualidadesPendientes', 'Pagos::obtenerMensualidadesPendientes');
         $routes->post('registrarPagoMensualidad', 'Pagos::registrarPagoMensualidad');
     });
+
+
+    //ASISTENCIA
+    $routes->group('asistencia', function ($routes) {
+        $routes->get('/', 'Asistencia::index');
+        $routes->get('nuevo', 'Asistencia::nuevo');
+
+        //buscar
+        $routes->get('buscar-cursos/(:num)', 'Asistencia::buscarCursos/$1');
+        $routes->get('buscar-asignaturas/(:num)', 'Asistencia::buscarAsignaturas/$1');
+        $routes->get('buscar-asignaturas/(:num)/(:num)', 'Asistencia::buscarAsignaturas/$1/$2');
+        $routes->get('estudiantes-por-curso/(:num)', 'Asistencia::estudiantesPorCurso/$1');
+        $routes->get('buscar-docentes', 'Asistencia::buscarDocentes');
+    });
+
+
 
     // REPORTES
     $routes->group('reportes', function ($routes) {
@@ -206,11 +254,14 @@ $routes->group('', ['filter' => ['auth', 'usuarioData']], function ($routes) {
 
 
     // DISTRIBUCIÓN DE ASIGNATURAS
-    $routes->group('distribucion-asignaturas', function ($routes) {
-        $routes->get('/', 'DistribucionAsignaturas::index');
-        $routes->get('nuevo', 'DistribucionAsignaturas::nuevo');
-        $routes->post('insertar', 'DistribucionAsignaturas::insertar');
-        $routes->get('asignaturas', 'DistribucionAsignaturas::getAsignaturasAjax');
+    $routes->group('distribucion-academica', function ($routes) {
+        $routes->get('/', 'DistribucionAcademica::index');
+        $routes->get('nuevo', 'DistribucionAcademica::nuevo');
+        $routes->post('insertar', 'DistribucionAcademica::insertar');
+        $routes->get('asignaturas', 'DistribucionAcademica::getAsignaturasAjax');
+        $routes->get('docentes', 'DistribucionAcademica::getDocentesAjax');
+        $routes->post('actualizar-docente', 'DistribucionAcademica::actualizarDocente');
+        $routes->post('copiar-anterior', 'DistribucionAcademica::copiarAnterior');
     });
 
 
@@ -221,5 +272,22 @@ $routes->group('', ['filter' => ['auth', 'usuarioData']], function ($routes) {
         //$routes->get('obtenerCursosPorServicioInscripcion', 'inscripciones::obtenerCursosPorServicioInscripcion');
         $routes->get('obtenerInscripcionesPorCurso', 'inscripciones::obtenerInscripcionesPorCurso');
         $routes->get('obtenerCursosPorServicioRelacion', 'inscripciones::obtenerCursosPorServicioRelacion');
+    });
+
+
+    //CONFIGIRAR RA
+    $routes->group('configuracion-ra', function ($routes) {
+
+        $routes->get('/', 'ConfiguracionRaTecnica::index');
+
+        $routes->get(
+            'obtener',
+            'ConfiguracionRaTecnica::obtener'
+        );
+
+        $routes->post(
+            'guardar',
+            'ConfiguracionRaTecnica::guardar'
+        );
     });
 });

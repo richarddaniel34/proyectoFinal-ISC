@@ -55,7 +55,8 @@ class Pagos extends BaseController
 
         // Pasamos los datos a la vista
         $data = [
-            'titulo' => 'Gestión de Pagos',
+            'titulo_1' => 'PAGOS',
+            'titulo_2' => 'GESTIÓN DE PAGOS',
             'pagos' => $pagos
         ];
 
@@ -72,7 +73,14 @@ class Pagos extends BaseController
         // 🔹 Obtener responsables y año escolar activo
         $responsables = $this->responsables->findAll();
         $schoolYearActivo = $this->schoolYear->where('estado', 'En curso')->first();
+        $schoolYearEspera = $this->schoolYear->where('estado', 'En espera')->first();
         $id_schoolYear = $schoolYearActivo ? $schoolYearActivo['id'] : null;
+
+        $estudiantesSelect = $this->estudiantes
+            ->select('id, nombre, apellido, matricula')
+            ->where('activo', 1)
+            ->orderBy('nombre', 'ASC')
+            ->findAll();
 
         // 🔹 Obtener conceptos de pago
         $conceptoInscripcion = $this->conceptoPagos->where('nombre', 'Inscripción')->first();
@@ -88,13 +96,15 @@ class Pagos extends BaseController
         $cursos = [];
 
         if ($id_responsable) {
-            $estudiantesResponsable = $this->estudiantes
+            /*$estudiantesResponsable = $this->estudiantes
                 ->where('responsables', $id_responsable)
                 ->findAll();
 
-            $estudiantes = $estudiantesResponsable;
+            $estudiantes = $estudiantesResponsable;*/
 
             $id_escuela = $estudiantesResponsable[0]['id_escuela'] ?? null;
+
+
 
             if ($id_escuela) {
                 // 🔹 Servicios activos
@@ -135,9 +145,12 @@ class Pagos extends BaseController
         }
 
         $data = [
-            'titulo' => 'Nueva Inscripción',
+            'titulo_1' => 'PAGOS',
+            'titulo_2' => 'NUEVA INSCRIPCIÓN',
             'responsables' => $responsables,
+            'estudiantesSelect' => $estudiantesSelect,
             'schoolYearActivo' => $schoolYearActivo,
+            'schoolYearEspera' => $schoolYearEspera,
             'estudiantes' => $estudiantes,
             'grados' => $grados,
             'servicios' => $servicios,
@@ -156,29 +169,66 @@ class Pagos extends BaseController
 
 
 
-    // Carga los estudiantes según el responsable seleccionado
-    public function obtenerEstudiantes()
-    {
-        $idResponsable = $this->request->getGet('id_responsable');
-        log_message('info', "obtenerEstudiantes -> idResponsable recibido: {$idResponsable}");
+    //======> REFACTOR
 
+    private function getEstudiantesPorResponsable($idResponsable)
+    {
         if (!$idResponsable) {
-            return $this->response->setJSON([
-                'status'  => 'error',
-                'message' => 'ID del responsable no proporcionado.'
-            ]);
+            return [];
         }
 
-        // SELECT sin comentarios inline
-        $estudiantes = $this->estudiantes
+        $estudiantes = $this->buscarEstudiantesActivosPorResponsable($idResponsable);
+
+        if (empty($estudiantes)) {
+            return [];
+        }
+
+        $schoolYearActivo = $this->schoolYear
+            ->where('estado', 'En curso')
+            ->first();
+
+        $schoolYearEspera = $this->schoolYear
+            ->where('estado', 'En espera')
+            ->first();
+
+        $idSchoolYearActual = $schoolYearActivo['id'] ?? null;
+
+        foreach ($estudiantes as &$estudiante) {
+            $this->prepararDatosBaseEstudiante($estudiante);
+
+            $inscripcionActual = $this->obtenerInscripcionActual(
+                $estudiante['id'],
+                $idSchoolYearActual
+            );
+
+            if ($inscripcionActual) {
+                $this->aplicarEstadoInscripcion($estudiante, $inscripcionActual);
+            }
+
+            $this->validarInscripcionDestino(
+                $estudiante,
+                $idSchoolYearActual,
+                $schoolYearEspera
+            );
+
+            $estudiante['servicios'] = $this->cargarServiciosDestino($estudiante);
+        }
+
+        return $estudiantes;
+    }
+
+
+    private function buscarEstudiantesActivosPorResponsable($idResponsable)
+    {
+        return $this->estudiantes
             ->select([
                 'estudiantes.id',
                 'estudiantes.nombre',
                 'estudiantes.apellido',
                 'estudiantes.matricula',
-                'estudiantes.id_grado AS id_grado_nivel', // <-- sin comentario SQL
+                'estudiantes.id_grado AS id_grado_nivel',
                 'estudiantes.id_escuela',
-                'grados.nombre  AS grado_nombre',
+                'grados.nombre AS grado_nombre',
                 'niveles.nombre AS nivel_nombre',
             ])
             ->join('estudiantes_responsables', 'estudiantes.id = estudiantes_responsables.estudiante_id')
@@ -186,89 +236,346 @@ class Pagos extends BaseController
             ->join('grados', 'grados.id = grados_niveles.id_grado')
             ->join('niveles', 'niveles.id = grados_niveles.id_nivel')
             ->where('estudiantes_responsables.responsable_id', $idResponsable)
+            ->where('estudiantes.activo', 1)
             ->findAll();
+    }
 
-        log_message('info', 'obtenerEstudiantes -> Estudiantes crudos obtenidos: ' . json_encode($estudiantes));
+    private function prepararDatosBaseEstudiante(&$estudiante)
+    {
+        $estudiante['grado_nivel'] = $estudiante['grado_nombre'] . ' - ' . $estudiante['nivel_nombre'];
 
-        if (empty($estudiantes)) {
+        $estudiante['inscrito'] = false;
+        $estudiante['tipo_proceso'] = 'Nuevo ingreso';
+        $estudiante['estado_inscripcion'] = 'Sin inscripción actual';
+        $estudiante['puede_inscribirse'] = true;
+
+        $estudiante['id_grado_destino'] = $estudiante['id_grado_nivel'];
+        $estudiante['id_escuela_destino'] = $estudiante['id_escuela'];
+        $estudiante['id_seccion_actual'] = null;
+    }
+
+    private function obtenerInscripcionActual($idEstudiante, $idSchoolYearActual)
+    {
+        if (!$idSchoolYearActual) {
+            return null;
+        }
+
+        return $this->inscripciones
+            ->where('id_estudiante', $idEstudiante)
+            ->where('id_schoolYear', $idSchoolYearActual)
+            ->orderBy('id', 'DESC')
+            ->first();
+    }
+
+    private function aplicarEstadoInscripcion(&$estudiante, $inscripcionActual)
+    {
+        $condicionFinal = $inscripcionActual['condicion_final'] ?? null;
+        $estadoInscripcion = $inscripcionActual['estado_inscripcion'] ?? 'Activa';
+        $activoInscripcion = (int) ($inscripcionActual['activo'] ?? 0);
+
+        $estudiante['id_inscripcion_actual'] = $inscripcionActual['id'];
+        $estudiante['id_curso_actual'] = $inscripcionActual['id_curso'];
+        $estudiante['id_grado_actual'] = $inscripcionActual['id_grado'];
+        $estudiante['id_seccion_actual'] = $this->obtenerSeccionActual($inscripcionActual['id_curso']);
+
+        if ($estadoInscripcion === 'Retirada' || $activoInscripcion === 0) {
+            $this->bloquearEstudiante($estudiante, 'Retirado');
+            return;
+        }
+
+        if ($condicionFinal === 'Promovido') {
+            $this->aplicarPromocion($estudiante, $inscripcionActual);
+            return;
+        }
+
+        if ($condicionFinal === 'Reprobado') {
+            $estudiante['inscrito'] = false;
+            $estudiante['tipo_proceso'] = 'Reinscripción';
+            $estudiante['estado_inscripcion'] = 'Reprobado';
+            $estudiante['puede_inscribirse'] = true;
+            $estudiante['id_grado_destino'] = $inscripcionActual['id_grado'];
+            return;
+        }
+
+        if ($condicionFinal === 'Aplazado') {
+            $this->bloquearEstudiante($estudiante, 'Aplazado');
+            return;
+        }
+
+        $this->bloquearEstudiante($estudiante, 'Inscrito actual');
+    }
+
+    private function obtenerSeccionActual($idCurso)
+    {
+        $cursoActual = $this->cursos
+            ->select('cursos.id, cursos.id_cursos_base, cursos_base.id_seccion')
+            ->join('cursos_base', 'cursos_base.id = cursos.id_cursos_base')
+            ->where('cursos.id', $idCurso)
+            ->first();
+
+        return $cursoActual['id_seccion'] ?? null;
+    }
+
+    private function aplicarPromocion(&$estudiante, $inscripcionActual)
+    {
+        $gradoNivelActual = $this->gradosNiveles
+            ->select('grados_niveles.*, grados.orden, grados.nombre AS grado_nombre_actual, niveles.nombre AS nivel_nombre')
+            ->join('grados', 'grados.id = grados_niveles.id_grado')
+            ->join('niveles', 'niveles.id = grados_niveles.id_nivel')
+            ->where('grados_niveles.id', $inscripcionActual['id_grado'])
+            ->first();
+
+        $idGradoDestino = $inscripcionActual['id_grado'];
+
+        if ($gradoNivelActual) {
+            $esTerceroSecundaria =
+                stripos($gradoNivelActual['grado_nombre_actual'], 'tercero') !== false &&
+                stripos($gradoNivelActual['nivel_nombre'], 'sec') !== false;
+
+            $esSextoPrimaria =
+                stripos($gradoNivelActual['grado_nombre_actual'], 'sexto') !== false &&
+                stripos($gradoNivelActual['nivel_nombre'], 'prim') !== false;
+
+            if ($esSextoPrimaria) {
+                $gradoDestino = $this->buscarPrimeroSecundaria();
+
+                if ($gradoDestino) {
+                    $idGradoDestino = $gradoDestino['id'];
+                    $estudiante['id_escuela_destino'] = 2;
+                }
+            } elseif ($esTerceroSecundaria) {
+                $gradoDestino = $this->buscarCuartoSecundaria();
+
+                if ($gradoDestino) {
+                    $idGradoDestino = $gradoDestino['id'];
+                    $estudiante['id_escuela_destino'] = 2;
+                    $estudiante['requiere_tecnico'] = true;
+                }
+            } else {
+                $siguienteGrado = $this->buscarSiguienteGradoMismoNivel($gradoNivelActual);
+
+                if ($siguienteGrado) {
+                    $idGradoDestino = $siguienteGrado['id'];
+                }
+            }
+        }
+
+        $estudiante['inscrito'] = false;
+        $estudiante['tipo_proceso'] = 'Reinscripción';
+        $estudiante['estado_inscripcion'] = 'Promovido';
+        $estudiante['puede_inscribirse'] = true;
+        $estudiante['id_grado_destino'] = $idGradoDestino;
+    }
+
+
+    private function buscarCuartoSecundaria()
+    {
+        return $this->gradosNiveles
+            ->select('grados_niveles.*')
+            ->join('grados', 'grados.id = grados_niveles.id_grado')
+            ->join('niveles', 'niveles.id = grados_niveles.id_nivel')
+            ->like('grados.nombre', 'cuarto')
+            ->like('niveles.nombre', 'sec')
+            ->where('grados_niveles.activo', 1)
+            ->where('grados.activo', 1)
+            ->first();
+    }
+
+
+
+    private function buscarPrimeroSecundaria()
+    {
+        return $this->gradosNiveles
+            ->select('grados_niveles.*')
+            ->join('grados', 'grados.id = grados_niveles.id_grado')
+            ->join('niveles', 'niveles.id = grados_niveles.id_nivel')
+            ->like('grados.nombre', 'primero')
+            ->like('niveles.nombre', 'sec')
+            ->where('grados_niveles.activo', 1)
+            ->where('grados.activo', 1)
+            ->first();
+    }
+
+    private function buscarSiguienteGradoMismoNivel($gradoNivelActual)
+    {
+        return $this->gradosNiveles
+            ->select('grados_niveles.*')
+            ->join('grados', 'grados.id = grados_niveles.id_grado')
+            ->where('grados_niveles.id_nivel', $gradoNivelActual['id_nivel'])
+            ->where('grados.orden', $gradoNivelActual['orden'] + 1)
+            ->where('grados_niveles.activo', 1)
+            ->where('grados.activo', 1)
+            ->first();
+    }
+
+    private function validarInscripcionDestino(&$estudiante, $idSchoolYearActual, $schoolYearEspera)
+    {
+        $idSchoolYearDestino = (
+            $estudiante['tipo_proceso'] === 'Reinscripción' && $schoolYearEspera
+        )
+            ? $schoolYearEspera['id']
+            : $idSchoolYearActual;
+
+        $estudiante['id_schoolYear_destino'] = $idSchoolYearDestino;
+
+        if (!$idSchoolYearDestino) {
+            return;
+        }
+
+        $inscripcionDestino = $this->inscripciones
+            ->where('id_estudiante', $estudiante['id'])
+            ->where('id_schoolYear', $idSchoolYearDestino)
+            ->where('activo', 1)
+            ->first();
+
+        if ($inscripcionDestino) {
+            $estudiante['inscrito'] = true;
+            $estudiante['tipo_proceso'] = 'Bloqueado';
+            $estudiante['puede_inscribirse'] = false;
+
+            $estudiante['estado_inscripcion'] =
+                ((int) $idSchoolYearDestino === (int) $idSchoolYearActual)
+                ? 'Inscrito'
+                : 'Reinscrito';
+        }
+    }
+
+    private function cargarServiciosDestino($estudiante)
+    {
+        $db = \Config\Database::connect();
+
+        $rows = $db->table('escuelas_servicios esv')
+            ->select('
+            s.id AS id_servicio,
+            s.nombre AS servicio_nombre,
+            s.activo AS servicio_activo,
+            st.id AS salida_id,
+            st.nombre AS salida_nombre
+        ')
+            ->join('servicios s', 's.id = esv.id_servicio')
+            ->join('salidas_tecnicas st', 'st.id_servicio = s.id', 'left')
+            ->where('esv.id_escuela', $estudiante['id_escuela_destino'] ?? $estudiante['id_escuela'])
+            ->where('esv.activo', 1)
+            ->where('s.activo', 1)
+            ->orderBy('s.nombre', 'ASC')
+            ->orderBy('st.nombre', 'ASC')
+            ->get()
+            ->getResultArray();
+
+        $serviciosOpciones = [];
+
+        foreach ($rows as $r) {
+            $esTecnico =
+                stripos($r['servicio_nombre'], 'técnico') !== false ||
+                stripos($r['servicio_nombre'], 'tecnico') !== false;
+
+            if (!empty($estudiante['requiere_tecnico']) && !$esTecnico) {
+                continue;
+            }
+
+            $tieneSalida = !empty($r['salida_id']);
+
+            if ($esTecnico && $tieneSalida) {
+                $serviciosOpciones[] = [
+                    'id_servicio'   => (int) $r['id_servicio'],
+                    'nombre'        => $r['servicio_nombre'] . ' - ' . $r['salida_nombre'],
+                    'salida_id'     => (int) $r['salida_id'],
+                    'salida_nombre' => $r['salida_nombre'],
+                    'es_tecnico'    => 1,
+                ];
+            } elseif (!$esTecnico) {
+                $serviciosOpciones[] = [
+                    'id_servicio'   => (int) $r['id_servicio'],
+                    'nombre'        => $r['servicio_nombre'],
+                    'salida_id'     => null,
+                    'salida_nombre' => null,
+                    'es_tecnico'    => 0,
+                ];
+            }
+        }
+
+        return array_values(array_unique($serviciosOpciones, SORT_REGULAR));
+    }
+
+    private function bloquearEstudiante(&$estudiante, $estado)
+    {
+        $estudiante['inscrito'] = true;
+        $estudiante['tipo_proceso'] = 'Bloqueado';
+        $estudiante['estado_inscripcion'] = $estado;
+        $estudiante['puede_inscribirse'] = false;
+    }
+
+
+
+    //===========================================================
+
+    public function obtenerGrupoFamiliarPorEstudiante()
+    {
+        $idEstudiante = $this->request->getGet('id_estudiante');
+
+        if (!$idEstudiante) {
             return $this->response->setJSON([
-                'status'  => 'empty',
-                'message' => 'No se encontraron estudiantes para este responsable.'
+                'status' => 'error',
+                'message' => 'ID del estudiante no proporcionado.'
             ]);
         }
 
         $db = \Config\Database::connect();
 
-        foreach ($estudiantes as &$estudiante) {
-            log_message('info', 'Procesando estudiante: ' . json_encode($estudiante));
+        $relacion = $db->table('estudiantes_responsables')
+            ->where('estudiante_id', $idEstudiante)
+            ->get()
+            ->getRowArray();
 
-            $estudiante['grado_nivel'] = $estudiante['grado_nombre'] . ' - ' . $estudiante['nivel_nombre'];
-
-            // Inscripción actual (ajusta si tienes schoolYear en juego aquí)
-            $inscripcion = $this->inscripciones
-                ->where('id_estudiante', $estudiante['id'])
-                ->where('condicion_inicial', 'Inscrito')
-                ->first();
-            $estudiante['inscrito'] = $inscripcion ? true : false;
-
-            // Servicios de la escuela + salidas técnicas
-            $rows = $db->table('escuelas_servicios esv')
-                ->select('
-                s.id AS id_servicio,
-                s.nombre AS servicio_nombre,
-                s.activo AS servicio_activo,
-                st.id AS salida_id,
-                st.nombre AS salida_nombre
-            ')
-                ->join('servicios s', 's.id = esv.id_servicio')
-                ->join('salidas_tecnicas st', 'st.id_servicio = s.id', 'left')
-                ->where('esv.id_escuela', $estudiante['id_escuela'])
-                ->where('esv.activo', 1)
-                ->where('s.activo', 1)
-                ->orderBy('s.nombre', 'ASC')
-                ->orderBy('st.nombre', 'ASC')
-                ->get()->getResultArray();
-
-            log_message('info', "Servicios+salidas crudos (escuela {$estudiante['id_escuela']}): " . json_encode($rows));
-
-            $serviciosOpciones = [];
-            foreach ($rows as $r) {
-                $esTecnico = stripos($r['servicio_nombre'], 'técnico') !== false || stripos($r['servicio_nombre'], 'tecnico') !== false;
-                $tieneSalida = !empty($r['salida_id']);
-
-                if ($esTecnico && $tieneSalida) {
-                    $serviciosOpciones[] = [
-                        'id_servicio'   => (int) $r['id_servicio'],
-                        'nombre'        => $r['servicio_nombre'] . ' - ' . $r['salida_nombre'],
-                        'salida_id'     => (int) $r['salida_id'],
-                        'salida_nombre' => $r['salida_nombre'],
-                        'es_tecnico'    => 1,
-                    ];
-                } elseif (!$esTecnico) {
-                    $serviciosOpciones[] = [
-                        'id_servicio'   => (int) $r['id_servicio'],
-                        'nombre'        => $r['servicio_nombre'],
-                        'salida_id'     => null,
-                        'salida_nombre' => null,
-                        'es_tecnico'    => 0,
-                    ];
-                }
-            }
-
-            // quita duplicados (por si el LEFT repite no técnicos)
-            $serviciosOpciones = array_values(array_unique($serviciosOpciones, SORT_REGULAR));
-            $estudiante['servicios'] = $serviciosOpciones;
-
-            log_message('info', "Estudiante {$estudiante['id']} -> servicios mapeados: " . json_encode($serviciosOpciones));
+        if (!$relacion) {
+            return $this->response->setJSON([
+                'status' => 'empty',
+                'message' => 'Este estudiante no tiene responsable vinculado.'
+            ]);
         }
 
-        log_message('info', 'obtenerEstudiantes -> Estudiantes procesados: ' . json_encode($estudiantes));
+        $idResponsable = $relacion['responsable_id'];
+
+        $estudiantes = $this->getEstudiantesPorResponsable($idResponsable);
 
         return $this->response->setJSON([
             'status' => 'success',
-            'data'   => $estudiantes
+            'data' => $estudiantes,
+            'id_responsable' => $idResponsable,
+            'id_estudiante_seleccionado' => $idEstudiante
         ]);
     }
+
+
+    public function obtenerEstudiantes()
+    {
+        $idResponsable = $this->request->getGet('id_responsable');
+
+        if (!$idResponsable) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'ID del responsable no proporcionado.'
+            ]);
+        }
+
+        $estudiantes = $this->getEstudiantesPorResponsable($idResponsable);
+
+        if (empty($estudiantes)) {
+            return $this->response->setJSON([
+                'status' => 'empty',
+                'message' => 'No se encontraron estudiantes para este responsable.'
+            ]);
+        }
+
+        return $this->response->setJSON([
+            'status' => 'success',
+            'data' => $estudiantes,
+            'id_responsable' => $idResponsable
+        ]);
+    }
+
+
+
 
 
 
@@ -287,30 +594,12 @@ class Pagos extends BaseController
             return redirect()->back()->with('error', 'No hay datos de estudiantes.');
         }
 
-        // 🔹 Conceptos reales desde BD (NO frontend)
         $conceptoInscripcion = $this->conceptoPagos->where('nombre', 'Inscripción')->first();
         $conceptoMensualidad = $this->conceptoPagos->where('nombre', 'Mensualidad')->first();
 
         if (!$conceptoInscripcion) {
             return redirect()->back()->with('error', 'Concepto inscripción no configurado.');
         }
-
-        $configInscripcion = $this->conceptoConfig
-            ->where('id_concepto', $conceptoInscripcion['id'])
-            ->where('id_schoolYear', $id_schoolYear)
-            ->first();
-
-        $configMensualidad = $this->conceptoConfig
-            ->where('id_concepto', $conceptoMensualidad['id'])
-            ->where('id_schoolYear', $id_schoolYear)
-            ->first();
-
-        if (!$configInscripcion) {
-            return redirect()->back()->with('error', 'Config de inscripción no definida para este año.');
-        }
-
-        $monto_inscripcion = $configInscripcion['monto'];
-        $monto_mensualidad = $configMensualidad['monto'] ?? 0;
 
         $db = \Config\Database::connect();
         $db->transStart();
@@ -321,7 +610,6 @@ class Pagos extends BaseController
 
         foreach ($estudiantes as $id_estudiante => $data) {
 
-            //  SOLO procesar los marcados
             if (empty($data['inscribir'])) {
                 continue;
             }
@@ -330,25 +618,50 @@ class Pagos extends BaseController
             $id_escuela = $data['id_escuela'] ?? null;
             $id_curso   = $data['id_curso'] ?? null;
 
-            if (!$id_grado || !$id_escuela || !$id_curso) {
+            // Año destino por estudiante
+            $id_schoolYear_destino = $data['id_schoolYear_destino'] ?? $id_schoolYear;
+
+            if (!$id_grado || !$id_escuela || !$id_curso || !$id_schoolYear_destino) {
                 $db->transRollback();
                 return redirect()->back()->with('error', 'Datos incompletos en la inscripción.');
             }
 
-            //  Validar duplicado
+            // Configuración de montos según año destino
+            $configInscripcion = $this->conceptoConfig
+                ->where('id_concepto', $conceptoInscripcion['id'])
+                ->where('id_schoolYear', $id_schoolYear_destino)
+                ->first();
+
+            $configMensualidad = null;
+
+            if ($conceptoMensualidad) {
+                $configMensualidad = $this->conceptoConfig
+                    ->where('id_concepto', $conceptoMensualidad['id'])
+                    ->where('id_schoolYear', $id_schoolYear_destino)
+                    ->first();
+            }
+
+            if (!$configInscripcion) {
+                $db->transRollback();
+                return redirect()->back()->with('error', 'Config de inscripción no definida para el año destino.');
+            }
+
+            $monto_inscripcion = $configInscripcion['monto'];
+            $monto_mensualidad = $configMensualidad['monto'] ?? 0;
+
+            // Validar que no tenga inscripción activa en ese año
             $existe = $this->inscripciones
                 ->where('id_estudiante', $id_estudiante)
-                ->where('id_grado', $id_grado)
-                ->where('id_schoolYear', $id_schoolYear)
+                ->where('id_schoolYear', $id_schoolYear_destino)
                 ->where('activo', 1)
                 ->first();
 
             if ($existe) {
                 $db->transRollback();
-                return redirect()->back()->with('error', 'Uno de los estudiantes ya está inscrito.');
+                return redirect()->back()->with('error', 'Uno de los estudiantes ya tiene una inscripción activa en ese año escolar.');
             }
 
-            //  VALIDAR CURSO REAL (ANTI-MANIPULACIÓN)
+            // Validar curso real
             $curso = $this->cursos->find($id_curso);
 
             if (!$curso) {
@@ -356,8 +669,15 @@ class Pagos extends BaseController
                 return redirect()->back()->with('error', 'Curso inválido.');
             }
 
-            // VALIDAR CUPO (CRÍTICO)
-            $capacidad = $curso['capacidad'];
+            // Validar que el curso pertenece al año destino
+            if ((int)$curso['id_schoolyear'] !== (int)$id_schoolYear_destino) {
+                $db->transRollback();
+                return redirect()->back()->with('error', 'El curso seleccionado no pertenece al año escolar destino.');
+            }
+
+            // Validar cupo
+            $capacidad = (int)$curso['capacidad'];
+
             $ocupados = $this->inscripciones
                 ->where('id_curso', $id_curso)
                 ->where('activo', 1)
@@ -368,12 +688,12 @@ class Pagos extends BaseController
                 return redirect()->back()->with('error', 'Uno de los cursos ya no tiene cupo.');
             }
 
-            //  Registrar pago inscripción
+            // Registrar pago inscripción
             $pagoInscripcion = [
                 'id_concepto'    => $conceptoInscripcion['id'],
                 'id_responsable' => $id_responsable,
                 'id_estudiante'  => $id_estudiante,
-                'id_schoolYear'  => $id_schoolYear,
+                'id_schoolYear'  => $id_schoolYear_destino,
                 'monto'          => $monto_inscripcion,
                 'metodo_pago'    => $metodo_pago,
                 'estado'         => 'Pago',
@@ -381,21 +701,34 @@ class Pagos extends BaseController
             ];
 
             if (!$this->pagos->save($pagoInscripcion)) {
+                log_message('error', 'ERROR PAGO INSCRIPCION: ' . json_encode($this->pagos->errors()));
+                log_message('error', 'DATA PAGO INSCRIPCION: ' . json_encode($pagoInscripcion));
+
+                $db->transRollback();
+                return redirect()->back()->with('error', 'Error al registrar pago: ' . json_encode($this->pagos->errors()));
+            }
+
+            /*
+
+            if (!$this->pagos->save($pagoInscripcion)) {
                 $db->transRollback();
                 return redirect()->back()->with('error', 'Error al registrar pago.');
             }
 
+            */
             $id_pago = $this->pagos->getInsertID();
 
-            // 🔹 Registrar inscripción
+            // Registrar inscripción
             $inscripcion = [
-                'id_estudiante' => $id_estudiante,
-                'id_grado'      => $id_grado,
-                'id_curso'      => $id_curso,
-                'id_escuela'    => $id_escuela,
-                'id_schoolYear' => $id_schoolYear,
-                'id_pago'       => $id_pago,
-                'activo'        => 1
+                'id_estudiante'      => $id_estudiante,
+                'id_grado'           => $id_grado,
+                'id_curso'           => $id_curso,
+                'id_escuela'         => $id_escuela,
+                'id_schoolYear'      => $id_schoolYear_destino,
+                'id_pago'            => $id_pago,
+                'condicion_inicial'  => 'Inscrito',
+                'estado_inscripcion' => 'Activa',
+                'activo'             => 1
             ];
 
             if (!$this->inscripciones->save($inscripcion)) {
@@ -403,7 +736,6 @@ class Pagos extends BaseController
                 return redirect()->back()->with('error', 'Error al registrar inscripción.');
             }
 
-            // Factura
             $estudiante = $this->estudiantes->find($id_estudiante);
 
             $pagosParaFactura[] = $id_pago;
@@ -415,27 +747,22 @@ class Pagos extends BaseController
                 'monto'      => $monto_inscripcion
             ];
 
-            //  Pago completo (mensualidades)
-            if ($pagoCompleto) {
+            // Pago completo con mensualidades
+            if ($pagoCompleto && $conceptoMensualidad) {
 
-                //  Obtener meses desde BD (ordenados)
                 $meses = $this->meses
                     ->orderBy('orden', 'ASC')
                     ->findAll();
 
-                log_message('debug', '📅 Meses desde BD: ' . json_encode($meses));
-
                 foreach ($meses as $mesData) {
 
-                    $mes = ucfirst(strtolower($mesData['nombre'])); //  normalización elegante
-
-                    log_message('debug', "   📌 Procesando mes: $mes");
+                    $mes = ucfirst(strtolower($mesData['nombre']));
 
                     $pagoMensual = [
                         'id_concepto'    => $conceptoMensualidad['id'],
                         'id_responsable' => $id_responsable,
                         'id_estudiante'  => $id_estudiante,
-                        'id_schoolYear'  => $id_schoolYear,
+                        'id_schoolYear'  => $id_schoolYear_destino,
                         'monto'          => $monto_mensualidad,
                         'metodo_pago'    => $metodo_pago,
                         'estado'         => 'Pago',
@@ -444,14 +771,11 @@ class Pagos extends BaseController
                     ];
 
                     if (!$this->pagos->save($pagoMensual)) {
-                        log_message('error', '❌ Error guardando mensualidad: ' . json_encode($this->pagos->errors()));
                         $db->transRollback();
                         return redirect()->back()->with('error', 'Error en mensualidades.');
                     }
 
                     $id_pago_m = $this->pagos->getInsertID();
-
-                    log_message('debug', "   ✅ Pago mensual guardado ID: $id_pago_m");
 
                     $pagosParaFactura[] = $id_pago_m;
                     $totalFactura += $monto_mensualidad;
@@ -472,7 +796,12 @@ class Pagos extends BaseController
         }
 
         if (!empty($pagosParaFactura)) {
-            $id_factura = $this->generarFactura($id_responsable, $pagosParaFactura, $totalFactura, $detallesFactura);
+            $id_factura = $this->generarFactura(
+                $id_responsable,
+                $pagosParaFactura,
+                $totalFactura,
+                $detallesFactura
+            );
 
             return redirect()->to(site_url('pagos/verFactura/' . $id_factura))
                 ->with('success', 'Inscripción registrada correctamente.');
@@ -944,8 +1273,15 @@ class Pagos extends BaseController
     //Muestra la página para pagar mensualidades
     public function otros_pagos()
     {
+        $estudiantesSelect = $this->estudiantes
+            ->select('id, nombre, apellido, matricula')
+            ->where('activo', 1)
+            ->orderBy('nombre', 'ASC')
+            ->findAll();
+
         $data = [
             'titulo' => 'Pago de Mensualidades',
+            'estudiantesSelect' => $estudiantesSelect,
             'responsables' => $this->responsables->findAll(),
             'schoolYears' => $this->schoolYear->findAll()
         ];

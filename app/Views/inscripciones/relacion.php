@@ -74,6 +74,10 @@
         <div class="col-12">
             <div class="table-responsive">
                 <table id="tabla-estudiantes" class="table table-striped table-bordered">
+                            <!--<table 
+    id="tablaReporte" 
+    class="table table-hover table-striped text-center tabla-export"
+    data-titulo="Reporte de estudiantes">-->
                     <thead class="thead-dark">
                         <tr>
                             <th><input type="checkbox" id="check-todos"></th>

@@ -50,7 +50,7 @@
 			Personal de Apoyo
 		</div>
 		<div class="full-box tile-icon text-center">
-			<i class="zmdi zmdi-hand"></i>
+			<i class="fa-solid fa-user-gear"></i>
 		</div>
 		<div class="full-box tile-number text-titles">
 			<p class="full-box"><?= esc($total_apoyo) ?></p>
@@ -79,7 +79,7 @@
 			Masculinos
 		</div>
 		<div class="full-box tile-icon text-center">
-			<i class="zmdi zmdi-male"></i>
+			<i class="fa-solid fa-child"></i>
 		</div>
 		<div class="full-box tile-number text-titles">
 			<p class="full-box"><?= esc($total_masculinos) ?></p>
@@ -91,7 +91,7 @@
 			Femeninos
 		</div>
 		<div class="full-box tile-icon text-center">
-			<i class="zmdi zmdi-female"></i>
+			<i class="fa-solid fa-child-dress"></i>
 		</div>
 		<div class="full-box tile-number text-titles">
 			<p class="full-box"><?= esc($total_femeninos) ?></p>
@@ -103,7 +103,7 @@
 			Familias
 		</div>
 		<div class="full-box tile-icon text-center">
-			<i class="zmdi zmdi-male-female"></i>
+			<i class="fa-solid fa-people-group"></i>
 		</div>
 		<div class="full-box tile-number text-titles">
 			<p class="full-box"><?= esc($total_familia) ?></p>

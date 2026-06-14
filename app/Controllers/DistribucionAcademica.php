@@ -10,7 +10,7 @@ use App\Models\CursosModel;
 use App\Models\SchoolYearModel;
 use App\Models\EscuelaModel;
 
-class DistribucionAsignaturas extends BaseController
+class DistribucionAcademica extends BaseController
 {
     protected $distribucion;
     protected $docentes;
@@ -18,7 +18,7 @@ class DistribucionAsignaturas extends BaseController
     protected $cursos;
     protected $grados;
     protected $secciones;
-    protected $periodos;
+    protected $schoolyear;
     protected $escuela;
 
     public function __construct()
@@ -27,7 +27,7 @@ class DistribucionAsignaturas extends BaseController
         $this->docentes = new PersonalModel();
         $this->asignaturas = new AsignaturaModel();
         $this->cursos = new CursosModel();
-        $this->periodos = new SchoolYearModel();
+        $this->schoolyear = new SchoolYearModel();
         $this->escuela = new EscuelaModel();
     }
 
@@ -36,17 +36,41 @@ class DistribucionAsignaturas extends BaseController
      */
     public function index()
     {
-        // Obtener la lista de asignaciones con detalles
-        $asignaciones = $this->distribucion->getDistribucionConDetalles();
+        $schoolYearActual = $this->schoolyear
+            ->where('estado', 'En curso')
+            ->first();
+
+        $schoolYearAnterior = null;
+        $asignaciones = [];
+        $asignacionesAnterior = [];
+
+        if ($schoolYearActual) {
+            $asignaciones = $this->distribucion
+                ->getDistribucionConDetalles($schoolYearActual['id']);
+
+            $schoolYearAnterior = $this->schoolyear
+                ->where('id <', $schoolYearActual['id'])
+                ->orderBy('id', 'DESC')
+                ->first();
+
+            if ($schoolYearAnterior) {
+                $asignacionesAnterior = $this->distribucion
+                    ->getDistribucionConDetalles($schoolYearAnterior['id']);
+            }
+        }
 
         $data = [
-            'titulo' => 'Gestión de Distribución de Asignaturas',
-            'asignaciones' => $asignaciones
+            'titulo_1' => 'GESTIÓN ACADÉMICA',
+            'titulo_2' => 'DISTRIBUCION ACÁDEMICA',
+            'schoolYearActual' => $schoolYearActual,
+            'schoolYearAnterior' => $schoolYearAnterior,
+            'asignaciones' => $asignaciones,
+            'asignacionesAnterior' => $asignacionesAnterior,
         ];
 
         echo view('header');
-        echo view('distribucionasignaturas/distribucionasignaturas', $data);
-        echo view('footer_distribucion');
+        echo view('distribucionacademica/distribucionacademica', $data);
+        echo view('footer');
     }
 
     /**
@@ -58,8 +82,8 @@ class DistribucionAsignaturas extends BaseController
         $codigoGestion = session('codigo_gestion');
         $escuela = null;
 
-        // 🔸 Cargar periodos académicos activos
-        $periodosEnCurso = $this->periodos->getEnCurso();
+        // Cargar periodos académicos activos
+        $periodosEnCurso = $this->schoolyear->getEnCurso();
         $periodoActual = !empty($periodosEnCurso) ? $periodosEnCurso[0] : null;
 
         // Validar que haya escuela seleccionada
@@ -100,16 +124,61 @@ class DistribucionAsignaturas extends BaseController
 
 
         $data = [
-            'titulo' => 'Nueva Distribución de Asignaturas',
+            'titulo_1' => 'GESTIÓN ACADÉMICA',
+            'titulo_2' => 'Nueva Distribución Académica',
             'personal' => $personal,
             'asignaturas' => $this->asignaturas->findAll(),
             'cursos' => $cursos,
-            'periodoActual' => $periodoActual
+            'schoolYearActual' => $periodoActual
         ];
 
         echo view('header');
-        echo view('distribucionasignaturas/nuevo', $data);
+        echo view('distribucionacademica/nuevo', $data);
         echo view('footer');
+    }
+
+
+    /**
+     * Cargar datos del año anterior
+     */
+    public function copiarAnterior()
+    {
+        $schoolYearActual = $this->schoolyear
+            ->where('estado', 'En curso')
+            ->first();
+
+        if (!$schoolYearActual) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'No hay un año escolar en curso.'
+            ]);
+        }
+
+        $schoolYearAnterior = $this->schoolyear
+            ->where('id <', $schoolYearActual['id'])
+            ->orderBy('id', 'DESC')
+            ->first();
+
+        if (!$schoolYearAnterior) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'No se encontró un año escolar anterior.'
+            ]);
+        }
+
+        $resultado = $this->distribucion->copiarDesdeAnioAnterior(
+            $schoolYearAnterior['id'],
+            $schoolYearActual['id']
+        );
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => "Distribución copiada correctamente. 
+Registros nuevos: {$resultado['insertados']}. 
+Duplicados omitidos: {$resultado['duplicados']}. 
+Docentes inactivos omitidos: {$resultado['docentes_inactivos']}. 
+Asignaturas inactivas omitidas: {$resultado['asignaturas_inactivas']}."
+        ]);
     }
 
 
@@ -124,16 +193,26 @@ class DistribucionAsignaturas extends BaseController
         $idEscuela = session('id_escuela');
 
         if (!$asignaciones || !is_array($asignaciones)) {
-            return redirect()->back()->with('error', 'Datos inválidos.');
+            return redirect()->back()->with('error', 'Agregue al menos una asignacion.');
         }
 
         $insertados = 0;
         $duplicados = [];
+        $errores = [];
 
         foreach ($asignaciones as $asignacion) {
-            // Verificar si ya existe el registro
+
+            if (
+                empty($asignacion['id_personal']) ||
+                empty($asignacion['id_asignatura']) ||
+                empty($asignacion['id_curso']) ||
+                empty($asignacion['id_schoolyear'])
+            ) {
+                $errores[] = 'Una asignación llegó incompleta.';
+                continue;
+            }
+
             $existe = $this->distribucion
-                ->where('id_personal', $asignacion['id_personal'])
                 ->where('id_asignatura', $asignacion['id_asignatura'])
                 ->where('id_curso', $asignacion['id_curso'])
                 ->where('id_schoolyear', $asignacion['id_schoolyear'])
@@ -141,42 +220,46 @@ class DistribucionAsignaturas extends BaseController
                 ->first();
 
             if ($existe) {
-                // Obtener nombres legibles
-                $docente = $this->docentes->find($asignacion['id_personal'])['nombre'] ?? 'Docente desconocido';
                 $asignatura = $this->asignaturas->find($asignacion['id_asignatura'])['nombre'] ?? 'Asignatura desconocida';
-                $duplicados[] = "{$docente} - {$asignatura}";
+                $duplicados[] = "{$asignatura}";
                 continue;
             }
 
-            // Insertar nuevo registro
             $this->distribucion->insert([
                 'id_personal'   => $asignacion['id_personal'],
                 'id_asignatura' => $asignacion['id_asignatura'],
                 'id_curso'      => $asignacion['id_curso'],
-                'id_schoolyear'    => $asignacion['id_schoolyear'],
-                'id_escuela'    => $idEscuela
+                'id_schoolyear' => $asignacion['id_schoolyear'],
+                'id_escuela'    => $idEscuela,
+                'activo'        => 1
             ]);
 
             $insertados++;
         }
 
-        // Preparar mensajes
         $mensaje = '';
+
         if ($insertados > 0) {
             $mensaje .= "Se han insertado {$insertados} asignaciones correctamente.";
         }
+
         if (!empty($duplicados)) {
-            $mensaje .= " Los siguientes registros ya existen y no se insertaron: " . implode(', ', $duplicados) . ".";
+            $mensaje .= " Algunas asignaturas ya estaban asignadas a esos cursos y no se insertaron.";
         }
 
-        // Retornar con mensaje según corresponda
-        if ($insertados > 0 && empty($duplicados)) {
-            return redirect()->to(base_url('/distribucion-asignaturas/nuevo'))->with('success', $mensaje);
-        } elseif ($insertados > 0 && !empty($duplicados)) {
-            return redirect()->to(base_url('/distribucion-asignaturas/nuevo'))->with('warning', $mensaje);
-        } else {
-            return redirect()->to(base_url('/distribucion-asignaturas/nuevo'))->with('error', $mensaje);
+        if (!empty($errores)) {
+            $mensaje .= " Algunas asignaciones llegaron incompletas y fueron omitidas.";
         }
+
+        if ($insertados > 0 && empty($duplicados) && empty($errores)) {
+            return redirect()->to(base_url('distribucion-academica/nuevo'))->with('success', $mensaje);
+        }
+
+        if ($insertados > 0) {
+            return redirect()->to(base_url('distribucion-academica/nuevo'))->with('warning', $mensaje);
+        }
+
+        return redirect()->to(base_url('distribucion-academica/nuevo'))->with('error', $mensaje ?: 'No se insertó ninguna asignación.');
     }
 
 
@@ -196,42 +279,68 @@ class DistribucionAsignaturas extends BaseController
     public function getDocentesAjax()
     {
         $request = service('request');
+
         $term = trim($request->getGet('q') ?? '');
-        $page = max(1, (int) ($request->getGet('page') ?? 1)); // Evita page < 1
+        $page = max(1, (int) ($request->getGet('page') ?? 1));
         $perPage = 10;
         $offset = ($page - 1) * $perPage;
 
-        // Modelo de docentes = PersonalModel
         $personalModel = new \App\Models\PersonalModel();
 
-        // Obtener id_escuela desde la sesión
         $idEscuela = session()->get('id_escuela');
 
-        // Si es admin y tiene código de gestión pero no id_escuela
-        if (!$idEscuela && session()->get('codigo_gestion')) {
-            $codigoGestion = session()->get('codigo_gestion');
-            $escuelaModel = new \App\Models\EscuelaModel();
-            $escuela = $escuelaModel->where('codigo_gestion', $codigoGestion)->first();
-            if ($escuela) {
-                $idEscuela = $escuela['id'];
-            }
+        if (!$idEscuela) {
+            return $this->response->setJSON([
+                'items' => [],
+                'more'  => false
+            ]);
         }
 
-        // Si existe una escuela válida
-        if ($idEscuela) {
-            $docentes = $personalModel->getDocentesPorEscuela($term, $idEscuela, $perPage, $offset);
-            $totalResults = $personalModel->contarDocentesPorEscuela($term, $idEscuela);
-        } else {
-            $docentes = [];
-            $totalResults = 0;
-        }
+        $builder = $personalModel
+            ->select("personal.id, CONCAT(personal.nombre, ' ', personal.apellido) AS nombre_completo")
+            ->join('nombramiento', 'nombramiento.id = personal.funcion', 'left')
+            ->where('personal.id_escuela', $idEscuela)
+            ->where('personal.activo', 1)
+            ->where('nombramiento.nombre', 'Docente')
+            ->groupStart()
+            ->like('personal.nombre', $term)
+            ->orLike('personal.apellido', $term)
+            ->orLike("CONCAT(personal.nombre, ' ', personal.apellido)", $term)
+            ->groupEnd()
+            ->orderBy('personal.nombre', 'ASC');
 
-        // Verificar si hay más páginas
-        $more = ($page * $perPage) < $totalResults;
+        /*
+     * Si tu campo funcion guarda exactamente "Docente",
+     * activa esta línea:
+     */
+        // $builder->where('funcion', 'Docente');
+
+        $docentes = $builder
+            ->limit($perPage, $offset)
+            ->findAll();
+
+        $totalBuilder = $personalModel
+            ->join('nombramiento', 'nombramiento.id = personal.funcion', 'left')
+            ->where('personal.id_escuela', $idEscuela)
+            ->where('personal.activo', 1)
+            ->where('nombramiento.nombre', 'Docente')
+            ->groupStart()
+            ->like('personal.nombre', $term)
+            ->orLike('personal.apellido', $term)
+            ->orLike("CONCAT(personal.nombre, ' ', personal.apellido)", $term)
+            ->groupEnd();
+
+        /*
+     * Si activas el filtro de funcion arriba,
+     * actívalo también aquí:
+     */
+        // $totalBuilder->where('funcion', 'Docente');
+
+        $totalResults = $totalBuilder->countAllResults();
 
         return $this->response->setJSON([
             'items' => $docentes,
-            'more'  => $more
+            'more'  => ($page * $perPage) < $totalResults
         ]);
     }
 
@@ -247,7 +356,8 @@ class DistribucionAsignaturas extends BaseController
         foreach ($data as $row) {
             $results[] = [
                 'id' => $row['id'],
-                'text' => $row['nombre']
+                'text' => $row['nombre'],
+                'tipo_asignatura' => $row['tipo_asignatura']
             ];
         }
 

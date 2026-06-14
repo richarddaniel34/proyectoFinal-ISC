@@ -26,13 +26,14 @@
     <h4 class="mt-4"></h4>
     <div>
       <p>
-        <a href="<?php echo base_url(); ?>schoolyear/nuevo" class=" btn btn-primary text-light " id="plus-user"><i class="fa-solid fa-plus"></i>Agregar</a>
+        <a href="<?php echo base_url(); ?>schoolyear/nuevo" class=" btn btn-primary text-light " id="plus-user"><i class="fa-solid fa-calendar-plus"></i> <b>CREAR NUEVO AÑO ESCOLAR</b></a>
+         <a href="<?php echo base_url(); ?>schoolyear/nuevo" class=" btn btn-warning text-light " id="plus-user"><i class="fa-solid fa-calendar-plus"></i> <b>VALIDAR AÑO</b></a>
       </p>
     </div>
     <div class="">
       <div class="tab-pane " id="list">
         <div class="table-responsive">
-          <table class="table table-hover table-striped text-center" id="datatablesSimple">
+          <table class="table table-hover table-striped text-center tabla-basica" id="">
             <thead class="title-table">
               <tr>
                 <th class="text-center">Nombre</th>

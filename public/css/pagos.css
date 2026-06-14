@@ -1,0 +1,646 @@
+/* ===============================
+   PAGOS - INSCRIPCIÓN
+================================ */
+
+/*============================
+Home de pagos
+=============================*/
+
+.pagos-home-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.pagos-home-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+  border-left: 4px solid #0b1065;
+  padding-left: 14px;
+}
+
+.pagos-home-toolbar h4 {
+  margin: 0;
+  color: #0b1065;
+  font-weight: 700;
+}
+
+.pagos-home-toolbar p {
+  margin: 4px 0 0;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.pagos-home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pagos-home-actions .btn {
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 9px 14px;
+  text-transform: uppercase;
+}
+
+.pagos-home-actions .btn i {
+  margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+  .pagos-home-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pagos-home-actions {
+    width: 100%;
+  }
+
+  .pagos-home-actions .btn {
+    width: 100%;
+  }
+}
+
+/*===================================*/
+
+.pago-inscripcion-form {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* Tarjetas generales */
+.pago-header-card,
+.pago-filtros-card,
+.pago-tabla-card,
+.pago-resumen-final,
+.pago-mini-resumen {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 14px;
+}
+
+/* Encabezado interno más discreto */
+.pago-header-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  border-left: 4px solid #0b1065;
+}
+
+.pago-header-card h4 {
+  margin: 0;
+  color: #0b1065;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.pago-header-card p {
+  margin: 4px 0 0;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+/* Badge año escolar */
+.pago-year-badge {
+  background: #eef2ff;
+  color: #0b1065;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* Filtros */
+.pago-filtros-card {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.pago-filtros-card label {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* Checkbox pagar todo */
+.pago-completo-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: #f8f9fa;
+  border: 1px dashed #b8c0cc;
+  border-radius: 8px;
+
+  padding: 12px 16px;
+  min-height: 60px;
+}
+
+.pago-completo-box input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.pago-completo-texto {
+  display: flex;
+  flex-direction: column;
+}
+
+.pago-completo-texto label {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.pago-completo-texto small {
+  margin-top: 2px;
+  color: #6c757d;
+  font-size: 12px;
+}
+
+/* Mini resumen compacto */
+.pago-mini-resumen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  background: #f8fafc;
+  padding: 10px 14px;
+}
+
+.pago-mini-resumen div {
+  border-left: 3px solid #0b1065;
+  padding-left: 12px;
+}
+
+.pago-mini-resumen span {
+  display: block;
+  color: #6c757d;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.pago-mini-resumen strong {
+  display: block;
+  font-size: 18px;
+  color: #212529;
+  line-height: 1.1;
+}
+
+/* Tabla */
+.tabla-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 12px;
+}
+
+.tabla-header h5 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  color: #212529;
+}
+
+.tabla-header small {
+  color: #6c757d;
+  font-size: 13px;
+}
+
+.pago-tabla {
+  margin-bottom: 0;
+  border-collapse: collapse;
+}
+
+.pago-tabla thead th {
+  background: #212529;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border: none;
+  padding: 12px 10px;
+}
+
+.pago-tabla tbody td {
+  vertical-align: middle;
+  border-bottom: 1px solid #e9ecef;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.pago-tabla tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.pago-tabla tbody tr.fila-bloqueada,
+.pago-tabla tbody tr.bloqueado {
+  background: #f1f3f5;
+  color: #6c757d;
+}
+
+.pago-tabla tbody tr.fila-bloqueada select,
+.pago-tabla tbody tr.fila-bloqueada input,
+.pago-tabla tbody tr.bloqueado select,
+.pago-tabla tbody tr.bloqueado input {
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.tabla-empty {
+  padding: 28px !important;
+  color: #6c757d;
+  text-align: center;
+}
+
+.tabla-empty i {
+  display: inline-block;
+  font-size: 20px;
+  margin-right: 6px;
+  color: #6c757d;
+}
+
+/* Resumen final */
+.pago-resumen-final {
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr 1.3fr;
+  gap: 14px;
+  align-items: end;
+  border-top: 3px solid #0b1065;
+  padding-top: 16px;
+}
+
+.pago-metodo label,
+.pago-total-box label {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.pago-metodo small {
+  color: #6c757d;
+  font-size: 12px;
+}
+
+.total-input input {
+  font-size: 18px;
+  font-weight: 700;
+  color: #212529;
+}
+
+/* Resumen detalle */
+.pago-detalle-box {
+  background: #eef5ff;
+  border-left: 4px solid #0b1065;
+  border-radius: 8px;
+  padding: 10px 12px;
+  min-height: 62px;
+}
+
+.pago-detalle-box strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #0b1065;
+  font-size: 14px;
+}
+
+.pago-detalle-box li {
+  font-size: 14px;
+}
+
+/* Botones */
+.pago-actions {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pago-actions .btn {
+  border-radius: 8px;
+  font-weight: 700;
+  padding: 10px 14px;
+}
+
+/* Estados */
+.estado-inscrito,
+.estado-disponible,
+.estado-pendiente {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.estado-inscrito {
+  background: #dc3545;
+  color: #fff;
+}
+
+.estado-disponible {
+  background: #198754;
+  color: #fff;
+}
+
+.estado-pendiente {
+  background: #ffc107;
+  color: #212529;
+}
+
+/* ==========================
+   INPUTS DE RESUMEN PAGOS
+========================== */
+
+.pago-metodo .input-group,
+.pago-total-box .input-group {
+  align-items: stretch;
+}
+
+.pago-metodo .input-group-text,
+.pago-total-box .input-group-text {
+  height: 42px;
+  min-width: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+}
+
+.pago-metodo .form-control,
+.pago-total-box .form-control {
+  height: 42px !important;
+
+  border: 1px solid #dee2e6 !important;
+  border-left: none !important;
+  border-radius: 0 8px 8px 0 !important;
+
+  background: #fff !important;
+  padding: 0 12px !important;
+}
+
+.pago-total-box .form-control {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.pago-total-box .input-group-text {
+  font-weight: 700;
+}
+
+/*==================== MENSUALIDADES =================*/
+/* ==========================
+   TARJETAS DE MENSUALIDADES
+========================== */
+
+.mensualidades-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mensualidad-card {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.mensualidad-card:hover {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.mensualidad-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.mensualidad-header h6 {
+  margin: 0;
+  font-weight: 700;
+  color: #212529;
+}
+
+.mensualidad-curso {
+  color: #6c757d;
+  font-size: 13px;
+}
+
+.meses-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.mes-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: #f8f9fa;
+}
+
+.mes-item label {
+  margin: 0;
+  font-size: 13px;
+}
+
+.total-estudiante {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid #dee2e6;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-weight: 700;
+}
+
+.seleccionar-estudiante {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.total-estudiante-valor {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.total-estudiante-valor input {
+  width: 100px;
+  border: none !important;
+  background: transparent !important;
+  font-weight: 700;
+}
+
+.mes-item strong {
+  margin-left: auto;
+  font-size: 13px;
+}
+
+.mes-item em {
+  margin-left: 6px;
+  font-style: normal;
+  color: #198754;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.total-pago-visual {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.total-moneda {
+  background: #f8f9fa;
+  border-right: 1px solid #dee2e6;
+  padding: 10px 14px;
+  font-weight: 700;
+  min-width: 65px;
+  text-align: center;
+}
+
+.total-pago-visual input {
+  flex: 1;
+  border: none !important;
+  background: #fff !important;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px 14px !important;
+}
+
+.total-pago-visual input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/*===================================================*/
+
+/* Responsive */
+@media (max-width: 992px) {
+  .pago-header-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pago-mini-resumen {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .pago-resumen-final {
+    position: static;
+    grid-template-columns: 1fr;
+  }
+
+  .pago-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .tabla-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/*======= VISTA DE ESTUDIANTE =======*/
+
+.pagos-estudiante-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pago-estudiante-info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 14px;
+  margin-top: 16px;
+}
+
+.pago-estudiante-info div {
+  border-left: 3px solid #0b1065;
+  padding-left: 12px;
+}
+
+.pago-estudiante-info span {
+  display: block;
+  color: #6c757d;
+  font-size: 13px;
+}
+
+.pago-estudiante-info strong {
+  font-size: 16px;
+  color: #212529;
+}
+
+.tabla-pagos-estudiante thead th {
+  background: #212529;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.tabla-pagos-estudiante td {
+  vertical-align: middle;
+}
+
+.pagos-estudiante-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #dee2e6;
+}
+
+@media (max-width: 768px) {
+  .pago-estudiante-info {
+    grid-template-columns: 1fr;
+  }
+
+  .pagos-estudiante-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -20,7 +20,7 @@
     <div class="">
       <div class="tab-pane " id="list">
         <div class="table-responsive">
-          <table class="table table-hover table-striped" id="datatablesSimple">
+          <table class="table table-hover table-striped tabla-basica" id="">
             <thead class="title-table">
               <tr>
                 <th class="text-center">Nombre</th>

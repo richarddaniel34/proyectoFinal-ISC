@@ -112,6 +112,16 @@ class InscripcionesModel extends Model
 
 
 
+    //OBTENER ESTUDIANTES INSCRITOS POR AÑO ESCOLAR
+
+
+
+
+
+
+
+    /*
+
     public function getEstudiantesPorCurso($id_curso)
     {
         return $this->select('
@@ -126,6 +136,26 @@ class InscripcionesModel extends Model
             ->orderBy('estudiantes.apellido', 'ASC')
             ->findAll();
     }
+
+    */
+
+
+    public function getEstudiantesPorCurso($id_curso, $id_schoolyear)
+    {
+        return $this->select('
+        inscripciones.id AS id_inscripcion, 
+        estudiantes.nombre, 
+        estudiantes.apellido
+    ')
+            ->join('estudiantes', 'estudiantes.id = inscripciones.id_estudiante')
+            ->where('inscripciones.id_curso', $id_curso)
+            ->where('inscripciones.id_schoolYear', $id_schoolyear)
+            ->where('inscripciones.activo', 1)
+            ->orderBy('estudiantes.apellido', 'ASC')
+            ->findAll();
+    }
+
+
 
 
 

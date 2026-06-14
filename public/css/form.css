@@ -1,33 +1,46 @@
-/* Fondo general de las pestañas */
-.nav-tabs {
-  background-color: #0b1065;
-  border-radius: 0.25rem;
-  padding: 0.5rem;
+/* VARIABLES*/
+:root {
+  --pb-primary: #0b1065;
+  --pb-primary-soft: #eef2ff;
+  --pb-dark: #212529;
+  --pb-border: #e5e7eb;
+  --pb-muted: #6b7280;
+  --pb-bg: #f8fafc;
+  --pb-success: #198754;
+  --pb-danger: #dc3545;
+  --pb-radius: 14px;
+  --pb-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
-/* Estilo base de cada pestaña */
+/* Fondo general de las pestañas */
+.nav-tabs {
+  background-color: var(--pb-primary);
+  border-radius: 10px;
+  padding: 0.5rem;
+  border: none;
+  margin-bottom: 24px;
+}
+
 .nav-tabs .nav-link {
   color: #ffffff;
   background-color: transparent;
   border: none;
-  margin-right: 5px;
+  margin-right: 6px;
   font-weight: 500;
-  transition: background-color 0.3s, color 0.3s;
+  border-radius: 8px;
+  padding: 10px 18px;
+  transition: all 0.25s ease;
 }
 
-/* Estilo al pasar el mouse */
 .nav-tabs .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.12);
   color: #ffffff;
 }
 
-/* Pestaña activa */
 .nav-tabs .nav-link.active {
   background-color: #ffffff;
-  color: #0b1065;
-  border-radius: 0.25rem;
-  font-weight: bold;
-  margin-left: 0.5rem;
+  color: var(--pb-primary);
+  font-weight: 700;
 }
 
 /* Opcional: mantener coherencia en el borde redondeado */
@@ -36,6 +49,13 @@
 }
 
 /*FORMULARIOS*/
+
+.formulario-personalizado {
+  background: #fff;
+  border-radius: var(--pb-radius);
+  padding: 24px;
+  box-shadow: var(--pb-shadow);
+}
 
 /* Estilo general para inputs, selects y textareas */
 .formulario-personalizado input.form-control,
@@ -114,6 +134,26 @@
   font-size: 13px;
 }
 
+.form-section-card {
+  background: #fff;
+  border: 1px solid var(--pb-border);
+  border-radius: var(--pb-radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.form-section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--pb-dark);
+  margin-bottom: 6px;
+}
+
+.form-section-subtitle {
+  color: var(--pb-muted);
+  margin-bottom: 22px;
+}
+
 /*VALIDACIONES*/
 
 .invalid-feedback {
@@ -139,6 +179,16 @@
   background-color: #f0f0f0;
   color: #555;
   cursor: not-allowed;
+}
+
+.btn-sistema {
+  border-radius: 10px;
+  font-weight: 700;
+  padding: 10px 22px;
+}
+
+.btn-sistema i {
+  margin-right: 6px;
 }
 
 @keyframes shake {
@@ -200,30 +250,53 @@
   margin-left: 8px;
 }
 
+/* SELECT2 ESTILO FORMULARIO PANTHERBOOK */
 
+.formulario-personalizado .select2-container {
+  width: 100% !important;
+}
 
-.select2-linea .select2-selection {
+.formulario-personalizado
+  .select2-container--default
+  .select2-selection--single {
   background-color: white !important;
   border: none !important;
   border-bottom: 1px solid #d2d2d2 !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   height: 36px !important;
-  padding: 3px 10px !important;
 }
 
-.select2-linea .select2-selection__rendered {
+.formulario-personalizado
+  .select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
   color: #000 !important;
   font-size: 14px !important;
-  line-height: 28px !important;
-  padding-left: 0 !important;
+  line-height: 36px !important;
+  padding-left: 10px !important;
+  padding-right: 24px !important;
 }
 
-.select2-linea .select2-selection__arrow {
-  height: 34px !important;
+.formulario-personalizado
+  .select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  height: 36px !important;
 }
 
-.select2-linea.select2-container--focus .select2-selection,
-.select2-linea.select2-container--open .select2-selection {
+.formulario-personalizado
+  .select2-container--default.select2-container--focus
+  .select2-selection--single,
+.formulario-personalizado
+  .select2-container--default.select2-container--open
+  .select2-selection--single {
   border-bottom: 2px solid #0b1065 !important;
+}
+
+.formulario-personalizado
+  .select2-container--default
+  .select2-selection--single
+  .select2-selection__placeholder {
+  color: #777 !important;
 }

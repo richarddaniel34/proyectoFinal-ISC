@@ -32,7 +32,10 @@ $error = session()->getFlashdata('error');
 
 <div class="container-fluid">
   <div class="page-header">
-    <h1 class="text-titles">CALIFICACIONES/ <small><?= esc($titulo); ?></small></h1>
+    <h1 class="text-titles">
+      <i class="fa-solid fa-clipboard-check"></i>
+      CALIFICACIONES/ <small><?= esc($titulo); ?></small>
+    </h1>
   </div>
 </div>
 
@@ -50,44 +53,48 @@ $esDocente = ($tipo_usuario == 3);
     <input type="hidden" name="id_distribucion_asignatura" id="id_distribucion_asignatura">
     <div id="inscripciones-container"></div>
 
-    <div class="form-row mb-3">
+    <div class="card card-calificaciones mb-3">
+      <div class="card-body">
 
-      <div class="col-12 col-sm-4">
-        <div class="form-group label-floating">
-          <label for="docente" class="control-label">Docente:</label>
+        <div class="form-row mb-0">
 
-          <?php if ($esDocente): ?>
-            <input type="text" class="form-control" value="<?= esc(session('nombre_completo')); ?>" readonly>
-            <input type="hidden" name="docente" id="docente" value="<?= esc(session('usuario_data.personal_id')); ?>">
-          <?php else: ?>
-            <select id="docente" name="docente" class="form-control select2" required>
-            </select>
-          <?php endif; ?>
+          <div class="col-12 col-sm-4">
+            <div class="form-group label-floating">
+              <label for="docente" class="control-label">Docente:</label>
+
+              <?php if ($esDocente): ?>
+                <input type="text" class="form-control" value="<?= esc(session('nombre_completo')); ?>" readonly>
+                <input type="hidden" name="docente" id="docente" value="<?= esc(session('usuario_data.personal_id')); ?>">
+              <?php else: ?>
+                <select id="docente" name="docente" class="form-control select2" required>
+                </select>
+              <?php endif; ?>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-4">
+            <div class="form-group label-floating">
+              <label for="curso" class="control-label">Curso:</label>
+              <select id="curso" name="curso" class="form-control select2" required>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-4">
+            <div class="form-group label-floating">
+              <label for="asignatura" class="control-label">Asignatura:</label>
+              <select id="asignatura" name="asignatura" class="form-control select2" required>
+                <option value="">Seleccione una asignatura</option>
+              </select>
+            </div>
+          </div>
+
         </div>
 
       </div>
-
-      <div class="col-12 col-sm-4">
-        <div class="form-group label-floating">
-          <label for="curso" class="control-label">Curso:</label>
-          <select id="curso" name="curso" class="form-control select2" required>
-          </select>
-        </div>
-      </div>
-
-      <div class="col-12 col-sm-4">
-        <div class="form-group label-floating">
-          <label for="asignatura" class="control-label">Asignatura:</label>
-          <select id="asignatura" name="asignatura" class="form-control select2" required>
-            <option value="">Seleccione una asignatura</option>
-          </select>
-        </div>
-
-      </div>
-
     </div>
 
-    <ul class="nav nav-tabs mb-3" id="periodosTabs" role="tablist">
+    <ul class="nav nav-tabs mb-3 tabs-calificaciones" id="periodosTabs" role="tablist">
       <?php foreach (['P1', 'P2', 'P3', 'P4'] as $i => $p): ?>
         <li class="nav-item">
           <a class="nav-link <?= $i === 0 ? 'active' : '' ?>"
@@ -114,7 +121,7 @@ $esDocente = ($tipo_usuario == 3);
           role="tabpanel">
 
           <div class="tabla-calificaciones-container">
-            <table class="tabla-calificaciones table table-striped" id="tabla-<?= $p ?>">
+            <table class="tabla-calificaciones table table-striped table-bordered" id="tabla-<?= $p ?>">
               <thead></thead>
               <tbody></tbody>
             </table>
@@ -125,7 +132,7 @@ $esDocente = ($tipo_usuario == 3);
 
       <div class="tab-pane fade" id="content-RES" role="tabpanel">
         <div class="tabla-calificaciones-container">
-          <table class="tabla-calificaciones table table-striped" id="tabla-RES">
+          <table class="tabla-calificaciones table table-striped table-bordered" id="tabla-RES">
             <thead></thead>
             <tbody></tbody>
           </table>
@@ -136,6 +143,7 @@ $esDocente = ($tipo_usuario == 3);
     <?php if ($esDocente): ?>
       <div class="form-calificaciones-footer mt-3">
         <button type="submit" class="btn btn-primary">
+          <i class="fa-solid fa-floppy-disk"></i>
           Guardar Calificaciones
         </button>
       </div>

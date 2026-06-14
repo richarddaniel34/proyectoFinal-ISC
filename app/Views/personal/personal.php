@@ -13,8 +13,8 @@
     <h4 class="mt-4"></h4>
     <div>
       <p>
-        <a href="<?php echo base_url(); ?>personal/nuevo" class=" btn btn-primary text-light " id="plus-user"><i class="fa-solid fa-user-plus"></i>Agregar</a>
-        <a href="<?php echo base_url(); ?>personal/eliminados" class="btn btn-danger text-light" id="minus-user"><i class="fa-solid fa-user-minus"></i> Eliminados</a>
+        <a href="<?php echo base_url(); ?>personal/nuevo" class=" btn btn-primary text-light " id="plus-user"><i class="fa-solid fa-user-plus"></i> <b>AGREGAR</b></a>
+        <a href="<?php echo base_url(); ?>personal/eliminados" class="btn btn-danger text-light" id="minus-user"><i class="fa-solid fa-user-minus"></i> <b>PERSONAL INACTIVO</b></a>
       </p>
     </div>
 
@@ -22,7 +22,7 @@
     <div class="">
       <div class="tab-pane " id="list">
         <div class="table-responsive">
-          <table class="table table-hover table-striped text-center" id="datatablesSimple">
+          <table class="table table-hover table-striped text-center tabla-basica">
             <thead class="title-table">
               <tr>
                 <th class="text-center">Nombre (s)</th>
@@ -30,8 +30,6 @@
                 <th class="text-center">Cedula</th>
                 <th class="text-center">Télefono / Célular</th>
                 <th class="text-center">Direccion</th>
-                <th class="text-center"></th>
-                <th class="text-center"></th>
                 <th class="text-center"></th>
               </tr>
             </thead>
@@ -44,9 +42,11 @@
                   <td> <?php echo $dato['telefono'] . ' / ' . $dato['celular']; ?>
                   </td>
                   <td> <?php echo $dato['direccion'] ?> </td>
-                  <td><a href="#" class="text-primary" onclick="visualizarPersonal(<?= $dato['id']; ?>)"><i class="fa-solid fa-eye"></i></a></td>
-                  <td><a href="<?php echo base_url() . 'personal/editar/' . $dato['id']; ?>" class="text-warning"><i class="fa-solid fa-edit"></i></a></td>
-                  <td><a href="<?php echo base_url() . 'personal/eliminar/' . $dato['id']; ?>" class="text-danger"><i class="fa-solid fa-trash"></i></a></td>
+                  <td><a href="#" class="text-primary" onclick="visualizarPersonal(<?= $dato['id']; ?>)"><i class="fa-solid fa-eye"></i></a>
+                    <a href="<?php echo base_url() . 'personal/editar/' . $dato['id']; ?>" class="text-warning"><i class="fa-solid fa-edit"></i></a>
+                    <a href="<?php echo base_url() . 'personal/eliminar/' . $dato['id']; ?>" class="text-danger"><i class="fa-solid fa-trash"></i></a>
+                  </td>
+
 
                 </tr>
               <?php } ?>
@@ -59,8 +59,8 @@
         <h3>Leyenda:</h3>
         <p>
           <i class="fa-solid fa-eye"></i> <strong>Ver</strong> – Visualizar los detalles del registro |
-           <i class="fa-solid fa-edit"></i> <strong>Editar</strong> – Modificar los datos del registro |
-           <i class="fa-solid fa-trash"></i> <strong>Eliminar</strong> – Inactivar o eliminar el registro
+          <i class="fa-solid fa-edit"></i> <strong>Editar</strong> – Modificar los datos del registro |
+          <i class="fa-solid fa-trash"></i> <strong>Eliminar</strong> – Inactivar o eliminar el registro
         </p>
       </div>
     </div>

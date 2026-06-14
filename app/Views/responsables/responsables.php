@@ -20,7 +20,7 @@
     <div class="">
       <div class="tab-pane " id="list">
         <div class="table-responsive">
-          <table class="table table-hover table-striped text-left" id="datatablesSimple">
+          <table class="table table-hover table-striped text-left tabla-basica" id="">
             <thead class="title-table">
               <tr>
                 <th class="text-center">Nombre y Apellidos (s)</th>

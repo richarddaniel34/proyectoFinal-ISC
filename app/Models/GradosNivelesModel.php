@@ -78,6 +78,10 @@ class GradosNivelesModel extends Model
     }
 
 
+
+    
+
+
     public function getGradosPorEscuela_inactivos($id_escuela)
     {
         // Instanciar modelo Escuela

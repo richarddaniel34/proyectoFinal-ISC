@@ -1,76 +1,94 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ Script de usuario cargado correctamente");
+  console.log("✅ Script de usuario cargado correctamente");
 
-    let nombreInput = document.getElementById("nombre");
-    let apellidoInput = document.getElementById("apellido");
-    let usuarioInput = document.getElementById("usuario");
-    let claveInput = document.getElementById("clave");
-    let confirmar_clave = document.getElementById("confirmar_clave");
+  let nombreInput = document.getElementById("nombre");
+  let apellidoInput = document.getElementById("apellido");
+  let usuarioInput = document.getElementById("usuario");
+  let claveInput = document.getElementById("clave");
+  let confirmar_clave = document.getElementById("confirmar_clave");
 
-    if (!nombreInput || !apellidoInput || !usuarioInput || !claveInput) {
-        console.error("❌ Error: No se encontraron los elementos necesarios.");
-        return;
+  if (!nombreInput || !apellidoInput || !usuarioInput || !claveInput) {
+    console.error("❌ Error: No se encontraron los elementos necesarios.");
+    return;
+  }
+
+  function limpiarTextoUsuario(texto) {
+    return texto
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/ñ/g, "n")
+      .replace(/Ñ/g, "N")
+      .replace(/[^a-zA-Z0-9\s]/g, "")
+      .trim();
+  }
+
+  function generarUsuario() {
+    let nombre = limpiarTextoUsuario(nombreInput.value.trim());
+    let apellido = limpiarTextoUsuario(apellidoInput.value.trim());
+
+    console.log("📥 Nombre capturado:", nombre);
+    console.log("📥 Apellido capturado:", apellido);
+
+    if (nombre === "" || apellido === "") {
+      console.warn(
+        "⚠️ Advertencia: Nombre o apellido vacío, no se generará usuario.",
+      );
+      return;
     }
 
-    function generarUsuario() {
-        let nombre = nombreInput.value.trim();
-        let apellido = apellidoInput.value.trim();
+    let nombreParts = nombre.split(" ").filter((n) => n.trim() !== "");
+    let apellidoParts = apellido.split(" ").filter((a) => a.trim() !== "");
 
-        console.log("📥 Nombre capturado:", nombre);
-        console.log("📥 Apellido capturado:", apellido);
+    let usuarioBase = "";
 
-        if (nombre === "" || apellido === "") {
-            console.warn("⚠️ Advertencia: Nombre o apellido vacío, no se generará usuario.");
-            return;
-        }
+    if (nombreParts.length >= 2) {
+      usuarioBase =
+        nombreParts[0].charAt(0).toLowerCase() +
+        nombreParts[1].charAt(0).toLowerCase();
+    } else {
+      usuarioBase = nombreParts[0].substring(0, 2).toLowerCase();
+    }
 
-        // 🔥 Separar nombres y apellidos correctamente
-        let nombreParts = nombre.split(" ").filter(n => n.trim() !== "");
-        let apellidoParts = apellido.split(" ").filter(a => a.trim() !== "");
+    let primerApellido =
+      apellidoParts.length > 0 ? apellidoParts[0].toLowerCase() : "";
+    let segundoApellidoLetra =
+      apellidoParts.length > 1 ? apellidoParts[1].charAt(0).toLowerCase() : "";
 
-        console.log("🔍 Partes del Nombre:", nombreParts);
-        console.log("🔍 Partes del Apellido:", apellidoParts);
+    usuarioBase += primerApellido + segundoApellidoLetra;
 
-        let usuarioBase = "";
+    console.log("📤 Usuario base generado ANTES de AJAX:", usuarioBase);
 
-        if (nombreParts.length >= 2) {
-            usuarioBase = nombreParts[0].charAt(0).toLowerCase() + nombreParts[1].charAt(0).toLowerCase();
+    usuarioInput.value = usuarioBase;
+    claveInput.value = usuarioBase;
+
+    let formData = new FormData();
+    formData.append("nombre", nombre);
+    formData.append("apellido", apellido);
+
+    fetch(baseUrl + "usuarios/validarUsuario", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.usuario) {
+          let usuarioLimpio = limpiarTextoUsuario(data.usuario).toLowerCase();
+
+          console.log(
+            "✅ Usuario final validado DESPUÉS de AJAX:",
+            usuarioLimpio,
+          );
+
+          usuarioInput.value = usuarioLimpio;
+          claveInput.value = usuarioLimpio;
+          confirmar_clave.value = usuarioLimpio;
         } else {
-            usuarioBase = nombreParts[0].substring(0, 2).toLowerCase();
+          console.error("❌ Error en la respuesta de la API:", data);
         }
+      })
+      .catch((error) => console.error("❌ Error en la solicitud:", error));
+  }
 
-        let primerApellido = apellidoParts.length > 0 ? apellidoParts[0].toLowerCase() : "";
-        let segundoApellidoLetra = apellidoParts.length > 1 ? apellidoParts[1].charAt(0).toLowerCase() : "";
-
-        usuarioBase += primerApellido + segundoApellidoLetra;
-
-        console.log("📤 Usuario base generado ANTES de AJAX:", usuarioBase);
-
-        usuarioInput.value = usuarioBase;
-        claveInput.value = usuarioBase; // También asignar como clave
-
-        let formData = new FormData();
-        formData.append("nombre", nombre);
-        formData.append("apellido", apellido);
-
-        fetch("http://localhost/edsn/public/usuarios/validarUsuario", {
-            method: "POST",
-            body: formData,
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.usuario) {
-                console.log("✅ Usuario final validado DESPUÉS de AJAX:", data.usuario);
-                usuarioInput.value = data.usuario; 
-                claveInput.value = data.usuario; // También asignar la misma clave
-                confirmar_clave.value = data.usuario;
-            } else {
-                console.error("❌ Error en la respuesta de la API:", data);
-            }
-        })
-        .catch((error) => console.error("❌ Error en la solicitud:", error));
-    }
-
-    nombreInput.addEventListener("input", generarUsuario);
-    apellidoInput.addEventListener("input", generarUsuario);
+  nombreInput.addEventListener("input", generarUsuario);
+  apellidoInput.addEventListener("input", generarUsuario);
 });

@@ -12,12 +12,21 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-	<link rel="stylesheet" href="<?php echo base_url(); ?>css/datatables.css">
+
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/font_awesome.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/pagos.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/estudiantes.css">
 	<!--<link rel="stylesheet" href="css/bootstrap-material-design.min">-->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>css/form.css" type="text/css">
+
+	<!-- DataTables Bootstrap 4 CSS -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap4.min.css">
+
+	<link rel="stylesheet" href="<?= base_url('css/form.css') ?>?v=3">
+	<link rel="stylesheet" href="<?= base_url('css/calificaciones.css') ?>?v=3">
 	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/logo/censa-favicon.ico" type="image/x-icon">
 
 	<!-- Estilo personalizado para el dropdown de escuelas -->
@@ -169,7 +178,7 @@
 					<img src="<?= session('foto') ?>" alt="Foto de perfil">
 					<!--<img src="<?php //echo base_url(); 
 									?>/assets/img/avatar.jpg" alt="UserIcon">-->
-					<figcaption class="text-center text-titles">Usuario: <?= session('usuario') ?></figcaption>
+					<figcaption class="text-center text-titles"> <b>USUARIO: </b><?= session('usuario') ?></figcaption>
 				</figure>
 				<ul class="full-box list-unstyled text-center">
 					<li>
@@ -205,17 +214,21 @@
 					in_array($funcion, ['Digitador/a', 'Secretaria/o'])
 				)
 			);
+			$puedeConfiguracion = (
+				in_array($tipo, ['Administrador', 'S-ADMIN'])
+			);
 			?>
+
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				<li>
 					<a href="<?php echo base_url(); ?>home">
-						<i class="fa-solid fa-gauge"></i> Dashboard
+						<i class="fa-solid fa-gauge"></i> <b>DASHBOARD</b>
 					</a>
 				</li>
 				<?php if ($puedeRegistro): ?>
 					<li>
 						<a href="#!" class="btn-sideBar-SubMenu">
-							<i class="fa-solid fa-address-card "></i> REGISTRO
+							<i class="fa-solid fa-address-card "></i> <b>REGISTRO</b>
 							<i class="zmdi zmdi-caret-down pull-right"></i>
 						</a>
 						<ul class="list-unstyled full-box">
@@ -228,59 +241,63 @@
 							<li>
 								<a href="<?php echo base_url(); ?>estudiantes"><i class="fa-solid fa-user-graduate"></i> Estudiantes</a>
 							</li>
-							<li>
-								<a href="<?php echo base_url(); ?>inscripciones/relacion"><i class="fa-solid fa-user-graduate"></i> Relación Estudiantes</a>
-							</li>
-							<li>
-								<a href="<?php echo base_url(); ?>asistencia"><i class="fa-solid fa-user-graduate"></i> Asistencia</a>
-							</li>
+
 						</ul>
 					</li>
 				<?php endif; ?>
 
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="fa-solid fa-address-card "></i> Calificaciones <i class="zmdi zmdi-caret-down pull-right"></i>
+						<i class="fa-solid fa-graduation-cap"></i> <b> GESTIÓN ACADEMICA </b>
+						<i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="<?php echo base_url(); ?>calificaciones"><i class=" fa-solid fa-users"></i> Calificaciones</a>
+							<a href="<?php echo base_url(); ?>inscripciones/relacion"><i class="fa-solid fa-user-graduate"></i> Relación Estudiantes</a>
+						</li>
+						<li>
+							<a href="<?php echo base_url(); ?>asistencia"><i class="fa-solid fa-calendar-check"></i> Asistencia</a>
+						</li>
+						<li>
+							<a href="<?php echo base_url(); ?>docenteguia"><i class="fa-solid fa-chalkboard-user"></i> Docente Guia</a>
+						</li>
+						<li>
+							<a href="<?php echo base_url(); ?>distribucion-academica"><i class="fa-solid fa-diagram-project"></i> Distribución Academica</a>
+						</li>
+						<li>
+							<a href="<?php echo base_url(); ?>calificaciones"><i class="fa-solid fa-clipboard-check"></i> Calificaciones</a>
 						</li>
 					</ul>
-
 				</li>
+
+
 
 				<li>
 					<a href="<?php echo base_url(); ?>reportes" class="btn-sideBar-SubMenu">
-						<i class="fa-solid fa-address-card "></i> REPORTES <i class="zmdi zmdi-caret-down pull-right"></i>
+						<i class="fa-solid fa-address-card "></i> <b>REPORTES</b> <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
 				</li>
 
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Usuarios <i class="zmdi zmdi-caret-down pull-right"></i>
+						<i class="fa-solid fa-user"></i> <b>USUARIOS</b> <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
 							<a href="<?php echo base_url(); ?>usuarios/listarUsuarios"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Personal</a>
 						</li>
-						<li>
-							<a href="teacher.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Teacher</a>
-						</li>
-						<li>
-							<a href="student.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i> Student</a>
-						</li>
-						<li>
-							<a href="representative.html"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Representative</a>
-						</li>
 					</ul>
 				</li>
-				<?php if ($puedePago): ?>
-					<li>
-						<a href="#!" class="btn-sideBar-SubMenu">
-							<i class="fa-solid fa-dollar-sign"></i> Pagos<i class="zmdi zmdi-caret-down pull-right"></i>
-						</a>
-						<ul class="list-unstyled full-box">
+
+				<li>
+					<a href="#!" class="btn-sideBar-SubMenu">
+						<i class="fa-solid fa-dollar-sign"></i> <b>PAGOS</b><i class="zmdi zmdi-caret-down pull-right"></i>
+					</a>
+					<ul class="list-unstyled full-box">
+						<li>
+							<a href="<?= base_url('student/mis_pagos') ?>"><i class="fa-solid fa-receipt"></i> Mis Pagos</a>
+						</li>
+						<?php if ($puedePago): ?>
 							<li>
 								<a href="<?php echo base_url(); ?>pagos"><i class="fa-solid fa-money-bill-1"></i> Gestión de Pagos</a>
 							</li>
@@ -290,31 +307,33 @@
 							<li>
 								<a href="payments.html"><i class="zmdi zmdi-money zmdi-hc-fw"></i> </a>
 							</li>
+						<?php endif; ?>
+					</ul>
+				</li>
+
+				<?php if ($puedeConfiguracion): ?>
+
+					<li>
+						<a href="#!" class="btn-sideBar-SubMenu">
+							<i class="fa-solid fa-gear"></i> <b>CONFIGURACIÓN</b><i class="zmdi zmdi-caret-down pull-right"></i>
+						</a>
+						<ul class="list-unstyled full-box">
+							<li>
+								<a href="<?php echo base_url(); ?>escuela"><i class="fa-solid fa-school"></i> Informacion de la Escuela</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>schoolyear"><i class="fa-solid fa-calendar-days"></i> Periodo Academico</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>estructura-academica"><i class="fas fa-sitemap"></i> Estructura Academica</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>asignaturas"><i class="fa-solid fa-book"></i> Asignaturas</a>
+							</li>
+
 						</ul>
 					</li>
 				<?php endif; ?>
-				<li>
-					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="fa-solid fa-gear"></i> Configuracion <i class="zmdi zmdi-caret-down pull-right"></i>
-					</a>
-					<ul class="list-unstyled full-box">
-						<li>
-							<a href="<?php echo base_url(); ?>escuela"><i class="fa-solid fa-school"></i> Informacion de la Escuela</a>
-						</li>
-						<li>
-							<a href="<?php echo base_url(); ?>schoolyear"><i class="fa-solid fa-calendar-days"></i> Periodo Academico</a>
-						</li>
-						<li>
-							<a href="<?php echo base_url(); ?>grados-y-secciones"><i class="fa-solid fa-graduation-cap"></i> <i class="fa-solid fa-a"></i><i class="fa-solid fa-b"></i><i class="fa-solid fa-c"></i> Grados y secciones</a>
-						</li>
-						<li>
-							<a href="<?php echo base_url(); ?>asignaturas"><i class="fa-solid fa-book"></i> Asignaturas</a>
-						</li>
-						<li>
-							<a href="<?php echo base_url(); ?>docenteguia"><i class="fa-solid fa-book"></i> Docente Guia</a>
-						</li>
-					</ul>
-				</li>
 			</ul>
 		</div>
 	</section>

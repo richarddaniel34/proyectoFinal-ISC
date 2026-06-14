@@ -203,7 +203,8 @@ function cargarAlumnosAcademico(periodo, compCodes) {
     const $tbody = $(`#tabla-${periodo} tbody`).empty();
 
     $.getJSON(
-      `/censa-prueba/public/calificaciones/estudiantes-por-curso/${cursoId}`,
+      $("#estudiantes-curso-url").val() + cursoId,
+      { id_schoolyear: $("#schoolYear").val() },
       function (estudiantes) {
         _alumnosCache = Array.isArray(estudiantes) ? estudiantes : [];
         $(document).trigger("alumnos:cargados");
@@ -575,43 +576,40 @@ $(document).ready(function () {
   funcion = (getVal("funcion_usuario") || "").trim().toLowerCase();
 
   // === SELECT2 ===
- $("#curso").select2({
+  $("#curso").select2({
     theme: "bootstrap4",
     placeholder: "Seleccione un curso",
     allowClear: true,
     width: "100%",
-});
+  });
 
-$("#asignatura").select2({
+  $("#asignatura").select2({
     theme: "bootstrap4",
     placeholder: "Seleccione una asignatura",
     allowClear: true,
     width: "100%",
-});
+  });
 
-$("#curso, #asignatura").each(function () {
-
+  $("#curso, #asignatura").each(function () {
     const $select = $(this);
 
-    const select2Container = $select.next('.select2-container');
+    const select2Container = $select.next(".select2-container");
 
-    select2Container.addClass('form-control');
+    select2Container.addClass("form-control");
 
     select2Container.css({
-        'background-color': 'white',
-        'border': 'none',
-        'border-bottom': '1px solid #d2d2d2',
-        'border-radius': '0',
-        'box-shadow': 'none',
-        'color': '#000',
-        'font-size': '14px',
-        'height': '36px',
-        'line-height': '1.2',
-        'padding': '6px 10px'
+      "background-color": "white",
+      border: "none",
+      "border-bottom": "1px solid #d2d2d2",
+      "border-radius": "0",
+      "box-shadow": "none",
+      color: "#000",
+      "font-size": "14px",
+      height: "36px",
+      "line-height": "1.2",
+      padding: "6px 10px",
     });
-});
-
-
+  });
 
   const docenteIdInicial = $("#docente").val();
 
@@ -796,7 +794,7 @@ $("#curso, #asignatura").each(function () {
     });
   });
 
-   const selectsAjax = ['#curso', '#asignatura'];
+  const selectsAjax = ["#curso", "#asignatura"];
 
   const select2Container = $select.next(".select2-container");
   select2Container.addClass("form-control"); // agrega clase base

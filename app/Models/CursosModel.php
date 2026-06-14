@@ -121,7 +121,8 @@ class CursosModel extends Model
 
     public function contarCursosDisponibles($id_escuela, $id_schoolyear)
     {
-        return $this->join('cursos_base', 'cursos_base.id = cursos.id_cursos_base')
+        return $this->db->table('cursos')
+            ->join('cursos_base', 'cursos_base.id = cursos.id_cursos_base')
             ->where('cursos.id_schoolyear', $id_schoolyear)
             ->where('cursos.activo', 1)
             ->where('cursos_base.id_escuela', $id_escuela)
@@ -153,5 +154,36 @@ class CursosModel extends Model
         }
 
         return $resultado; // ahora la vista puede filtrar
+    }
+
+//CONSULTA QUE TRAE LOS CURSOS YA CONFIGURADOS
+    public function obtenerCursosConfigurados($id_escuela, $id_schoolyear, $id_servicio = null, $nombre_salida = null)
+    {
+        $builder = $this->db->table('cursos');
+
+        $builder->select('
+        cursos.*,
+        cursos_base.nombre_curso,
+        schoolyear.nombre AS schoolyear
+    ');
+
+        $builder->join('cursos_base', 'cursos_base.id = cursos.id_cursos_base');
+        $builder->join('schoolyear', 'schoolyear.id = cursos.id_schoolyear');
+
+        $builder->where('cursos_base.id_escuela', $id_escuela);
+        $builder->where('cursos.id_schoolyear', $id_schoolyear);
+
+        if (!empty($id_servicio)) {
+            $builder->where('cursos_base.id_servicio', $id_servicio);
+        }
+
+        if (!empty($nombre_salida)) {
+            $builder->like('cursos_base.nombre_curso', $nombre_salida);
+        }
+
+        return $builder
+            ->orderBy('cursos.id', 'ASC')
+            ->get()
+            ->getResultArray();
     }
 }

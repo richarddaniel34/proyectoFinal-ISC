@@ -14,9 +14,10 @@ $(document).ready(function () {
   }
 });
 
-//============================================================================
 /**
- * VENTANAS MODALES DEL MODULO DE ASIGNATURAS
+ * /////////////////////////////////////////////////////////////////////////////
+ * ================ VENTANAS MODALES DEL MODULO DE ASIGNATURAS ================
+ * ////////////////////////////////////////////////////////////////////////////
  */
 
 //========> MODAL DE EDICION DE ASIGNATURA
@@ -30,7 +31,7 @@ function editarAsignatura(id) {
             <div class="modal-dialog" role="document" style="max-width: 80%">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="edit-asig-modalLabel">Editar Datos de la Escuela</h5>
+                        <h5 class="modal-title" id="edit-asig-modalLabel">Editar Datos de la Asignatura</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -58,127 +59,42 @@ function editarAsignatura(id) {
   });
 }
 
-
-
 //========> MODAL DE CONFIRMACION DE INACTIVACION
-function confirmarInactivarAsignatura(id) {
-  $("#inactivar-asig-modal").remove();
+
+//=======> RESETEAR CONTRASEÑA
+
+function resetearClaveUsuario(id) {
+  $("#reset-clave-modal").remove();
 
   $("body").append(`
-    <div class="modal fade" id="inactivar-asig-modal" tabindex="-1" role="dialog" aria-labelledby="inactivar-asig-modalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <div class="modal fade" id="reset-clave-modal" tabindex="-1" role="dialog" aria-labelledby="reset-clave-modalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document" style="max-width: 500px">
         <div class="modal-content">
-
-          <div class="modal-header bg-danger text-white">
-            <h5 class="modal-title" id="inactivar-asig-modalLabel">Confirmar inactivación</h5>
-            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+          <div class="modal-header bg-warning">
+            <h5 class="modal-title" id="reset-clave-modalLabel">Restaurar contraseña</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
 
-          <div class="modal-body">
-            ¿Está seguro que desea inactivar esta asignatura?
+          <div class="modal-body" id="reset-clave-modal-body">
+            <!-- Aquí se cargará el formulario vía AJAX -->
           </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">
-              Cancelar
-            </button>
-
-            <a href="${baseUrl}/asignaturas/inactivar/${id}" class="btn btn-danger">
-              Sí, inactivar
-            </a>
-          </div>
-
         </div>
       </div>
     </div>
   `);
 
-  $("#inactivar-asig-modal").modal("show");
+  $.ajax({
+    url: baseUrl + "usuarios/modalResetearClave/" + id,
+    type: "GET",
+    success: function (response) {
+      $("#reset-clave-modal-body").html(response);
+      $("#reset-clave-modal").modal("show");
+    },
+  });
 }
 
-//=======> MODAL DE CONFIRMACION DE REACTIVACION DE ASIGNATURA
-function confirmarReactivarAsignatura(id) {
-  $("#reactivar-asig-modal").remove();
-
-  $("body").append(`
-    <div class="modal fade" id="reactivar-asig-modal" tabindex="-1" role="dialog" aria-labelledby="inactivar-asig-modalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-
-          <div class="modal-header bg-success text-white">
-            <h5 class="modal-title" id="reactivar-asig-modalLabel">Confirmar inactivación</h5>
-            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          <div class="modal-body">
-            ¿Está seguro que desea restaurar esta asignatura?
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">
-              Cancelar
-            </button>
-
-            <a href="${baseUrl}/asignaturas/restaurar/${id}" class="btn btn-success">
-              Sí, restaurar
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  `);
-
-  $("#reactivar-asig-modal").modal("show");
-}
-
-//======> MODAL PARA CANCELACION DE UN REGISTRO DE ASIGNATURA
-function CancelarRegistroAsignatura() {
-  $("#cancelar-asig-modal").remove();
-
-  $("body").append(`
-    <div class="modal fade" id="cancelar-asig-modal" tabindex="-1" role="dialog" aria-labelledby="cancelar-asig-modalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-
-          <div class="modal-header bg-danger text-white">
-            <h5 class="modal-title" id="cancelar-asig-modalLabel">Cancelar Registro</h5>
-            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          <div class="modal-body">
-            ¿Está seguro que desea cancelar este registro?
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">
-              Cancelar
-            </button>
-
-            <a href="${baseUrl}/asignaturas" class="btn btn-danger">
-              Sí, cancelar
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  `);
-
-  $("#cancelar-asig-modal").modal("show");
-}
-
-//============================================================================
-
-/**
- * VENTANAS MODALES DEL MODULO DE AÑO ESCOLAR
- */
 function editarYear(id) {
   // Eliminar cualquier modal previo para evitar duplicados
   $("#edit-year-modal").remove();
@@ -216,8 +132,7 @@ function editarYear(id) {
   });
 }
 
-
-
+//===========================================================================
 
 function editarDocenteGuia(id) {
   // Eliminar modal previo
@@ -295,4 +210,258 @@ function editarDocenteGuia(id) {
       alert("Error al obtener los datos");
     },
   });
+}
+
+/**
+ * ///////////////////////////////////////////////////////////////////////////
+ * ///////////////////////////////////////////////////////////////////////////
+ *
+ * ================== VENTANA MODAL PARA INCATIVAR GRADOS ==================
+ */
+
+function confirmarInactivarGrado(id) {
+  $("#inactivar-grado-modal").remove();
+
+  $("body").append(`
+    <div class="modal fade" id="inactivar-grado-modal" tabindex="-1" role="dialog" aria-labelledby="inactivar-grado-modalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title" id="inactivar-grado-modalLabel">CONFIRMAR INACTIVACIÓN</h5>
+            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            ¿Está seguro que desea inactivar este grado?
+            Esta accion no afectara a cursos ya registrados
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              <b> CANCELAR </b>
+            </button>
+
+            <a href="${baseUrl}estructura-academica/grados/inactivarGrado/${id}" class="btn btn-danger">
+             <b> SÍ, INACTIVAR </b>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  `);
+
+  $("#inactivar-grado-modal").modal("show");
+}
+
+function confirmarRestaurarGrado(id) {
+  $("#restaurar-grado-modal").remove();
+
+  $("body").append(`
+    <div class="modal fade" id="restaurar-grado-modal" tabindex="-1" role="dialog" aria-labelledby="restaurar-grado-modalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title" id="restaurar-grado-modalLabel">CONFIRMAR RESTAURACIÓN</h5>
+            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            ¿Está seguro que desea restaurar este grado?
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+             <b> CANCELAR </b>
+            </button>
+
+            <a href="${baseUrl}estructura-academica/grados/restaurarGrado/${id}" class="btn btn-success">
+             <b> SÍ, RESTAURAR </b>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  `);
+
+  $("#restaurar-grado-modal").modal("show");
+}
+
+//===========================================================================
+
+/**
+ * MODAL DE CANCELACION DE REGISTRO
+ */
+
+function mostrarModalCancelar(urlDestino) {
+  $("#modal-cancelar-registro").remove();
+
+  $("body").append(`
+    <div class="modal fade" id="modal-cancelar-registro" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header bg-danger text-white justify-content-center position-relative">
+            <h5 class="modal-title mb-0">
+              <i class="fa-solid fa-triangle-exclamation mr-2"></i>
+              CANCELAR REGISTRO
+            </h5>
+
+            <button type="button"
+                    class="close text-white position-absolute"
+                    style="right:15px;"
+                    data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body text-center">
+            <i class="fa-solid fa-triangle-exclamation fa-4x text-warning mb-3"></i>
+
+            <p class="mb-1">
+              ¿Está seguro que desea cancelar este registro?
+            </p>
+
+            <small class="text-muted">
+              Los cambios que haya hecho no se guardarán.
+            </small>
+          </div>
+
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">
+              <b>CERRAR</b>
+            </button>
+
+            <a href="${urlDestino}" class="btn btn-danger">
+              <b>SÍ, CANCELAR</b>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  `);
+
+  $("#modal-cancelar-registro").modal("show");
+}
+
+/**
+ * MODAL DE INACTIVACION DE REGISTRO
+ */
+
+function mostrarModalInactivar({
+  titulo = "INACTIVAR REGISTRO",
+  mensaje = "¿Está seguro que desea inactivar este registro?",
+  url,
+  textoBoton = "SÍ, INACTIVAR",
+}) {
+  $("#modal-inactivar-registro").remove();
+
+  $("body").append(`
+        <div class="modal fade" id="modal-inactivar-registro" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header bg-warning text-black justify-content-center position-relative">
+                        <h5 class="modal-title mb-0">
+                            <i class="fa-solid fa-triangle-exclamation mr-2"></i>
+                            ${titulo}
+                        </h5>
+
+                        <button type="button"
+                                class="close text-white position-absolute"
+                                style="right:15px;"
+                                data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body text-center">
+                        <i class="fa-solid fa-triangle-exclamation fa-4x text-warning mb-3"></i>
+
+                        <p class="mb-1">${mensaje}</p>
+
+                        <small class="text-muted">
+                            Esta acción no eliminará el registro, solo lo ocultará de los procesos activos.
+                        </small>
+                    </div>
+
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">
+                            <b>CERRAR</b>
+                        </button>
+
+                        <a href="${url}" class="btn btn-danger">
+                            <b>${textoBoton}</b>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    `);
+
+  $("#modal-inactivar-registro").modal("show");
+}
+
+function mostrarModalRestaurar({
+  titulo = "INACTIVAR REGISTRO",
+  mensaje = "¿Está seguro que desea inactivar este registro?",
+  url,
+  textoBoton = "SÍ, RESTAURAR",
+}) {
+  $("#modal-inactivar-registro").remove();
+
+  $("body").append(`
+        <div class="modal fade" id="modal-inactivar-registro" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header bg-success text-white justify-content-center position-relative">
+                        <h5 class="modal-title mb-0">
+                            <i class="fa-solid fa-triangle-exclamation mr-2"></i>
+                            ${titulo}
+                        </h5>
+
+                        <button type="button"
+                                class="close text-white position-absolute"
+                                style="right:15px;"
+                                data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body text-center">
+                        <i class="fa-solid fa-triangle-exclamation fa-4x text-warning mb-3"></i>
+
+                        <p class="mb-1">${mensaje}</p>
+
+                        <small class="text-muted">
+                            Esta acción no creara un nuevo registro, solo lo mostrara en los procesos activos.
+                        </small>
+                    </div>
+
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">
+                            <b>CERRAR</b>
+                        </button>
+
+                        <a href="${url}" class="btn btn-success">
+                            <b>${textoBoton}</b>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    `);
+
+  $("#modal-inactivar-registro").modal("show");
 }

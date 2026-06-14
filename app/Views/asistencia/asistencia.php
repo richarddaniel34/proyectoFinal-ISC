@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
   <div class="page-header">
-    <h1 class="text-titles"><i class="fa-solid fa-calendar-days"></i> Configuración/ <small><?php print_r($titulo) ?></small></h1>
+    <h1 class="text-titles"><i class="fa-solid fa-calendar-days"></i> Configuración/ <small><?php print_r($titulo_1) ?></small></h1>
   </div>
 </div>
 

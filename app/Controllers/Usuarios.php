@@ -31,10 +31,6 @@ class Usuarios extends BaseController
     }
 
 
-
-
-
-
     public function verificarLogin()
     {
         $usuario = $this->request->getPost('usuario');
@@ -154,6 +150,21 @@ class Usuarios extends BaseController
     {
         log_message('debug', 'Accediendo a la vista de cambio de clave');
         return view('usuarios/cambio_clave');
+    }
+
+
+    // METODO PARA EL MODAL DE CAMBIO DE RESTAURACION DE CONTRASEÑA
+    public function modalResetearClave($id)
+    {
+        $usuario = $this->usuarios->find($id);
+
+        if (!$usuario) {
+            return '<div class="alert alert-danger">Usuario no encontrado.</div>';
+        }
+
+        return view('usuarios/modal_resetear_clave', [
+            'usuario' => $usuario
+        ]);
     }
 
 
@@ -333,6 +344,39 @@ class Usuarios extends BaseController
             log_message('error', ' Falló la actualización de la contraseña en la base de datos');
             return redirect()->back()->with('error', 'Hubo un problema al actualizar la contraseña');
         }
+    }
+
+
+
+    public function resetearClave()
+    {
+        if (! $this->request->is('post')) {
+            return redirect()->back()->with('error', 'Método no permitido.');
+        }
+
+        $idUsuario = (int) $this->request->getPost('id_usuario');
+
+        $usuario = $this->usuarios->find($idUsuario);
+
+        if (!$usuario) {
+            return redirect()->back()->with('error', 'Usuario no encontrado.');
+        }
+
+        // La nueva contraseña será igual al usuario
+        $nuevaClave = $usuario['usuario'];
+
+        $datos = [
+            'clave'        => password_hash($nuevaClave, PASSWORD_DEFAULT),
+            'cambio_clave' => 1
+        ];
+
+        if ($this->usuarios->update($idUsuario, $datos)) {
+            return redirect()->to(base_url('usuarios/listarUsuarios'))
+                ->with('success', 'Contraseña restaurada correctamente.');
+        }
+
+        return redirect()->back()
+            ->with('error', 'No se pudo restaurar la contraseña.');
     }
 
 

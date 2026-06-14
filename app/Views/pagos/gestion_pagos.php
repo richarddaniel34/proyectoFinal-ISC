@@ -4,24 +4,40 @@
 
 <div class="container-fluid">
   <div class="page-header">
-    <h1 class="text-titles"><i class="fa-solid fa-calendar-days"></i> Pagos/ <small><?php print_r($titulo) ?></small></h1>
+    <h1 class="text-titles">
+      <i class="fa-solid fa-money-bill-1-wave"></i>
+      <?php print_r($titulo_1) ?>/ <small><?php print_r($titulo_2) ?></small>
+    </h1>
   </div>
 </div>
 
 <main>
   <div class="container-fluid px-4">
-    <h4 class="mt-4"></h4>
-    <div>
-      <p>
-        <a href="<?php echo base_url(); ?>pagos/nueva_inscripcion" class=" btn btn-primary text-light " id="plus-user"><i class="fa-solid fa-user-plus"></i>Nueva Inscripción</a>
-        <a href="<?php echo base_url(); ?>pagos/otros_pagos" class=" btn btn-primary text-light " id="plus-user"><i class="fa-solid fa-user-plus"></i>OTROS PAGOS</a>
-        <a href="<?php echo base_url(); ?>schoolyear/eliminados" class="btn btn-danger text-light" id="minus-user"><i class="fa-solid fa-user-minus"></i> Eliminados</a>
-      </p>
-    </div>
-    <div class="">
-      <div class="tab-pane " id="list">
+
+    <div class="pagos-home-card">
+
+      <div class="pagos-home-toolbar">
+        <div>
+          <h4>Panel de pagos</h4>
+          <p>Consulta los pagos registrados y accede a los procesos principales.</p>
+        </div>
+
+        <div class="pagos-home-actions">
+          <a href="<?= base_url('pagos/nueva_inscripcion'); ?>" class="btn btn-success btn-sistema">
+            <i class="fa-solid fa-file-signature"></i>
+            Nueva inscripción
+          </a>
+
+          <a href="<?= base_url('pagos/otros_pagos'); ?>" class="btn btn-primary btn-sistema">
+            <i class="fa-solid fa-receipt"></i>
+            Mensualidad
+          </a>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="list">
         <div class="table-responsive">
-          <table class="table table-hover table-striped text-center" id="datatablesSimple">
+          <table class="table table-hover table-striped text-center tabla-basica">
             <thead class="title-table">
               <tr>
                 <th class="text-center">Responsable</th>
@@ -34,6 +50,7 @@
                 <th class="text-center">Acciones</th>
               </tr>
             </thead>
+
             <tbody>
               <?php if (!empty($pagos)) : ?>
                 <?php foreach ($pagos as $pago) : ?>
@@ -53,11 +70,13 @@
                       <?php endif; ?>
                     </td>
                     <td><?= esc(date('d/m/Y', strtotime($pago['fecha_pago']))) ?></td>
-                    <!-- En la tabla donde muestras las inscripciones o pagos, añade una columna para acciones -->
                     <td>
-                      <a href="<?= base_url('pagos/verFactura/' . $pago['id_factura']) ?>" class="btn btn-info btn-sm" title="Ver Factura">
+                      <a href="<?= base_url('pagos/verFactura/' . $pago['id_factura']) ?>"
+                        class="btn btn-info btn-sm"
+                        title="Ver Factura">
                         <i class="fas fa-file-invoice"></i>
                       </a>
+
                       <a href="<?= base_url('pagos/imprimirFactura/' . $pago['id_factura']) ?>"
                         class="btn btn-primary btn-sm"
                         onclick="abrirFactura(event, this.href)"
@@ -69,39 +88,28 @@
                 <?php endforeach; ?>
               <?php else : ?>
                 <tr>
-                  <td colspan="8">No hay pagos registrados.</td>
+                  <td colspan="8" class="text-muted py-4">
+                    No hay pagos registrados.
+                  </td>
                 </tr>
               <?php endif; ?>
             </tbody>
+
           </table>
-
-
-
-          <!--
-                    <nav aria-label="Pagination">
-                        <ul class="pagination pagination-sm">
-                          <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">«</a>
-                          </li>
-                          <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="#">1</a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item"><a class="page-link" href="#">4</a></li>
-                          <li class="page-item"><a class="page-link" href="#">5</a></li>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true">»</span>
-                              <span class="visually-hidden">Next</span>
-                            </a>
-                          </li>
-                        </ul>
-                    </nav>
-                        -->
         </div>
       </div>
+
+      <div>
+        <h3>Leyenda:</h3>
+        <p>
+          <i class="fas fa-file-invoice"></i> <strong>Ver detalle de transacción</strong> |
+          <i class="fas fa-print"></i> <strong>Imprimir factura</strong>
+        </p>
+      </div>
+
     </div>
+
+  </div>
 </main>
 
 <?= $this->section('scripts') ?>
@@ -116,5 +124,4 @@
     );
   }
 </script>
-
 <?= $this->endSection() ?>

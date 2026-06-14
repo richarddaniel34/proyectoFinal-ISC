@@ -1,5 +1,3 @@
-
-
 <script>
     var baseUrl = "<?= base_url(); ?>";
 </script>
@@ -15,8 +13,8 @@
         <h4 class="mt-4"></h4>
         <div>
             <p>
-                <a href="<?php echo base_url(); ?>/escuela/nuevo" class=" btn btn-primary text-light " id="plus-user"><i class="fa-solid fa-user-plus"></i>Agregar</a>
-                <a href="<?php echo base_url(); ?>escuela/eliminados" class="btn btn-danger text-light" id="minus-user"><i class="fa-solid fa-user-minus"></i> Eliminados</a>
+                <a href="<?php echo base_url(); ?>/escuela/nuevo" class=" btn btn-primary text-light " id="plus-user"><i class="fa-solid fa-user-plus"></i> <b>AGREGAR NUEVO USUARIO</b></a>
+                <a href="<?php echo base_url(); ?>escuela/eliminados" class="btn btn-danger text-light" id="minus-user"><i class="fa-solid fa-user-minus"></i> <b>USUARIOS INACTIVOS</b></a>
             </p>
         </div>
         <div class="">
@@ -25,7 +23,7 @@
 
             <div class="tab-pane " id="list">
                 <div class="table-responsive">
-                    <table class="table table-hover table-striped text-center" id="datatablesSimple">
+                    <table class="table table-hover table-striped text-center tabla-basica" id="">
                         <thead class="title-table">
                             <tr>
                                 <th>ID</th>
@@ -42,7 +40,11 @@
                                         <td><?= esc($usuario['usuario']) ?></td>
                                         <td><?= esc($usuario['id_tipo_usuario']) ?></td>
                                         <td>
-                                            <a href="<?= site_url('usuarios/cambioClave/' . $usuario['id']) ?>" class="btn btn-warning">Editar Contraseña</a>
+                                            <a href="javascript:void(0)"
+                                                class="text-warning"
+                                                onclick="resetearClaveUsuario(<?= $usuario['id'] ?>)">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

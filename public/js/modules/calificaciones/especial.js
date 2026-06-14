@@ -94,13 +94,15 @@ $(document).ready(function () {
   }
 
   function cargarAsignaturas(docenteId, cursoId) {
-    $.getJSON(`${baseBuscarAsignaturas}${docenteId}/${cursoId}`, function (data) {
-      $("#asignatura")
-        .empty()
-        .append('<option value="">Seleccione una asignatura</option>');
+    $.getJSON(
+      `${baseBuscarAsignaturas}${docenteId}/${cursoId}`,
+      function (data) {
+        $("#asignatura")
+          .empty()
+          .append('<option value="">Seleccione una asignatura</option>');
 
-      (data || []).forEach((a) => {
-        const opt = $(`
+        (data || []).forEach((a) => {
+          const opt = $(`
           <option
             value="${a.id}"
             data-es_tecnica="${Number(a.es_tecnica) === 1 ? 1 : 0}"
@@ -109,11 +111,12 @@ $(document).ready(function () {
           </option>
         `);
 
-        $("#asignatura").append(opt);
-      });
+          $("#asignatura").append(opt);
+        });
 
-      $("#asignatura").trigger("change.select2");
-    });
+        $("#asignatura").trigger("change.select2");
+      },
+    );
   }
 
   function cargarEstudiantesEspecial(idDistribucion) {
@@ -125,7 +128,7 @@ $(document).ready(function () {
         <th class="col-no">No.</th>
         <th class="col-alumno">Alumno</th>
         <th class="col-nota">C.F.</th>
-        <th class="col-nota">Puntos faltantes</th>
+        <th class="col-faltante">Puntos faltantes</th>
         <th class="col-nota">C.E.</th>
         <th class="col-nota">C.ESP.F.</th>
       </tr>
@@ -191,9 +194,9 @@ $(document).ready(function () {
                 ${cf.toFixed(2)}
               </td>
 
-              <td class="col-nota">
-                ${faltante.toFixed(2)}
-              </td>
+             <td class="col-faltante">
+  ${faltante.toFixed(2)}
+</td>
 
               <td class="col-nota">
                 <input type="number"
@@ -214,10 +217,12 @@ $(document).ready(function () {
           `);
 
           recalcularFilaEspecial(
-            $tbody.find(`input[name="calif_e_especial[${est.id_inscripcion}]"]`)
+            $tbody.find(
+              `input[name="calif_e_especial[${est.id_inscripcion}]"]`,
+            ),
           );
         });
-      }
+      },
     );
   }
 
@@ -252,7 +257,7 @@ $(document).ready(function () {
         <th class="col-no">No.</th>
         <th class="col-alumno">Alumno</th>
         <th class="col-nota">C.F.</th>
-        <th class="col-nota">Puntos faltantes</th>
+        <th class="col-faltante">Puntos faltantes</th>
         <th class="col-nota">C.E.</th>
         <th class="col-nota">C.ESP.F.</th>
       </tr>

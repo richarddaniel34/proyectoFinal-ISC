@@ -61,12 +61,12 @@
                                     </div>
 
                                     <p class="text-center mt-3">
-                                        <button type="submit" class="btn btn-info btn-raised btn-sm">
-                                            <i class="fa-solid fa-floppy-disk"></i> Guardar
+                                        <button type="submit" class="btn btn-success text-light">
+                                            <i class="fa-solid fa-floppy-disk"></i> <b>GUARDAR</b>
                                         </button>
 
-                                        <a href="<?= base_url(); ?>schoolyear" class="btn btn-danger btn-raised btn-sm">
-                                            <i class="fa-solid fa-ban"></i> Cancelar
+                                        <a href="<?= base_url(); ?>schoolyear" class="btn btn-danger text-light">
+                                            <i class="fa-solid fa-ban"></i> <b>CANCELAR</b>
                                         </a>
                                     </p>
                                 </form>

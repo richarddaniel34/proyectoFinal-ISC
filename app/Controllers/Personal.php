@@ -58,7 +58,11 @@ class Personal extends BaseController
             ->where('id_escuela', $idEscuela)
             ->findAll();
 
-        $data = ['titulo1' => 'Registro/', 'titulo2' => 'Datos del Personal', 'datos' => $personal];
+        $data = [
+            'titulo1' => 'REGISTRO/',
+            'titulo2' => 'DATOS DEL PERSONAL',
+            'datos' => $personal
+        ];
 
         echo view('header');
         echo view('personal/personal', $data);
